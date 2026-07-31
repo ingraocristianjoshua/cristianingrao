@@ -14,21 +14,17 @@
     <!-- WALLPAPER -->
     <div class="wallpaper"></div>
 
-    <!-- MENU BAR -->
+    <!-- TOP BAR -->
     <nav class="menubar">
         <div class="menubar-left">
-            <span class="apple-icon">🖥️</span>
-            <span class="menu-text bold" id="active-app">Cristian OS</span>
-            <span class="menu-text">File</span>
-            <span class="menu-text">Modifica</span>
-            <span class="menu-text">Vista</span>
-            <span class="menu-text">Vai</span>
-            <span class="menu-text">Finestra</span>
-            <span class="menu-text">Aiuto</span>
+            <span class="menu-text bold" id="active-app">Cristian Ingrao</span>
+            <span class="menu-text" onclick="openWindow('win-about')">About</span>
+            <span class="menu-text" onclick="openWindow('win-projects')">Projects</span>
+            <span class="menu-text" onclick="openWindow('win-skills')">Skills</span>
+            <span class="menu-text" onclick="openWindow('win-contact')">Support</span>
+            <span class="menu-text" onclick="openWindow('win-privacy')">Privacy Policy</span>
         </div>
         <div class="menubar-right">
-            <span class="menu-text">Wi-Fi</span>
-            <span class="menu-text">🔋 100%</span>
             <span class="menu-text" id="clock"></span>
         </div>
     </nav>
@@ -324,6 +320,25 @@
                     <text x="40" y="55" text-anchor="middle" font-size="42">🗑️</text>
                 </svg>
             </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Window -->
+    <div class="mac-window" id="win-privacy" style="display:none; top:110px; left:220px; width:500px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-privacy')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-privacy')"></div>
+                <div class="tl yellow"></div>
+                <div class="tl green"></div>
+            </div>
+            <span class="win-title">Privacy Policy</span>
+        </div>
+        <div class="win-body textedit" style="padding:25px;">
+            <h2 style="margin-bottom:15px;">Privacy Policy</h2>
+            <p>Questo sito web non raccoglie dati personali degli utenti tramite cookie di profilazione o strumenti di tracciamento.</p>
+            <p>I messaggi inviati attraverso il modulo di contatto vengono utilizzati esclusivamente per rispondere alle richieste ricevute.</p>
+            <p>Nessun dato viene condiviso con terze parti.</p>
+            <p style="margin-top:20px; color:#888;">Ultimo aggiornamento: Luglio 2026</p>
         </div>
     </div>
 
