@@ -3,128 +3,329 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cristian Ingrao | Portfolio</title>
+    <title>Cristian Ingrao - Portfolio 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Caveat:wght@400..700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@400..700&family=Inter:wght@400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- HERO SECTION (Retro OS / Pop Art) -->
-    <section id="hero-desktop" class="section-fullscreen">
-        <div class="sky-background"></div>
-        <div class="hills-background"></div>
+    <!-- WALLPAPER -->
+    <div class="wallpaper"></div>
 
-        <div class="hero-content">
-            <div class="title-container">
-                <h1 class="pop-title">Cristian</h1>
-                <h1 class="pop-title offset">Ingrao</h1>
-                <div class="badge draggable">Ingegnere Informatico 2026</div>
+    <!-- MAC MENU BAR -->
+    <nav class="menubar">
+        <div class="menubar-left">
+            <span class="apple-icon">&#63743;</span>
+            <span class="menu-text bold" id="active-app">Finder</span>
+            <span class="menu-text">File</span>
+            <span class="menu-text">Modifica</span>
+            <span class="menu-text">Vista</span>
+            <span class="menu-text">Vai</span>
+            <span class="menu-text">Finestra</span>
+            <span class="menu-text">Aiuto</span>
+        </div>
+        <div class="menubar-right">
+            <span class="menu-text">Wi-Fi</span>
+            <span class="menu-text">🔋 100%</span>
+            <span class="menu-text" id="clock"></span>
+        </div>
+    </nav>
+
+    <!-- DESKTOP ICONS (Mac style grid, top-right) -->
+    <div class="desktop-grid">
+        <!-- Row 1 -->
+        <div class="mac-icon" ondblclick="openWindow('win-about')">
+            <div class="mac-folder-icon">
+                <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5,18 L40,18 L45,10 L5,10 Q0,10 0,15 L0,18 Z" fill="#5AC8FA"/>
+                    <rect x="0" y="18" width="100" height="55" rx="5" fill="url(#folderGrad)"/>
+                    <defs>
+                        <linearGradient id="folderGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#5AC8FA"/>
+                            <stop offset="100%" style="stop-color:#34AADC"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
+            <span class="icon-label">Chi Sono</span>
         </div>
 
-        <!-- Glassmorphism Dock -->
-        <div class="dock-container">
-            <div class="dock">
-                <a href="#about" class="dock-item" data-title="Chi Sono">
-                    <img src="https://api.iconify.design/noto:boy-light-skin-tone.svg" alt="About">
-                </a>
-                <a href="#projects" class="dock-item" data-title="Progetti">
-                    <img src="https://api.iconify.design/noto:file-folder.svg" alt="Projects">
-                </a>
-                <a href="#skills" class="dock-item" data-title="Skills">
-                    <img src="https://api.iconify.design/noto:laptop-computer.svg" alt="Skills">
-                </a>
-                <a href="#contact" class="dock-item" data-title="Contatti">
-                    <img src="https://api.iconify.design/noto:e-mail.svg" alt="Contact">
-                </a>
-                <div class="dock-divider"></div>
-                <a href="#" class="dock-item" data-title="Cestino">
-                    <img src="https://api.iconify.design/noto:wastebasket.svg" alt="Trash">
-                </a>
+        <div class="mac-icon" ondblclick="openWindow('win-projects')">
+            <div class="mac-folder-icon">
+                <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5,18 L40,18 L45,10 L5,10 Q0,10 0,15 L0,18 Z" fill="#5AC8FA"/>
+                    <rect x="0" y="18" width="100" height="55" rx="5" fill="url(#folderGrad2)"/>
+                    <defs>
+                        <linearGradient id="folderGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#5AC8FA"/>
+                            <stop offset="100%" style="stop-color:#34AADC"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
             </div>
+            <span class="icon-label">Progetti</span>
         </div>
-    </section>
 
-    <!-- DESK COLLAGE SECTION -->
-    <section id="desk-collage" class="section-auto">
-        <div class="cutting-mat-grid"></div>
-        
-        <div class="collage-container">
-            
-            <!-- Sticky Note (Bio) -->
-            <div class="scrap-item sticky-note draggable" id="about">
-                <div class="tape top-center"></div>
-                <h2>Hi! 👋</h2>
-                <p>
-                    Sono <strong>Cristian</strong>. Mi sono appena laureato in <strong>Ingegneria Informatica</strong>! 🎓
+        <div class="mac-icon" ondblclick="openWindow('win-skills')">
+            <div class="mac-folder-icon">
+                <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5,18 L40,18 L45,10 L5,10 Q0,10 0,15 L0,18 Z" fill="#5AC8FA"/>
+                    <rect x="0" y="18" width="100" height="55" rx="5" fill="url(#folderGrad3)"/>
+                    <defs>
+                        <linearGradient id="folderGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#5AC8FA"/>
+                            <stop offset="100%" style="stop-color:#34AADC"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <span class="icon-label">Skills</span>
+        </div>
+
+        <div class="mac-icon" ondblclick="openWindow('win-contact')">
+            <div class="mac-folder-icon">
+                <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5,18 L40,18 L45,10 L5,10 Q0,10 0,15 L0,18 Z" fill="#5AC8FA"/>
+                    <rect x="0" y="18" width="100" height="55" rx="5" fill="url(#folderGrad4)"/>
+                    <defs>
+                        <linearGradient id="folderGrad4" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#5AC8FA"/>
+                            <stop offset="100%" style="stop-color:#34AADC"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+            <span class="icon-label">Contattami</span>
+        </div>
+
+        <div class="mac-icon" ondblclick="openWindow('win-laurea')">
+            <div class="mac-file-icon">
+                <svg viewBox="0 0 80 100" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,0 L55,0 L70,15 L70,95 Q70,100 65,100 L10,100 Q5,100 5,95 L5,5 Q5,0 10,0Z" fill="#fff" stroke="#ccc" stroke-width="1"/>
+                    <path d="M55,0 L55,15 L70,15 Z" fill="#e0e0e0"/>
+                    <text x="37" y="65" text-anchor="middle" font-size="12" fill="#333" font-family="Inter" font-weight="bold">🎓</text>
+                </svg>
+            </div>
+            <span class="icon-label">Laurea.pdf</span>
+        </div>
+    </div>
+
+    <!-- ===== WINDOWS ===== -->
+
+    <!-- Chi Sono Window -->
+    <div class="mac-window" id="win-about" style="display:none; top:80px; left:120px; width:550px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-about')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-about')"></div>
+                <div class="tl yellow"></div>
+                <div class="tl green"></div>
+            </div>
+            <span class="win-title">Chi Sono</span>
+        </div>
+        <div class="win-toolbar">
+            <span class="toolbar-btn">← →</span>
+            <span class="toolbar-path">Macintosh HD › Utenti › Cristian › Chi Sono</span>
+        </div>
+        <div class="win-content-flex">
+            <div class="finder-sidebar">
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item active">📁 Chi Sono</div>
+                <div class="sb-item" onclick="openWindow('win-projects')">📁 Progetti</div>
+                <div class="sb-item" onclick="openWindow('win-skills')">📁 Skills</div>
+                <div class="sb-item" onclick="openWindow('win-contact')">📁 Contattami</div>
+            </div>
+            <div class="win-body textedit">
+                <h2 style="margin-bottom:15px;">Ciao, sono Cristian! 👋</h2>
+                <p>Mi sono appena <strong>laureato in Ingegneria Informatica</strong> (Luglio 2026) 🎓</p>
+                <p>Appassionato di sviluppo software, sistemi distribuiti e tecnologie web moderne.</p>
+                <p>Questo portfolio è il mio MacBook virtuale: ogni cartella sul desktop contiene un pezzo della mia storia!</p>
+                <p style="margin-top:20px; font-style:italic; color:#888;">
+                    "Il codice è poesia che funziona."
                 </p>
-                <p>
-                    Appassionato di sviluppo software e tecnologie moderne. Mi piace costruire soluzioni efficaci (e con uno stile unico!).
-                </p>
             </div>
-
-            <!-- Polaroid (Photo) -->
-            <div class="scrap-item polaroid draggable">
-                <div class="paper-clip top-left"></div>
-                <!-- Placeholder per la foto -->
-                <div class="polaroid-image">
-                    <div class="placeholder-face">😎</div>
-                </div>
-                <div class="polaroid-caption">
-                    Me &lt;3
-                </div>
-            </div>
-
-            <!-- ID Badge or Tech Stack Card -->
-            <div class="scrap-item id-card draggable" id="skills">
-                <div class="tape tape-angled top-right"></div>
-                <h3>My Stack</h3>
-                <div class="tech-icons">
-                    <img src="https://api.iconify.design/logos:python.svg" alt="Python" title="Python">
-                    <img src="https://api.iconify.design/logos:c-plusplus.svg" alt="C++" title="C++">
-                    <img src="https://api.iconify.design/logos:javascript.svg" alt="JS" title="JavaScript">
-                    <img src="https://api.iconify.design/logos:react.svg" alt="React" title="React">
-                    <img src="https://api.iconify.design/logos:git-icon.svg" alt="Git" title="Git">
-                    <img src="https://api.iconify.design/logos:linux-tux.svg" alt="Linux" title="Linux">
-                </div>
-            </div>
-
-            <!-- Projects Folder -->
-            <div class="scrap-item manila-folder draggable" id="projects">
-                <div class="folder-tab">Progetti</div>
-                <div class="folder-body">
-                    <ul>
-                        <li><a href="#">🎓 Tesi di Laurea</a></li>
-                        <li><a href="#">💻 App Gestionale</a></li>
-                        <li><a href="#">🌐 Questo Portfolio!</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Contact Card -->
-            <div class="scrap-item contact-card draggable" id="contact">
-                <div class="tape tape-angled-left bottom-left"></div>
-                <h3>Let's talk!</h3>
-                
-                <form id="contact-form" class="contact-form">
-                    <input type="text" id="name" placeholder="Il tuo nome" required>
-                    <input type="email" id="email" placeholder="La tua email" required>
-                    <textarea id="message" placeholder="Messaggio..." required rows="3"></textarea>
-                    <button type="submit" id="submit-btn">Invia</button>
-                    <p id="form-status" class="form-status"></p>
-                </form>
-
-                <div class="social-links">
-                    <a href="#"><img src="https://api.iconify.design/logos:linkedin-icon.svg" alt="LinkedIn"></a>
-                    <a href="#"><img src="https://api.iconify.design/logos:github-icon.svg" alt="GitHub"></a>
-                </div>
-            </div>
-
         </div>
+    </div>
 
-    </section>
+    <!-- Projects Window -->
+    <div class="mac-window" id="win-projects" style="display:none; top:100px; left:200px; width:600px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-projects')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-projects')"></div>
+                <div class="tl yellow"></div>
+                <div class="tl green"></div>
+            </div>
+            <span class="win-title">Progetti</span>
+        </div>
+        <div class="win-toolbar">
+            <span class="toolbar-btn">← →</span>
+            <span class="toolbar-path">Macintosh HD › Utenti › Cristian › Progetti</span>
+        </div>
+        <div class="win-content-flex">
+            <div class="finder-sidebar">
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item" onclick="openWindow('win-about')">📁 Chi Sono</div>
+                <div class="sb-item active">📁 Progetti</div>
+                <div class="sb-item" onclick="openWindow('win-skills')">📁 Skills</div>
+                <div class="sb-item" onclick="openWindow('win-contact')">📁 Contattami</div>
+            </div>
+            <div class="win-body finder-grid" id="projects-grid">
+                <div class="loading-msg">Caricamento dal server...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Skills Window -->
+    <div class="mac-window" id="win-skills" style="display:none; top:120px; left:250px; width:500px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-skills')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-skills')"></div>
+                <div class="tl yellow"></div>
+                <div class="tl green"></div>
+            </div>
+            <span class="win-title">Skills</span>
+        </div>
+        <div class="win-toolbar">
+            <span class="toolbar-btn">← →</span>
+            <span class="toolbar-path">Macintosh HD › Utenti › Cristian › Skills</span>
+        </div>
+        <div class="win-content-flex">
+            <div class="finder-sidebar">
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item" onclick="openWindow('win-about')">📁 Chi Sono</div>
+                <div class="sb-item" onclick="openWindow('win-projects')">📁 Progetti</div>
+                <div class="sb-item active">📁 Skills</div>
+                <div class="sb-item" onclick="openWindow('win-contact')">📁 Contattami</div>
+            </div>
+            <div class="win-body finder-grid skills-grid">
+                <div class="skill-card">
+                    <span class="skill-icon">🐍</span>
+                    <span class="skill-name">Python</span>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">⚡</span>
+                    <span class="skill-name">JavaScript</span>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">⚛️</span>
+                    <span class="skill-name">React</span>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">🟢</span>
+                    <span class="skill-name">Node.js</span>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">🔧</span>
+                    <span class="skill-name">C / C++</span>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">🐧</span>
+                    <span class="skill-name">Linux</span>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">🗄️</span>
+                    <span class="skill-name">SQL</span>
+                </div>
+                <div class="skill-card">
+                    <span class="skill-icon">🐙</span>
+                    <span class="skill-name">Git</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Window -->
+    <div class="mac-window" id="win-contact" style="display:none; top:100px; left:300px; width:480px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-contact')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-contact')"></div>
+                <div class="tl yellow"></div>
+                <div class="tl green"></div>
+            </div>
+            <span class="win-title">Contattami</span>
+        </div>
+        <div class="win-toolbar">
+            <span class="toolbar-btn">← →</span>
+            <span class="toolbar-path">Macintosh HD › Utenti › Cristian › Contattami</span>
+        </div>
+        <div class="win-body" style="padding:25px;">
+            <h3 style="margin-bottom:15px;">Inviami un messaggio 💬</h3>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Il tuo nome" required>
+                <input type="email" id="email" placeholder="La tua email" required>
+                <textarea id="message" placeholder="Scrivi qui il tuo messaggio..." required rows="4"></textarea>
+                <button type="submit">Invia</button>
+                <p id="form-status"></p>
+            </form>
+            <div class="social-row">
+                <a href="#">🔗 LinkedIn</a>
+                <a href="#">🐙 GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Laurea Window -->
+    <div class="mac-window" id="win-laurea" style="display:none; top:90px; left:180px; width:500px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-laurea')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-laurea')"></div>
+                <div class="tl yellow"></div>
+                <div class="tl green"></div>
+            </div>
+            <span class="win-title">Laurea.pdf — Anteprima</span>
+        </div>
+        <div class="win-body textedit" style="text-align:center; padding:40px;">
+            <div style="font-size:5rem;">🎓</div>
+            <h2 style="margin:15px 0;">Laurea in Ingegneria Informatica</h2>
+            <p style="font-size:1.2rem; color:#555;">Luglio 2026</p>
+            <p style="margin-top:20px;">
+                Completato con successo il percorso di studi in Ingegneria Informatica, con particolare focus su architetture software, sistemi distribuiti e sviluppo full-stack.
+            </p>
+            <div style="margin-top:30px; padding:15px; background:#f0f0f0; border-radius:8px; display:inline-block;">
+                <p style="font-size:0.9rem; color:#888;">📄 Documento verificato</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAC DOCK -->
+    <div class="dock-bar">
+        <div class="dock-glass">
+            <div class="dock-icon" onclick="openWindow('win-about')" data-tip="Finder">
+                <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5,18 L40,18 L45,10 L5,10 Q0,10 0,15 L0,18 Z" fill="#5AC8FA"/>
+                    <rect x="0" y="18" width="100" height="55" rx="5" fill="url(#dockFolder1)"/>
+                    <defs><linearGradient id="dockFolder1" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#5AC8FA"/><stop offset="100%" style="stop-color:#34AADC"/></linearGradient></defs>
+                </svg>
+            </div>
+            <div class="dock-icon" onclick="openWindow('win-projects')" data-tip="Progetti">
+                <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5,18 L40,18 L45,10 L5,10 Q0,10 0,15 L0,18 Z" fill="#FFD60A"/>
+                    <rect x="0" y="18" width="100" height="55" rx="5" fill="url(#dockFolder2)"/>
+                    <defs><linearGradient id="dockFolder2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#FFD60A"/><stop offset="100%" style="stop-color:#FFAA00"/></linearGradient></defs>
+                </svg>
+            </div>
+            <div class="dock-icon" onclick="openWindow('win-skills')" data-tip="Skills">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="80" height="80" rx="18" fill="#1a1a2e"/>
+                    <text x="40" y="52" text-anchor="middle" font-size="38">💻</text>
+                </svg>
+            </div>
+            <div class="dock-icon" onclick="openWindow('win-contact')" data-tip="Mail">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="80" height="80" rx="18" fill="#34AADC"/>
+                    <text x="40" y="52" text-anchor="middle" font-size="38">✉️</text>
+                </svg>
+            </div>
+            <div class="dock-sep"></div>
+            <div class="dock-icon" data-tip="Cestino">
+                <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="80" height="80" rx="18" fill="transparent"/>
+                    <text x="40" y="55" text-anchor="middle" font-size="42">🗑️</text>
+                </svg>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
