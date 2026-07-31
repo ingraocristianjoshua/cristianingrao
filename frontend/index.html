@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristian Ingrao | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Bungee+Shade&family=Caveat:wght@400..700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- HERO SECTION (Retro OS / Pop Art) -->
+    <section id="hero-desktop" class="section-fullscreen">
+        <div class="sky-background"></div>
+        <div class="hills-background"></div>
+
+        <div class="hero-content">
+            <div class="title-container">
+                <h1 class="pop-title">Cristian</h1>
+                <h1 class="pop-title offset">Ingrao</h1>
+                <div class="badge draggable">Ingegnere Informatico 2026</div>
+            </div>
+        </div>
+
+        <!-- Glassmorphism Dock -->
+        <div class="dock-container">
+            <div class="dock">
+                <a href="#about" class="dock-item" data-title="Chi Sono">
+                    <img src="https://api.iconify.design/noto:boy-light-skin-tone.svg" alt="About">
+                </a>
+                <a href="#projects" class="dock-item" data-title="Progetti">
+                    <img src="https://api.iconify.design/noto:file-folder.svg" alt="Projects">
+                </a>
+                <a href="#skills" class="dock-item" data-title="Skills">
+                    <img src="https://api.iconify.design/noto:laptop-computer.svg" alt="Skills">
+                </a>
+                <a href="#contact" class="dock-item" data-title="Contatti">
+                    <img src="https://api.iconify.design/noto:e-mail.svg" alt="Contact">
+                </a>
+                <div class="dock-divider"></div>
+                <a href="#" class="dock-item" data-title="Cestino">
+                    <img src="https://api.iconify.design/noto:wastebasket.svg" alt="Trash">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- DESK COLLAGE SECTION -->
+    <section id="desk-collage" class="section-auto">
+        <div class="cutting-mat-grid"></div>
+        
+        <div class="collage-container">
+            
+            <!-- Sticky Note (Bio) -->
+            <div class="scrap-item sticky-note draggable" id="about">
+                <div class="tape top-center"></div>
+                <h2>Hi! 👋</h2>
+                <p>
+                    Sono <strong>Cristian</strong>. Mi sono appena laureato in <strong>Ingegneria Informatica</strong>! 🎓
+                </p>
+                <p>
+                    Appassionato di sviluppo software e tecnologie moderne. Mi piace costruire soluzioni efficaci (e con uno stile unico!).
+                </p>
+            </div>
+
+            <!-- Polaroid (Photo) -->
+            <div class="scrap-item polaroid draggable">
+                <div class="paper-clip top-left"></div>
+                <!-- Placeholder per la foto -->
+                <div class="polaroid-image">
+                    <div class="placeholder-face">😎</div>
+                </div>
+                <div class="polaroid-caption">
+                    Me &lt;3
+                </div>
+            </div>
+
+            <!-- ID Badge or Tech Stack Card -->
+            <div class="scrap-item id-card draggable" id="skills">
+                <div class="tape tape-angled top-right"></div>
+                <h3>My Stack</h3>
+                <div class="tech-icons">
+                    <img src="https://api.iconify.design/logos:python.svg" alt="Python" title="Python">
+                    <img src="https://api.iconify.design/logos:c-plusplus.svg" alt="C++" title="C++">
+                    <img src="https://api.iconify.design/logos:javascript.svg" alt="JS" title="JavaScript">
+                    <img src="https://api.iconify.design/logos:react.svg" alt="React" title="React">
+                    <img src="https://api.iconify.design/logos:git-icon.svg" alt="Git" title="Git">
+                    <img src="https://api.iconify.design/logos:linux-tux.svg" alt="Linux" title="Linux">
+                </div>
+            </div>
+
+            <!-- Projects Folder -->
+            <div class="scrap-item manila-folder draggable" id="projects">
+                <div class="folder-tab">Progetti</div>
+                <div class="folder-body">
+                    <ul>
+                        <li><a href="#">🎓 Tesi di Laurea</a></li>
+                        <li><a href="#">💻 App Gestionale</a></li>
+                        <li><a href="#">🌐 Questo Portfolio!</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact Card -->
+            <div class="scrap-item contact-card draggable" id="contact">
+                <div class="tape tape-angled-left bottom-left"></div>
+                <h3>Let's talk!</h3>
+                
+                <form id="contact-form" class="contact-form">
+                    <input type="text" id="name" placeholder="Il tuo nome" required>
+                    <input type="email" id="email" placeholder="La tua email" required>
+                    <textarea id="message" placeholder="Messaggio..." required rows="3"></textarea>
+                    <button type="submit" id="submit-btn">Invia</button>
+                    <p id="form-status" class="form-status"></p>
+                </form>
+
+                <div class="social-links">
+                    <a href="#"><img src="https://api.iconify.design/logos:linkedin-icon.svg" alt="LinkedIn"></a>
+                    <a href="#"><img src="https://api.iconify.design/logos:github-icon.svg" alt="GitHub"></a>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
