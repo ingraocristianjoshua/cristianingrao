@@ -30,7 +30,7 @@ function openWindow(id) {
 function closeWin(id) {
     const w = document.getElementById(id);
     if (w) w.style.display = 'none';
-    document.getElementById('active-app').textContent = 'Finder';
+    document.getElementById('active-app').textContent = 'Cristian OS';
 }
 
 // Bring window to front on click
