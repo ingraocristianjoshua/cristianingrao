@@ -267,12 +267,28 @@ function startDrag(e, id) {
 }
 
 // FOLDER SELECTION
+let lastTap = 0;
 function selectFolder(el, e) {
     e.stopPropagation();
     // Deselect all folders
     document.querySelectorAll('.folder').forEach(f => f.classList.remove('selected'));
     // Select current folder
     el.classList.add('selected');
+    
+    // Check for double tap on mobile
+    if (window.innerWidth <= 768) {
+        let currentTime = new Date().getTime();
+        let tapLength = currentTime - lastTap;
+        if (tapLength < 500 && tapLength > 0) {
+            // Trigger the ondblclick event manually
+            if (el.hasAttribute('ondblclick')) {
+                const action = el.getAttribute('ondblclick');
+                const func = new Function(action);
+                func.call(el);
+            }
+        }
+        lastTap = currentTime;
+    }
 }
 
 // DESELECT ON DESKTOP CLICK
@@ -366,3 +382,36 @@ function minimizeWin(id) {
     // Add to the very end of the dock
     document.querySelector('.dock-glass').appendChild(dockItem);
 }
+
+// Update Calendar Icon Dynamically
+function updateCalendarIcon() {
+    const date = new Date();
+    const dayName = date.toLocaleDateString('it-IT', { weekday: 'short' }).toUpperCase();
+    const dayNumber = date.getDate();
+    
+    const svgStr = `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="100" rx="22.5" fill="#1c1c1e"/>
+  <path d="M0 22.5 C0 10 10 0 22.5 0 L77.5 0 C90 0 100 10 100 22.5 L100 28 L0 28 Z" fill="#ff3b30"/>
+  <text x="50" y="20" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700" fill="#fff" text-anchor="middle">${dayName}</text>
+  <text x="50" y="78" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="48" font-weight="400" fill="#fff" text-anchor="middle">${dayNumber}</text>
+</svg>`;
+    
+    const base64Svg = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgStr)));
+    const winCal = document.getElementById('win-calendar');
+    if (winCal) {
+        winCal.setAttribute('data-dock-icon', base64Svg);
+    }
+    const minCalImg = document.querySelector('#minimized-win-calendar img');
+    if (minCalImg) {
+        minCalImg.src = base64Svg;
+    }
+}
+
+// Call on load and schedule next update at midnight
+updateCalendarIcon();
+setInterval(() => {
+    const d = new Date();
+    if (d.getHours() === 0 && d.getMinutes() === 0) {
+        updateCalendarIcon();
+    }
+}, 60000);
