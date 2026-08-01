@@ -352,72 +352,89 @@
     </div>
 
     <!-- CV WINDOW -->
-    <div class="mac-window" id="win-cv" style="display:none; top:100px; left:200px; width:550px; height:500px;">
-        <div class="win-titlebar" onmousedown="startDrag(event, 'win-cv')" style="background: rgba(240,240,240,0.95); border-bottom:1px solid #ccc;">
+    <div class="mac-window" id="win-cv" style="display:none; top:100px; left:200px; width:600px; height:500px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-cv')" style="background: rgba(40,40,40,0.95); border-bottom:1px solid rgba(255,255,255,0.1);">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-cv')"></div>
                 <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
                 <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
-            <span class="win-title">CV_Cristian.rtf</span>
+            <span class="win-title" style="color:#ddd; font-weight:500;">CV_Cristian.rtf</span>
         </div>
-        <div class="win-body textedit">
-            <h2>Cristian Ingrao</h2>
-            <p><strong>Sviluppatore & Creatore di Contenuti Digitali</strong></p>
-            <hr style="border:0; border-top:1px solid #ddd; margin: 15px 0;">
-            <p><strong>Profilo:</strong><br>Appassionato di tecnologia, programmazione, video editing e design, con un occhio di riguardo per le interfacce utente eleganti e funzionali in stile Apple.</p>
-            <p><strong>Esperienza:</strong><br>Sviluppo di applicazioni web, interfacce responsive, cloni di sistemi operativi e creazione di contenuti digitali creativi tramite Premiere Pro e DaVinci Resolve.</p>
-            <p><strong>Istruzione:</strong><br>Laurea in <strong>Ingegneria Informatica</strong> presso l'<strong>Università degli Studi di Palermo</strong>.<br><em>Data di Laurea: 30/07/2026</em>.</p>
+        <div style="background: rgba(30, 30, 30, 0.95); padding: 6px 15px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); color:#888;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            <div style="width:1px; height:14px; background:rgba(255,255,255,0.1);"></div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
+        </div>
+        <div class="win-body textedit" style="background: #1e1e1e; color: #ddd; padding: 40px 50px; font-family: 'Times New Roman', Times, serif; font-size: 16px; line-height: 1.6; overflow-y: auto;">
+            <h2 style="color: #fff; font-family: -apple-system, sans-serif; margin-bottom: 5px;">Cristian Ingrao</h2>
+            <p style="color: #bbb; font-family: -apple-system, sans-serif; font-size: 14px; margin-top: 0;">Sviluppatore & Creatore di Contenuti Digitali</p>
+            <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+            <p><strong style="color: #fff;">Profilo:</strong><br>Appassionato di tecnologia, programmazione, video editing e design, con un occhio di riguardo per le interfacce utente eleganti e funzionali in stile Apple.</p>
+            <p><strong style="color: #fff;">Esperienza:</strong><br>Sviluppo di applicazioni web, interfacce responsive, cloni di sistemi operativi e creazione di contenuti digitali creativi tramite Premiere Pro e DaVinci Resolve.</p>
+            <p><strong style="color: #fff;">Istruzione:</strong><br>Laurea in <strong style="color: #fff;">Ingegneria Informatica</strong> presso l'<strong style="color: #fff;">Università degli Studi di Palermo</strong>.<br><em style="color: #aaa;">Data di Laurea: 30/07/2026</em>.</p>
         </div>
     </div>
 
     <!-- PROJECTS WINDOW -->
-    <div class="mac-window" id="win-projects" style="display:none; top:130px; left:230px; width:550px; height:450px;">
-        <div class="win-titlebar" onmousedown="startDrag(event, 'win-projects')" style="background: rgba(240,240,240,0.95); border-bottom:1px solid #ccc;">
+    <div class="mac-window" id="win-projects" style="display:none; top:130px; left:230px; width:600px; height:450px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-projects')" style="background: rgba(40,40,40,0.95); border-bottom:1px solid rgba(255,255,255,0.1);">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-projects')"></div>
                 <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
                 <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
-            <span class="win-title">Progetti.rtf</span>
+            <span class="win-title" style="color:#ddd; font-weight:500;">Progetti.rtf</span>
         </div>
-        <div class="win-body textedit">
-            <h2>I Miei Progetti 🚀</h2>
-            <ul style="margin-left: 20px; line-height: 1.8;">
-                <li><strong>macOS Portfolio:</strong> Questo intero sito web è un clone interattivo di macOS progettato interamente da me. Supporta finestre trascinabili, dock reattivo e widget animati.</li>
-                <li><strong>Algoritmica & Dati:</strong> Sviluppo di logiche complesse e strutture dati in C++ e Java per progetti accademici.</li>
-                <li><strong>Web Apps Moderne:</strong> Creazione di dashboard e interfacce web responsive usando le migliori best practices di design.</li>
+        <div style="background: rgba(30, 30, 30, 0.95); padding: 6px 15px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); color:#888;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            <div style="width:1px; height:14px; background:rgba(255,255,255,0.1);"></div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
+        </div>
+        <div class="win-body textedit" style="background: #1e1e1e; color: #ddd; padding: 40px 50px; font-family: 'Times New Roman', Times, serif; font-size: 16px; line-height: 1.8; overflow-y: auto;">
+            <h2 style="color: #fff; font-family: -apple-system, sans-serif; margin-bottom: 20px;">I Miei Progetti 🚀</h2>
+            <ul style="margin-left: 20px;">
+                <li style="margin-bottom: 15px;"><strong style="color: #fff;">macOS Portfolio:</strong> Questo intero sito web è un clone interattivo di macOS progettato interamente da me. Supporta finestre trascinabili, dock reattivo e widget animati.</li>
+                <li style="margin-bottom: 15px;"><strong style="color: #fff;">Algoritmica & Dati:</strong> Sviluppo di logiche complesse e strutture dati in C++ e Java per progetti accademici.</li>
+                <li style="margin-bottom: 15px;"><strong style="color: #fff;">Web Apps Moderne:</strong> Creazione di dashboard e interfacce web responsive usando le migliori best practices di design. (Es: Ecopalmaps, Bricklink, Gradly)</li>
             </ul>
         </div>
     </div>
 
     <!-- SKILLS WINDOW -->
-    <div class="mac-window" id="win-skills" style="display:none; top:160px; left:260px; width:500px; height:400px;">
-        <div class="win-titlebar" onmousedown="startDrag(event, 'win-skills')" style="background: rgba(240,240,240,0.95); border-bottom:1px solid #ccc;">
+    <div class="mac-window" id="win-skills" style="display:none; top:160px; left:260px; width:600px; height:420px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-skills')" style="background: rgba(40,40,40,0.95); border-bottom:1px solid rgba(255,255,255,0.1);">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-skills')"></div>
                 <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
                 <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
-            <span class="win-title">Competenze.rtf</span>
+            <span class="win-title" style="color:#ddd; font-weight:500;">Competenze.rtf</span>
         </div>
-        <div class="win-body textedit">
-            <h2>Competenze Tecniche 💻</h2>
-            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:15px; margin-top:20px;">
+        <div style="background: rgba(30, 30, 30, 0.95); padding: 6px 15px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); color:#888;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+            <div style="width:1px; height:14px; background:rgba(255,255,255,0.1);"></div>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
+        </div>
+        <div class="win-body textedit" style="background: #1e1e1e; color: #ddd; padding: 40px 50px; font-family: 'Times New Roman', Times, serif; font-size: 16px; line-height: 1.6; overflow-y: auto;">
+            <h2 style="color: #fff; font-family: -apple-system, sans-serif; margin-bottom: 20px;">Competenze Tecniche 💻</h2>
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:25px; margin-top:20px; font-family: -apple-system, sans-serif;">
                 <div>
-                    <strong style="color:#007AFF;">Sviluppo Web</strong>
-                    <ul style="margin-left:20px; line-height:1.6; margin-top:5px;">
+                    <strong style="color:#0a84ff; font-size:15px; text-transform:uppercase; letter-spacing:0.5px;">Sviluppo Web</strong>
+                    <ul style="margin-left:20px; line-height:1.8; margin-top:10px; color:#ddd;">
                         <li>HTML5 & CSS3</li>
                         <li>JavaScript (ES6+)</li>
-                        <li>React & Node.js</li>
+                        <li>TypeScript & React</li>
+                        <li>Node.js</li>
                     </ul>
                 </div>
                 <div>
-                    <strong style="color:#007AFF;">Software & Tools</strong>
-                    <ul style="margin-left:20px; line-height:1.6; margin-top:5px;">
+                    <strong style="color:#0a84ff; font-size:15px; text-transform:uppercase; letter-spacing:0.5px;">Software & Tools</strong>
+                    <ul style="margin-left:20px; line-height:1.8; margin-top:10px; color:#ddd;">
                         <li>Git & GitHub</li>
-                        <li>UI/UX Design (Figma)</li>
-                        <li>C++ / Python / SQL</li>
+                        <li>Docker & Linux</li>
+                        <li>Figma & UI Design</li>
+                        <li>C++ / Java / Python / SQL</li>
                     </ul>
                 </div>
             </div>
