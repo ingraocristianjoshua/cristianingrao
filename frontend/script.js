@@ -315,8 +315,10 @@ function minimizeWin(id) {
     let title = "Finestra";
     let iconUrl = win.getAttribute('data-dock-icon') || "https://img.icons8.com/color/512/mac-folder.png";
     let isApp = false;
+    let isSystemApp = false;
+    
     if (win.hasAttribute('data-dock-icon')) {
-        isApp = true;
+        isSystemApp = true;
     }
     
     if (id === 'win-app-viewer') {
@@ -341,7 +343,7 @@ function minimizeWin(id) {
     
     const img = document.createElement('img');
     img.src = iconUrl;
-    img.className = isApp ? 'dock-icon-black' : 'dock-icon';
+    img.className = isSystemApp ? 'system-icon-dock' : (isApp ? 'dock-icon-black' : 'dock-icon');
     
     const indicator = document.createElement('div');
     indicator.style.width = '4px';

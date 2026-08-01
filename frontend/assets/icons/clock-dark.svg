@@ -1,6 +1,5 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <!-- Sfondo orologio scuro per dargli forma tonda -->
-  <circle cx="50" cy="50" r="48" fill="#2a2a2c"/>
+  <rect width="100" height="100" rx="22.5" fill="#1c1c1e"/>
   
   <!-- Tacchette -->
   <line x1="50" y1="6" x2="50" y2="15" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
