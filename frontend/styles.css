@@ -350,10 +350,10 @@ body, html {
 .folder.selected .folder-name { background: #0058d0; }
 
 .system-icon-desktop {
-    width: 70px; height: 70px;
+    width: 60px; height: 60px;
     margin: 0 auto 5px;
     object-fit: contain;
-    border-radius: 16px;
+    border-radius: 14px;
     display: block;
 }
 
