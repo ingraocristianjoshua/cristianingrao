@@ -130,6 +130,7 @@ body, html {
 .sb-item {
     font-size:12px; padding:4px 12px; cursor:pointer;
     margin: 0 8px; border-radius:4px;
+    display:flex; align-items:center; gap:6px;
 }
 .sb-item:hover { background:rgba(0,0,0,0.05); }
 
