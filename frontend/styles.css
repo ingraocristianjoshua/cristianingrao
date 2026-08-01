@@ -138,12 +138,20 @@ body, html {
     flex: 1;
     padding: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(95px, 1fr));
     gap: 15px;
     align-content: flex-start;
     overflow-y: auto;
 }
-.folder-grid .folder-name { color: #333; text-shadow: none; }
+.folder-grid .folder-name { 
+    color: #333; 
+    text-shadow: none; 
+    white-space: normal; 
+    display: -webkit-box; 
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical; 
+    line-height: 1.2;
+}
 .sb-item.active { background:rgba(0,0,0,0.08); border-radius:6px; margin:0 8px; padding-left:12px; font-weight:600; color:#333; }
 
 .win-body { flex: 1; padding: 20px; overflow-y: auto; background: rgba(255, 255, 255, 0.4); }
@@ -453,7 +461,7 @@ body, html {
     .textedit { padding: 15px !important; border-radius: 0 !important; }
     .win-content-flex { flex-direction: column; }
     .finder-sidebar { display: none !important; }
-    .folder-grid { padding: 12px !important; gap: 12px !important; grid-template-columns: repeat(auto-fill, minmax(65px, 1fr)) !important; }
+    .folder-grid { padding: 12px !important; gap: 12px !important; grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)) !important; }
     
 
     
