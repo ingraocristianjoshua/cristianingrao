@@ -455,3 +455,29 @@ setInterval(() => {
         updateCalendarIcon();
     }
 }, 60000);
+
+// Note App functionality
+function switchNote(noteId, element) {
+    // Nascondi tutti i contenuti
+    const allNotes = document.querySelectorAll('.note-content');
+    allNotes.forEach(note => {
+        note.style.display = 'none';
+    });
+    
+    // Mostra la nota selezionata
+    const targetNote = document.getElementById(noteId);
+    if(targetNote) {
+        targetNote.style.display = 'block';
+    }
+    
+    // Aggiorna gli stili degli elementi della lista
+    const listItems = document.querySelectorAll('.note-item');
+    listItems.forEach(item => {
+        item.classList.remove('active');
+        item.style.background = 'transparent';
+    });
+    
+    // Evidenzia l'elemento cliccato
+    element.classList.add('active');
+    element.style.background = 'rgba(228, 168, 51, 0.2)';
+}

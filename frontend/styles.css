@@ -474,6 +474,13 @@ body, html {
     .textedit { padding: 15px !important; border-radius: 0 !important; }
     .win-content-flex { flex-direction: column; }
     .finder-sidebar { display: none !important; }
+    
+    /* Notes App Mobile */
+    #notes-sidebar { display: none !important; }
+    #notes-list { width: 100% !important; border-right: none !important; border-bottom: 1px solid rgba(255,255,255,0.05); max-height: 140px; }
+    #win-notes .win-body { flex-direction: column !important; }
+    #notes-editor { padding: 20px !important; }
+    
     .folder-grid { padding: 12px !important; gap: 12px !important; grid-template-columns: repeat(auto-fill, minmax(85px, 1fr)) !important; }
     
 
