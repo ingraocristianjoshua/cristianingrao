@@ -353,12 +353,10 @@ body, html {
     width: 60px; height: 60px;
     margin: 0 auto 5px;
     object-fit: contain;
-    background: rgba(30, 30, 30, 0.6);
-    backdrop-filter: blur(15px) saturate(150%);
-    -webkit-backdrop-filter: blur(15px) saturate(150%);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 16px;
-    padding: 10px;
+    background: #1c1c1e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 8px;
     box-sizing: border-box;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     display: block;
@@ -371,12 +369,10 @@ body, html {
 .dock-icon-black {
     width: 55px; height: 55px;
     object-fit: contain;
-    background: rgba(30, 30, 30, 0.6);
-    backdrop-filter: blur(15px) saturate(150%);
-    -webkit-backdrop-filter: blur(15px) saturate(150%);
-    border: 1px solid rgba(255,255,255,0.15);
-    border-radius: 14px;
-    padding: 10px;
+    background: #1c1c1e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 7px;
     box-sizing: border-box;
     filter: drop-shadow(0 2px 5px rgba(0,0,0,0.3));
     transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1.2);
