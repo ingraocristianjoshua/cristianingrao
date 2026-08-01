@@ -482,46 +482,111 @@
                 <div class="sb-item">Applicazioni</div>
                 <div class="sb-item">Desktop</div>
             </div>
-            <div style="flex:1; padding:20px; display:flex; gap:20px; align-content:flex-start; flex-wrap:wrap;">
-                <!-- Materie Ingegneria Informatica -->
-                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
-                    <span style="font-size:12px;">Analisi Mat.</span>
+            <div class="folder-grid">
+                <!-- Anni di Studio -->
+                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-uni-1')">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
+                    <span class="folder-name">Primo Anno</span>
                 </div>
-                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
-                    <span style="font-size:12px;">Fisica</span>
+                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-uni-2')">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
+                    <span class="folder-name">Secondo Anno</span>
                 </div>
-                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
-                    <span style="font-size:12px;">Programmazione</span>
-                </div>
-                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
-                    <span style="font-size:12px;">Basi di Dati</span>
-                </div>
-                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
-                    <span style="font-size:12px;">Reti</span>
-                </div>
-                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
-                    <span style="font-size:12px;">Sistemi Oper.</span>
-                </div>
-                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
-                    <span style="font-size:12px;">Ing. Software</span>
+                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-uni-3')">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
+                    <span class="folder-name">Terzo Anno</span>
                 </div>
                 
                 <!-- Immagini UniPa -->
-                <div style="text-align:center; width:80px; cursor:pointer;" ondblclick="openApp('Logo UniPa', 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png')">
-                    <div style="width:60px; height:60px; background:#e0e0e0; margin:0 auto 5px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">🖼️</div>
-                    <span style="font-size:12px;">Logo_UniPa.jpg</span>
+                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openApp('Logo UniPa', 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png')">
+                    <div style="width:70px; height:70px; background:#e0e0e0; margin:0 auto 5px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">🖼️</div>
+                    <span class="folder-name">Logo_UniPa.jpg</span>
                 </div>
-                <div style="text-align:center; width:80px; cursor:pointer;" ondblclick="openApp('Dip. Ingegneria', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG')">
-                    <div style="width:60px; height:60px; background:#e0e0e0; margin:0 auto 5px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">🖼️</div>
-                    <span style="font-size:12px;">Ingegneria.jpg</span>
+                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openApp('Dip. Ingegneria', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG')">
+                    <div style="width:70px; height:70px; background:#e0e0e0; margin:0 auto 5px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">🖼️</div>
+                    <span class="folder-name">Ingegneria.jpg</span>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 1 ANNO -->
+    <div class="mac-window" id="win-folder-uni-1" style="display:none; top:200px; left:300px; width:600px; height:400px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-folder-uni-1')" style="background: rgba(240,240,240,0.9);">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-folder-uni-1')"></div><div class="tl yellow"></div><div class="tl green"></div>
+            </div>
+            <span class="win-title" style="display:flex; align-items:center; gap:5px; margin: 0 auto;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/macOS_Finder_icon_%28Big_Sur%29.png" style="width:16px;"> Primo Anno
+            </span>
+        </div>
+        <div class="win-body win-content-flex" style="background: #fafafa; padding:0;">
+            <div class="finder-sidebar">
+                <h4 class="sb-section">Preferiti</h4><div class="sb-item">Recenti</div><div class="sb-item">Applicazioni</div><div class="sb-item">Desktop</div>
+            </div>
+            <div class="folder-grid">
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Algebra</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Analisi Mat.</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Geometria</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Fisica I</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Fond. Prog.</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Architetture</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Inglese B1</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 2 ANNO -->
+    <div class="mac-window" id="win-folder-uni-2" style="display:none; top:210px; left:310px; width:600px; height:400px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-folder-uni-2')" style="background: rgba(240,240,240,0.9);">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-folder-uni-2')"></div><div class="tl yellow"></div><div class="tl green"></div>
+            </div>
+            <span class="win-title" style="display:flex; align-items:center; gap:5px; margin: 0 auto;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/macOS_Finder_icon_%28Big_Sur%29.png" style="width:16px;"> Secondo Anno
+            </span>
+        </div>
+        <div class="win-body win-content-flex" style="background: #fafafa; padding:0;">
+            <div class="finder-sidebar">
+                <h4 class="sb-section">Preferiti</h4><div class="sb-item">Recenti</div><div class="sb-item">Applicazioni</div><div class="sb-item">Desktop</div>
+            </div>
+            <div class="folder-grid">
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Algoritmi</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Programmazione</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Basi di Dati</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Elettrotecnica</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Fisica II</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Statistica</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Teoria Segnali</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Scelta</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Disegno</span></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 3 ANNO -->
+    <div class="mac-window" id="win-folder-uni-3" style="display:none; top:220px; left:320px; width:600px; height:400px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-folder-uni-3')" style="background: rgba(240,240,240,0.9);">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-folder-uni-3')"></div><div class="tl yellow"></div><div class="tl green"></div>
+            </div>
+            <span class="win-title" style="display:flex; align-items:center; gap:5px; margin: 0 auto;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/59/macOS_Finder_icon_%28Big_Sur%29.png" style="width:16px;"> Terzo Anno
+            </span>
+        </div>
+        <div class="win-body win-content-flex" style="background: #fafafa; padding:0;">
+            <div class="finder-sidebar">
+                <h4 class="sb-section">Preferiti</h4><div class="sb-item">Recenti</div><div class="sb-item">Applicazioni</div><div class="sb-item">Desktop</div>
+            </div>
+            <div class="folder-grid">
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Controlli</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Elettronica</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Ing. Software</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Reti</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Sist. Operativi</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Prog. Web/Mob</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Python</span></div>
+                <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Prova Finale</span></div>
             </div>
         </div>
     </div>

@@ -125,12 +125,24 @@ body, html {
     border-right:1px solid rgba(0,0,0,0.06);
     padding:15px 0; flex-shrink:0;
 }
+@media (max-width: 600px) { .finder-sidebar { display: none; } }
 .sb-section { font-size:11px; font-weight:600; color:#888; padding:5px 12px; }
 .sb-item {
     font-size:12px; padding:4px 12px; cursor:pointer;
-    display:flex; align-items:center; gap:6px;
+    margin: 0 8px; border-radius:4px;
 }
-.sb-item:hover { background:rgba(0,0,0,0.04); }
+.sb-item:hover { background:rgba(0,0,0,0.05); }
+
+.folder-grid {
+    flex: 1;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 15px;
+    align-content: flex-start;
+    overflow-y: auto;
+}
+.folder-grid .folder-name { color: #333; text-shadow: none; }
 .sb-item.active { background:rgba(0,0,0,0.08); border-radius:6px; margin:0 8px; padding-left:12px; font-weight:600; color:#333; }
 
 .win-body { flex: 1; padding: 20px; overflow-y: auto; background: rgba(255, 255, 255, 0.4); }
@@ -410,9 +422,8 @@ body, html {
     .win-titlebar { border-radius: 12px 12px 0 0 !important; cursor: default; }
     .textedit { padding: 15px !important; border-radius: 0 !important; }
     .win-content-flex { flex-direction: column; }
-    .finder-sidebar { width: 100%; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); padding: 5px 0; display: flex; overflow-x: auto; }
-    .sb-section { display: none; }
-    .sb-item { flex-shrink: 0; }
+    .finder-sidebar { display: none !important; }
+    .folder-grid { padding: 12px !important; gap: 12px !important; grid-template-columns: repeat(auto-fill, minmax(65px, 1fr)) !important; }
     
 
     
