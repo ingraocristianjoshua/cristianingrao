@@ -302,7 +302,47 @@ document.addEventListener('click', function(e) {
 function openApp(appName, iconUrl) {
     document.getElementById('app-viewer-title').textContent = appName;
     document.getElementById('app-viewer-icon').src = iconUrl;
-    document.getElementById('app-viewer-desc').textContent = 'Ambiente di sviluppo per ' + appName;
+    
+    let description = 'Ambiente di sviluppo per ' + appName;
+    switch(appName) {
+        case 'Java':
+            description = "Sviluppo del progetto AFAM e applicazioni accademiche (Algoritmica & Strutture Dati).";
+            break;
+        case 'TypeScript':
+            description = "Sviluppo di piattaforme web moderne e type-safe come Ecopalmaps, Gradly e Bricklink.";
+            break;
+        case 'HTML5':
+        case 'CSS3':
+        case 'JavaScript':
+            description = "Front-end moderno e UI design interattivo. Sviluppo del mio macOS Portfolio e varie web apps.";
+            break;
+        case 'React':
+            description = "Creazione di interfacce utente dinamiche, dashboard e Single Page Applications fluide.";
+            break;
+        case 'Node.js':
+            description = "Sviluppo di servizi backend scalabili e architetture server-side per web application.";
+            break;
+        case 'C++':
+            description = "Progetti accademici universitari incentrati su logiche complesse, algoritmi e strutture dati.";
+            break;
+        case 'Python':
+            description = "Scripting, automazione e analisi dati. Risoluzione di problemi logici e computazionali.";
+            break;
+        case 'MySQL':
+            description = "Progettazione di database relazionali per la gestione e l'archiviazione sicura dei dati backend.";
+            break;
+        case 'VS Code':
+            description = "Il mio editor principale per scrivere codice, gestire versionamenti e sviluppare i miei progetti.";
+            break;
+        case 'Git':
+            description = "Gestione del codice sorgente e version control per tutti i miei progetti ospitati su GitHub.";
+            break;
+        case 'Linux':
+            description = "Gestione server, ambienti di sviluppo e utilizzo del terminale per deployment di web apps.";
+            break;
+    }
+    
+    document.getElementById('app-viewer-desc').textContent = description;
     openWindow('win-app-viewer');
 }
 
