@@ -483,17 +483,44 @@
                 <div style="font-size:13px; font-weight:500; color:#333; margin-bottom:5px;">Desktop</div>
             </div>
             <div style="flex:1; padding:20px; display:flex; gap:20px; align-content:flex-start; flex-wrap:wrap;">
-                <div style="text-align:center; width:80px; cursor:pointer;" ondblclick="alert('Apertura documento PDF...')">
-                    <div style="width:60px; height:60px; background:white; border: 1px solid #ccc; margin:0 auto 5px; border-radius:4px; display:flex; align-items:center; justify-content:center; color:#d32f2f; font-weight:bold; font-size:16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">PDF</div>
-                    <span style="font-size:12px;">Appunti.pdf</span>
+                <!-- Materie Ingegneria Informatica -->
+                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
+                    <span style="font-size:12px;">Analisi Mat.</span>
                 </div>
-                <div style="text-align:center; width:80px; cursor:pointer;" ondblclick="alert('Apertura documento Word...')">
-                    <div style="width:60px; height:60px; background:white; border: 1px solid #ccc; margin:0 auto 5px; border-radius:4px; display:flex; align-items:center; justify-content:center; color:#1976d2; font-weight:bold; font-size:16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">DOC</div>
-                    <span style="font-size:12px;">Tesi_v1.docx</span>
+                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
+                    <span style="font-size:12px;">Fisica</span>
                 </div>
-                <div style="text-align:center; width:80px; cursor:pointer;" ondblclick="alert('Apertura foglio di calcolo...')">
-                    <div style="width:60px; height:60px; background:white; border: 1px solid #ccc; margin:0 auto 5px; border-radius:4px; display:flex; align-items:center; justify-content:center; color:#2e7d32; font-weight:bold; font-size:16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">XLS</div>
-                    <span style="font-size:12px;">Spese_2026.xlsx</span>
+                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
+                    <span style="font-size:12px;">Programmazione</span>
+                </div>
+                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
+                    <span style="font-size:12px;">Basi di Dati</span>
+                </div>
+                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
+                    <span style="font-size:12px;">Reti</span>
+                </div>
+                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
+                    <span style="font-size:12px;">Sistemi Oper.</span>
+                </div>
+                <div style="text-align:center; width:80px; cursor:pointer;" onclick="selectFolder(this, event)">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:60px; height:60px; margin:0 auto 5px; object-fit:contain;" alt="Folder">
+                    <span style="font-size:12px;">Ing. Software</span>
+                </div>
+                
+                <!-- Immagini UniPa -->
+                <div style="text-align:center; width:80px; cursor:pointer;" ondblclick="openApp('Logo UniPa', 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png')">
+                    <div style="width:60px; height:60px; background:#e0e0e0; margin:0 auto 5px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">🖼️</div>
+                    <span style="font-size:12px;">Logo_UniPa.jpg</span>
+                </div>
+                <div style="text-align:center; width:80px; cursor:pointer;" ondblclick="openApp('Dip. Ingegneria', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG')">
+                    <div style="width:60px; height:60px; background:#e0e0e0; margin:0 auto 5px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size: 24px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">🖼️</div>
+                    <span style="font-size:12px;">Ingegneria.jpg</span>
                 </div>
             </div>
         </div>
