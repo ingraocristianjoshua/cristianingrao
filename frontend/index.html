@@ -86,6 +86,10 @@
                     <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
                     <span class="folder-name">università</span>
                 </div>
+                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-notes')">
+                    <img src="https://img.icons8.com/color/512/notepad.png" class="folder-icon" alt="Notes">
+                    <span class="folder-name">Note</span>
+                </div>
             </div>
 
         </div>
@@ -218,6 +222,40 @@
     </div>
 
     <!-- ABOUT WINDOW -->
+    <div class="mac-window" id="win-notes" data-dock-icon="https://img.icons8.com/color/512/notepad.png" style="display:none; top:80px; left:250px; width:700px; height:500px;">
+        <div class="win-titlebar" onmousedown="startDrag(event, 'win-notes')" style="background: rgba(240,240,240,0.95); border-bottom:1px solid #ccc;">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-notes')"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
+            </div>
+            <span class="win-title">Note</span>
+        </div>
+        <div class="win-body" style="display: flex; flex-direction: row; padding: 0; background: #fff;">
+            <!-- Sidebar -->
+            <div style="width: 250px; background: #f6f6f6; border-right: 1px solid #e0e0e0; display: flex; flex-direction: column;">
+                <div style="padding: 15px; border-bottom: 1px solid #e0e0e0; font-weight: bold; color: #333; font-size: 14px;">
+                    Cartelle
+                </div>
+                <div style="padding: 10px; cursor: pointer; display: flex; flex-direction: column; gap: 5px; background: rgba(0, 122, 255, 0.1); border-left: 3px solid #007AFF;">
+                    <div style="font-weight: 600; font-size: 14px; color: #222;">Da Leggere! ✨</div>
+                    <div style="font-size: 12px; color: #666;">Segreto...</div>
+                </div>
+            </div>
+            <!-- Main Content -->
+            <div style="flex: 1; padding: 40px; display: flex; flex-direction: column; overflow-y: auto;">
+                <h1 style="font-size: 24px; font-weight: bold; color: #222; margin-bottom: 20px;">Da Leggere! ✨</h1>
+                <p style="font-size: 15px; color: #333; line-height: 1.6;">
+                    Ciao!<br><br>
+                    Se stai leggendo questa nota, significa che hai appena trovato l'easter egg segreto nascosto nel mio portfolio! 🎉<br><br>
+                    Sviluppare interfacce belle, fluide e interattive è la mia passione. Credo che i dettagli contino davvero tanto: dalle icone glassmorphism, alla gestione delle finestre "alla macOS", fino a nascondere piccoli segreti come questo.<br><br>
+                    Grazie per aver esplorato questo spazio. Se ti è piaciuto quello che hai visto, sentiti libero di contattarmi su LinkedIn o via email.<br><br>
+                    - Cristian
+                </p>
+            </div>
+        </div>
+    </div>
+
     <div class="mac-window" id="win-about" style="display:none; top:80px; left:200px; width:500px;">
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-about')">
             <div class="traffic-lights">
