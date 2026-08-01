@@ -236,16 +236,33 @@ generateCalendar();
 
 // WINDOW SYSTEM
 let highestZ = 100;
+
+document.addEventListener('mousedown', function(e) {
+    const win = e.target.closest('.mac-window');
+    if(win) {
+        win.style.zIndex = ++highestZ;
+    }
+});
+
 function openWindow(id) {
     const win = document.getElementById(id);
     if(win) {
         win.style.display = 'flex';
         win.style.zIndex = ++highestZ;
+        win.classList.remove('closing');
+        win.classList.add('opening');
+        setTimeout(() => win.classList.remove('opening'), 250);
     }
 }
 function closeWin(id) {
     const win = document.getElementById(id);
-    if(win) win.style.display = 'none';
+    if(win) {
+        win.classList.add('closing');
+        setTimeout(() => {
+            win.style.display = 'none';
+            win.classList.remove('closing');
+        }, 200);
+    }
 }
 function startDrag(e, id) {
     const win = document.getElementById(id);
@@ -255,8 +272,15 @@ function startDrag(e, id) {
     let initLeft = rect.left, initTop = rect.top;
     
     function onMouseMove(e) {
-        win.style.left = (initLeft + e.clientX - startX) + 'px';
-        win.style.top = (initTop + e.clientY - startY) + 'px';
+        let newX = initLeft + e.clientX - startX;
+        let newY = initTop + e.clientY - startY;
+        
+        // Boundaries
+        newX = Math.max(0, Math.min(newX, window.innerWidth - win.offsetWidth));
+        newY = Math.max(25, Math.min(newY, window.innerHeight - win.offsetHeight)); // 25 is topbar height
+        
+        win.style.left = newX + 'px';
+        win.style.top = newY + 'px';
     }
     function onMouseUp() {
         document.removeEventListener('mousemove', onMouseMove);
