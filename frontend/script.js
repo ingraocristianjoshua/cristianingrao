@@ -203,7 +203,7 @@ function generateCalendar() {
     // Days
     for (let i = 1; i <= daysInMonth; i++) {
         if (i === today) {
-            gridHTML += `<span class="active-day" style="background:#FF3B30; color:white; border-radius:50%; width:24px; height:24px; line-height:24px; display:inline-block; text-align:center;">${i}</span>`;
+            gridHTML += `<span class="active-day" style="background:#FF3B30; color:white; border-radius:50%; width:24px; height:24px;">${i}</span>`;
         } else {
             gridHTML += `<span>${i}</span>`;
         }

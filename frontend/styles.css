@@ -298,8 +298,8 @@ body, html {
 .cal-days-header { font-size: 9px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
 .cal-grid { gap: 1px; font-size: 9px; color: rgba(255,255,255,0.9); }
 .cal-grid span { display: flex; justify-content: center; align-items: center; height: 16px; border-radius: 4px; }
-.active-day { background: #FF3B30; color: white !important; font-weight: 700; border-radius: 50% !important; }
-.calendar-widget .active-day { width: 16px; height: 16px; margin: 0 auto; }
+.active-day { background: #FF3B30; color: white !important; font-weight: 700; border-radius: 50% !important; justify-self: center; align-self: center; }
+.calendar-widget .active-day { width: 16px; height: 16px; margin: auto; }
 
 /* Weather Widget */
 .weather-widget {
