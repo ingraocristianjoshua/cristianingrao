@@ -345,7 +345,10 @@ body, html {
     width: 60px; height: 60px;
     margin: 0 auto 5px;
     object-fit: contain;
-    background-color: #111; /* Almost black */
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 16px;
     padding: 10px;
     box-sizing: border-box;
@@ -360,7 +363,10 @@ body, html {
 .dock-icon-black {
     width: 55px; height: 55px;
     object-fit: contain;
-    background-color: #111;
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(15px) saturate(150%);
+    -webkit-backdrop-filter: blur(15px) saturate(150%);
+    border: 1px solid rgba(255,255,255,0.15);
     border-radius: 14px;
     padding: 10px;
     box-sizing: border-box;
