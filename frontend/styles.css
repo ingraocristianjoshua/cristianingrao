@@ -6,13 +6,20 @@ body, html {
     cursor: default;
     user-select: none;
 }
+::selection { background: rgba(0, 122, 255, 0.3); }
 
-/* ============ WALLPAPER ============ */
+/* ============ SCROLLBARS ============ */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.3); }
+
 .wallpaper {
-    position:fixed; top:0; left:0; width:100%; height:100%; z-index:0;
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
     background-image: url('wallpaper.jpg');
     background-size: cover;
     background-position: center;
+    background-color: #000;
 }
 
 
@@ -30,8 +37,7 @@ body, html {
 .menubar-left, .menubar-right { display:flex; align-items:center; gap:0; }
 .menu-text { padding: 0 12px; height:30px; line-height:30px; cursor:pointer; transition: background 0.15s; }
 .menu-text:hover { background: rgba(255,255,255,0.12); border-radius:4px; }
-.bold { font-weight:700; cursor:default; }
-.bold:hover { background: transparent; }
+.bold { font-weight:700; }
 
 /* ============ DESKTOP ICONS ============ */
 .desktop-grid {
@@ -44,30 +50,36 @@ body, html {
     display:flex; flex-direction:column; align-items:center;
     justify-content:center;
     cursor:pointer; border-radius:8px; padding:5px;
+    transition: transform 0.15s ease, background 0.15s;
 }
-.mac-icon:hover { background:rgba(0,100,255,0.15); }
-.mac-icon:active .icon-label { background:rgba(0,100,255,0.6); color:white; }
+.mac-icon:hover, .folder:hover { background:rgba(255,255,255,0.15); box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-radius: 8px; }
+.mac-icon:active, .folder:active { transform: scale(0.95); background:rgba(0,100,255,0.2); }
+.mac-icon:active .icon-label, .folder.selected .folder-name { background:rgba(0,122,255,0.8); color:white; }
 
-.mac-folder-icon, .mac-file-icon { width:55px; height:55px; }
+.mac-folder-icon, .mac-file-icon { width:65px; height:65px; transition: transform 0.2s; }
 .mac-folder-icon svg, .mac-file-icon svg { width:100%; height:100%; filter:drop-shadow(0 3px 5px rgba(0,0,0,0.25)); }
 
-.icon-label {
-    margin-top:3px; font-size:11px; color:white;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
-    text-align:center; padding:1px 5px; border-radius:3px;
-    max-width:80px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+.icon-label, .folder-name {
+    margin-top:4px; font-size:12px; font-weight: 500; color:white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    text-align:center; padding:2px 6px; border-radius:4px;
+    max-width:85px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+    transition: background 0.1s, color 0.1s;
 }
 
 /* ============ WINDOWS ============ */
 .mac-window {
     position:fixed; z-index:100;
-    background: rgba(236,236,236,0.92);
-    backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
-    border-radius:10px;
-    box-shadow: 0 22px 70px rgba(0,0,0,0.35), 0 0 0 0.5px rgba(0,0,0,0.15);
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border-radius:12px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25), 
+                0 0 0 1px rgba(255,255,255,0.5),
+                inset 0 1px 0 rgba(255,255,255,1);
     display:flex; flex-direction:column;
     overflow:hidden;
-    animation: windowOpen 0.2s ease-out;
+    animation: windowOpen 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 @keyframes windowOpen {
     0% { transform:scale(0.9); opacity:0; }
@@ -75,20 +87,20 @@ body, html {
 }
 
 .win-titlebar {
-    height:38px; display:flex; align-items:center;
-    background: linear-gradient(to bottom, #e8e8e8, #d4d4d4);
-    border-bottom:1px solid #bbb;
+    height:50px; display:flex; align-items:center;
+    background: transparent;
+    border-bottom:1px solid rgba(0,0,0,0.06);
     position:relative; cursor:grab;
     flex-shrink:0;
 }
 .win-titlebar:active { cursor:grabbing; }
 
-.traffic-lights { position:absolute; left:12px; display:flex; gap:7px; }
-.tl { width:12px; height:12px; border-radius:50%; cursor:pointer; border:0.5px solid rgba(0,0,0,0.15); }
-.tl.red { background: linear-gradient(#f5695c, #ec4434); }
-.tl.yellow { background: linear-gradient(#f7c548, #f4b93d); }
-.tl.green { background: linear-gradient(#62c554, #4cbc3f); }
-.tl.red:hover { background: linear-gradient(#ff7e71, #f44336); }
+.traffic-lights { position:absolute; left:16px; display:flex; gap:8px; }
+.tl { width:12px; height:12px; border-radius:50%; cursor:pointer; border:0.5px solid rgba(0,0,0,0.12); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); }
+.tl.red { background: #FF5F56; }
+.tl.yellow { background: #FFBD2E; }
+.tl.green { background: #27C93F; }
+.tl.red:hover { background: #FF4A40; }
 
 .win-title {
     flex:1; text-align:center;
@@ -97,36 +109,48 @@ body, html {
 }
 
 .win-toolbar {
-    height:28px; display:flex; align-items:center;
-    background:#e0e0e0; border-bottom:1px solid #c0c0c0;
-    padding:0 12px; font-size:11px; color:#666; gap:10px;
+    height:36px; display:flex; align-items:center;
+    background:transparent; border-bottom:1px solid rgba(0,0,0,0.06);
+    padding:0 16px; font-size:12px; color:#555; gap:12px;
     flex-shrink:0;
 }
-.toolbar-btn { color:#007AFF; font-weight:bold; }
-.toolbar-path { color:#888; }
+.toolbar-btn { color:#888; font-size: 16px; display:flex; gap:10px; cursor:default; }
+.toolbar-path { color:#666; font-weight: 500; }
 
 /* Finder layout */
-.win-content-flex { display:flex; flex:1; min-height:300px; }
+.win-content-flex { display:flex; flex:1; min-height:300px; background: rgba(255,255,255,0.4); }
 
 .finder-sidebar {
-    width:150px; background:rgba(215,215,215,0.7);
-    border-right:1px solid #c0c0c0;
-    padding:10px 0; flex-shrink:0;
+    width:160px; background:transparent;
+    border-right:1px solid rgba(0,0,0,0.06);
+    padding:15px 0; flex-shrink:0;
 }
 .sb-section { font-size:11px; font-weight:600; color:#888; padding:5px 12px; }
 .sb-item {
     font-size:12px; padding:4px 12px; cursor:pointer;
     display:flex; align-items:center; gap:6px;
 }
-.sb-item:hover { background:rgba(0,0,0,0.05); }
-.sb-item.active { background:rgba(0,122,255,0.15); border-radius:4px; margin:0 5px; padding-left:7px; }
+.sb-item:hover { background:rgba(0,0,0,0.04); }
+.sb-item.active { background:rgba(0,0,0,0.08); border-radius:6px; margin:0 8px; padding-left:12px; font-weight:600; color:#333; }
 
-.win-body { flex:1; padding:20px; overflow-y:auto; user-select:text; }
+.win-body { flex: 1; padding: 20px; overflow-y: auto; background: rgba(255, 255, 255, 0.4); }
 
 /* Text Edit style */
-.textedit { background:#fff; color:#222; font-size:14px; line-height:1.7; }
-.textedit p { margin-bottom:10px; }
-.textedit h2 { font-weight:normal; font-size:1.5rem; }
+.textedit { background: #ffffff !important; color:#333; font-size:15px; line-height:1.6; border-radius: 0 0 12px 0; padding: 25px; user-select: text; }
+.textedit p { margin-bottom:12px; }
+.textedit h2 { font-weight:600; font-size:1.6rem; letter-spacing:-0.5px; margin-bottom: 10px; }
+
+/* Desktop Right Files */
+.desktop-files-right {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 10;
+}
+.mobile-apps-grid { display: none; }
 
 /* Finder Grid */
 .finder-grid {
@@ -185,42 +209,245 @@ body, html {
 
 /* ============ DOCK ============ */
 .dock-bar {
-    position:fixed; bottom:8px; left:0; right:0; z-index:9998;
-    display:flex; justify-content:center;
+    position: fixed;
+    bottom: 20px;
+    left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
 }
 .dock-glass {
-    display:flex; align-items:center; gap:8px;
-    background: rgba(255,255,255,0.35);
-    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-    padding:6px 12px; border-radius:18px;
-    border:1px solid rgba(255,255,255,0.45);
-    box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(50px) saturate(200%);
+    -webkit-backdrop-filter: blur(50px) saturate(200%);
+    border-radius: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3), 
+                inset 0 1px 0 rgba(255,255,255,0.8);
 }
 .dock-icon {
-    width:50px; height:50px; cursor:pointer;
-    transition: transform 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    position:relative;
+    width: 48px; height: 48px;
+    background: linear-gradient(180deg, #444, #1a1a1a);
+    border-radius: 12px;
+    padding: 6px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.2);
+    border: 1px solid rgba(0,0,0,0.6);
+    object-fit: contain;
+    transition: transform 0.2s;
 }
-.dock-icon svg { width:100%; height:100%; filter:drop-shadow(0 3px 5px rgba(0,0,0,0.3)); }
-.dock-icon:hover { transform:scale(1.4) translateY(-12px); z-index:10; }
-
-/* Tooltip */
-.dock-icon::before {
-    content:attr(data-tip);
-    position:absolute; top:-32px; left:50%; transform:translateX(-50%);
-    background:rgba(0,0,0,0.75); color:white;
-    font-size:11px; padding:3px 8px; border-radius:5px; white-space:nowrap;
-    opacity:0; visibility:hidden; transition:opacity 0.15s;
-    pointer-events:none;
+.social-icon {
+    width: 48px; height: 48px; 
+    border-radius: 12px;
+    padding: 0;
+    box-sizing: border-box;
+    background: none;
+    border: none;
+    box-shadow: none;
+    object-fit: cover;
 }
-.dock-icon:hover::before { opacity:1; visibility:visible; }
+.ig-icon { transform: scale(1.15); }
+.in-icon { transform: scale(1.15); }
+.gh-icon { transform: scale(1.3); }
+.trash-icon-emoji {
+    font-size: 48px;
+    width: 48px; height: 48px;
+    display: flex; justify-content: center; align-items: center;
+    margin-bottom: 0;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+}
+.dock-item { position: relative; display: flex; justify-content: center; align-items: center; transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+.dock-item:hover { transform: scale(1.3) translateY(-12px); z-index: 10; }
 
-.dock-sep { width:1px; height:40px; background:rgba(0,0,0,0.15); margin:0 4px; }
 
-/* ============ RESPONSIVE ============ */
+
+/* ============ WIDGETS ============ */
+.left-column { display: flex; flex-direction: column; gap: 15px; width: fit-content; }
+.desktop-folders { display: flex; flex-direction: row; gap: 15px; margin-top: 10px; }
+
+.widget-row { display: flex; gap: 15px; }
+
+.widget {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(60px) saturate(250%) contrast(110%);
+    -webkit-backdrop-filter: blur(60px) saturate(250%) contrast(110%);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2),
+                inset 0 1px 1px rgba(255,255,255,0.7),
+                inset 0 -1px 1px rgba(0,0,0,0.1);
+    color: white; overflow: hidden;
+    width: 170px; /* Base width for square widgets */
+    cursor: pointer; transition: transform 0.1s;
+}
+.widget:active { transform: scale(0.97); }
+
+/* Clock Widget */
+.clock-widget { aspect-ratio: 1; background: rgba(255, 255, 255, 0.95); color: black; display: flex; justify-content: center; align-items: center; position: relative; }
+.clock-display { font-size: 52px; font-weight: 900; letter-spacing: -2px; z-index: 2; }
+.clock-border { position: absolute; top: 10px; bottom: 10px; left: 10px; right: 10px; border: 1px dashed rgba(0,0,0,0.2); border-radius: 12px; }
+
+/* Calendar Widget */
+.calendar-widget { aspect-ratio: 1; background: rgba(40, 40, 40, 0.7); padding: 10px; display: flex; flex-direction: column; justify-content: space-between; }
+.cal-header { color: #FF3B30; font-size: 11px; font-weight: 700; margin-bottom: 2px; }
+.cal-days-header, .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; }
+.cal-days-header { font-size: 9px; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+.cal-grid { gap: 1px; font-size: 9px; color: rgba(255,255,255,0.9); }
+.cal-grid span { display: flex; justify-content: center; align-items: center; height: 16px; border-radius: 4px; }
+.active-day { background: #FF3B30; color: white !important; font-weight: 700; border-radius: 50% !important; }
+.calendar-widget .active-day { width: 16px; height: 16px; margin: 0 auto; }
+
+/* Weather Widget */
+.weather-widget {
+    width: 355px; height: 170px;
+    background: linear-gradient(to bottom, #4A90E2, #2B5B84);
+    padding: 15px; display: flex; flex-direction: column; justify-content: space-between;
+}
+.weather-top { display: flex; justify-content: space-between; }
+.weather-city { font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 4px; }
+.weather-temp { font-size: 36px; font-weight: 400; margin-top: -5px; }
+.weather-main-icon { font-size: 32px; }
+.weather-alert { background: rgba(255, 149, 0, 0.2); border-left: 3px solid #FF9500; padding: 6px 10px; border-radius: 4px; font-size: 11px; font-weight: 500; }
+.weather-forecast { display: flex; justify-content: space-between; margin-top: 5px; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 10px; }
+.forecast-item { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 12px; font-weight: 500; }
+
+/* ============ FOLDERS ============ */
+.desktop-folders {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 10px;
+}
+.folder { display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; width: 95px; padding: 8px 4px; border-radius: 6px; border: 1px solid transparent; transition: background 0.1s; }
+.folder.selected { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.15); }
+.folder-icon { width: 70px; height: 70px; object-fit: contain; filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4)); }
+.folder-name { color: white; font-size: 12px; text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500; padding: 2px 6px; border-radius: 4px; display: flex; align-items: center; gap: 4px; }
+.folder.selected .folder-name { background: #0058d0; }
+
+/* Desktop container */
+.desktop-content { position:fixed; top:50px; left:20px; right:20px; bottom:100px; display:flex; justify-content:space-between; z-index:10; }
+
+.dock-icon { width: 55px; height: 55px; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3)); }
+.dock-item { position: relative; display: flex; justify-content: center; align-items: flex-start; transition: transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1); cursor: pointer; }
+.dock-item:hover { transform: scale(1.35) translateY(-10px); z-index: 10; }
+.dock-item::before { content: attr(data-title); position: absolute; top: -20px; color: white; font-size: 13px; font-weight: 600; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.15s, top 0.15s; text-shadow: 0 2px 4px rgba(0,0,0,0.8), 0 0 2px rgba(0,0,0,1); }
+.dock-item:hover::before { opacity: 1; top: -32px; }
+.dock-sep {
+    width: 1px;
+    height: 40px;
+    background: rgba(0,0,0,0.15);
+    box-shadow: 1px 0 0 rgba(255,255,255,0.3);
+    margin: 0 6px;
+}
+
+
+
+/* ============ MOBILE RESPONSIVE ============ */
 @media (max-width: 768px) {
-    .mac-window { width:92vw !important; left:4vw !important; }
-    .finder-sidebar { display:none; }
-    .desktop-grid { right:10px; gap:2px; }
-    .mac-icon { width:70px; height:75px; }
+    body { overflow-x: hidden; overflow-y: auto; }
+    
+    /* Menubar */
+    .menubar-left .menu-text:not(.apple-logo):not(.bold) { display: none; }
+    .status-icon { display: none; }
+    
+    /* Layout */
+    .desktop-content { 
+        position: relative; top: 35px; left: 0; right: 0; bottom: 0;
+        padding: 15px; 
+        display: flex; flex-direction: column; gap: 20px;
+    }
+    
+    /* Widgets Stacked */
+    .left-column { width: 100%; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; padding: 0 10px; overflow: visible; }
+    .widget-row { 
+        display: flex; flex-direction: row; flex-wrap: wrap; 
+        width: 100%; max-width: 360px; gap: 12px; margin: 0; 
+    }
+    .widget { padding: 14px; border-radius: 18px; }
+    .weather-widget { width: 100% !important; height: auto; }
+    .clock-widget, .calendar-widget { width: calc(50% - 6px) !important; aspect-ratio: 1 !important; min-height: unset; padding: 12px; }
+    
+    .clock-display { font-size: 40px !important; }
+    .weather-temp { font-size: 34px !important; }
+    .forecast-item span { font-size: 11px; }
+    .calendar-widget .cal-header { font-size: 11px; margin-bottom: 4px; }
+    .calendar-widget .cal-days-header { font-size: 9px; }
+    .calendar-widget .cal-grid { font-size: 9px; gap: 2px; }
+    .calendar-widget .cal-grid span { height: 16px; }
+    .calendar-widget .active-day { width: 16px; height: 16px; font-size: 9px; line-height: 16px; }
+    
+    /* Folders Grid */
+    .desktop-folders, .mobile-apps-grid, .desktop-files-right {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        width: 100%;
+        justify-content: flex-end;
+        padding: 0 10px;
+        margin-top: 15px;
+        position: static;
+    }
+    
+    /* Windows (Full Screen) */
+    .mac-window:not(.app-popup) { 
+        width: 100vw !important; 
+        height: 100vh !important;
+        left: 0 !important; 
+        top: 0 !important; 
+        max-height: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+    }
+    .app-popup {
+        width: 85vw !important;
+        height: 300px !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(0,0,0,0.1) !important;
+    }
+    .win-titlebar { border-radius: 0; cursor: default; }
+    .textedit { padding: 15px !important; border-radius: 0 !important; }
+    .win-content-flex { flex-direction: column; }
+    .finder-sidebar { width: 100%; border-right: none; border-bottom: 1px solid rgba(0,0,0,0.06); padding: 5px 0; display: flex; overflow-x: auto; }
+    .sb-section { display: none; }
+    .sb-item { flex-shrink: 0; }
+    
+
+    
+    .folder { width: 100%; } /* Fit grid */
+
+    /* Dock */
+    .dock-bar { bottom: 12px; }
+    .dock-glass { 
+        max-width: 95vw; 
+        overflow-x: auto; 
+        padding: 12px 14px; 
+        gap: 12px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        border-radius: 20px;
+    }
+    .dock-glass::-webkit-scrollbar { display: none; }
+    .dock-glass .dev-tool { display: none; }
+    .dock-glass .dock-sep { display: none; }
+    .dock-icon, .social-icon { 
+        width: 55px !important; 
+        height: 55px !important; 
+        border-radius: 14px !important;
+    }
+    .trash-icon-emoji {
+        width: 55px !important; 
+        height: 55px !important;
+        font-size: 55px;
+        margin-bottom: 0 !important;
+    }
+    
+    .dock-sep { height: 30px; margin: 0 4px; }
+    .dock-item:hover { transform: scale(1.05) translateY(-3px); }
+    .dock-item:active { transform: scale(0.95); }
+    .dock-item::before { display: none; } /* Hide tooltips on mobile */
 }

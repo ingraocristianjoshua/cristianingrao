@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 440">
+  <defs>
+    <!-- Back panel gradient (darker blue) -->
+    <linearGradient id="backGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4AABDF"/>
+      <stop offset="100%" stop-color="#2E8BC0"/>
+    </linearGradient>
+    <!-- Front panel gradient (lighter blue) -->
+    <linearGradient id="frontGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7DD3FC"/>
+      <stop offset="50%" stop-color="#5CBCE8"/>
+      <stop offset="100%" stop-color="#4AABDF"/>
+    </linearGradient>
+    <!-- Tab gradient -->
+    <linearGradient id="tabGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4AABDF"/>
+      <stop offset="100%" stop-color="#3A9BD0"/>
+    </linearGradient>
+    <!-- Shadow filter -->
+    <filter id="shadow" x="-5%" y="-5%" width="115%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="rgba(0,0,0,0.25)"/>
+    </filter>
+  </defs>
+  
+  <!-- Shadow layer -->
+  <g filter="url(#shadow)">
+    <!-- Back panel (darker, behind) -->
+    <rect x="20" y="80" width="472" height="330" rx="20" fill="url(#backGrad)"/>
+    
+    <!-- Tab/flap on top-left -->
+    <path d="M40,80 L40,30 Q40,10 60,10 L190,10 Q210,10 220,30 L240,70 Q245,80 260,80" 
+          fill="url(#tabGrad)"/>
+    
+    <!-- Front panel (lighter, overlapping) -->
+    <rect x="20" y="105" width="472" height="305" rx="18" fill="url(#frontGrad)"/>
+    
+    <!-- Subtle highlight line at top of front panel -->
+    <rect x="30" y="105" width="452" height="2" rx="1" fill="rgba(255,255,255,0.35)"/>
+    
+    <!-- Bottom darker stripe -->
+    <rect x="20" y="385" width="472" height="25" rx="0" fill="rgba(0,0,0,0.06)"/>
+    <rect x="20" y="390" width="472" height="20" rx="18" fill="rgba(0,0,0,0.06)"/>
+  </g>
+</svg>
