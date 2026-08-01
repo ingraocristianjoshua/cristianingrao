@@ -313,7 +313,7 @@ function minimizeWin(id) {
     
     // Try to get title and icon from the window
     let title = "Finestra";
-    let iconUrl = "https://img.icons8.com/color/512/mac-folder.png";
+    let iconUrl = win.getAttribute('data-dock-icon') || "https://img.icons8.com/color/512/mac-folder.png";
     let isApp = false;
     
     if (id === 'win-app-viewer') {
@@ -324,8 +324,10 @@ function minimizeWin(id) {
         const titleSpan = win.querySelector('.win-title');
         if (titleSpan) {
             title = titleSpan.innerText.trim();
-            const img = titleSpan.querySelector('img');
-            if (img) iconUrl = img.src;
+            if (!win.hasAttribute('data-dock-icon')) {
+                const img = titleSpan.querySelector('img');
+                if (img) iconUrl = img.src;
+            }
         }
     }
     
@@ -356,10 +358,6 @@ function minimizeWin(id) {
         dockItem.remove();
     };
     
-    const dockSep = document.querySelector('.dock-sep');
-    if (dockSep) {
-        dockSep.parentNode.insertBefore(dockItem, dockSep);
-    } else {
-        document.querySelector('.dock-glass').appendChild(dockItem);
-    }
+    // Add to the very end of the dock
+    document.querySelector('.dock-glass').appendChild(dockItem);
 }
