@@ -391,6 +391,9 @@ body, html {
         margin-top: 15px;
         position: static;
     }
+    .desktop-files-right {
+        padding-bottom: 110px !important; /* Ensure last files are scrollable past dock */
+    }
     
     /* Windows (Pop-up on mobile) */
     .mac-window { 
@@ -416,30 +419,35 @@ body, html {
     .folder { width: 100%; } /* Fit grid */
 
     /* Dock */
-    .dock-bar { bottom: 12px; }
+    .dock-bar { bottom: 15px; }
     .dock-glass { 
         max-width: 95vw; 
         overflow-x: auto; 
-        padding: 12px 14px; 
-        gap: 12px;
-        justify-content: flex-start;
+        padding: 10px 14px; 
+        gap: 15px;
+        justify-content: center;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        border-radius: 20px;
+        border-radius: 24px;
+        margin: 0 auto;
     }
     .dock-glass::-webkit-scrollbar { display: none; }
     .dock-glass .dev-tool { display: none; }
     .dock-glass .dock-sep { display: none; }
     .dock-icon, .social-icon { 
-        width: 55px !important; 
-        height: 55px !important; 
-        border-radius: 14px !important;
+        width: 50px !important; 
+        height: 50px !important; 
+        border-radius: 12px !important;
     }
     .trash-icon-emoji {
-        width: 55px !important; 
-        height: 55px !important;
-        font-size: 55px;
+        width: 50px !important; 
+        height: 50px !important;
+        font-size: 44px;
+        line-height: 50px;
         margin-bottom: 0 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     
     .dock-sep { height: 30px; margin: 0 4px; }
