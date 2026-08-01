@@ -289,3 +289,77 @@ function openApp(appName, iconUrl) {
     document.getElementById('app-viewer-desc').textContent = 'Ambiente di sviluppo per ' + appName;
     openWindow('win-app-viewer');
 }
+
+// Maximize window
+function maximizeWin(id) {
+    const win = document.getElementById(id);
+    if (!win) return;
+    if (win.classList.contains('maximized')) {
+        win.classList.remove('maximized');
+    } else {
+        win.classList.add('maximized');
+    }
+}
+
+// Minimize window to dock
+function minimizeWin(id) {
+    const win = document.getElementById(id);
+    if (!win) return;
+    
+    win.style.display = 'none';
+    win.classList.remove('active');
+    
+    if (document.getElementById('minimized-' + id)) return;
+    
+    // Try to get title and icon from the window
+    let title = "Finestra";
+    let iconUrl = "https://img.icons8.com/color/512/mac-folder.png";
+    let isApp = false;
+    
+    if (id === 'win-app-viewer') {
+        title = document.getElementById('app-viewer-title').innerText;
+        iconUrl = document.getElementById('app-viewer-icon').src;
+        isApp = true;
+    } else {
+        const titleSpan = win.querySelector('.win-title');
+        if (titleSpan) {
+            title = titleSpan.innerText.trim();
+            const img = titleSpan.querySelector('img');
+            if (img) iconUrl = img.src;
+        }
+    }
+    
+    const dockItem = document.createElement('div');
+    dockItem.className = 'dock-item minimized-app';
+    dockItem.id = 'minimized-' + id;
+    dockItem.setAttribute('data-title', title);
+    
+    const img = document.createElement('img');
+    img.src = iconUrl;
+    img.className = isApp ? 'dock-icon-black' : 'dock-icon';
+    
+    const indicator = document.createElement('div');
+    indicator.style.width = '4px';
+    indicator.style.height = '4px';
+    indicator.style.background = 'rgba(255, 255, 255, 0.8)';
+    indicator.style.borderRadius = '50%';
+    indicator.style.position = 'absolute';
+    indicator.style.bottom = '-8px';
+    indicator.style.left = '50%';
+    indicator.style.transform = 'translateX(-50%)';
+    
+    dockItem.appendChild(img);
+    dockItem.appendChild(indicator);
+    
+    dockItem.onclick = function() {
+        openWindow(id);
+        dockItem.remove();
+    };
+    
+    const dockSep = document.querySelector('.dock-sep');
+    if (dockSep) {
+        dockSep.parentNode.insertBefore(dockItem, dockSep);
+    } else {
+        document.querySelector('.dock-glass').appendChild(dockItem);
+    }
+}

@@ -162,8 +162,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-clock')">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-clock')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">Orologio</span>
         </div>
@@ -177,8 +177,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-calendar')">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-calendar')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">Calendario</span>
         </div>
@@ -197,8 +197,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-weather')">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-weather')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">Meteo</span>
         </div>
@@ -222,8 +222,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-about')">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-about')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">About Cristian Ingrao</span>
         </div>
@@ -240,8 +240,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-privacy')">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-privacy')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">Privacy Policy</span>
         </div>
@@ -257,8 +257,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-support')">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-support')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">Support</span>
         </div>
@@ -274,8 +274,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-cv')" style="background: rgba(240,240,240,0.95); border-bottom:1px solid #ccc;">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-cv')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">CV_Cristian.rtf</span>
         </div>
@@ -294,8 +294,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-projects')" style="background: rgba(240,240,240,0.95); border-bottom:1px solid #ccc;">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-projects')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">Progetti.rtf</span>
         </div>
@@ -314,8 +314,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-skills')" style="background: rgba(240,240,240,0.95); border-bottom:1px solid #ccc;">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-skills')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">Competenze.rtf</span>
         </div>
@@ -347,8 +347,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-easteregg')" style="background: rgba(40,40,40,0.95); border-bottom:1px solid #222;">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-easteregg')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title" style="color:white;">Non_Aprire.mp4</span>
         </div>
@@ -362,8 +362,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-trash')" style="background: rgba(240,240,240,0.9);">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-trash')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title">Cestino</span>
         </div>
@@ -402,8 +402,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-folder-miniature')" style="background: rgba(240,240,240,0.9);">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-folder-miniature')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title" style="display:flex; align-items:center; justify-content:center; gap:5px; margin: 0 auto;">
                 <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:16px;"> miniature
@@ -437,8 +437,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-folder-video')" style="background: rgba(240,240,240,0.9);">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-folder-video')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title" style="display:flex; align-items:center; justify-content:center; gap:5px; margin: 0 auto;">
                 <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:16px;"> video
@@ -468,8 +468,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-folder-uni')" style="background: rgba(240,240,240,0.9);">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-folder-uni')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title" style="display:flex; align-items:center; justify-content:center; gap:5px; margin: 0 auto;">
                 <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:16px;"> università
@@ -514,7 +514,7 @@
     <div class="mac-window" id="win-folder-uni-1" style="display:none; top:200px; left:300px; width:600px; height:400px;">
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-folder-uni-1')" style="background: rgba(240,240,240,0.9);">
             <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-folder-uni-1')"></div><div class="tl yellow"></div><div class="tl green"></div>
+                <div class="tl red" onclick="closeWin('win-folder-uni-1')"></div><div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div><div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title" style="display:flex; align-items:center; justify-content:center; gap:5px; margin: 0 auto;">
                 <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:16px;"> Primo Anno
@@ -540,7 +540,7 @@
     <div class="mac-window" id="win-folder-uni-2" style="display:none; top:210px; left:310px; width:600px; height:400px;">
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-folder-uni-2')" style="background: rgba(240,240,240,0.9);">
             <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-folder-uni-2')"></div><div class="tl yellow"></div><div class="tl green"></div>
+                <div class="tl red" onclick="closeWin('win-folder-uni-2')"></div><div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div><div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title" style="display:flex; align-items:center; justify-content:center; gap:5px; margin: 0 auto;">
                 <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:16px;"> Secondo Anno
@@ -568,7 +568,7 @@
     <div class="mac-window" id="win-folder-uni-3" style="display:none; top:220px; left:320px; width:600px; height:400px;">
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-folder-uni-3')" style="background: rgba(240,240,240,0.9);">
             <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-folder-uni-3')"></div><div class="tl yellow"></div><div class="tl green"></div>
+                <div class="tl red" onclick="closeWin('win-folder-uni-3')"></div><div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div><div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title" style="display:flex; align-items:center; justify-content:center; gap:5px; margin: 0 auto;">
                 <img src="https://img.icons8.com/color/512/mac-folder.png" style="width:16px;"> Terzo Anno
@@ -596,8 +596,8 @@
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-app-viewer')" style="background: rgba(240,240,240,0.9);">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-app-viewer')"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
             </div>
             <span class="win-title" id="app-viewer-title">App</span>
         </div>
