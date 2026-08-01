@@ -315,6 +315,9 @@ function minimizeWin(id) {
     let title = "Finestra";
     let iconUrl = win.getAttribute('data-dock-icon') || "https://img.icons8.com/color/512/mac-folder.png";
     let isApp = false;
+    if (win.hasAttribute('data-dock-icon')) {
+        isApp = true;
+    }
     
     if (id === 'win-app-viewer') {
         title = document.getElementById('app-viewer-title').innerText;

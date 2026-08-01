@@ -18,9 +18,6 @@
     </filter>
   </defs>
 
-  <!-- Sfondo squircle macOS -->
-  <rect width="100" height="100" rx="22.5" fill="#1c1c1e"/>
-
   <!-- Sole -->
   <circle cx="65" cy="40" r="22" fill="url(#sunGrad)"/>
 
