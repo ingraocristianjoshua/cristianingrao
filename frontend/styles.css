@@ -555,13 +555,26 @@ body, html {
     font-size: 15px;
     line-height: 1.6;
     overflow-y: auto;
+    overflow-x: hidden;
+    word-break: break-word;
     flex: 1;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 20px;
 }
 
 @media (max-width: 768px) {
     .textedit-dark {
         padding: 20px !important;
         font-size: 14px;
+    }
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
 
