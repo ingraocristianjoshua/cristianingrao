@@ -1,0 +1,68 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background glowing gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F3B9B"/>
+      <stop offset="50%" stop-color="#2D1B6E"/>
+      <stop offset="100%" stop-color="#140A36"/>
+    </linearGradient>
+
+    <!-- Liquid Glass Body (Semi-transparent overlay) -->
+    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.4)"/>
+      <stop offset="20%" stop-color="rgba(255, 255, 255, 0.1)"/>
+      <stop offset="80%" stop-color="rgba(255, 255, 255, 0.02)"/>
+      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.2)"/>
+    </linearGradient>
+
+    <!-- Liquid Glass Play Button -->
+    <linearGradient id="playGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FF3B70"/>
+      <stop offset="100%" stop-color="#9A153E"/>
+    </linearGradient>
+
+    <!-- Inner Highlight -->
+    <linearGradient id="highlight" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.7)"/>
+      <stop offset="20%" stop-color="rgba(255,255,255,0.0)"/>
+    </linearGradient>
+
+    <!-- Drop Shadows & Glow -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Solid vibrant background (representing what's behind the glass) -->
+  <rect x="10" y="10" width="100" height="100" rx="26" fill="url(#bgGrad)" filter="url(#shadow)"/>
+  
+  <!-- The glass layer -->
+  <rect x="10" y="10" width="100" height="100" rx="26" fill="url(#glassGrad)"/>
+  
+  <!-- Inner specular highlight for 3D liquid effect -->
+  <rect x="10" y="10" width="100" height="100" rx="26" fill="none" stroke="url(#highlight)" stroke-width="2" opacity="0.9"/>
+  <rect x="10" y="10" width="100" height="100" rx="26" fill="none" stroke="#000" stroke-width="1" opacity="0.3"/>
+
+  <!-- Play button outer glow -->
+  <circle cx="60" cy="60" r="22" fill="#FF3B70" opacity="0.5" filter="url(#glow)"/>
+
+  <!-- Play Button Glass layer -->
+  <circle cx="60" cy="60" r="20" fill="url(#playGrad)"/>
+  <circle cx="60" cy="60" r="20" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
+
+  <!-- Play Icon -->
+  <polygon points="53,48 53,72 73,60" fill="#ffffff"/>
+  
+  <!-- Top corner film strip detail (Subtle Apple-like touch) -->
+  <rect x="18" y="18" width="6" height="4" rx="1" fill="rgba(255,255,255,0.3)"/>
+  <rect x="28" y="18" width="6" height="4" rx="1" fill="rgba(255,255,255,0.3)"/>
+  <rect x="38" y="18" width="6" height="4" rx="1" fill="rgba(255,255,255,0.3)"/>
+  
+  <rect x="18" y="98" width="6" height="4" rx="1" fill="rgba(255,255,255,0.3)"/>
+  <rect x="28" y="98" width="6" height="4" rx="1" fill="rgba(255,255,255,0.3)"/>
+  <rect x="38" y="98" width="6" height="4" rx="1" fill="rgba(255,255,255,0.3)"/>
+</svg>
