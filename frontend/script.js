@@ -322,6 +322,13 @@ document.addEventListener('click', function(e) {
     }
 });
 
+// Image Viewer
+function openImage(url, title) {
+    document.getElementById('image-viewer-title').textContent = title;
+    document.getElementById('image-viewer-content').src = url;
+    openWindow('win-image-viewer');
+}
+
 // Dynamic App Viewer
 function openApp(appName, iconUrl) {
     document.getElementById('app-viewer-title').textContent = appName;

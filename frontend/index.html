@@ -639,11 +639,11 @@
                     <span class="folder-name">Terzo Anno</span>
                 </div>
                 <!-- Immagini UniPa -->
-                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openApp('Logo UniPa', 'https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png')">
+                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openImage('https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png', 'Logo_UniPa.png')">
                     <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png" style="width:70px; height:70px; object-fit:contain; margin:0 auto 5px; border-radius:4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background:white;">
                     <span class="folder-name">Logo_UniPa.png</span>
                 </div>
-                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openApp('Dip. Ingegneria', 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG')">
+                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openImage('https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG', 'Ingegneria.jpg')">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG" style="width:70px; height:70px; object-fit:cover; margin:0 auto 5px; border-radius:4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
                     <span class="folder-name">Ingegneria.jpg</span>
                 </div>
@@ -729,6 +729,21 @@
                 <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Python</span></div>
                 <div class="folder" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><span class="folder-name">Prova Finale</span></div>
             </div>
+        </div>
+    </div>
+
+    <!-- IMAGE VIEWER WINDOW -->
+    <div class="mac-window" id="win-image-viewer" style="display:none; top:calc(50vh - 200px); left:calc(50vw - 250px); width:500px; height:400px; z-index: 1000;">
+        <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-image-viewer')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-image-viewer')"></div>
+                <div class="tl yellow" onclick="minimizeWin('win-image-viewer')"></div>
+                <div class="tl green" onclick="maximizeWin('win-image-viewer')"></div>
+            </div>
+            <span class="win-title" id="image-viewer-title" style="color:white; font-size: 13px; font-weight:500;">Immagine</span>
+        </div>
+        <div class="win-body" style="padding:0; overflow:hidden; background: rgba(30,30,30,0.95); display: flex; align-items: center; justify-content: center; height: calc(100% - 25px);">
+            <img src="" id="image-viewer-content" style="max-width: 100%; max-height: 100%; object-fit: contain; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
         </div>
     </div>
 
