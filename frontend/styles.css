@@ -15,17 +15,21 @@ body, html {
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.3); }
 
 .wallpaper {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0;
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    z-index: 0;
     background-image: url('wallpaper.jpg');
     background-size: cover;
     background-position: center;
     background-color: #000;
+    /* The wallpaper fades out as you scroll down */
+    pointer-events: none;
 }
 
 
 /* ============ MENUBAR ============ */
 .menubar {
-    position:absolute; top:0; left:0; right:0; height:30px; z-index:9999;
+    position: fixed; top:0; left:0; right:0; height:30px; z-index:9999;
     display:flex; justify-content:space-between; align-items:center;
     background: rgba(20, 20, 20, 0.65);
     backdrop-filter: blur(40px) saturate(180%); -webkit-backdrop-filter: blur(40px) saturate(180%);
@@ -242,12 +246,16 @@ body, html {
 
 /* ============ DOCK ============ */
 .dock-bar {
-    position: absolute;
-    bottom: 20px;
+    position: fixed;
+    bottom: 14px;
     left: 0; right: 0;
     display: flex;
     justify-content: center;
-    z-index: 100;
+    z-index: 9999;
+    pointer-events: none; /* allow clicks on portfolio behind dock */
+}
+.dock-bar .dock-glass {
+    pointer-events: all; /* but dock itself is clickable */
 }
 .dock-glass {
     background: rgba(50, 50, 50, 0.35);
@@ -1054,9 +1062,10 @@ body, html {
 #desktop-hero {
     position: relative;
     width: 100%;
+    min-height: 100vh;
     height: 100vh;
     z-index: 5;
-    overflow: hidden; /* clip everything inside */
+    /* Do NOT overflow:hidden — windows need to be draggable */
 }
 
 /* PORTFOLIO SCROLLABLE CONTENT */
@@ -1067,11 +1076,10 @@ body, html {
 
 /* ─── Canvas Base ─────────────────────────────────────────── */
 #portfolio-scrollable-content {
-    background: #08080f;
-    background-image:
-        radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px);
-    background-size: 30px 30px;
-    padding-bottom: 0;
+    background: transparent;
+    position: relative;
+    z-index: 5;
+    /* Portfolio lives in the same world as the desktop */
 }
 
 #apple-bento-grid-container {
@@ -1668,4 +1676,124 @@ body, html {
     .fi-3, .fi-5, .fi-6 { display: none; }
     .section-label { font-size: 32px; }
     .social-card { min-height: 360px; }
+}
+
+
+/* ═══════════════════════════════════════════════════════════ */
+/* SEAMLESS DESKTOP ↔ PORTFOLIO TRANSITION                     */
+/* The wallpaper stays fixed. The desktop "extends" downward.  */
+/* ═══════════════════════════════════════════════════════════ */
+
+/* Unified background behind everything */
+body {
+    background:
+        radial-gradient(ellipse at 20% 10%, rgba(80,20,200,0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 15%, rgba(0,80,200,0.15) 0%, transparent 50%),
+        linear-gradient(180deg,
+            #05050e 0%,
+            #08080f 30%,
+            #07070e 100%
+        );
+    background-attachment: fixed;
+}
+
+/* The wallpaper image fades out as user scrolls */
+.wallpaper {
+    transition: opacity 0.1s linear;
+}
+
+/* Desktop hero is 100vh but NOT clip — mac windows can extend out of it */
+#desktop-hero {
+    height: 100vh;
+    position: relative;
+    z-index: 5;
+}
+
+/* The dot pattern covers the whole scrollable page (fixed) */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
+    z-index: 0;
+    animation: grid-slow 40s linear infinite;
+}
+@keyframes grid-slow {
+    from { background-position: 0 0; }
+    to   { background-position: 60px 60px; }
+}
+
+/* Gradient "bridge" between desktop footer and portfolio */
+#portfolio-scrollable-content {
+    position: relative;
+    z-index: 5;
+    background: transparent;
+    /* Soft top fade so the dock doesn't create a hard edge */
+    padding-top: 0;
+}
+/* Blending overlay at the very top of the portfolio section */
+#portfolio-scrollable-content::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, rgba(7,7,14,0.0) 0%, rgba(7,7,14,0.0) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Mac windows float above everything */
+.mac-window {
+    z-index: 200;
+}
+
+/* Desktop content stays in the viewport */
+.desktop-content {
+    position: relative;
+    z-index: 5;
+}
+
+/* Dock stays fixed at the bottom always */
+.dock-wrapper {
+    position: fixed !important;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999 !important;
+}
+
+/* Menubar stays fixed at top */
+.menubar {
+    position: fixed !important;
+    top: 0; left: 0; right: 0;
+    z-index: 9998 !important;
+}
+
+/* Scroll indicator subtler */
+.scroll-indicator {
+    position: fixed !important;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    transition: opacity 0.5s;
+}
+
+/* Section label - visible on dark bg */
+.section-label {
+    color: #f2f2f7;
+    position: relative; z-index: 10;
+}
+
+/* The portfolio container has some top padding so content starts below "viewport fold" */
+#apple-bento-grid-container {
+    padding-top: 100px;
+    position: relative; z-index: 10;
+}
+
+/* All cards raised above the fixed bg */
+.bg-card, .mac-cover-window, .project-cluster, .contacts-carousel-wrapper, .portfolio-footer {
+    position: relative; z-index: 10;
 }
