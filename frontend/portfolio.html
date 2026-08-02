@@ -180,8 +180,10 @@
         }
         #win-bio { grid-column: span 8; animation-delay: 0.1s; }
         #win-photo { grid-column: span 4; animation-delay: 0.2s; }
+        #win-projects { grid-column: span 12; animation-delay: 0.25s; }
         #win-skills { grid-column: span 6; animation-delay: 0.3s; }
         #win-edu { grid-column: span 6; animation-delay: 0.4s; }
+        #win-contacts { grid-column: span 12; animation-delay: 0.5s; }
 
         /* Bio */
         .bio-content { padding: 40px; }
@@ -219,7 +221,30 @@
         .edu-title { font-size: 20px; font-weight: 700; color: #fff; margin: 0 0 8px 0; }
         .edu-desc { font-size: 15px; color: #aaa; margin: 0; line-height: 1.5; }
 
-        .contact-item:hover { background: #2a2a2a !important; transform: translateX(8px); box-shadow: -5px 5px 15px rgba(0,0,0,0.3); }
+        /* Projects */
+        .projects-grid { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .project-card { 
+            background: #222; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+        }
+        .project-card:hover { transform: translateY(-8px); background: #2a2a2a; box-shadow: 0 15px 30px rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.15); }
+        .project-card:hover .project-img { transform: scale(1.05); }
+        .project-img-container { width: 100%; height: 160px; overflow: hidden; background: #333; }
+        .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .project-info { padding: 20px; position: relative; z-index: 2; background: #222; transition: background 0.3s; }
+        .project-card:hover .project-info { background: #2a2a2a; }
+        .project-title { font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 10px 0; }
+        .project-desc { font-size: 14px; color: #aaa; margin: 0; line-height: 1.5; }
+        .project-tech { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
+        .project-tech span { font-size: 11px; font-weight: 600; padding: 4px 10px; background: rgba(255,255,255,0.1); border-radius: 12px; color: #ccc; }
+        .project-link { position: absolute; top: 15px; right: 15px; width: 35px; height: 35px; background: rgba(0,0,0,0.5); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #fff; backdrop-filter: blur(5px); transition: transform 0.2s, background 0.2s; text-decoration: none; }
+        .project-link:hover { transform: scale(1.1); background: rgba(0,122,255,0.8); }
+
+        .contact-list { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+        .contact-item { display: flex; align-items: center; gap: 15px; padding: 20px; background: #222; border-radius: 16px; text-decoration: none; color: #fff; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .contact-item:hover { background: #2a2a2a !important; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.1); }
+
 
         /* Mobile Optimization */
         @media (max-width: 900px) {
@@ -230,8 +255,13 @@
             .hero-window { min-height: 300px; }
             .hero-float-icon { width: 40px !important; }
             .bio-text h2 { font-size: 24px; }
+            .projects-grid { grid-template-columns: repeat(2, 1fr); }
+            .contact-list { grid-template-columns: 1fr; }
             .skills-container { grid-template-columns: repeat(3, 1fr); gap: 10px; }
             .skill-node { padding: 15px; }
+        }
+        @media (max-width: 600px) {
+            .projects-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 500px) {
             .skills-container { grid-template-columns: repeat(2, 1fr); }
@@ -293,7 +323,7 @@
                 <div class="win-content">
                     <div class="bio-content">
                         <div class="bio-text">
-                            <span class="bio-date">Agosto 2026 alle 10:00</span>
+                            <span class="bio-date"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px; margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Milano, Italia &nbsp;|&nbsp; ⌚ <span id="bento-time">--:--</span></span>
                             <h2>Mi chiamo Cristian Ingrao<br>e sono un Software Developer.</h2>
                             <p>Lavoro su <strong>architetture scalabili, frontend interattivi</strong> e <strong>ecosistemi web</strong>, ma quello che mi appassiona di più è curare l'esperienza utente in ogni dettaglio: lo vedo come un <strong>puzzle</strong>, dove costruisco la logica complessa dietro le quinte assicurandomi che l'interfaccia sia fluida e "Apple-like".</p>
                             <p>Costruisco esperienze web ispirate al design dei migliori OS Desktop.</p>
@@ -314,6 +344,49 @@
                 </div>
                 <div class="win-content p-0">
                     <img src="./logo_ci.jpg" alt="Cristian Ingrao" class="full-img">
+                </div>
+            </div>
+
+            <!-- WIN: PROJECTS -->
+            <div class="mac-window dark" id="win-projects">
+                <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-projects')">
+                    <div class="win-controls">
+                        <div class="tl red" onclick="closeWin('win-projects')"></div>
+                        <div class="tl yellow"></div>
+                        <div class="tl green"></div>
+                    </div>
+                    <span class="win-title">Progetti Recenti</span>
+                </div>
+                <div class="win-content">
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <a href="#" class="project-link"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+                            <div class="project-img-container"><div class="project-img" style="background: linear-gradient(45deg, #1f4037, #99f2c8);"></div></div>
+                            <div class="project-info">
+                                <h3 class="project-title">Sistema e-Commerce B2B</h3>
+                                <p class="project-desc">Piattaforma scalabile per la gestione di ordini all'ingrosso con integrazione ERP.</p>
+                                <div class="project-tech"><span>Next.js</span><span>Node</span><span>MySQL</span></div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <a href="#" class="project-link"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+                            <div class="project-img-container"><div class="project-img" style="background: linear-gradient(45deg, #373b44, #4286f4);"></div></div>
+                            <div class="project-info">
+                                <h3 class="project-title">App Gestione Finanze</h3>
+                                <p class="project-desc">Applicazione per il tracciamento delle spese personali e dashboard analitiche.</p>
+                                <div class="project-tech"><span>React</span><span>Spring</span><span>PostgreSQL</span></div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <a href="#" class="project-link"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+                            <div class="project-img-container"><div class="project-img" style="background: linear-gradient(45deg, #ff416c, #ff4b2b);"></div></div>
+                            <div class="project-info">
+                                <h3 class="project-title">Portfolio macOS</h3>
+                                <p class="project-desc">Un'esperienza desktop immersiva sul web, costruita con layout a finestre draggable.</p>
+                                <div class="project-tech"><span>Vanilla JS</span><span>HTML/CSS</span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -372,7 +445,7 @@
             </div>
 
         <!-- WIN: CONTACTS -->
-        <div class="mac-window dark" id="win-contacts" style="grid-column: span 6;">
+        <div class="mac-window dark" id="win-contacts">
             <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-contacts')">
                 <div class="win-controls">
                     <div class="tl red" onclick="closeWin('win-contacts')"></div>
@@ -382,18 +455,18 @@
                 <span class="win-title">Contatti</span>
             </div>
             <div class="win-content">
-                <div class="contact-list" style="padding: 30px; display: flex; flex-direction: column; gap: 15px;">
-                    <a href="mailto:cristianingrao@gmail.com" class="contact-item" style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #222; border-radius: 12px; text-decoration: none; color: #fff; transition: background 0.2s;">
-                        <div class="contact-icon" style="background: #007aff; width: 40px; height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items: center;"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
-                        <div class="contact-text"><strong style="display: block; font-size: 15px;">Email</strong><span style="font-size: 13px; color: #aaa;">cristianingrao@gmail.com</span></div>
+                <div class="contact-list">
+                    <a href="mailto:cristianingrao@gmail.com" class="contact-item">
+                        <div class="contact-icon" style="background: #007aff; width: 48px; height: 48px; border-radius: 12px; display: flex; justify-content: center; align-items: center;"><svg width="24" height="24" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+                        <div class="contact-text"><strong style="display: block; font-size: 16px;">Email</strong><span style="font-size: 14px; color: #aaa;">Scrivimi un messaggio</span></div>
                     </a>
-                    <a href="https://linkedin.com/in/cristianingrao" target="_blank" class="contact-item" style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #222; border-radius: 12px; text-decoration: none; color: #fff; transition: background 0.2s;">
-                        <div class="contact-icon" style="background: #0077b5; width: 40px; height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items: center;"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
-                        <div class="contact-text"><strong style="display: block; font-size: 15px;">LinkedIn</strong><span style="font-size: 13px; color: #aaa;">in/cristianingrao</span></div>
+                    <a href="https://linkedin.com/in/cristianingrao" target="_blank" class="contact-item">
+                        <div class="contact-icon" style="background: #0077b5; width: 48px; height: 48px; border-radius: 12px; display: flex; justify-content: center; align-items: center;"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                        <div class="contact-text"><strong style="display: block; font-size: 16px;">LinkedIn</strong><span style="font-size: 14px; color: #aaa;">Connettiamoci</span></div>
                     </a>
-                    <a href="https://github.com/ingraocristianjoshua" target="_blank" class="contact-item" style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #222; border-radius: 12px; text-decoration: none; color: #fff; transition: background 0.2s;">
-                        <div class="contact-icon" style="background: #24292f; width: 40px; height: 40px; border-radius: 10px; display: flex; justify-content: center; align-items: center;"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
-                        <div class="contact-text"><strong style="display: block; font-size: 15px;">GitHub</strong><span style="font-size: 13px; color: #aaa;">@ingraocristianjoshua</span></div>
+                    <a href="https://github.com/ingraocristianjoshua" target="_blank" class="contact-item">
+                        <div class="contact-icon" style="background: #24292f; width: 48px; height: 48px; border-radius: 12px; display: flex; justify-content: center; align-items: center;"><svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
+                        <div class="contact-text"><strong style="display: block; font-size: 16px;">GitHub</strong><span style="font-size: 14px; color: #aaa;">Scopri il mio codice</span></div>
                     </a>
                 </div>
             </div>
@@ -414,5 +487,16 @@
             document.getElementById('portfolio-workspace').style.transform = 'scale(1)';
         }
     </script>
+<script>
+    // Update time for the Bento Grid Bio
+    function updateBentoTime() {
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+        const timeEl = document.getElementById('bento-time');
+        if(timeEl) timeEl.innerText = timeString;
+    }
+    setInterval(updateBentoTime, 1000);
+    updateBentoTime();
+</script>
 </body>
 </html>
