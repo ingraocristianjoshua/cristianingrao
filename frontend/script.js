@@ -32,6 +32,24 @@ function updateClock() {
         const fullDateStr = `${dayName} ${dayNum} ${monthName} ${now.getFullYear()}`;
         winClockDate.textContent = fullDateStr;
     }
+    
+    // Update analog clock in dock
+    const dockHour = document.getElementById('dock-hour');
+    const dockMin = document.getElementById('dock-min');
+    const dockSec = document.getElementById('dock-sec');
+    if (dockHour && dockMin && dockSec) {
+        const h = now.getHours() % 12;
+        const m = now.getMinutes();
+        const s = now.getSeconds();
+        
+        const hDeg = h * 30 + m * 0.5;
+        const mDeg = m * 6 + s * 0.1;
+        const sDeg = s * 6;
+        
+        dockHour.style.transform = `rotate(${hDeg}deg)`;
+        dockMin.style.transform = `rotate(${mDeg}deg)`;
+        dockSec.style.transform = `rotate(${sDeg}deg)`;
+    }
 }
 
 // Update clock every second
