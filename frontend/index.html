@@ -108,6 +108,10 @@
                 <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/TextEdit_icon.png" class="folder-icon" alt="File">
                 <span class="folder-name">Competenze.rtf</span>
             </div>
+            <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-projects')">
+                <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Projects">
+                <span class="folder-name">Projects</span>
+            </div>
 
         </div>
 
@@ -542,6 +546,50 @@
     </div>
 
     <!-- FOLDER WINDOWS (FINDER) -->
+    <div class="mac-window" id="win-folder-projects" style="display:none; top:180px; left:280px; width:600px; height:400px;">
+        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-folder-projects')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-folder-projects')"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
+            </div>
+            <span class="win-title">Projects</span>
+        </div>
+        <div class="win-toolbar">
+            <div class="toolbar-btn">⟨ ⟩</div>
+            <div class="toolbar-path">Projects</div>
+        </div>
+        <div class="win-content-flex">
+            <div class="finder-sidebar">
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
+                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
+            </div>
+            <div class="win-body finder-grid">
+                <!-- Projects -->
+                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="window.open('https://bricklinkedu.it', '_blank')">
+                    <img src="https://bricklinkedu.it/assets/icon/favicon.png" class="app-icon-black" style="border-radius:12px; background:white; object-fit:cover;" alt="Bricklink">
+                    <div class="file-name">Bricklink</div>
+                </div>
+                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="window.open('https://togradly.vercel.app', '_blank')">
+                    <img src="https://togradly.vercel.app/icon.svg?icon.0wxbkkq3j-bi5.svg" class="app-icon-black" style="border-radius:12px; background:white; object-fit:contain; padding:4px;" alt="Gradly">
+                    <div class="file-name">Gradly</div>
+                </div>
+                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="window.open('https://ecopalmaps.com', '_blank')">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Leaf_icon_15.svg" class="app-icon-black" style="border-radius:12px; background:#e8f5e9; object-fit:contain; padding:6px;" alt="EcoPalMaps">
+                    <div class="file-name">EcoPalMaps</div>
+                </div>
+                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="window.open('https://github.com/ingraocristianjoshua/afam', '_blank')">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" class="app-icon-black" style="border-radius:12px; background:white; object-fit:contain; padding:2px;" alt="AFAM">
+                    <div class="file-name">AFAM (Java)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="mac-window" id="win-folder-miniature" style="display:none; top:150px; left:250px; width:600px; height:400px;">
         <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-folder-miniature')">
             <div class="traffic-lights">
