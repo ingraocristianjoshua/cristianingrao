@@ -733,7 +733,7 @@
     </div>
 
     <!-- App Popup Window (Dynamic) -->
-    <div class="mac-window app-popup" id="win-app-viewer" style="display:none; top:50%; left:50%; transform:translate(-50%, -50%); width:320px; height:280px; z-index: 1000; padding-bottom: 20px;">
+    <div class="mac-window app-popup" id="win-app-viewer" style="display:none; top:calc(50vh - 140px); left:calc(50vw - 160px); width:320px; height:280px; z-index: 1000; padding-bottom: 20px;">
         <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-app-viewer')">
             <div class="traffic-lights">
                 <div class="tl red" onclick="closeWin('win-app-viewer')"></div>
