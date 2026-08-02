@@ -562,3 +562,21 @@ function switchNote(noteId, element) {
     element.classList.add('active');
     element.style.background = 'rgba(228, 168, 51, 0.2)';
 }
+
+// Intersection Observer for Bento Scroll Animations
+document.addEventListener('DOMContentLoaded', () => {
+    const bentoElements = document.querySelectorAll('.fade-up');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    bentoElements.forEach(el => observer.observe(el));
+});
