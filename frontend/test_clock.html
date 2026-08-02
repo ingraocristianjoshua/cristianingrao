@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body { background: #000; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .clock-icon {
+        width: 150px;
+        height: 150px;
+        background: #1e1e1e;
+        border-radius: 34px; /* squircle */
+        position: relative;
+    }
+    .clock-ticks-min {
+        position: absolute;
+        inset: 4px;
+        border: 2px solid rgba(255,255,255,0.4);
+        border-radius: 30px;
+        -webkit-mask: repeating-conic-gradient(black 0deg, black 1deg, transparent 1deg, transparent 6deg);
+        mask: repeating-conic-gradient(black 0deg, black 1deg, transparent 1deg, transparent 6deg);
+    }
+    .clock-ticks-hour {
+        position: absolute;
+        inset: 4px;
+        border: 4px solid rgba(255,255,255,0.9);
+        border-radius: 30px;
+        -webkit-mask: repeating-conic-gradient(black 0deg, black 2deg, transparent 2deg, transparent 30deg);
+        mask: repeating-conic-gradient(black 0deg, black 2deg, transparent 2deg, transparent 30deg);
+    }
+</style>
+</head>
+<body>
+    <div class="clock-icon">
+        <div class="clock-ticks-min"></div>
+        <div class="clock-ticks-hour"></div>
+    </div>
+</body>
+</html>

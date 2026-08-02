@@ -365,6 +365,13 @@ function closeWin(id) {
         if(dockItem) {
             dockItem.remove();
         }
+        
+        // Remove active indicator from permanent dock item if it exists
+        const existingPermanent = document.querySelector(`.dock-item[onclick*="openWindow('${id}')"]`);
+        if (existingPermanent) {
+            const ind = existingPermanent.querySelector('.active-indicator');
+            if (ind) ind.remove();
+        }
     }
 }
 function startDrag(e, id) {
@@ -500,6 +507,26 @@ function minimizeWin(id) {
     win.classList.remove('active');
     
     if (document.getElementById('minimized-' + id)) return;
+    
+    // Check if the dock already has a permanent icon for this window
+    const existingPermanent = document.querySelector(`.dock-item[onclick*="openWindow('${id}')"]`);
+    if (existingPermanent) {
+        // Add an active indicator if it doesn't have one
+        if (!existingPermanent.querySelector('.active-indicator')) {
+            const indicator = document.createElement('div');
+            indicator.className = 'active-indicator';
+            indicator.style.width = '4px';
+            indicator.style.height = '4px';
+            indicator.style.background = 'rgba(255, 255, 255, 0.8)';
+            indicator.style.borderRadius = '50%';
+            indicator.style.position = 'absolute';
+            indicator.style.bottom = '-8px';
+            indicator.style.left = '50%';
+            indicator.style.transform = 'translateX(-50%)';
+            existingPermanent.appendChild(indicator);
+        }
+        return; // Do not create a duplicate minimized icon
+    }
     
     // Try to get title and icon from the window
     let title = "Finestra";

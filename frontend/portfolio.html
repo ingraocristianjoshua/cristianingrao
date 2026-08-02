@@ -155,8 +155,22 @@
             color: #ddd;
             backdrop-filter: blur(10px);
         }
-        .hero-float-icon { position: absolute; transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        .hero-float-icon:hover { transform: scale(1.2) rotate(0deg) !important; z-index: 20; }
+        @keyframes floatAnim {
+            0% { transform: translateY(0px) var(--base-rotate); }
+            50% { transform: translateY(-15px) var(--base-rotate); }
+            100% { transform: translateY(0px) var(--base-rotate); }
+        }
+        .hero-float-icon { 
+            position: absolute; 
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s;
+            animation: floatAnim 6s ease-in-out infinite;
+        }
+        .hero-float-icon:hover { 
+            transform: scale(1.3) rotate(0deg) translateY(-10px) !important; 
+            z-index: 20; 
+            filter: drop-shadow(0 20px 30px rgba(255,255,255,0.2)) !important;
+            animation-play-state: paused;
+        }
 
         /* Masonry / Grid */
         .windows-container {
@@ -185,19 +199,27 @@
         .skill-node { 
             background: #222; border: 1px solid rgba(255,255,255,0.05); border-radius: 16px;
             padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px;
-            transition: transform 0.2s, background 0.2s;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .skill-node:hover { transform: translateY(-5px); background: #2a2a2a; }
+        .skill-node:hover { 
+            transform: translateY(-8px) scale(1.05); 
+            background: #2a2a2a; 
+            border-color: rgba(255,255,255,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(255,255,255,0.05);
+        }
         .skill-node img { width: 45px; height: 45px; }
         .skill-node span { font-size: 12px; font-weight: 600; color: #888; }
 
         /* Education */
         .edu-list { padding: 30px; display: flex; flex-direction: column; gap: 20px; }
-        .edu-card { background: #222; border-radius: 16px; padding: 25px; border-left: 4px solid #007aff; }
+        .edu-card { background: #222; border-radius: 16px; padding: 25px; border-left: 4px solid #007aff; transition: all 0.3s ease; }
+        .edu-card:hover { transform: translateX(8px); background: #282828; box-shadow: -5px 10px 20px rgba(0,0,0,0.3); }
         .edu-card.green { border-left: 4px solid #34c759; }
         .edu-year { font-size: 12px; font-weight: 700; color: #888; margin-bottom: 8px; }
         .edu-title { font-size: 20px; font-weight: 700; color: #fff; margin: 0 0 8px 0; }
         .edu-desc { font-size: 15px; color: #aaa; margin: 0; line-height: 1.5; }
+
+        .contact-item:hover { background: #2a2a2a !important; transform: translateX(8px); box-shadow: -5px 5px 15px rgba(0,0,0,0.3); }
 
         /* Mobile Optimization */
         @media (max-width: 900px) {
@@ -247,10 +269,10 @@
                 </div>
                 
                 <!-- Floating Icons around Hero -->
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="hero-float-icon" style="top: 20%; left: 15%; width: 60px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); transform: rotate(-15deg);">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="hero-float-icon" style="bottom: 25%; left: 20%; width: 70px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); transform: rotate(10deg);">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="hero-float-icon" style="top: 15%; right: 20%; width: 65px; filter: invert(1) drop-shadow(0 10px 15px rgba(0,0,0,0.5)); transform: rotate(20deg);">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="hero-float-icon" style="bottom: 20%; right: 15%; width: 55px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); transform: rotate(-10deg);">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="hero-float-icon" style="top: 20%; left: 15%; width: 60px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); --base-rotate: rotate(-15deg); animation-delay: 0s;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="hero-float-icon" style="bottom: 25%; left: 20%; width: 70px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); --base-rotate: rotate(10deg); animation-delay: 1.5s;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" class="hero-float-icon" style="top: 15%; right: 20%; width: 65px; filter: invert(1) drop-shadow(0 10px 15px rgba(0,0,0,0.5)); --base-rotate: rotate(20deg); animation-delay: 3s;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="hero-float-icon" style="bottom: 20%; right: 15%; width: 55px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); --base-rotate: rotate(-10deg); animation-delay: 4.5s;">
             </div>
         </div>
 
