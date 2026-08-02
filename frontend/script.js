@@ -262,6 +262,12 @@ function closeWin(id) {
             win.style.display = 'none';
             win.classList.remove('closing');
         }, 200);
+        
+        // Remove from dock if it was minimized there
+        const dockItem = document.getElementById('minimized-' + id);
+        if(dockItem) {
+            dockItem.remove();
+        }
     }
 }
 function startDrag(e, id) {
@@ -447,7 +453,6 @@ function minimizeWin(id) {
     
     dockItem.onclick = function() {
         openWindow(id);
-        dockItem.remove();
     };
     
     // Add to the very end of the dock
