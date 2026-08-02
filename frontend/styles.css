@@ -180,6 +180,13 @@ body, html {
     gap: 15px;
     z-index: 10;
 }
+.desktop-files-right .folder {
+    width: 115px;
+}
+.desktop-files-right .folder-name {
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
 .mobile-apps-grid { display: none; }
 
 /* Finder Grid */
