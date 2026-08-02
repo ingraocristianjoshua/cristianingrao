@@ -833,6 +833,20 @@ body, html {
     position: relative;
     background: transparent;
 }
+.clock-face::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+        from -0.5deg,
+        rgba(255,255,255,0.4) 0deg 1deg,
+        transparent 1deg 6deg
+    );
+    -webkit-mask: radial-gradient(transparent 80%, black 81%);
+    mask: radial-gradient(transparent 80%, black 81%);
+    z-index: 1;
+}
 .clock-num {
     position: absolute;
     font-size: 8px;
@@ -840,6 +854,7 @@ body, html {
     color: #ffffff;
     transform: translate(-50%, -50%);
     font-family: -apple-system, sans-serif;
+    z-index: 2;
 }
 .clock-num-12 { top: 5px; left: 50%; }
 .clock-num-3 { top: 50%; left: 39px; }
