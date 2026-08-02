@@ -869,37 +869,4 @@ document.addEventListener('keydown', (e) => {
     });
 })();
 
-// ═══════════════════════════════════════════════════════════
-// CURSOR TRAIL (Desktop only)
-// ═══════════════════════════════════════════════════════════
-(function initTrail() {
-    if (window.innerWidth < 768) return;
-    const DOTS = 7;
-    const dots = [];
-    for (let i = 0; i < DOTS; i++) {
-        const d = document.createElement('div');
-        const s = 7 - i;
-        d.style.cssText = `position:fixed;width:${s}px;height:${s}px;
-            border-radius:50%;pointer-events:none;z-index:99999;
-            background:rgba(255,255,255,${0.35 - i * 0.04});
-            transform:translate(-50%,-50%);mix-blend-mode:overlay;`;
-        document.body.appendChild(d);
-        dots.push({ el: d, x: 0, y: 0 });
-    }
-    let mx = 0, my = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-    
-    function tick() {
-        let x = mx, y = my;
-        dots.forEach((dot, i) => {
-            const ease = 0.28 - i * 0.028;
-            dot.x += (x - dot.x) * ease;
-            dot.y += (y - dot.y) * ease;
-            dot.el.style.left = dot.x + 'px';
-            dot.el.style.top  = dot.y + 'px';
-            x = dot.x; y = dot.y;
-        });
-        requestAnimationFrame(tick);
-    }
-    tick();
-})();
+
