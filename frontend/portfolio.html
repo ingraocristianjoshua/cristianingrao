@@ -7,447 +7,243 @@
     <meta name="description" content="Portfolio di Cristian Ingrao, Software Developer specializzato in Web Apps, Next.js, React e Java.">
     <meta name="keywords" content="Cristian Ingrao, portfolio, software developer, web developer, React, Next.js, Java">
     <meta name="author" content="Cristian Ingrao">
-    <meta property="og:title" content="Cristian Ingrao — Software Developer">
-    <meta property="og:description" content="Portfolio interattivo in stile macOS">
-    <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Portfolio Specific Styles */
+        body {
+            background: #e5e5ea;
+            background-image: radial-gradient(#d1d1d6 1px, transparent 1px);
+            background-size: 30px 30px;
+            overflow: hidden; /* Desktop-like no scroll */
+            margin: 0; padding: 0;
+            width: 100vw; height: 100vh;
+        }
+
+        /* Portfolio Top Nav */
+        .portfolio-nav {
+            position: fixed; top: 0; left: 0; right: 0; height: 40px; 
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            z-index: 99999; display: flex; align-items: center; padding: 0 20px; 
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+        .back-btn {
+            color: #111; text-decoration: none; font-family: -apple-system, sans-serif; 
+            font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; 
+            cursor: pointer; padding: 4px 10px; border-radius: 6px; transition: background 0.2s;
+        }
+        .back-btn:hover { background: rgba(0,0,0,0.05); }
+
+        /* Initial Entry Animation */
+        .workspace {
+            position: relative; width: 100%; height: 100%;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: workspaceEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            animation-delay: 0.1s;
+        }
+        @keyframes workspaceEnter {
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Window entry staggered animation */
+        .mac-window {
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+            animation: windowPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15), inset 0 0 0 0.5px rgba(255,255,255,0.4);
+            background: rgba(255,255,255,0.85) !important;
+        }
+        .mac-window.dark {
+            background: rgba(30,30,30,0.85) !important;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4), inset 0 0 0 0.5px rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        
+        @keyframes windowPop {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Delays for windows */
+        #win-bio { animation-delay: 0.2s; }
+        #win-edu { animation-delay: 0.3s; }
+        #win-skills { animation-delay: 0.4s; }
+        #win-projects { animation-delay: 0.5s; }
+        #win-contacts { animation-delay: 0.6s; }
+
+        /* Bio Window */
+        .bio-content { display: flex; gap: 20px; padding: 24px; align-items: center; }
+        .bio-img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .bio-text h2 { margin: 0 0 8px 0; font-size: 24px; font-weight: 700; color: #111; }
+        .bio-text p { margin: 0; font-size: 14px; color: #444; line-height: 1.5; }
+
+        /* Skills Grid */
+        .skills-container { padding: 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 15px; }
+        .skill-node { 
+            display: flex; flex-direction: column; align-items: center; gap: 8px;
+            padding: 10px; border-radius: 12px; transition: all 0.2s; cursor: pointer;
+        }
+        .skill-node:hover { background: rgba(0,0,0,0.05); transform: translateY(-4px) scale(1.1); }
+        .dark .skill-node:hover { background: rgba(255,255,255,0.1); }
+        .skill-node img { width: 40px; height: 40px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
+        .skill-node span { font-size: 10px; font-weight: 600; text-align: center; }
+
+        /* Education */
+        .edu-list { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+        .edu-card { background: rgba(0,122,255,0.08); border-left: 4px solid #007aff; padding: 15px; border-radius: 8px; }
+        .edu-card.green { background: rgba(52,199,89,0.08); border-left: 4px solid #34c759; }
+        .edu-year { font-size: 11px; font-weight: 700; color: #666; margin-bottom: 4px; }
+        .edu-title { font-size: 16px; font-weight: 700; color: #111; margin-bottom: 4px; margin-top: 0;}
+        .edu-desc { font-size: 13px; color: #444; margin: 0; }
+
+        /* Contacts */
+        .contact-list { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+        .contact-item { display: flex; align-items: center; gap: 15px; padding: 12px; background: rgba(0,0,0,0.03); border-radius: 10px; text-decoration: none; color: #111; transition: background 0.2s; }
+        .contact-item:hover { background: rgba(0,0,0,0.08); }
+        .contact-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; justify-content: center; align-items: center; }
+        .contact-text strong { display: block; font-size: 14px; }
+        .contact-text span { font-size: 12px; color: #666; }
+    </style>
 </head>
-<body style="background: #08080f; overflow-y: auto !important;">
-    
-    <!-- TOP NAVIGATION FOR PORTFOLIO -->
-    <nav style="position: fixed; top: 0; left: 0; right: 0; height: 50px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); z-index: 9999; display: flex; align-items: center; padding: 0 24px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-        <a href="index.html" style="color: #fff; text-decoration: none; font-family: -apple-system, sans-serif; font-size: 14px; font-weight: 500; display: flex; align-items: center; gap: 8px; cursor: pointer;">
-            <span>←</span> Torna al Desktop
+<body>
+
+    <!-- Top Navigation -->
+    <nav class="portfolio-nav">
+        <a href="index.html" class="back-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            Torna al Desktop
         </a>
     </nav>
 
-<div id="portfolio-scrollable-content">
-            <!-- BENTO / DESKTOP SECTION -->
-            
-            
-            <div id="apple-bento-grid-container">
+    <!-- Workspace Container -->
+    <div class="workspace" id="portfolio-workspace">
 
-                <!-- ══════════════════════════════════════════════════════ -->
-                <!--  SECTION 1 — HERO WINDOW (PORTFOLIO COVER)            -->
-                <!-- ══════════════════════════════════════════════════════ -->
-                <section class="portfolio-section" id="sec-hero">
-                    <div class="mac-cover-window animate-on-scroll">
-                        <div class="mcw-titlebar">
-                            <div class="mcw-dots">
-                                <span class="mcw-dot red"></span>
-                                <span class="mcw-dot yellow"></span>
-                                <span class="mcw-dot green"></span>
-                            </div>
-                            <span class="mcw-title">Portfolio.app — Cristian Ingrao</span>
-                        </div>
-                        <div class="mcw-body">
-                            <!-- Floating tech icons -->
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-                                 class="fi fi-1" alt="React">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                                 class="fi fi-2" alt="TypeScript">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-                                 class="fi fi-3" alt="Java">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg"
-                                 class="fi fi-4 fi-invert" alt="Next.js">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
-                                 class="fi fi-5" alt="NodeJS">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                                 class="fi fi-6" alt="Python">
-
-                            <!-- Center headline -->
-                            <div class="cover-headline">
-                                <p class="cover-eyebrow">Software Development</p>
-                                <h1 class="cover-title" id="hero-font-cycle">PORTFOLIO</h1>
-                                <p class="cover-sub">Cristian Ingrao · Ingegnere Informatico</p>
-                            </div>
-
-                            <!-- Bottom badges -->
-                            <div class="cover-badges">
-                                <span class="badge">React</span>
-                                <span class="badge">Next.js</span>
-                                <span class="badge">TypeScript</span>
-                                <span class="badge">Java</span>
-                                <span class="badge">Node.js</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- ══════════════════════════════════════════════════════ -->
-                <!--  SECTION 2 — CHI SONO (BENTO GRID)                    -->
-                <!-- ══════════════════════════════════════════════════════ -->
-                <section class="portfolio-section" id="sec-about">
-                    <h2 class="section-label animate-on-scroll">Chi Sono</h2>
-                    <div class="bento-grid-4">
-
-                        <!-- Bio — wide + tall -->
-                        <div class="bg-card bg-span-2 bg-row-2 animate-on-scroll">
-                            <div class="bg-header">
-                                <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                <span class="bg-htitle">Bio.txt</span>
-                            </div>
-                            <div class="bg-body bg-bio">
-                                <div class="bio-tag">Ciao, sono</div>
-                                <h2 class="bio-name">Cristian <span>Ingrao</span></h2>
-                                <div class="bio-role">Software Developer & Ingegnere Informatico</div>
-                                <p class="bio-text">Laureato con <strong>104/110</strong> in <strong>Ingegneria Informatica</strong> all'Università di Palermo. Creo interfacce e sistemi che coniugano <strong>architettura solida</strong> e <strong>design impeccabile</strong>. Web Apps, Backend, Mobile — il codice è il mio linguaggio.</p>
-                                <p class="bio-text" style="margin-top: 14px;">Al di fuori dello schermo: AI, gaming, nuove tecnologie.</p>
-                            </div>
-                        </div>
-
-                        <!-- Photo — tall -->
-                        <div class="bg-card bg-span-1 bg-row-2 animate-on-scroll bg-photo-card">
-                            <div class="bg-header">
-                                <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                <span class="bg-htitle">Photo Booth</span>
-                            </div>
-                            <div class="bg-body" style="flex:1; display:flex; align-items:center; justify-content:center; padding: 24px; background: linear-gradient(145deg, #111118, #1c1c28);">
-                                <img src="./assets/images/profile-new.jpg" alt="Cristian Ingrao" class="bio-photo">
-                            </div>
-                        </div>
-
-                        <!-- Unified Skills — tall -->
-                        <div class="bg-card bg-span-1 bg-row-2 animate-on-scroll" style="background: linear-gradient(145deg, #1e1e1e, #2a2a2a);">
-                            <div class="bg-header">
-                                <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                <span class="bg-htitle">Skills.json</span>
-                            </div>
-                            <div class="bg-body skills-icon-grid" style="grid-template-rows: repeat(4, 1fr);">
-                                <div class="skill-icon-item" title="Java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"><span>Java</span></div>
-                                <div class="skill-icon-item" title="TypeScript"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TS"><span>TypeScript</span></div>
-                                <div class="skill-icon-item" title="React"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div>
-                                <div class="skill-icon-item" title="Node.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node"><span>Node.js</span></div>
-                                <div class="skill-icon-item" title="Next.js"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next" style="filter:invert(1)"><span>Next.js</span></div>
-                                <div class="skill-icon-item" title="Python"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"><span>Python</span></div>
-                                <div class="skill-icon-item" title="Git"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
-                                <div class="skill-icon-item" title="MySQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL"><span>MySQL</span></div>
-                            </div>
-                        </div>
-
-                        <!-- Formazione — full width -->
-                        <div class="bg-card bg-span-4 bg-row-1 animate-on-scroll">
-                            <div class="bg-header">
-                                <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                <span class="bg-htitle">Formazione.app</span>
-                            </div>
-                            <div class="bg-body edu-flex">
-                                <div class="edu-item-card blue">
-                                    <div class="edu-period">OTT 2023 — LAUREATO</div>
-                                    <div class="edu-title">Laurea in Ingegneria Informatica</div>
-                                    <div class="edu-place">Università di Palermo · <strong>104/110</strong></div>
-                                </div>
-                                <div class="edu-item-card green">
-                                    <div class="edu-period">2024 — PRESENTE</div>
-                                    <div class="edu-title">Full-Stack Developer</div>
-                                    <div class="edu-place">Next.js · React · Node.js · Java</div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </section>
-
-                <!-- ══════════════════════════════════════════════════════ -->
-                <!--  SECTION 3 — PROGETTI (CLUSTER STYLE)                 -->
-                <!-- ══════════════════════════════════════════════════════ -->
-                <section class="portfolio-section" id="sec-projects">
-                    <h2 class="section-label animate-on-scroll">I Miei Progetti</h2>
-
-                    <!-- BRICKLINK -->
-                    <div class="project-cluster animate-on-scroll">
-                        <div class="cluster-label">01 — BRICKLINK</div>
-                        <div class="cluster-grid">
-                            <div class="bg-card cluster-folder">
-                                <div class="bg-header">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                </div>
-                                <div class="bg-body folder-card-body">
-                                    <img src="https://img.icons8.com/color/512/mac-folder.png" alt="Folder" class="folder-big-icon" style="filter: hue-rotate(200deg) saturate(1.5);">
-                                    <h3 class="folder-name">Bricklink</h3>
-                                    <p class="folder-type">Piattaforma Educativa · TypeScript</p>
-                                </div>
-                            </div>
-                            <div class="bg-card cluster-brief">
-                                <div class="bg-header">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                    <span class="bg-htitle">Brief.txt</span>
-                                </div>
-                                <div class="bg-body" style="padding: 28px;">
-                                    <div class="brief-section">
-                                        <div class="brief-tag">BRIEF</div>
-                                        <p class="brief-p">Enciclopedia interattiva basata sui mattoncini LEGO per imparare la programmazione giocando.</p>
-                                    </div>
-                                    <div class="brief-section">
-                                        <div class="brief-tag">SFIDA</div>
-                                        <p class="brief-p">Interfaccia immersiva e gamificata con database complesso in TypeScript, fluida per tutte le età.</p>
-                                    </div>
-                                    <div class="brief-section">
-                                        <div class="brief-tag">STACK</div>
-                                        <div class="brief-stack">
-                                            <span>TypeScript</span><span>React</span><span>Node.js</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-card cluster-media" style="background: linear-gradient(135deg, #051524 0%, #0a2540 100%);">
-                                <div class="bg-header" style="background: rgba(0,0,0,0.5);">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                    <span class="bg-htitle">Bricklink-Web.mp4</span>
-                                </div>
-                                <div class="cluster-media-body">
-                                    <img src="https://bricklinkedu.it/assets/icon/favicon.png" alt="Bricklink" class="project-logo-big">
-                                    <h2 class="project-title-big" style="color:#4da3ff;">BRICKLINK</h2>
-                                    <p class="project-url">bricklinkedu.it</p>
-                                    <a href="https://bricklinkedu.it" target="_blank" class="proj-btn">Visita il Sito <span>↗</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- GRADUAM -->
-                    <div class="project-cluster cluster-reverse animate-on-scroll">
-                        <div class="cluster-label">02 — GRADUAM</div>
-                        <div class="cluster-grid">
-                            <div class="bg-card cluster-media" style="background: linear-gradient(135deg, #120822 0%, #200d3d 100%);">
-                                <div class="bg-header" style="background: rgba(0,0,0,0.5);">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                    <span class="bg-htitle">Graduam.app</span>
-                                </div>
-                                <div class="cluster-media-body">
-                                    <img src="https://graduam.it/icon.svg?icon.0wxbkkq3j-bi5.svg" alt="Graduam" class="project-logo-big">
-                                    <h2 class="project-title-big" style="color:#c084fc;">GRADUAM</h2>
-                                    <p class="project-url">graduam.it</p>
-                                    <a href="https://graduam.it" target="_blank" class="proj-btn">Visita il Sito <span>↗</span></a>
-                                </div>
-                            </div>
-                            <div class="bg-card cluster-brief">
-                                <div class="bg-header">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                    <span class="bg-htitle">Concept.rtf</span>
-                                </div>
-                                <div class="bg-body" style="padding: 28px;">
-                                    <div class="brief-section">
-                                        <div class="brief-tag">BRIEF</div>
-                                        <p class="brief-p">Calcolatore universitario elegante per media ponderata e voto di laurea, dedicato agli studenti.</p>
-                                    </div>
-                                    <div class="brief-section">
-                                        <div class="brief-tag">SFIDA</div>
-                                        <p class="brief-p">Trasformare uno strumento noioso in una web app premium con design Apple-like in Next.js.</p>
-                                    </div>
-                                    <div class="brief-section">
-                                        <div class="brief-tag">STACK</div>
-                                        <div class="brief-stack">
-                                            <span>Next.js</span><span>React</span><span>TypeScript</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-card cluster-folder">
-                                <div class="bg-header">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                </div>
-                                <div class="bg-body folder-card-body">
-                                    <img src="https://img.icons8.com/color/512/mac-folder.png" alt="Folder" class="folder-big-icon" style="filter: hue-rotate(260deg) saturate(2);">
-                                    <h3 class="folder-name">Graduam</h3>
-                                    <p class="folder-type">Web App · Next.js</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ECOPALMAPS -->
-                    <div class="project-cluster animate-on-scroll">
-                        <div class="cluster-label">03 — ECOPALMAPS</div>
-                        <div class="cluster-grid">
-                            <div class="bg-card cluster-folder">
-                                <div class="bg-header">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                </div>
-                                <div class="bg-body folder-card-body">
-                                    <img src="https://img.icons8.com/color/512/mac-folder.png" alt="Folder" class="folder-big-icon" style="filter: hue-rotate(80deg) saturate(1.5);">
-                                    <h3 class="folder-name">EcoPalMaps</h3>
-                                    <p class="folder-type">Piattaforma Ecologica · Web</p>
-                                </div>
-                            </div>
-                            <div class="bg-card cluster-brief">
-                                <div class="bg-header">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                    <span class="bg-htitle">Eco-Brief.txt</span>
-                                </div>
-                                <div class="bg-body" style="padding: 28px;">
-                                    <div class="brief-section">
-                                        <div class="brief-tag">BRIEF</div>
-                                        <p class="brief-p">Valorizzare i luoghi culturali di Palma di Montechiaro con una mappa ecologica interattiva.</p>
-                                    </div>
-                                    <div class="brief-section">
-                                        <div class="brief-tag">SFIDA</div>
-                                        <p class="brief-p">Mappe dinamiche e percorsi naturalistici in un'unica piattaforma accessibile per il turismo sostenibile.</p>
-                                    </div>
-                                    <div class="brief-section">
-                                        <div class="brief-tag">STACK</div>
-                                        <div class="brief-stack">
-                                            <span>JavaScript</span><span>Maps API</span><span>Node.js</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-card cluster-media" style="background: linear-gradient(135deg, #041a09 0%, #0a3012 100%);">
-                                <div class="bg-header" style="background: rgba(0,0,0,0.5);">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                    <span class="bg-htitle">EcoPalMaps.mp4</span>
-                                </div>
-                                <div class="cluster-media-body">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Leaf_icon_15.svg" alt="EcoPalMaps" class="project-logo-big">
-                                    <h2 class="project-title-big" style="color:#4ade80;">ECOPALMAPS</h2>
-                                    <p class="project-url">ecopalmaps.com</p>
-                                    <a href="https://ecopalmaps.com" target="_blank" class="proj-btn">Visita il Sito <span>↗</span></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- AFAM -->
-                    <div class="project-cluster cluster-reverse animate-on-scroll">
-                        <div class="cluster-label">04 — AFAM SOFTWARE</div>
-                        <div class="cluster-grid">
-                            <div class="bg-card cluster-media" style="background: linear-gradient(135deg, #160508 0%, #2a0b10 100%);">
-                                <div class="bg-header" style="background: rgba(0,0,0,0.5);">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                    <span class="bg-htitle">AFAM-Repo.app</span>
-                                </div>
-                                <div class="cluster-media-body">
-                                    <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" alt="AFAM" class="project-logo-big">
-                                    <h2 class="project-title-big" style="color:#f87171;">AFAM SOFTWARE</h2>
-                                    <p class="project-url">GitHub Repository</p>
-                                    <a href="https://github.com/ingraocristianjoshua/afam" target="_blank" class="proj-btn">Vedi Codice <span>↗</span></a>
-                                </div>
-                            </div>
-                            <div class="bg-card cluster-brief">
-                                <div class="bg-header">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                    <span class="bg-htitle">README.md</span>
-                                </div>
-                                <div class="bg-body" style="padding: 28px;">
-                                    <div class="brief-section">
-                                        <div class="brief-tag">BRIEF</div>
-                                        <p class="brief-p">Software in Java per la gestione completa di accademie e conservatori musicali.</p>
-                                    </div>
-                                    <div class="brief-section">
-                                        <div class="brief-tag">SFIDA</div>
-                                        <p class="brief-p">Architettura object-oriented solida e scalabile con design pattern avanzati (MVC, Factory, Observer).</p>
-                                    </div>
-                                    <div class="brief-section">
-                                        <div class="brief-tag">STACK</div>
-                                        <div class="brief-stack">
-                                            <span>Java</span><span>OOP</span><span>Design Patterns</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="bg-card cluster-folder">
-                                <div class="bg-header">
-                                    <div class="bg-dots"><span class="bg-d r"></span><span class="bg-d y"></span><span class="bg-d g"></span></div>
-                                </div>
-                                <div class="bg-body folder-card-body">
-                                    <img src="https://img.icons8.com/color/512/mac-folder.png" alt="Folder" class="folder-big-icon" style="filter: hue-rotate(330deg) saturate(1.5);">
-                                    <h3 class="folder-name">AFAM</h3>
-                                    <p class="folder-type">Software Java · OOP</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </section>
-
-                <!-- ══════════════════════════════════════════════════════ -->
-                <!--  SECTION 4 — CONTATTI (CAROSELLO SOCIAL)              -->
-                <!-- ══════════════════════════════════════════════════════ -->
-                <section class="portfolio-section" id="sec-contacts">
-                    <h2 class="section-label animate-on-scroll">Contatti</h2>
-
-                    <div class="contacts-carousel-wrapper animate-on-scroll">
-                        <!-- Navigation -->
-                        <div class="carousel-nav">
-                            <button class="carousel-prev" id="carousel-prev" aria-label="Precedente">‹</button>
-                            <div class="carousel-dots" id="carousel-dots"></div>
-                            <button class="carousel-next" id="carousel-next" aria-label="Successivo">›</button>
-                        </div>
-
-                        <!-- Track -->
-                        <div class="carousel-track-container">
-                            <div class="carousel-track" id="carousel-track">
-
-                                <!-- EMAIL -->
-                                <div class="carousel-slide">
-                                    <a href="mailto:cristianingrao@gmail.com" class="social-card" style="--accent: #007aff;">
-                                        <div class="social-card-bg"></div>
-                                        <div class="social-icon-big" style="background: linear-gradient(135deg, #007aff, #00c7ff);">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                                        </div>
-                                        <div class="social-platform">Email</div>
-                                        <div class="social-handle">cristianingrao@gmail.com</div>
-                                        <div class="social-cta">Scrivimi →</div>
-                                    </a>
-                                </div>
-
-                                <!-- INSTAGRAM -->
-                                <div class="carousel-slide">
-                                    <a href="https://instagram.com/cristianingrao" target="_blank" class="social-card" style="--accent: #e1306c;">
-                                        <div class="social-card-bg"></div>
-                                        <div class="social-icon-big" style="background: linear-gradient(135deg, #833ab4, #e1306c, #f77737, #fcaf45);">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                                        </div>
-                                        <div class="social-platform">Instagram</div>
-                                        <div class="social-handle">@cristianingrao</div>
-                                        <div class="social-cta">Seguimi →</div>
-                                    </a>
-                                </div>
-
-                                <!-- LINKEDIN -->
-                                <div class="carousel-slide">
-                                    <a href="https://linkedin.com/in/cristianingrao" target="_blank" class="social-card" style="--accent: #0077b5;">
-                                        <div class="social-card-bg"></div>
-                                        <div class="social-icon-big" style="background: linear-gradient(135deg, #0077b5, #00a0dc);">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                                        </div>
-                                        <div class="social-platform">LinkedIn</div>
-                                        <div class="social-handle">in/cristianingrao</div>
-                                        <div class="social-cta">Connettiti →</div>
-                                    </a>
-                                </div>
-
-                                <!-- GITHUB -->
-                                <div class="carousel-slide">
-                                    <a href="https://github.com/ingraocristianjoshua" target="_blank" class="social-card" style="--accent: #8b949e;">
-                                        <div class="social-card-bg"></div>
-                                        <div class="social-icon-big" style="background: linear-gradient(135deg, #24292f, #424a53);">
-                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                        </div>
-                                        <div class="social-platform">GitHub</div>
-                                        <div class="social-handle">@ingraocristianjoshua</div>
-                                        <div class="social-cta">Esplora il codice →</div>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div class="portfolio-footer animate-on-scroll">
-                        <div class="footer-name">Cristian Ingrao</div>
-                        <div class="footer-copy">© 2026 · Fatto con ❤️ e TypeScript · Palermo, Italia</div>
-                    </div>
-                </section>
-
+        <!-- WIN: BIO -->
+        <div class="mac-window" id="win-bio" style="display:flex; top: 100px; left: 80px; width: 480px; height: 250px; z-index: 105;">
+            <div class="win-titlebar" onmousedown="startDrag(event, 'win-bio')">
+                <div class="win-controls">
+                    <div class="tl red" onclick="closeWin('win-bio')"></div>
+                    <div class="tl yellow"></div>
+                    <div class="tl green"></div>
+                </div>
+                <span class="win-title">Chi Sono.rtf</span>
             </div>
-    </div>
-    <script src="script.js"></script>
+            <div class="win-content">
+                <div class="bio-content">
+                    <img src="./logo_ci.jpg" alt="Cristian Ingrao" class="bio-img">
+                    <div class="bio-text">
+                        <h2>Cristian Ingrao</h2>
+                        <p>Sono un Software Developer appassionato di interfacce interattive e architetture scalabili. Costruisco esperienze web fluide ispirate al design dei migliori ecosistemi OS.</p>
+                        <p style="margin-top: 10px; font-weight: 500;">📍 Palermo, Italia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- WIN: SKILLS (DARK) -->
+        <div class="mac-window dark" id="win-skills" style="display:flex; top: 150px; left: 600px; width: 550px; height: 380px; z-index: 104;">
+            <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-skills')">
+                <div class="win-controls">
+                    <div class="tl red" onclick="closeWin('win-skills')"></div>
+                    <div class="tl yellow"></div>
+                    <div class="tl green"></div>
+                </div>
+                <span class="win-title">Strumenti e Tecnologie</span>
+            </div>
+            <div class="win-content">
+                <div class="skills-container">
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"><span>HTML5</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"><span>CSS3</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"><span>JavaScript</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"><span>TypeScript</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"><span>React</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" style="filter: invert(1);"><span>Next.js</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"><span>Node.js</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"><span>Java</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"><span>Spring</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"><span>MySQL</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"><span>Git</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="filter: invert(1);"><span>GitHub</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"><span>Docker</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"><span>VS Code</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/intellij/intellij-original.svg"><span>IntelliJ</span></div>
+                    <div class="skill-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg"><span>Figma</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WIN: EDUCATION -->
+        <div class="mac-window" id="win-edu" style="display:flex; top: 400px; left: 100px; width: 420px; height: 350px; z-index: 103;">
+            <div class="win-titlebar" onmousedown="startDrag(event, 'win-edu')">
+                <div class="win-controls">
+                    <div class="tl red" onclick="closeWin('win-edu')"></div>
+                    <div class="tl yellow"></div>
+                    <div class="tl green"></div>
+                </div>
+                <span class="win-title">Formazione</span>
+            </div>
+            <div class="win-content">
+                <div class="edu-list">
+                    <div class="edu-card">
+                        <div class="edu-year">ATTUALE</div>
+                        <h3 class="edu-title">AFAM</h3>
+                        <p class="edu-desc">Sviluppo Software, Architetture Java, Programmazione Orientata agli Oggetti (OOP) e Database.</p>
+                    </div>
+                    <div class="edu-card green">
+                        <div class="edu-year">2020 - 2024</div>
+                        <h3 class="edu-title">Diploma Informatico</h3>
+                        <p class="edu-desc">Fondamenti di programmazione, reti, sistemi operativi e sviluppo web.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- WIN: CONTACTS -->
+        <div class="mac-window" id="win-contacts" style="display:flex; top: 580px; left: 700px; width: 350px; height: 260px; z-index: 102;">
+            <div class="win-titlebar" onmousedown="startDrag(event, 'win-contacts')">
+                <div class="win-controls">
+                    <div class="tl red" onclick="closeWin('win-contacts')"></div>
+                    <div class="tl yellow"></div>
+                    <div class="tl green"></div>
+                </div>
+                <span class="win-title">Contatti</span>
+            </div>
+            <div class="win-content">
+                <div class="contact-list">
+                    <a href="mailto:cristianingrao@gmail.com" class="contact-item">
+                        <div class="contact-icon" style="background: #007aff;"><svg width="20" height="20" fill="none" stroke="white" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+                        <div class="contact-text"><strong>Email</strong><span>cristianingrao@gmail.com</span></div>
+                    </a>
+                    <a href="https://linkedin.com/in/cristianingrao" target="_blank" class="contact-item">
+                        <div class="contact-icon" style="background: #0077b5;"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></div>
+                        <div class="contact-text"><strong>LinkedIn</strong><span>in/cristianingrao</span></div>
+                    </a>
+                    <a href="https://github.com/ingraocristianjoshua" target="_blank" class="contact-item">
+                        <div class="contact-icon" style="background: #24292f;"><svg width="20" height="20" fill="white" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
+                        <div class="contact-text"><strong>GitHub</strong><span>@ingraocristianjoshua</span></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Check for animateIn flag from desktop transition
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('animateIn') === 'true') {
+            document.getElementById('portfolio-workspace').style.animation = 'workspaceEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards';
+        } else {
+            // No zoom if accessed directly, just fade in
+            document.getElementById('portfolio-workspace').style.animation = 'none';
+            document.getElementById('portfolio-workspace').style.opacity = '1';
+            document.getElementById('portfolio-workspace').style.transform = 'scale(1)';
+        }
+    </script>
 </body>
 </html>
