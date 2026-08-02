@@ -1,0 +1,39 @@
+<svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Rounded corner mask for the image -->
+    <clipPath id="roundCorners">
+      <rect x="5" y="15" width="110" height="90" rx="14" />
+    </clipPath>
+    <!-- Drop shadow for the play button -->
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- The video frame image -->
+  <!-- A mysterious/generic dark frame from Unsplash -->
+  <image href="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&amp;w=300&amp;auto=format&amp;fit=crop" x="5" y="15" width="110" height="90" preserveAspectRatio="xMidYMid slice" clip-path="url(#roundCorners)" />
+  
+  <!-- Subtle inner border to make it look like a macOS file thumbnail -->
+  <rect x="5" y="15" width="110" height="90" rx="14" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+  
+  <!-- Film strip holes at top and bottom to indicate video -->
+  <path d="M 5,15 L 115,15 L 115,25 L 5,25 Z" fill="rgba(0,0,0,0.6)" clip-path="url(#roundCorners)" />
+  <path d="M 5,95 L 115,95 L 115,105 L 5,105 Z" fill="rgba(0,0,0,0.6)" clip-path="url(#roundCorners)" />
+  
+  <rect x="15" y="18" width="8" height="4" rx="1" fill="#ccc"/>
+  <rect x="35" y="18" width="8" height="4" rx="1" fill="#ccc"/>
+  <rect x="55" y="18" width="8" height="4" rx="1" fill="#ccc"/>
+  <rect x="75" y="18" width="8" height="4" rx="1" fill="#ccc"/>
+  <rect x="95" y="18" width="8" height="4" rx="1" fill="#ccc"/>
+  
+  <rect x="15" y="98" width="8" height="4" rx="1" fill="#ccc"/>
+  <rect x="35" y="98" width="8" height="4" rx="1" fill="#ccc"/>
+  <rect x="55" y="98" width="8" height="4" rx="1" fill="#ccc"/>
+  <rect x="75" y="98" width="8" height="4" rx="1" fill="#ccc"/>
+  <rect x="95" y="98" width="8" height="4" rx="1" fill="#ccc"/>
+
+  <!-- Play Button Overlay -->
+  <circle cx="60" cy="60" r="18" fill="rgba(0,0,0,0.5)" stroke="rgba(255,255,255,0.8)" stroke-width="2" filter="url(#shadow)"/>
+  <polygon points="54,51 54,69 69,60" fill="#ffffff" filter="url(#shadow)"/>
+</svg>
