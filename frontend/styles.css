@@ -442,7 +442,7 @@ body, html {
     .weather-widget { width: 100% !important; max-width: 360px; height: auto; margin: 0; }
     .clock-widget, .calendar-widget { width: calc(50% - 6px) !important; aspect-ratio: 1 !important; min-height: unset; padding: 12px; }
     
-    .clock-display { font-size: 56px !important; }
+    .clock-display { font-size: 44px !important; }
     .weather-temp { font-size: 34px !important; }
     .forecast-item span { font-size: 11px; }
     .calendar-widget .cal-header { font-size: 11px; margin-bottom: 4px; }
