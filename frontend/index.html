@@ -523,16 +523,16 @@
             </div>
             <div class="win-body finder-grid">
                 <!-- Spazzatura -->
-                <div class="finder-file">
-                    <div class="file-icon">📄</div>
+                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openApp('Codice Scartato', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg')">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="folder-icon" style="width: 50px; height: 50px;" alt="JS">
                     <div class="file-name">vecchio_codice.js</div>
                 </div>
-                <div class="finder-file">
-                    <div class="file-icon">🖼️</div>
+                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openImage('https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2029&auto=format&fit=crop', 'sfondo_brutto.jpg')">
+                    <img src="https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=200&auto=format&fit=crop" class="folder-icon" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(0,0,0,0.1);" alt="IMG">
                     <div class="file-name">sfondo_brutto.jpg</div>
                 </div>
-                <div class="finder-file">
-                    <div class="file-icon">📁</div>
+                <div class="finder-file" onclick="selectFolder(this, event)">
+                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" style="width: 50px; height: 50px;" alt="Folder">
                     <div class="file-name">Da_Cancellare</div>
                 </div>
             </div>

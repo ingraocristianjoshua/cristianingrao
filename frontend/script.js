@@ -295,7 +295,7 @@ let lastTap = 0;
 function selectFolder(el, e) {
     e.stopPropagation();
     // Deselect all folders
-    document.querySelectorAll('.folder').forEach(f => f.classList.remove('selected'));
+    document.querySelectorAll('.folder, .finder-file').forEach(f => f.classList.remove('selected'));
     // Select current folder
     el.classList.add('selected');
     
@@ -318,7 +318,7 @@ function selectFolder(el, e) {
 // DESELECT ON DESKTOP CLICK
 document.addEventListener('click', function(e) {
     if (!e.target.closest('.folder')) {
-        document.querySelectorAll('.folder').forEach(f => f.classList.remove('selected'));
+        document.querySelectorAll('.folder, .finder-file').forEach(f => f.classList.remove('selected'));
     }
 });
 

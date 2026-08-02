@@ -190,8 +190,11 @@ body, html {
 .finder-file {
     display:flex; flex-direction:column; align-items:center;
     cursor:pointer; padding:8px; border-radius:6px;
+    border: 1px solid transparent; transition: background 0.1s;
 }
 .finder-file:hover { background:rgba(0,122,255,0.12); }
+.finder-file.selected { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.15); }
+.finder-file.selected .file-name { background: #0058d0; color: white; padding: 2px 6px; border-radius: 4px; }
 .finder-file .file-icon { font-size:40px; margin-bottom:4px; }
 .finder-file .file-name { font-size:11px; text-align:center; color:#333; word-break:break-word; }
 
