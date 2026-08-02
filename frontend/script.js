@@ -580,3 +580,165 @@ document.addEventListener('DOMContentLoaded', () => {
 
     bentoElements.forEach(el => observer.observe(el));
 });
+
+
+// ═══════════════════════════════════════════
+// LOADING SCREEN
+// ═══════════════════════════════════════════
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        const ls = document.getElementById('loading-screen');
+        if (ls) ls.classList.add('hidden');
+    }, 1800);
+});
+
+// ═══════════════════════════════════════════
+// INTERSECTION OBSERVER — SCROLL ANIMATIONS
+// ═══════════════════════════════════════════
+const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+        }
+    });
+}, { threshold: 0.08, rootMargin: '0px 0px -60px 0px' });
+
+// Observe all animate-on-scroll elements and section titles
+document.querySelectorAll('.animate-on-scroll, .apple-canvas-title').forEach(el => {
+    scrollObserver.observe(el);
+});
+
+// Also observe hero window
+const heroWrapper = document.querySelector('.hero-window-wrapper');
+if (heroWrapper) {
+    heroWrapper.style.opacity = '0';
+    heroWrapper.style.transform = 'translateY(60px)';
+    heroWrapper.style.transition = 'opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+    scrollObserver.observe(heroWrapper);
+    // Override observer for hero (no class, inline)
+}
+const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+        }
+    });
+}, { threshold: 0.1 });
+if (heroWrapper) heroObserver.observe(heroWrapper);
+
+// ═══════════════════════════════════════════
+// DOCK — MAGNETIC EFFECT
+// ═══════════════════════════════════════════
+const dockItems = document.querySelectorAll('.dock-item');
+const dockGlass = document.querySelector('.dock-glass');
+
+if (dockGlass) {
+    dockGlass.addEventListener('mousemove', (e) => {
+        const dockRect = dockGlass.getBoundingClientRect();
+        const mouseX = e.clientX;
+        
+        dockItems.forEach(item => {
+            const itemRect = item.getBoundingClientRect();
+            const itemCenter = itemRect.left + itemRect.width / 2;
+            const dist = Math.abs(mouseX - itemCenter);
+            const maxDist = 100;
+            
+            if (dist < maxDist) {
+                const scale = 1 + (1 - dist / maxDist) * 0.5;
+                const translateY = -(1 - dist / maxDist) * 18;
+                item.style.transform = `scale(${scale}) translateY(${translateY}px)`;
+            } else {
+                item.style.transform = '';
+            }
+        });
+    });
+    
+    dockGlass.addEventListener('mouseleave', () => {
+        dockItems.forEach(item => { item.style.transform = ''; });
+    });
+}
+
+// ═══════════════════════════════════════════
+// CURSOR TRAIL
+// ═══════════════════════════════════════════
+const desktopHero = document.getElementById('desktop-hero');
+const trail = [];
+const TRAIL_COUNT = 8;
+
+for (let i = 0; i < TRAIL_COUNT; i++) {
+    const dot = document.createElement('div');
+    dot.style.cssText = `
+        position: fixed; width: ${6 - i * 0.5}px; height: ${6 - i * 0.5}px;
+        background: rgba(255,255,255,${0.3 - i * 0.03});
+        border-radius: 50%; pointer-events: none; z-index: 9999;
+        transition: transform 0.1s; transform: translate(-50%, -50%);
+        mix-blend-mode: screen;
+    `;
+    document.body.appendChild(dot);
+    trail.push({ el: dot, x: 0, y: 0 });
+}
+
+let mouseX = 0, mouseY = 0;
+document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+
+function animateTrail() {
+    let x = mouseX, y = mouseY;
+    trail.forEach((t, i) => {
+        t.x += (x - t.x) * (0.3 - i * 0.02);
+        t.y += (y - t.y) * (0.3 - i * 0.02);
+        t.el.style.left = t.x + 'px';
+        t.el.style.top  = t.y + 'px';
+        x = t.x; y = t.y;
+    });
+    requestAnimationFrame(animateTrail);
+}
+animateTrail();
+
+// ═══════════════════════════════════════════
+// PARALLAX FLOATING ICONS IN HERO
+// ═══════════════════════════════════════════
+const floatingIcons = document.querySelectorAll('.floating-icon');
+document.addEventListener('mousemove', (e) => {
+    const xRatio = (e.clientX / window.innerWidth - 0.5) * 2;
+    const yRatio = (e.clientY / window.innerHeight - 0.5) * 2;
+    
+    floatingIcons.forEach((icon, i) => {
+        const depth = (i % 4 + 1) * 5;
+        const x = xRatio * depth;
+        const y = yRatio * depth;
+        icon.style.transform = `translate(${x}px, ${y}px)`;
+    });
+});
+
+// ═══════════════════════════════════════════
+// APPLE CARDS — TILT 3D EFFECT
+// ═══════════════════════════════════════════
+document.querySelectorAll('.apple-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+        const tiltX = (y - 0.5) * -10;
+        const tiltY = (x - 0.5) * 10;
+        card.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateY(-8px) scale(1.02)`;
+    });
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+    });
+});
+
+// ═══════════════════════════════════════════
+// KONAMI CODE EASTER EGG
+// ═══════════════════════════════════════════
+const konamiCode = [38,38,40,40,37,39,37,39,66,65];
+let konamiIndex = 0;
+document.addEventListener('keydown', (e) => {
+    if (e.keyCode === konamiCode[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiCode.length) {
+            openWindow('win-easteregg');
+            konamiIndex = 0;
+        }
+    } else { konamiIndex = 0; }
+});

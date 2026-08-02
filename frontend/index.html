@@ -3,14 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>cristianingrao</title>
+    <title>Cristian Ingrao — Software Developer</title>
+    <meta name="description" content="Portfolio di Cristian Ingrao, Software Developer specializzato in Web Apps, Next.js, React e Java.">
+    <meta name="keywords" content="Cristian Ingrao, portfolio, software developer, web developer, React, Next.js, Java">
+    <meta name="author" content="Cristian Ingrao">
+    <meta property="og:title" content="Cristian Ingrao — Software Developer">
+    <meta property="og:description" content="Portfolio interattivo in stile macOS">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+        <div class="loading-logo">
+            <svg viewBox="0 0 60 60" width="60" height="60">
+                <circle cx="30" cy="30" r="28" stroke="rgba(255,255,255,0.1)" stroke-width="2" fill="none"/>
+                <circle cx="30" cy="30" r="28" stroke="#ffffff" stroke-width="2" fill="none" 
+                    stroke-dasharray="175" stroke-dashoffset="175" 
+                    style="animation: circle-progress 1.5s ease forwards; transform-origin: center; transform: rotate(-90deg)"/>
+            </svg>
+            <div class="loading-text">cristian ingrao</div>
+        </div>
+    </div>
+
     <div id="desktop-hero">
 
     <!-- WALLPAPER -->
@@ -900,7 +920,7 @@
                 <!-- HERO WINDOW — PORTFOLIO                     -->
                 <!-- ═══════════════════════════════════════════ -->
                 <div class="hero-window-wrapper">
-                    <div class="apple-card hero-window">
+                    <div class="apple-card animate-on-scroll hero-window">
                         <div class="a-card-header" style="position: absolute; top: 0; width: 100%; z-index: 20; background: rgba(44,44,46,0.8); backdrop-filter: blur(10px);">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title" style="color: #aeaeb2;">Portfolio - Cristian Ingrao</div>
@@ -927,7 +947,7 @@
                 <div class="apple-bento-grid">
 
                     <!-- Bio (Large) -->
-                    <div class="apple-card a-col-2 a-row-2">
+                    <div class="apple-card animate-on-scroll a-col-2 a-row-2">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Biografia.txt</div>
@@ -940,7 +960,7 @@
                     </div>
 
                     <!-- Photo -->
-                    <div class="apple-card a-col-1 a-row-2" style="display:flex; flex-direction:column;">
+                    <div class="apple-card animate-on-scroll a-col-1 a-row-2" style="display:flex; flex-direction:column;">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Photo Booth</div>
@@ -951,7 +971,7 @@
                     </div>
 
                     <!-- Skills -->
-                    <div class="apple-card a-col-1 a-row-1">
+                    <div class="apple-card animate-on-scroll a-col-1 a-row-1">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Skills</div>
@@ -965,7 +985,7 @@
                     </div>
 
                     <!-- Formazione (Wide) -->
-                    <div class="apple-card a-col-2 a-row-1">
+                    <div class="apple-card animate-on-scroll a-col-2 a-row-1">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Formazione</div>
@@ -985,7 +1005,7 @@
                     </div>
 
                     <!-- Skills extra (1 col) -->
-                    <div class="apple-card a-col-1 a-row-1" style="background: linear-gradient(145deg, #1a1a2e, #16213e);">
+                    <div class="apple-card animate-on-scroll a-col-1 a-row-1" style="background: linear-gradient(145deg, #1a1a2e, #16213e);">
                         <div class="a-card-header" style="background: rgba(0,0,0,0.3);">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">More Skills</div>
@@ -1007,7 +1027,7 @@
                 <div class="apple-bento-grid">
 
                     <!-- BRICKLINK -->
-                    <div class="apple-card a-col-3 a-row-2 a-project-media">
+                    <div class="apple-card animate-on-scroll a-col-3 a-row-2 a-project-media">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Bricklink-Web.mp4</div>
@@ -1019,7 +1039,7 @@
                             <button onclick="window.open('https://bricklinkedu.it', '_blank')" class="btn-canvas">Visita il Sito →</button>
                         </div>
                     </div>
-                    <div class="apple-card a-col-1 a-row-2">
+                    <div class="apple-card animate-on-scroll a-col-1 a-row-2">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Brief.txt</div>
@@ -1033,7 +1053,7 @@
                     </div>
 
                     <!-- GRADUAM -->
-                    <div class="apple-card a-col-1 a-row-2">
+                    <div class="apple-card animate-on-scroll a-col-1 a-row-2">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Concept.rtf</div>
@@ -1045,7 +1065,7 @@
                             <p class="a-brief-text">Trasformare uno strumento noioso in una web app premium con design Apple-like in Next.js.</p>
                         </div>
                     </div>
-                    <div class="apple-card a-col-3 a-row-2 a-project-media">
+                    <div class="apple-card animate-on-scroll a-col-3 a-row-2 a-project-media">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Graduam-App.png</div>
@@ -1059,7 +1079,7 @@
                     </div>
 
                     <!-- ECOPALMAPS -->
-                    <div class="apple-card a-col-3 a-row-2 a-project-media">
+                    <div class="apple-card animate-on-scroll a-col-3 a-row-2 a-project-media">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">EcoPalMaps.mp4</div>
@@ -1071,7 +1091,7 @@
                             <button onclick="window.open('https://ecopalmaps.com', '_blank')" class="btn-canvas">Visita il Sito →</button>
                         </div>
                     </div>
-                    <div class="apple-card a-col-1 a-row-2">
+                    <div class="apple-card animate-on-scroll a-col-1 a-row-2">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Eco-Brief.txt</div>
@@ -1085,7 +1105,7 @@
                     </div>
 
                     <!-- AFAM -->
-                    <div class="apple-card a-col-1 a-row-2">
+                    <div class="apple-card animate-on-scroll a-col-1 a-row-2">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">README.md</div>
@@ -1097,7 +1117,7 @@
                             <p class="a-brief-text">Architettura object-oriented solida con design pattern avanzati.</p>
                         </div>
                     </div>
-                    <div class="apple-card a-col-3 a-row-2 a-project-media">
+                    <div class="apple-card animate-on-scroll a-col-3 a-row-2 a-project-media">
                         <div class="a-card-header">
                             <div class="a-mac-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
                             <div class="a-header-title">Github-Repo.app</div>
