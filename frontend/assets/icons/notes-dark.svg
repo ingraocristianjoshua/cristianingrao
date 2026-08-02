@@ -1,27 +1,57 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="glassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="rgba(255,255,255,0.4)"/>
-      <stop offset="100%" stop-color="rgba(255,255,255,0.05)"/>
+    <!-- Paper gradient -->
+    <linearGradient id="paperGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f0f0f5"/>
     </linearGradient>
+    
+    <!-- Yellow header gradient -->
+    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCE160"/>
+      <stop offset="100%" stop-color="#F3CA30"/>
+    </linearGradient>
+
+    <!-- Inner shadow for realism -->
+    <filter id="innerShadow">
+      <feOffset dx="0" dy="-2"/>
+      <feGaussianBlur stdDeviation="2" result="offset-blur"/>
+      <feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse"/>
+      <feFlood flood-color="black" flood-opacity="0.1" result="color"/>
+      <feComposite operator="in" in="color" in2="inverse" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+
+    <!-- Drop shadow for the tear line -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
   </defs>
 
-  <!-- Liquid Glass body (semi-transparent) -->
-  <rect width="100" height="100" rx="22.5" fill="rgba(40, 40, 40, 0.4)" stroke="url(#glassGrad)" stroke-width="2"/>
+  <!-- Base App Squircle (Shadows are handled by CSS on desktop) -->
+  <rect width="100" height="100" rx="22.5" fill="url(#paperGrad)" />
   
-  <!-- Dark mode yellow header with slight transparency -->
-  <path d="M0 22.5 C0 10 10 0 22.5 0 L77.5 0 C90 0 100 10 100 22.5 L100 28 L0 28 Z" fill="rgba(214, 168, 72, 0.85)"/>
+  <!-- Faint horizontal ruled lines -->
+  <line x1="0" y1="45" x2="100" y2="45" stroke="#e0e0e0" stroke-width="1.5"/>
+  <line x1="0" y1="60" x2="100" y2="60" stroke="#e0e0e0" stroke-width="1.5"/>
+  <line x1="0" y1="75" x2="100" y2="75" stroke="#e0e0e0" stroke-width="1.5"/>
+  <line x1="0" y1="90" x2="100" y2="90" stroke="#e0e0e0" stroke-width="1.5"/>
   
-  <!-- Binding holes (cutout look) -->
-  <circle cx="15" cy="14" r="2" fill="rgba(20,20,20,0.6)"/>
-  <circle cx="29" cy="14" r="2" fill="rgba(20,20,20,0.6)"/>
-  <circle cx="43" cy="14" r="2" fill="rgba(20,20,20,0.6)"/>
-  <circle cx="57" cy="14" r="2" fill="rgba(20,20,20,0.6)"/>
-  <circle cx="71" cy="14" r="2" fill="rgba(20,20,20,0.6)"/>
-  <circle cx="85" cy="14" r="2" fill="rgba(20,20,20,0.6)"/>
+  <!-- Yellow binding top -->
+  <path d="M0 22.5 C0 10 10 0 22.5 0 L77.5 0 C90 0 100 10 100 22.5 L100 28 L0 28 Z" fill="url(#yellowGrad)"/>
   
-  <!-- Lines (subtle white for glass contrast) -->
-  <line x1="15" y1="48" x2="85" y2="48" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="15" y1="68" x2="85" y2="68" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" stroke-linecap="round"/>
-  <line x1="15" y1="88" x2="60" y2="88" stroke="rgba(255,255,255,0.25)" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Torn paper edge effect (subtle zig-zag / straight line with shadow) -->
+  <rect x="0" y="27" width="100" height="2" fill="#d9b122" opacity="0.8"/>
+  <path d="M0 29 L100 29 L100 30 L0 30 Z" fill="#ffffff" filter="url(#dropShadow)" opacity="0.6"/>
+
+  <!-- Binding stitching/texture -->
+  <circle cx="20" cy="14" r="2.5" fill="#c49b1a"/>
+  <circle cx="35" cy="14" r="2.5" fill="#c49b1a"/>
+  <circle cx="50" cy="14" r="2.5" fill="#c49b1a"/>
+  <circle cx="65" cy="14" r="2.5" fill="#c49b1a"/>
+  <circle cx="80" cy="14" r="2.5" fill="#c49b1a"/>
+
+  <!-- Inner border to simulate 3D edge -->
+  <rect width="100" height="100" rx="22.5" fill="none" stroke="#ffffff" stroke-width="2" stroke-opacity="0.8" pointer-events="none" />
+  <rect width="100" height="100" rx="22.5" fill="none" stroke="#000000" stroke-width="1" stroke-opacity="0.1" pointer-events="none" />
 </svg>
