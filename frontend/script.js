@@ -649,41 +649,6 @@ if (dockGlass) {
     });
 }
 
-// ═══════════════════════════════════════════
-// CURSOR TRAIL
-// ═══════════════════════════════════════════
-const desktopHero = document.getElementById('desktop-hero');
-const trail = [];
-const TRAIL_COUNT = 8;
-
-for (let i = 0; i < TRAIL_COUNT; i++) {
-    const dot = document.createElement('div');
-    dot.style.cssText = `
-        position: fixed; width: ${6 - i * 0.5}px; height: ${6 - i * 0.5}px;
-        background: rgba(255,255,255,${0.3 - i * 0.03});
-        border-radius: 50%; pointer-events: none; z-index: 9999;
-        transition: transform 0.1s; transform: translate(-50%, -50%);
-        mix-blend-mode: screen;
-    `;
-    document.body.appendChild(dot);
-    trail.push({ el: dot, x: 0, y: 0 });
-}
-
-let mouseX = 0, mouseY = 0;
-document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-
-function animateTrail() {
-    let x = mouseX, y = mouseY;
-    trail.forEach((t, i) => {
-        t.x += (x - t.x) * (0.3 - i * 0.02);
-        t.y += (y - t.y) * (0.3 - i * 0.02);
-        t.el.style.left = t.x + 'px';
-        t.el.style.top  = t.y + 'px';
-        x = t.x; y = t.y;
-    });
-    requestAnimationFrame(animateTrail);
-}
-animateTrail();
 
 // ═══════════════════════════════════════════
 // PARALLAX FLOATING ICONS IN HERO
