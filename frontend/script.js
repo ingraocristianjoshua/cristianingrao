@@ -583,16 +583,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // ═══════════════════════════════════════════
-// LOADING SCREEN
-// ═══════════════════════════════════════════
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        const ls = document.getElementById('loading-screen');
-        if (ls) ls.classList.add('hidden');
-    }, 1800);
-});
-
-// ═══════════════════════════════════════════
 // INTERSECTION OBSERVER — SCROLL ANIMATIONS
 // ═══════════════════════════════════════════
 const scrollObserver = new IntersectionObserver((entries) => {
