@@ -1,7 +1,7 @@
 /* ============ RESET & BASE ============ */
 * { margin:0; padding:0; box-sizing:border-box; }
 body, html {
-    width:100vw; min-height:100vh; overflow-x:hidden; overflow-y:auto;
+    width:100vw; min-height:100vh; overflow:hidden;
     font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
     cursor: default;
     user-select: none;
