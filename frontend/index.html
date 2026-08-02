@@ -513,10 +513,11 @@
         <div class="win-content-flex">
             <div class="finder-sidebar">
                 <div class="sb-section">Preferiti</div>
-                <div class="sb-item">🏠 Inizio</div>
-                <div class="sb-item">📄 Documenti</div>
-                <div class="sb-item">⬇️ Download</div>
-                <div class="sb-item active">🗑️ Cestino</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
+                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
             </div>
             <div class="win-body finder-grid">
                 <!-- Spazzatura -->
@@ -556,10 +557,12 @@
         </div>
         <div class="win-content-flex">
             <div class="finder-sidebar">
-                <h4 class="sb-section">Preferiti</h4>
-                <div class="sb-item">🕒 Recenti</div>
-                <div class="sb-item">📱 Applicazioni</div>
-                <div class="sb-item">🖥️ Desktop</div>
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
+                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
             </div>
             <div class="win-body finder-grid">
                 <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openApp('Figma', 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg')">
@@ -593,10 +596,12 @@
         </div>
         <div class="win-content-flex">
             <div class="finder-sidebar">
-                <h4 class="sb-section">Preferiti</h4>
-                <div class="sb-item">🕒 Recenti</div>
-                <div class="sb-item">📱 Applicazioni</div>
-                <div class="sb-item">🖥️ Desktop</div>
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
+                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
             </div>
             <div class="win-body finder-grid">
                 <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openApp('Premiere Pro', 'https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg')">
@@ -626,10 +631,12 @@
         </div>
         <div class="win-content-flex">
             <div class="finder-sidebar">
-                <h4 class="sb-section">Preferiti</h4>
-                <div class="sb-item">🕒 Recenti</div>
-                <div class="sb-item">📱 Applicazioni</div>
-                <div class="sb-item">🖥️ Desktop</div>
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
+                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
             </div>
             <div class="win-body finder-grid">
                 <!-- Anni di Studio -->
@@ -672,7 +679,12 @@
         </div>
         <div class="win-content-flex">
             <div class="finder-sidebar">
-                <h4 class="sb-section">Preferiti</h4><div class="sb-item">🕒 Recenti</div><div class="sb-item">📱 Applicazioni</div><div class="sb-item">🖥️ Desktop</div>
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
+                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
             </div>
             <div class="win-body finder-grid">
                 <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Algebra</div></div>
@@ -700,7 +712,12 @@
         </div>
         <div class="win-content-flex">
             <div class="finder-sidebar">
-                <h4 class="sb-section">Preferiti</h4><div class="sb-item">🕒 Recenti</div><div class="sb-item">📱 Applicazioni</div><div class="sb-item">🖥️ Desktop</div>
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
+                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
             </div>
             <div class="win-body finder-grid">
                 <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Algoritmi</div></div>
@@ -730,7 +747,12 @@
         </div>
         <div class="win-content-flex">
             <div class="finder-sidebar">
-                <h4 class="sb-section">Preferiti</h4><div class="sb-item">🕒 Recenti</div><div class="sb-item">📱 Applicazioni</div><div class="sb-item">🖥️ Desktop</div>
+                <div class="sb-section">Preferiti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
+                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
+                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
             </div>
             <div class="win-body finder-grid">
                 <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Controlli</div></div>

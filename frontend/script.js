@@ -235,6 +235,33 @@ initWeather();
 generateCalendar();
 
 // WINDOW SYSTEM
+let zIndexCounter = 100;
+
+function switchFinderTab(el, targetId) {
+    const currentWin = el.closest('.mac-window');
+    if (currentWin.id === targetId) return;
+    
+    // Position target window exactly where current window is
+    const targetWin = document.getElementById(targetId);
+    if (targetWin) {
+        targetWin.style.top = currentWin.style.top;
+        targetWin.style.left = currentWin.style.left;
+        targetWin.style.width = currentWin.style.width;
+        targetWin.style.height = currentWin.style.height;
+    }
+    
+    // Close current
+    currentWin.style.display = 'none';
+    currentWin.classList.remove('active');
+    
+    // Remove from dock if it was minimized (edge case handling)
+    const dockItem = document.getElementById('minimized-' + currentWin.id);
+    if(dockItem) dockItem.remove();
+    
+    // Open target
+    openWindow(targetId);
+}
+
 let highestZ = 100;
 
 document.addEventListener('mousedown', function(e) {
