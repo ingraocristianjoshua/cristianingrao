@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 130" width="100" height="130">
+  <defs>
+    <!-- Shadow for the whole document -->
+    <filter id="docShadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+    
+    <!-- Shadow for the folded corner -->
+    <filter id="foldShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="-2" dy="2" stdDeviation="2" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+
+    <!-- Linear gradient for the main body to give a slight 3D Apple feel -->
+    <linearGradient id="docGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f5f5f7"/>
+    </linearGradient>
+
+    <!-- Linear gradient for the fold -->
+    <linearGradient id="foldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e5e5ea"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Main document body -->
+  <!-- Starts top-left (10,10), goes right to (65,10), down-right to (90,35), down to (90,115), left to (10,115), up to (10,10) -->
+  <path d="M 15 10 
+           L 65 10 
+           L 90 35 
+           L 90 115 
+           C 90 118 88 120 85 120
+           L 20 120
+           C 17 120 15 118 15 115
+           Z" 
+        fill="url(#docGradient)" 
+        stroke="#d1d1d6" stroke-width="1.5"
+        filter="url(#docShadow)" />
+
+  <!-- Folded corner -->
+  <path d="M 65 10
+           L 65 30
+           C 65 33 67 35 70 35
+           L 90 35
+           Z"
+        fill="url(#foldGradient)"
+        stroke="#d1d1d6" stroke-width="1"
+        filter="url(#foldShadow)" />
+
+  <!-- "RTF" text label -->
+  <rect x="25" y="80" width="50" height="22" rx="4" fill="#a1a1a6"/>
+  <text x="50" y="96" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">RTF</text>
+  
+</svg>
