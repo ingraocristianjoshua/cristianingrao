@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="desktop-hero">
 
     <!-- WALLPAPER -->
     <div class="wallpaper"></div>
@@ -546,199 +547,6 @@
     </div>
 
     <!-- FOLDER WINDOWS (FINDER) -->
-    <div class="mac-window" id="win-portfolio" style="display:none; top:80px; left:150px; width:850px; height:650px;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-portfolio')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-portfolio')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Portfolio - Cristian Ingrao</span>
-        </div>
-        <div class="win-body" style="padding:0; background: #fafafa; overflow-y:auto; height: calc(100% - 30px); border-radius: 0 0 10px 10px;">
-            <!-- HERO SECTION -->
-            <div class="portfolio-hero">
-                <div class="hero-bg-dots"></div>
-                <div class="hero-content">
-                    <h2 class="hero-subtitle">SOFTWARE ENGINEERING</h2>
-                    <h1 class="hero-title">PORTFOLIO</h1>
-                    <div class="hero-badge">Cristian Ingrao</div>
-                    
-                    <!-- Floating Icons -->
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" class="float-icon float-1" alt="Figma">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" class="float-icon float-2" alt="React">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="float-icon float-3" alt="Folder">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" class="float-icon float-4" alt="JS">
-                </div>
-            </div>
-
-            <!-- PROJECTS SECTION -->
-            
-            <!-- BENTO / DESKTOP SECTION -->
-            <div class="portfolio-bento">
-                <div class="bento-bg-dots"></div>
-                
-                <!-- Notes: Biografia -->
-                <div class="bento-window bento-notes fade-up delay-1">
-                    <div class="b-win-header">
-                        <div class="b-win-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-                        <div class="b-win-title">Biografia</div>
-                    </div>
-                    <div class="b-win-body">
-                        <h3>Mi chiamo Cristian Ingrao e sono un Software Developer.</h3>
-                        <p>Lavoro su <strong>Web Apps, Backend</strong> e <strong>Mobile</strong>. Il codice per me è come un grande <strong>puzzle</strong>, dove ogni pezzo deve incastrarsi perfettamente sotto un'architettura solida, mantenendo sempre un occhio di riguardo per l'estetica UI/UX.</p>
-                        <p>Quando non programmo, esploro l'Intelligenza Artificiale, seguo le ultime innovazioni tecnologiche e gioco ai videogiochi.</p>
-                    </div>
-                </div>
-
-                <!-- Photo Booth: Foto -->
-                <div class="bento-window bento-photo fade-up delay-2">
-                    <div class="b-win-header">
-                        <div class="b-win-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-                        <div class="b-win-title">Photo Booth</div>
-                    </div>
-                    <div class="b-win-body">
-                        <img src="./assets/images/profile-new.jpg" alt="Cristian Ingrao" id="bento-profile-img">
-                    </div>
-                    <div class="b-win-footer">
-                        <div class="b-shutter-btn"></div>
-                    </div>
-                </div>
-
-                <!-- Mail/Calendar: Formazione -->
-                <div class="bento-window bento-edu fade-up delay-3">
-                    <div class="b-win-header">
-                        <div class="b-win-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-                        <div class="b-win-title">ESPERIENZE</div>
-                    </div>
-                    <div class="b-win-body">
-                        <div class="edu-item">
-                            <div class="edu-date">OTTOBRE 2022 - IN CORSO</div>
-                            <div class="edu-card blue">
-                                <h4>Laurea in Informatica</h4>
-                                <p>Università degli Studi di Palermo. Sviluppo di architetture software complesse, algoritmi e progettazione web e mobile avanzata.</p>
-                            </div>
-                        </div>
-                        <div class="edu-item" style="margin-top:15px;">
-                            <div class="edu-date">SETTEMBRE 2024</div>
-                            <div class="edu-card green">
-                                <h4>Full-stack Developer</h4>
-                                <p>Sviluppo di applicazioni Web (Next.js, React) e sistemi Backend per progetti come Graduam, EcoPalMaps e Bricklink.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Finder: Competenze -->
-                <div class="bento-window bento-skills fade-up delay-4">
-                    <div class="b-win-header">
-                        <div class="b-win-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
-                        <div class="b-win-title">Caratteristiche</div>
-                    </div>
-                    <div class="b-win-body finder-grid-bento">
-                        <div class="b-icon-file">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
-                            <span>Java</span>
-                        </div>
-                        <div class="b-icon-file">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
-                            <span>TypeScript</span>
-                        </div>
-                        <div class="b-icon-file">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
-                            <span>React</span>
-                        </div>
-                        <div class="b-icon-file">
-                            <img src="./assets/icons/folder.png" alt="Altri">
-                            <span>Tante altre...</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contatti Popup -->
-                <div class="bento-window bento-contact fade-up delay-5">
-                    <div class="b-win-body">
-                        <h4 style="margin-top:0; color:#444;">Contatti</h4>
-                        <div class="contact-list">
-                            <div class="contact-item">📧 cristianingrao@gmail.com</div>
-                            <div class="contact-item">📸 @cristian.ingrao</div>
-                            <div class="contact-item">💼 linkedin.com/in/cristianingrao</div>
-                            <div class="contact-item">🐙 github.com/ingraocristianjoshua</div>
-                        </div>
-                        <button class="btn-primary" style="width:100%; margin-top:15px; background: #007aff;">Disponibile per nuovi progetti</button>
-                    </div>
-                </div>
-
-                <!-- Tools Mini Dock -->
-                <div class="bento-dock-container fade-up delay-6">
-                    <div class="bento-dock-label">Tool che utilizzo</div>
-                    <div class="bento-dock">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="bento-dock-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="bento-dock-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="bento-dock-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="bento-dock-icon">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="bento-dock-icon">
-                    </div>
-                </div>
-            </div>
-
-            <div class="portfolio-projects">
-                <h3 class="section-title">I Miei Progetti</h3>
-                <div class="projects-grid">
-                    
-                    <!-- Bricklink -->
-                    <div class="project-card">
-                        <div class="project-img-wrapper" style="background: #e3f2fd;">
-                            <img src="https://bricklinkedu.it/assets/icon/favicon.png" class="project-logo" alt="Bricklink">
-                        </div>
-                        <div class="project-info">
-                            <h4>Bricklink</h4>
-                            <p>Un'enciclopedia interattiva e piattaforma educativa basata sui mattoncini, sviluppata in TypeScript.</p>
-                            <button onclick="window.open('https://bricklinkedu.it', '_blank')" class="btn-primary">Visita il Sito</button>
-                        </div>
-                    </div>
-
-                    <!-- Graduam -->
-                    <div class="project-card">
-                        <div class="project-img-wrapper" style="background: #f3e5f5;">
-                            <img src="https://graduam.it/icon.svg?icon.0wxbkkq3j-bi5.svg" class="project-logo" alt="Graduam">
-                        </div>
-                        <div class="project-info">
-                            <h4>Graduam</h4>
-                            <p>Il calcolatore universitario più elegante per media ponderata e voto di laurea. Piattaforma Next.js.</p>
-                            <button onclick="window.open('https://graduam.it', '_blank')" class="btn-primary">Visita il Sito</button>
-                        </div>
-                    </div>
-
-                    <!-- EcoPalMaps -->
-                    <div class="project-card">
-                        <div class="project-img-wrapper" style="background: #e8f5e9;">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Leaf_icon_15.svg" class="project-logo" style="width: 50px;" alt="EcoPalMaps">
-                        </div>
-                        <div class="project-info">
-                            <h4>EcoPalMaps</h4>
-                            <p>Piattaforma ecologica per la valorizzazione dei luoghi culturali del territorio di Palma di Montechiaro.</p>
-                            <button onclick="window.open('https://ecopalmaps.com', '_blank')" class="btn-primary">Visita il Sito</button>
-                        </div>
-                    </div>
-
-                    <!-- AFAM -->
-                    <div class="project-card">
-                        <div class="project-img-wrapper" style="background: #ffebee;">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" class="project-logo" style="width: 50px;" alt="AFAM">
-                        </div>
-                        <div class="project-info">
-                            <h4>AFAM</h4>
-                            <p>Progetto software universitario scritto interamente in linguaggio Java.</p>
-                            <button onclick="window.open('https://github.com/ingraocristianjoshua/afam', '_blank')" class="btn-secondary">Vedi Repository</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="mac-window" id="win-folder-miniature" style="display:none; top:150px; left:250px; width:600px; height:400px;">
         <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-folder-miniature')">
             <div class="traffic-lights">
@@ -995,6 +803,13 @@
         </div>
     </div>
 
+
+    <!-- SCROLL INDICATOR -->
+    <div class="scroll-indicator" onclick="window.scrollTo({top: window.innerHeight, behavior: 'smooth'})">
+        <span>Scroll for Portfolio</span>
+        <div style="font-size: 20px; font-weight: bold; margin-top: 5px;">↓</div>
+    </div>
+
     <!-- MAC DOCK -->
     <div class="dock-bar">
         <div class="dock-glass">
@@ -1076,4 +891,168 @@
 
     <script src="script.js"></script>
 </body>
-</html>
+</html>    </div>
+    <div id="portfolio-scrollable-content">
+            <!-- BENTO / DESKTOP SECTION -->
+            <div class="portfolio-bento">
+                <div class="bento-bg-dots"></div>
+                
+                <!-- Notes: Biografia -->
+                <div class="bento-window bento-notes fade-up delay-1">
+                    <div class="b-win-header">
+                        <div class="b-win-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+                        <div class="b-win-title">Biografia</div>
+                    </div>
+                    <div class="b-win-body">
+                        <h3>Mi chiamo Cristian Ingrao e sono un Software Developer.</h3>
+                        <p>Lavoro su <strong>Web Apps, Backend</strong> e <strong>Mobile</strong>. Il codice per me è come un grande <strong>puzzle</strong>, dove ogni pezzo deve incastrarsi perfettamente sotto un'architettura solida, mantenendo sempre un occhio di riguardo per l'estetica UI/UX.</p>
+                        <p>Quando non programmo, esploro l'Intelligenza Artificiale, seguo le ultime innovazioni tecnologiche e gioco ai videogiochi.</p>
+                    </div>
+                </div>
+
+                <!-- Photo Booth: Foto -->
+                <div class="bento-window bento-photo fade-up delay-2">
+                    <div class="b-win-header">
+                        <div class="b-win-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+                        <div class="b-win-title">Photo Booth</div>
+                    </div>
+                    <div class="b-win-body">
+                        <img src="./assets/images/profile-new.jpg" alt="Cristian Ingrao" id="bento-profile-img">
+                    </div>
+                    <div class="b-win-footer">
+                        <div class="b-shutter-btn"></div>
+                    </div>
+                </div>
+
+                <!-- Mail/Calendar: Formazione -->
+                <div class="bento-window bento-edu fade-up delay-3">
+                    <div class="b-win-header">
+                        <div class="b-win-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+                        <div class="b-win-title">ESPERIENZE</div>
+                    </div>
+                    <div class="b-win-body">
+                        <div class="edu-item">
+                            <div class="edu-date">OTTOBRE 2022 - IN CORSO</div>
+                            <div class="edu-card blue">
+                                <h4>Laurea in Informatica</h4>
+                                <p>Università degli Studi di Palermo. Sviluppo di architetture software complesse, algoritmi e progettazione web e mobile avanzata.</p>
+                            </div>
+                        </div>
+                        <div class="edu-item" style="margin-top:15px;">
+                            <div class="edu-date">SETTEMBRE 2024</div>
+                            <div class="edu-card green">
+                                <h4>Full-stack Developer</h4>
+                                <p>Sviluppo di applicazioni Web (Next.js, React) e sistemi Backend per progetti come Graduam, EcoPalMaps e Bricklink.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finder: Competenze -->
+                <div class="bento-window bento-skills fade-up delay-4">
+                    <div class="b-win-header">
+                        <div class="b-win-dots"><span class="r"></span><span class="y"></span><span class="g"></span></div>
+                        <div class="b-win-title">Caratteristiche</div>
+                    </div>
+                    <div class="b-win-body finder-grid-bento">
+                        <div class="b-icon-file">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+                            <span>Java</span>
+                        </div>
+                        <div class="b-icon-file">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript">
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="b-icon-file">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React">
+                            <span>React</span>
+                        </div>
+                        <div class="b-icon-file">
+                            <img src="./assets/icons/folder.png" alt="Altri">
+                            <span>Tante altre...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contatti Popup -->
+                <div class="bento-window bento-contact fade-up delay-5">
+                    <div class="b-win-body">
+                        <h4 style="margin-top:0; color:#444;">Contatti</h4>
+                        <div class="contact-list">
+                            <div class="contact-item">📧 cristianingrao@gmail.com</div>
+                            <div class="contact-item">📸 @cristian.ingrao</div>
+                            <div class="contact-item">💼 linkedin.com/in/cristianingrao</div>
+                            <div class="contact-item">🐙 github.com/ingraocristianjoshua</div>
+                        </div>
+                        <button class="btn-primary" style="width:100%; margin-top:15px; background: #007aff;">Disponibile per nuovi progetti</button>
+                    </div>
+                </div>
+
+                <!-- Tools Mini Dock -->
+                <div class="bento-dock-container fade-up delay-6">
+                    <div class="bento-dock-label">Tool che utilizzo</div>
+                    <div class="bento-dock">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="bento-dock-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="bento-dock-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="bento-dock-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="bento-dock-icon">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="bento-dock-icon">
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-projects">
+                <h3 class="section-title">I Miei Progetti</h3>
+                <div class="projects-grid">
+                    
+                    <!-- Bricklink -->
+                    <div class="project-card">
+                        <div class="project-img-wrapper" style="background: #e3f2fd;">
+                            <img src="https://bricklinkedu.it/assets/icon/favicon.png" class="project-logo" alt="Bricklink">
+                        </div>
+                        <div class="project-info">
+                            <h4>Bricklink</h4>
+                            <p>Un'enciclopedia interattiva e piattaforma educativa basata sui mattoncini, sviluppata in TypeScript.</p>
+                            <button onclick="window.open('https://bricklinkedu.it', '_blank')" class="btn-primary">Visita il Sito</button>
+                        </div>
+                    </div>
+
+                    <!-- Graduam -->
+                    <div class="project-card">
+                        <div class="project-img-wrapper" style="background: #f3e5f5;">
+                            <img src="https://graduam.it/icon.svg?icon.0wxbkkq3j-bi5.svg" class="project-logo" alt="Graduam">
+                        </div>
+                        <div class="project-info">
+                            <h4>Graduam</h4>
+                            <p>Il calcolatore universitario più elegante per media ponderata e voto di laurea. Piattaforma Next.js.</p>
+                            <button onclick="window.open('https://graduam.it', '_blank')" class="btn-primary">Visita il Sito</button>
+                        </div>
+                    </div>
+
+                    <!-- EcoPalMaps -->
+                    <div class="project-card">
+                        <div class="project-img-wrapper" style="background: #e8f5e9;">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Leaf_icon_15.svg" class="project-logo" style="width: 50px;" alt="EcoPalMaps">
+                        </div>
+                        <div class="project-info">
+                            <h4>EcoPalMaps</h4>
+                            <p>Piattaforma ecologica per la valorizzazione dei luoghi culturali del territorio di Palma di Montechiaro.</p>
+                            <button onclick="window.open('https://ecopalmaps.com', '_blank')" class="btn-primary">Visita il Sito</button>
+                        </div>
+                    </div>
+
+                    <!-- AFAM -->
+                    <div class="project-card">
+                        <div class="project-img-wrapper" style="background: #ffebee;">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/3/30/Java_programming_language_logo.svg" class="project-logo" style="width: 50px;" alt="AFAM">
+                        </div>
+                        <div class="project-info">
+                            <h4>AFAM</h4>
+                            <p>Progetto software universitario scritto interamente in linguaggio Java.</p>
+                            <button onclick="window.open('https://github.com/ingraocristianjoshua/afam', '_blank')" class="btn-secondary">Vedi Repository</button>
+                        </div>
+                    </div>
+
+                
+    </div>
+
