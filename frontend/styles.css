@@ -431,7 +431,6 @@ body, html {
     html, body { overflow-x: hidden !important; overflow-y: auto !important; height: auto !important; min-height: 100vh; -webkit-overflow-scrolling: touch; }
     
     #desktop-hero { height: auto !important; min-height: 100vh; overflow: visible !important; }
-    .wallpaper { position: fixed !important; height: 100vh !important; width: 100vw !important; }
     
     /* Menubar */
     .menubar-left .menu-text:not(.apple-logo):not(.bold) { display: none; }
