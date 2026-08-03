@@ -461,6 +461,11 @@ body, html {
         z-index: 1;
     }
     
+    /* KEEP MENUBAR AND DOCK FIXED TO VIEWPORT */
+    .menubar, .dock-bar {
+        position: fixed !important;
+    }
+    
     /* Menubar */
     .menubar-left .menu-text:not(.apple-logo):not(.bold) { display: none; }
     .status-icon { display: none; }
