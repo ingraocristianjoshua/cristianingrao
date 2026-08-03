@@ -14,17 +14,18 @@
     <link rel="stylesheet" href="styles.css?v=3">
     <style>
         /* Portfolio Specific Styles (Light Theme) */
-        /* Desktop Environment (Background) */
+        html, body {
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+        }
         body {
             background: radial-gradient(circle at top right, #e2f0fb 0%, #f7f3eb 40%, #e6e9f0 100%);
-            overflow-x: hidden;
             display: flex;
             flex-direction: column;
             margin: 0; padding: 0;
             width: 100%;
             height: auto !important;
             min-height: 100vh;
-            overflow: visible !important;
             -webkit-overflow-scrolling: touch !important;
             font-family: -apple-system, 'Inter', sans-serif;
         }
