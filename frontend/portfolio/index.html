@@ -691,7 +691,7 @@
                             <div class="project-card" onclick="openWin('win-bricklink')" style="cursor: pointer;">
                                 <a href="#" class="project-link" onclick="e.preventDefault(); openWin('win-bricklink')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
                                 <div class="project-img-container project-pattern-1">
-                                    <svg class="project-img-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#007aff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                                    <img src="../assets/bricklink_logo.png" class="project-img-icon" alt="BrickLink" style="width: 80px; height: 80px; object-fit: contain;">
                                 </div>
                                 <div class="project-info">
                                     <h3 class="project-title">Bricklink - System & Architecture</h3>
@@ -850,7 +850,10 @@
             <span class="win-title">Progetto: BrickLink</span>
         </div>
         <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5; max-height: calc(80vh - 52px);">
-            <h1 style="margin-bottom: 20px; font-size: 28px; font-weight: 700;">BrickLink</h1>
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <img src="../assets/bricklink_logo.png" alt="BrickLink Logo" style="width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <h1 style="font-size: 28px; font-weight: 700; margin: 0;">BrickLink</h1>
+            </div>
             <p style="margin-bottom: 15px;"><strong>BrickLink</strong> è una web application mobile-first per la divulgazione digitale che supera la concezione tradizionale dell’articolo come blocco di testo statico e monolitico, per abbracciare una visione dell’informazione intesa come entità dinamica, granulare e strutturata.</p>
             <p style="margin-bottom: 15px;">Il principio fondante del progetto è che la conoscenza debba essere veicolata attraverso unità modulari e indipendenti denominate <strong>Brick</strong> (mattoncini logici): ogni articolo non è un documento indivisibile, ma una sequenza ordinata di Brick eterogenei — testo, immagini, gallerie, contenuti multimediali incorporati, snippet di codice e mappe geografiche — ciascuno con una propria semantica e un proprio modello dati.</p>
             <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Architettura dei Dati</h3>
