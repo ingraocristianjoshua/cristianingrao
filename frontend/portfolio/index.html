@@ -301,6 +301,12 @@
             object-fit: contain;
         }
 
+        /* Premium Animations */
+        @keyframes windowPop {
+            0% { opacity: 0; transform: translateY(80px) scale(0.9); filter: blur(15px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+        }
+
         /* Scroll Reveal Animation */
         .reveal {
             opacity: 0;
@@ -309,8 +315,8 @@
             animation: revealAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
         @keyframes revealAnim {
-            from { opacity: 0; transform: translateY(40px) scale(0.96); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            0% { opacity: 0; transform: translateY(50px) scale(0.95); filter: blur(10px); }
+            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
         /* Bio */
@@ -923,17 +929,22 @@
     setInterval(updateBentoTime, 1000);
     updateBentoTime();
 
-    // Scroll Reveal Animation
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.15
-    };
-    const observer = new IntersectionObserver((entries, observer) => {
+    // Scroll Reveal with Stagger
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+    let delayCounter = 0;
+    let delayTimer = null;
+    
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if(entry.isIntersecting) {
+                // Stagger animations that trigger at the same time
+                entry.target.style.animationDelay = `${delayCounter * 0.15}s`;
                 entry.target.classList.add('active');
                 observer.unobserve(entry.target);
+                
+                delayCounter++;
+                clearTimeout(delayTimer);
+                delayTimer = setTimeout(() => { delayCounter = 0; }, 100);
             }
         });
     }, observerOptions);

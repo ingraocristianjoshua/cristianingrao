@@ -283,11 +283,63 @@ function switchFinderTab(el, targetId) {
 let highestZ = 100;
 
 // ═══════════════════════════════════════════
-// PORTFOLIO LAUNCH ANIMATION
-// ═══════════════════════════════════════════
 function launchPortfolio(e, folderEl) {
     if(e) e.preventDefault();
-    window.location.href = '/portfolio/';
+    
+    // Premium exit animation
+    const desktop = document.querySelector('.desktop-content') || document.body;
+    
+    // Create an elegant overlay
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+        background: rgba(0,0,0,0);
+        backdrop-filter: blur(0px);
+        -webkit-backdrop-filter: blur(0px);
+        z-index: 99999;
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none;
+        display: flex; justify-content: center; align-items: center;
+    `;
+    
+    const loader = document.createElement('div');
+    loader.style.cssText = `
+        width: 40px; height: 40px;
+        border-radius: 50%;
+        border: 3px solid rgba(255,255,255,0.1);
+        border-top-color: #fff;
+        animation: spin 1s linear infinite;
+        opacity: 0;
+        transform: scale(0.8);
+        transition: all 0.5s ease 0.3s;
+    `;
+    
+    // Add keyframes for spinner if not exists
+    if (!document.getElementById('spinner-keyframes')) {
+        const style = document.createElement('style');
+        style.id = 'spinner-keyframes';
+        style.textContent = '@keyframes spin { 100% { transform: rotate(360deg); } }';
+        document.head.appendChild(style);
+    }
+    
+    overlay.appendChild(loader);
+    document.body.appendChild(overlay);
+
+    desktop.style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+    desktop.style.transform = 'scale(1.1)';
+    desktop.style.filter = 'blur(20px) brightness(0.2)';
+
+    requestAnimationFrame(() => {
+        overlay.style.background = 'rgba(0,0,0,0.8)';
+        overlay.style.backdropFilter = 'blur(20px)';
+        overlay.style.webkitBackdropFilter = 'blur(20px)';
+        loader.style.opacity = '1';
+        loader.style.transform = 'scale(1)';
+        
+        setTimeout(() => {
+            window.location.href = '/portfolio/';
+        }, 800);
+    });
 }
 
 document.addEventListener('mousedown', function(e) {
