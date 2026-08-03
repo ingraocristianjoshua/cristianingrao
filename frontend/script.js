@@ -287,43 +287,7 @@ let highestZ = 100;
 // ═══════════════════════════════════════════
 function launchPortfolio(e, folderEl) {
     if(e) e.preventDefault();
-    
-    // Create expanding window
-    const expander = document.createElement('div');
-    const rect = folderEl.getBoundingClientRect();
-    
-    expander.style.cssText = `
-        position: fixed; top: ${rect.top}px; left: ${rect.left}px;
-        width: ${rect.width}px; height: ${rect.height}px;
-        background: #f5f5f7; border-radius: 12px; z-index: 99999;
-        transition: all 0.7s cubic-bezier(0.85, 0, 0.15, 1);
-        pointer-events: none;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-    `;
-    
-    document.body.appendChild(expander);
-
-    // Push desktop back
-    const desktop = document.querySelector('.desktop-content') || document.body;
-    desktop.style.transition = 'all 0.7s cubic-bezier(0.85, 0, 0.15, 1)';
-    desktop.style.transform = 'scale(0.9) translateY(20px)';
-    desktop.style.filter = 'blur(10px) brightness(0.5)';
-
-    // Trigger animation
-    requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            expander.style.top = '0px';
-            expander.style.left = '0px';
-            expander.style.width = '100vw';
-            expander.style.height = '100vh';
-            expander.style.borderRadius = '0px';
-            
-            // Redirect after animation
-            setTimeout(() => {
-                window.location.href = 'portfolio.html?animateIn=true';
-            }, 650);
-        });
-    });
+    window.location.href = '/portfolio/';
 }
 
 document.addEventListener('mousedown', function(e) {

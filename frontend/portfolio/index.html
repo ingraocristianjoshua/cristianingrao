@@ -7,12 +7,12 @@
     <meta name="description" content="Portfolio di Cristian Ingrao, Software Developer specializzato in Web Apps, Next.js, React e Java.">
     <meta name="keywords" content="Cristian Ingrao, portfolio, software developer, web developer, React, Next.js, Java">
     <meta name="author" content="Cristian Ingrao">
-    <link rel="icon" type="image/jpeg" href="profile_pic.jpg">
+    <link rel="icon" type="image/jpeg" href="../profile_pic.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@800&family=Space+Grotesk:wght@700&family=Outfit:wght@800&family=Sora:wght@800&family=DM+Sans:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="../styles.css?v=3">
     <style>
         /* Portfolio Specific Styles (Light Theme) */
         html, body {
@@ -544,7 +544,7 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="hero-float-icon" style="top: 18%; left: 12%; width: 60px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); --base-rotate: rotate(-15deg); animation-delay: 0s;">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg" class="hero-float-icon" style="bottom: 22%; left: 18%; width: 65px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); --base-rotate: rotate(10deg); animation-delay: 1.2s;">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg" class="hero-float-icon" style="top: 15%; right: 18%; width: 65px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); --base-rotate: rotate(20deg); animation-delay: 2.4s;">
-                <img src="folder.svg" class="hero-float-icon" style="bottom: 18%; right: 12%; width: 75px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); --base-rotate: rotate(-10deg); animation-delay: 3.6s;">
+                <img src="../folder.svg" class="hero-float-icon" style="bottom: 18%; right: 12%; width: 75px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); --base-rotate: rotate(-10deg); animation-delay: 3.6s;">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" class="hero-float-icon" style="top: 50%; left: 8%; width: 50px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); --base-rotate: rotate(5deg); animation-delay: 4.8s;">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="hero-float-icon" style="top: 40%; right: 10%; width: 55px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); --base-rotate: rotate(-8deg); animation-delay: 0.6s;">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="hero-float-icon" style="bottom: 35%; left: 35%; width: 45px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3)); --base-rotate: rotate(12deg); animation-delay: 1.8s;">
@@ -892,7 +892,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="../script.js"></script>
     <script>
         // Bring window to front
         let highestZ = 100;
@@ -911,16 +911,10 @@
             });
         });
 
-        // Check for animateIn flag from desktop transition
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('animateIn') === 'true') {
-            document.getElementById('portfolio-workspace').style.animation = 'workspaceEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards';
-        } else {
-            // No zoom if accessed directly, just fade in
-            document.getElementById('portfolio-workspace').style.animation = 'none';
-            document.getElementById('portfolio-workspace').style.opacity = '1';
-            document.getElementById('portfolio-workspace').style.transform = 'scale(1)';
-        }
+        // Cleaned up animation logic
+        document.getElementById('portfolio-workspace').style.animation = 'none';
+        document.getElementById('portfolio-workspace').style.opacity = '1';
+        document.getElementById('portfolio-workspace').style.transform = 'scale(1)';
     </script>
 <script>
     // Update time for the Bento Grid Bio
