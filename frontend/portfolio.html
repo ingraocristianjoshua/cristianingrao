@@ -248,40 +248,57 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.06);
         }
         .skill-node img { width: 45px; height: 45px; }
-        .skill-node span { font-size: 12px; font-weight: 600; color: #555; }
-
-        /* Education */
-        .edu-list { padding: 30px; display: flex; flex-direction: column; gap: 20px; }
-        .edu-card { background: #fafafa; border-radius: 16px; padding: 25px; border-left: 4px solid #007aff; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03); border-left: 4px solid #007aff;}
-        .edu-card:hover { transform: translateX(8px); background: #fff; box-shadow: -5px 10px 20px rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); border-left: 4px solid #007aff;}
-        .edu-card.green { border-left: 4px solid #34c759; }
-        .edu-year { font-size: 12px; font-weight: 700; color: #666; margin-bottom: 8px; }
-        .edu-title { font-size: 20px; font-weight: 700; color: #222; margin: 0 0 8px 0; }
-        .edu-desc { font-size: 15px; color: #555; margin: 0; line-height: 1.5; }
-
-        /* Projects */
-        .projects-grid { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .project-card { 
-            background: #fff; border-radius: 16px; border: 1px solid rgba(0,0,0,0.06);
-            overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        /* Skills (Finder App Icons) */
+        .skills-container { padding: 30px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; row-gap: 30px; }
+        .skill-node { 
+            background: transparent; border: none; border-radius: 8px;
+            padding: 10px; display: flex; flex-direction: column; align-items: center; gap: 8px;
+            transition: background 0.2s ease; cursor: pointer;
         }
-        .project-card:hover { transform: translateY(-8px); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.1); }
+        .skill-node:hover { 
+            background: rgba(0,0,0,0.05);
+        }
+        .skill-node img { width: 50px; height: 50px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+        .skill-node span { font-size: 13px; font-weight: 500; color: #333; text-align: center; }
+
+        /* Education (Mail List) */
+        .edu-list { display: flex; flex-direction: column; }
+        .edu-card { background: #fff; padding: 20px 30px; border-bottom: 1px solid rgba(0,0,0,0.06); transition: background 0.2s; position: relative; }
+        .edu-card:last-child { border-bottom: none; }
+        .edu-card:hover { background: #f2f7fb; }
+        .edu-year { font-size: 12px; font-weight: 600; color: #007aff; margin-bottom: 4px; display: flex; justify-content: space-between; }
+        .edu-year::before { content: ''; display: inline-block; width: 8px; height: 8px; background: #007aff; border-radius: 50%; position: absolute; left: 12px; top: 25px; }
+        .edu-card.green .edu-year { color: #888; }
+        .edu-card.green .edu-year::before { display: none; }
+        .edu-title { font-size: 16px; font-weight: 700; color: #222; margin: 0 0 4px 0; }
+        .edu-desc { font-size: 14px; color: #666; margin: 0; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* Projects (Clean Paper Cards) */
+        .projects-grid { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+        .project-card { 
+            background: #fff; border-radius: 12px; border: 1px solid rgba(0,0,0,0.04);
+            overflow: hidden; transition: all 0.3s ease;
+            position: relative; box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+        .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,0,0,0.08); }
         .project-card:hover .project-img { transform: scale(1.05); }
-        .project-img-container { width: 100%; height: 160px; overflow: hidden; background: #f5f5f5; border-bottom: 1px solid rgba(0,0,0,0.04); }
-        .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .project-info { padding: 20px; position: relative; z-index: 2; background: #fff; transition: background 0.3s; }
-        .project-card:hover .project-info { background: #fafafa; }
-        .project-title { font-size: 18px; font-weight: 700; color: #222; margin: 0 0 10px 0; }
-        .project-desc { font-size: 14px; color: #555; margin: 0; line-height: 1.5; }
+        .project-img-container { width: 100%; height: 160px; overflow: hidden; background: #f5f5f5; }
+        .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+        .project-info { padding: 20px; position: relative; z-index: 2; background: #fff; }
+        .project-title { font-size: 16px; font-weight: 700; color: #222; margin: 0 0 8px 0; }
+        .project-desc { font-size: 13px; color: #666; margin: 0; line-height: 1.5; }
         .project-tech { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
-        .project-tech span { font-size: 11px; font-weight: 600; padding: 4px 10px; background: rgba(0,0,0,0.05); border-radius: 12px; color: #555; }
-        .project-link { position: absolute; top: 15px; right: 15px; width: 35px; height: 35px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #333; backdrop-filter: blur(5px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s, background 0.2s; text-decoration: none; }
+        .project-tech span { font-size: 11px; font-weight: 500; padding: 2px 8px; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; color: #555; display: flex; align-items: center; gap: 4px; }
+        .project-tech span::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #007aff; }
+        .project-tech span:nth-child(2)::before { background: #34c759; }
+        .project-tech span:nth-child(3)::before { background: #ff9500; }
+        .project-link { position: absolute; top: 15px; right: 15px; width: 32px; height: 32px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #333; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.2s ease; text-decoration: none; }
         .project-link:hover { transform: scale(1.1); background: #007aff; color: #fff; }
 
-        .contact-list { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .contact-item { display: flex; align-items: center; gap: 15px; padding: 20px; background: #fafafa; border-radius: 16px; text-decoration: none; color: #333; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(0,0,0,0.04); }
-        .contact-item:hover { background: #fff !important; transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.1); }
+        /* Contacts */
+        .contact-list { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .contact-item { display: flex; align-items: center; gap: 15px; padding: 15px 20px; background: #fff; border-radius: 12px; text-decoration: none; color: #333; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.04); }
+        .contact-item:hover { background: #fafafa; transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.06); }
 
 
 
@@ -400,8 +417,15 @@
                     </div>
                     <span class="win-title">Photo Booth</span>
                 </div>
-                <div class="win-content p-0">
-                    <img src="./logo_ci.jpg" alt="Cristian Ingrao" class="full-img">
+                <div class="win-content p-0" style="display: flex; flex-direction: column; background: #e0e0e0;">
+                    <div style="padding: 10px; flex-grow: 1;">
+                        <div style="width: 100%; height: 100%; border: 4px solid #fff; border-radius: 8px; overflow: hidden; background: #000; display: flex; justify-content: center; align-items: center;">
+                            <img src="./logo_ci.jpg" alt="Cristian Ingrao" style="width: 100%; height: auto; display: block;">
+                        </div>
+                    </div>
+                    <div style="height: 60px; background: #dcdcdc; border-top: 1px solid #c0c0c0; display: flex; justify-content: center; align-items: center;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: #ff3b30; border: 3px solid #fff; box-shadow: 0 2px 5px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.1s;" onmousedown="this.style.transform='scale(0.95)'" onmouseup="this.style.transform='scale(1)'"></div>
+                    </div>
                 </div>
             </div>
 
