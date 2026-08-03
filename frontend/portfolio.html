@@ -48,12 +48,10 @@
 
         /* Workspace Grid Layout */
         .workspace {
-            padding: 80px 40px 100px 40px;
+            padding: 20px 40px 100px 40px;
             max-width: 1400px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
+            position: relative;
             animation: workspaceEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
             padding-top: 60px; min-height: calc(100vh - 60px);
         }
@@ -64,8 +62,7 @@
 
         /* Windows styling (Dark Mode) */
         .mac-window {
-            position: relative !important; 
-            top: auto !important; left: auto !important;
+            position: absolute; 
             background: #1E1E1E !important; 
             border: 1px solid rgba(255,255,255,0.1);
             border-radius: 20px;
@@ -204,18 +201,18 @@
             animation-play-state: paused;
         }
 
-        /* Masonry / Grid */
+        /* Free Floating Windows */
         .windows-container {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            gap: 30px;
+            position: relative;
+            height: 1200px;
+            margin-top: 40px;
         }
-        #win-bio { grid-column: span 8; }
-        #win-photo { grid-column: span 4; }
-        #win-projects { grid-column: span 12; }
-        #win-skills { grid-column: span 6; }
-        #win-edu { grid-column: span 6; }
-        #win-contacts { grid-column: span 12; }
+        #win-bio { top: 20px; left: 20px; width: 600px; z-index: 10; }
+        #win-photo { top: 50px; left: 650px; width: 350px; z-index: 11; }
+        #win-projects { top: 380px; left: 80px; width: 700px; z-index: 12; }
+        #win-skills { top: 450px; left: 820px; width: 450px; z-index: 13; }
+        #win-edu { top: 800px; left: 40px; width: 550px; z-index: 14; }
+        #win-contacts { top: 850px; left: 620px; width: 650px; z-index: 15; }
         
         /* Scroll Reveal Animation */
         .reveal {
@@ -393,7 +390,8 @@
 
         /* Mobile Optimization */
         @media (max-width: 900px) {
-            .windows-container { display: flex; flex-direction: column; }
+            .windows-container { display: flex; flex-direction: column; height: auto; gap: 20px; }
+            .mac-window { position: relative !important; top: auto !important; left: auto !important; width: 100% !important; margin-bottom: 10px; }
             .workspace { padding: 70px 20px 90px 20px; gap: 20px; }
             .hero-title { font-size: 48px; }
             .hero-subtitle { font-size: 14px; }

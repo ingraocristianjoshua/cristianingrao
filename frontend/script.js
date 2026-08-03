@@ -378,16 +378,18 @@ function startDrag(e, id) {
     const win = document.getElementById(id);
     win.style.zIndex = ++highestZ;
     let startX = e.clientX, startY = e.clientY;
-    let rect = win.getBoundingClientRect();
-    let initLeft = rect.left, initTop = rect.top;
+    let initLeft = win.offsetLeft, initTop = win.offsetTop;
     
     function onMouseMove(e) {
         let newX = initLeft + e.clientX - startX;
         let newY = initTop + e.clientY - startY;
         
-        // Boundaries
-        newX = Math.max(0, Math.min(newX, window.innerWidth - win.offsetWidth));
-        newY = Math.max(25, Math.min(newY, window.innerHeight - win.offsetHeight)); // 25 is topbar height
+        let parentWidth = win.offsetParent ? win.offsetParent.clientWidth : window.innerWidth;
+        let parentHeight = win.offsetParent ? win.offsetParent.clientHeight : window.innerHeight;
+        
+        // Boundaries relative to offsetParent
+        newX = Math.max(0, Math.min(newX, parentWidth - win.offsetWidth));
+        newY = Math.max(0, Math.min(newY, parentHeight - win.offsetHeight));
         
         win.style.left = newX + 'px';
         win.style.top = newY + 'px';
