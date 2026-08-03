@@ -508,16 +508,14 @@ body, html {
     .dock-bar { bottom: 15px; }
     .dock-glass { 
         max-width: 95vw; 
-        overflow-x: auto; 
+        overflow: visible; 
         padding: 10px 14px; 
         gap: 10px;
         justify-content: center;
         -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
         border-radius: 24px;
         margin: 0 auto;
     }
-    .dock-glass::-webkit-scrollbar { display: none; }
     .dock-glass .dev-tool { display: none; }
     .dock-glass .dock-sep { display: none; }
     .dock-icon, .social-icon { 
