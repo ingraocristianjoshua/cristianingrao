@@ -288,48 +288,40 @@ let highestZ = 100;
 function launchPortfolio(e, folderEl) {
     if(e) e.preventDefault();
     
-    // Create an overlay
-    const overlay = document.createElement('div');
-    overlay.style.cssText = `
-        position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-        background: #f4f5f7; z-index: 99999;
-        opacity: 0; transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        pointer-events: none;
-    `;
-    document.body.appendChild(overlay);
-
-    // Get folder rect
+    // Create expanding window
+    const expander = document.createElement('div');
     const rect = folderEl.getBoundingClientRect();
-    const clone = folderEl.cloneNode(true);
-    clone.style.cssText = `
+    
+    expander.style.cssText = `
         position: fixed; top: ${rect.top}px; left: ${rect.left}px;
         width: ${rect.width}px; height: ${rect.height}px;
-        z-index: 100000; transition: all 0.5s cubic-bezier(0.85, 0, 0.15, 1);
-        pointer-events: none; margin: 0;
+        background: #f5f5f7; border-radius: 12px; z-index: 99999;
+        transition: all 0.7s cubic-bezier(0.85, 0, 0.15, 1);
+        pointer-events: none;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.5);
     `;
     
-    // Hide text in clone
-    const cloneText = clone.querySelector('.folder-name');
-    if(cloneText) cloneText.style.display = 'none';
+    document.body.appendChild(expander);
 
-    document.body.appendChild(clone);
+    // Push desktop back
+    const desktop = document.querySelector('.desktop-content') || document.body;
+    desktop.style.transition = 'all 0.7s cubic-bezier(0.85, 0, 0.15, 1)';
+    desktop.style.transform = 'scale(0.9) translateY(20px)';
+    desktop.style.filter = 'blur(10px) brightness(0.5)';
 
     // Trigger animation
     requestAnimationFrame(() => {
         requestAnimationFrame(() => {
-            overlay.style.opacity = '1';
-            // Scale the icon massively and center it
-            const scale = Math.max(window.innerWidth, window.innerHeight) / 20;
-            const targetX = (window.innerWidth / 2) - (rect.width / 2);
-            const targetY = (window.innerHeight / 2) - (rect.height / 2);
-            
-            clone.style.transform = `translate(${targetX - rect.left}px, ${targetY - rect.top}px) scale(${scale})`;
-            clone.style.opacity = '0'; // Fade out as it zooms
+            expander.style.top = '0px';
+            expander.style.left = '0px';
+            expander.style.width = '100vw';
+            expander.style.height = '100vh';
+            expander.style.borderRadius = '0px';
             
             // Redirect after animation
             setTimeout(() => {
                 window.location.href = 'portfolio.html?animateIn=true';
-            }, 550);
+            }, 650);
         });
     });
 }
