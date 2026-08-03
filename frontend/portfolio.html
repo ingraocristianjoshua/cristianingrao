@@ -56,33 +56,19 @@
             to { opacity: 1; transform: none; }
         }
 
-        /* Windows styling (Light Mode & Spotlight) */
+        /* Windows styling (Light Mode Refined) */
         .mac-window {
             position: relative !important; 
             top: auto !important; left: auto !important;
-            background: rgba(255, 255, 255, 0.85) !important; 
-            backdrop-filter: blur(40px) saturate(150%);
-            -webkit-backdrop-filter: blur(40px) saturate(150%);
-            border: 1px solid rgba(0,0,0,0.05);
+            background: #ffffff !important; 
+            border: 1px solid rgba(0,0,0,0.08);
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.5) inset;
             overflow: hidden;
             color: #333;
             transform-style: preserve-3d;
             transition: transform 0.1s ease-out;
         }
-        /* Mouse Spotlight Effect */
-        .mac-window::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.03), transparent 40%);
-            z-index: 0;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .mac-window:hover::before { opacity: 1; }
         
         .win-content { position: relative; z-index: 1; }
         
@@ -91,8 +77,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: rgba(245, 246, 247, 0.8);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: #ffffff;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
             position: relative;
         }
         .win-controls {
@@ -118,9 +104,9 @@
         
         /* Hero Window */
         .hero-window {
-            background: linear-gradient(135deg, #fffdf8, #fff8e1);
+            background: radial-gradient(circle at center, #fffae6 0%, #fff 100%);
             border-radius: 20px;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.06);
             position: relative;
             min-height: 400px;
             display: flex;
@@ -143,37 +129,31 @@
             z-index: 10;
         }
         .hero-subtitle {
-            font-size: 20px;
-            letter-spacing: 2px;
-            color: #666;
-            font-weight: 400;
+            font-size: 22px;
+            letter-spacing: 4px;
+            color: #555;
+            font-weight: 300;
+            text-transform: uppercase;
         }
         .hero-title {
-            font-size: 80px;
-            font-weight: 800;
-            letter-spacing: -2px;
-            margin: 0;
-            background: linear-gradient(to right, #222, #666, #222);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shineText 5s linear infinite;
-        }
-        @keyframes shineText {
-            to { background-position: 200% center; }
+            font-size: 110px;
+            font-weight: 300;
+            letter-spacing: -3px;
+            margin: -10px 0 0 0;
+            color: #1a1a1a;
+            line-height: 1.1;
         }
         .hero-badge {
             display: inline-block;
             margin-top: 20px;
-            padding: 8px 20px;
-            background: rgba(255,255,255,0.8);
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 20px;
-            font-size: 14px;
+            padding: 10px 24px;
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 30px;
+            font-size: 15px;
             font-weight: 600;
-            color: #333;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            backdrop-filter: blur(10px);
+            color: #222;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
         }
         
         .scroll-indicator {
@@ -257,24 +237,23 @@
         /* Skills */
         .skills-container { padding: 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         .skill-node { 
-            background: rgba(255,255,255,0.7); border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
+            background: #fafafa; border: 1px solid rgba(0,0,0,0.04); border-radius: 16px;
             padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
         .skill-node:hover { 
             transform: translateY(-8px) scale(1.05); 
             background: #fff; 
-            border-color: rgba(0,0,0,0.1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-color: rgba(0,0,0,0.08);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
         }
         .skill-node img { width: 45px; height: 45px; }
         .skill-node span { font-size: 12px; font-weight: 600; color: #555; }
 
         /* Education */
         .edu-list { padding: 30px; display: flex; flex-direction: column; gap: 20px; }
-        .edu-card { background: rgba(255,255,255,0.6); border-radius: 16px; padding: 25px; border-left: 4px solid #007aff; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
-        .edu-card:hover { transform: translateX(8px); background: #fff; box-shadow: -5px 10px 20px rgba(0,0,0,0.05); }
+        .edu-card { background: #fafafa; border-radius: 16px; padding: 25px; border-left: 4px solid #007aff; transition: all 0.3s ease; border: 1px solid rgba(0,0,0,0.03); border-left: 4px solid #007aff;}
+        .edu-card:hover { transform: translateX(8px); background: #fff; box-shadow: -5px 10px 20px rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.08); border-left: 4px solid #007aff;}
         .edu-card.green { border-left: 4px solid #34c759; }
         .edu-year { font-size: 12px; font-weight: 700; color: #666; margin-bottom: 8px; }
         .edu-title { font-size: 20px; font-weight: 700; color: #222; margin: 0 0 8px 0; }
@@ -283,16 +262,16 @@
         /* Projects */
         .projects-grid { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .project-card { 
-            background: rgba(255,255,255,0.7); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);
+            background: #fff; border-radius: 16px; border: 1px solid rgba(0,0,0,0.06);
             overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.03);
         }
         .project-card:hover { transform: translateY(-8px); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.1); }
         .project-card:hover .project-img { transform: scale(1.05); }
-        .project-img-container { width: 100%; height: 160px; overflow: hidden; background: #eee; }
+        .project-img-container { width: 100%; height: 160px; overflow: hidden; background: #f5f5f5; border-bottom: 1px solid rgba(0,0,0,0.04); }
         .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .project-info { padding: 20px; position: relative; z-index: 2; background: rgba(255,255,255,0.8); transition: background 0.3s; }
-        .project-card:hover .project-info { background: #fff; }
+        .project-info { padding: 20px; position: relative; z-index: 2; background: #fff; transition: background 0.3s; }
+        .project-card:hover .project-info { background: #fafafa; }
         .project-title { font-size: 18px; font-weight: 700; color: #222; margin: 0 0 10px 0; }
         .project-desc { font-size: 14px; color: #555; margin: 0; line-height: 1.5; }
         .project-tech { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
@@ -301,8 +280,8 @@
         .project-link:hover { transform: scale(1.1); background: #007aff; color: #fff; }
 
         .contact-list { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .contact-item { display: flex; align-items: center; gap: 15px; padding: 20px; background: rgba(255,255,255,0.7); border-radius: 16px; text-decoration: none; color: #333; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 2px 10px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.02); }
-        .contact-item:hover { background: #fff !important; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.08); }
+        .contact-item { display: flex; align-items: center; gap: 15px; padding: 20px; background: #fafafa; border-radius: 16px; text-decoration: none; color: #333; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid rgba(0,0,0,0.04); }
+        .contact-item:hover { background: #fff !important; transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.1); }
 
 
 
@@ -499,7 +478,7 @@
 
             <!-- WIN: EDUCATION (Mail App) -->
             <div class="mac-window reveal" id="win-edu">
-                <div class="win-titlebar" onmousedown="startDrag(event, 'win-edu')" style="justify-content: flex-start; padding: 0 16px;">
+                <div class="win-titlebar" onmousedown="startDrag(event, 'win-edu')" style="justify-content: flex-start; padding: 0 16px; background: #fafafa;">
                     <div class="win-controls" style="position: static; margin-right: 20px;">
                         <div class="tl red" onclick="closeWin('win-edu')"></div>
                         <div class="tl yellow"></div>
@@ -515,7 +494,7 @@
                     </div>
                 </div>
                 <div class="win-content" style="background: #fff;">
-                    <div style="padding: 15px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); background: rgba(250,250,250,1);">
+                    <div style="padding: 15px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); background: #ffffff;">
                         <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px;">
                             <span style="font-size: 13px; color: #888; width: 60px;">Oggetto:</span>
                             <strong style="font-size: 14px; color: #333;">Formazione ed Educazione</strong>
