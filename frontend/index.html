@@ -387,10 +387,40 @@
             </div>
             <span class="win-title">Support</span>
         </div>
-        <div class="win-body">
-            <h2 style="margin-bottom: 15px;">Hai bisogno di aiuto? 💬</h2>
+        <div class="win-body" style="padding: 20px; line-height: 1.5;">
+            <h2 style="margin-bottom: 15px;">Support & Contact</h2>
             <p style="margin-bottom: 15px;">Se riscontri problemi o bug nell'interfaccia, o se vuoi collaborare con me, puoi contattarmi direttamente!</p>
-            <a href="#" style="display:inline-block; padding:8px 16px; background:#007AFF; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Invia un'email</a>
+            <a href="mailto:info@cristianingrao.it" style="display:inline-block; padding:8px 16px; background:#007AFF; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Invia un'email</a>
+        </div>
+    </div>
+
+    <!-- BRICKLINK PROJECT WINDOW -->
+    <div class="mac-window" id="win-bricklink" style="display:none; top: 10vh; left: 15vw; width: 70vw; max-height: 80vh; z-index: 1000;">
+        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-bricklink')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-bricklink')"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
+            </div>
+            <span class="win-title">Progetto: BrickLink</span>
+        </div>
+        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: #fff; color: #1D1D1F; max-height: calc(80vh - 52px);">
+            <h1 style="margin-bottom: 20px; font-size: 28px; font-weight: 700;">BrickLink</h1>
+            <p style="margin-bottom: 15px;"><strong>BrickLink</strong> è una web application mobile-first per la divulgazione digitale che supera la concezione tradizionale dell’articolo come blocco di testo statico e monolitico, per abbracciare una visione dell’informazione intesa come entità dinamica, granulare e strutturata.</p>
+            <p style="margin-bottom: 15px;">Il principio fondante del progetto è che la conoscenza debba essere veicolata attraverso unità modulari e indipendenti denominate <strong>Brick</strong> (mattoncini logici): ogni articolo non è un documento indivisibile, ma una sequenza ordinata di Brick eterogenei — testo, immagini, gallerie, contenuti multimediali incorporati, snippet di codice e mappe geografiche — ciascuno con una propria semantica e un proprio modello dati.</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">Architettura dei Dati</h3>
+            <p style="margin-bottom: 15px;">Questa scelta concettuale ha una diretta contropartita implementativa, verificabile in ogni strato del sistema. Sul piano dei dati, l’enum <code>BrickType</code> enumera esattamente sei tipologie — TEXT, IMAGE, EMBED, CODE, GALLERY, MAP — e ciascun Brick memorizza il proprio contenuto in una colonna JSONB polimorfa (<code>data: Record&lt;string, unknown&gt;</code>).</p>
+            <p style="margin-bottom: 15px;">Il payload non è quindi HTML pre-renderizzato, ma un oggetto strutturato e tipizzato: è il client a decidere, in fase di lettura, quale componente Angular incaricare del rendering di ciascun tipo. Questa impostazione — che ricorre identica dal database (<code>Brick.data</code> di tipo jsonb) fino ai template dell’editor e della pagina di dettaglio — è il filo conduttore dell’intera architettura e rappresenta anche una difesa nativa contro gli attacchi di tipo injection: il server non conserva né restituisce mai markup eseguibile.</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">Stack Tecnologico</h3>
+            <p style="margin-bottom: 10px;">La piattaforma è costruita come applicazione full-stack disaccoppiata:</p>
+            <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
+                <li style="margin-bottom: 8px;"><strong>Client:</strong> Angular 20 / Ionic 8 / Capacitor (distribuibile come PWA e app nativa iOS/Android)</li>
+                <li style="margin-bottom: 8px;"><strong>Server:</strong> Node.js / Express 4 con ORM TypeORM 0.3</li>
+                <li style="margin-bottom: 8px;"><strong>Persistenza:</strong> PostgreSQL (dati relazionali) e Redis (dati volatili ad alta frequenza)</li>
+            </ul>
+            <p style="margin-bottom: 15px;">L’ecosistema è governato da una gerarchia di tre ruoli — Admin, Editor e User — con privilegi e interfacce differenziati, modellata dall’enum <code>UserRole</code> condiviso e applicata coerentemente sui due lati: guard funzionali sul client (<code>editorGuard</code>, <code>adminGuard</code>) e middleware RBAC sul server (<code>requireEditor</code>, <code>requireAdmin</code>).</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">Ecosistema e Gamification</h3>
+            <p style="margin-bottom: 15px;">Oltre alla creazione e consultazione dei contenuti, BrickLink integra un ambiente di authoring dedicato (<strong>BrickLab</strong>), un sistema di interazione sociale (like con aggiornamento ottimistico e commenti annidati auto-referenziali), una dashboard amministrativa completa e un modulo di gamification (<strong>CruciBrick</strong>) che estrae dinamicamente le parole chiave dal testo dei Brick per generare sfide di ripasso, trasformando la consultazione passiva in un esercizio attivo di consolidamento della memoria. Ogni funzionalità è progettata secondo il principio della <em>difesa in profondità</em>: ciò che il client verifica per usabilità, il server lo impone per sicurezza.</p>
         </div>
     </div>
 
@@ -449,7 +479,9 @@
         <div class="win-body textedit-dark">
             <h2 style="color: #fff; margin-bottom: 20px;">I Miei Progetti 🚀</h2>
             <ul style="margin-left: 20px;">
-                <li style="margin-bottom: 15px;"><strong style="color: #fff;">Bricklink - System & Architecture:</strong> Infrastruttura digitale complessa sviluppata in Java e Spring Boot per catalogare e gestire relazioni tra entità strutturate, combinata con un'interfaccia client robusta.</li>
+                <li style="margin-bottom: 15px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.opacity=0.8;" onmouseout="this.style.opacity=1;" onclick="openWindow('win-bricklink')">
+                    <strong style="color: #64d2ff; text-decoration: underline;">BrickLink - System & Architecture</strong>: Infrastruttura digitale complessa sviluppata in Java e Spring Boot per catalogare e gestire relazioni tra entità strutturate, combinata con un'interfaccia client robusta. <em>(Clicca per approfondire)</em>
+                </li>
                 <li style="margin-bottom: 15px;"><strong style="color: #fff;">Graduam - Milestone & Progression:</strong> Applicativo web costruito con Next.js e TypeScript incentrato sulla logica di tracciamento dei percorsi formativi, curato dal design system all'implementazione dei dati.</li>
                 <li style="margin-bottom: 15px;"><strong style="color: #fff;">Interactive OS Portfolio:</strong> Single-page application che emula un ambiente desktop, integrando API e un engine CSS/JS per il window management asincrono.</li>
             </ul>
