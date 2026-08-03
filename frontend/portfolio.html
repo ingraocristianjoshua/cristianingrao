@@ -13,10 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=3">
     <style>
-        /* Portfolio Specific Styles */
+        /* Portfolio Specific Styles (Light Theme) */
         html, body {
-            background: #000000;
-            background-image: radial-gradient(rgba(255,255,255,0.15) 1.5px, transparent 1.5px);
+            background: #fdfbf7;
+            background-image: radial-gradient(rgba(0,0,0,0.06) 1.5px, transparent 1.5px);
             background-size: 36px 36px;
             margin: 0; padding: 0;
             width: 100%;
@@ -30,16 +30,16 @@
         /* Portfolio Top Nav */
         .portfolio-nav {
             position: fixed; top: 0; left: 0; right: 0; height: 50px; 
-            background: rgba(0,0,0,0.5); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
+            background: rgba(255,255,255,0.7); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);
             z-index: 99999; display: flex; align-items: center; padding: 0 20px; 
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .back-btn {
-            color: #fff; text-decoration: none; font-size: 14px; font-weight: 500; 
+            color: #333; text-decoration: none; font-size: 14px; font-weight: 500; 
             display: flex; align-items: center; gap: 6px; cursor: pointer; 
             padding: 6px 12px; border-radius: 8px; transition: background 0.2s;
         }
-        .back-btn:hover { background: rgba(255,255,255,0.1); }
+        .back-btn:hover { background: rgba(0,0,0,0.05); }
 
         /* Workspace Grid Layout */
         .workspace {
@@ -56,18 +56,18 @@
             to { opacity: 1; transform: none; }
         }
 
-        /* Windows styling (Glassmorphism & Spotlight) */
+        /* Windows styling (Light Mode & Spotlight) */
         .mac-window {
             position: relative !important; 
             top: auto !important; left: auto !important;
-            background: rgba(30, 30, 35, 0.5) !important; 
+            background: rgba(255, 255, 255, 0.85) !important; 
             backdrop-filter: blur(40px) saturate(150%);
             -webkit-backdrop-filter: blur(40px) saturate(150%);
-            border: 1px solid rgba(255,255,255,0.08);
+            border: 1px solid rgba(0,0,0,0.05);
             border-radius: 20px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,1);
             overflow: hidden;
-            color: #fff;
+            color: #333;
             transform-style: preserve-3d;
             transition: transform 0.1s ease-out;
         }
@@ -76,7 +76,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(0,0,0,0.03), transparent 40%);
             z-index: 0;
             pointer-events: none;
             opacity: 0;
@@ -91,8 +91,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #252525;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(245, 246, 247, 0.8);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
             position: relative;
         }
         .win-controls {
@@ -104,7 +104,7 @@
         .win-title {
             font-size: 13px;
             font-weight: 600;
-            color: #aaa;
+            color: #555;
             display: flex;
             align-items: center;
         }
@@ -118,15 +118,15 @@
         
         /* Hero Window */
         .hero-window {
-            background: linear-gradient(135deg, #111, #1a1a1a);
+            background: linear-gradient(135deg, #fffdf8, #fff8e1);
             border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(0,0,0,0.05);
             position: relative;
             min-height: 400px;
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05), inset 0 0 0 1px rgba(255,255,255,1);
             opacity: 0;
             transform: translateY(30px);
             animation: windowPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
@@ -145,7 +145,7 @@
         .hero-subtitle {
             font-size: 20px;
             letter-spacing: 2px;
-            color: #888;
+            color: #666;
             font-weight: 400;
         }
         .hero-title {
@@ -153,7 +153,7 @@
             font-weight: 800;
             letter-spacing: -2px;
             margin: 0;
-            background: linear-gradient(to right, #fff, #a8c0ff, #fff);
+            background: linear-gradient(to right, #222, #666, #222);
             background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -166,12 +166,13 @@
             display: inline-block;
             margin-top: 20px;
             padding: 8px 20px;
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.8);
+            border: 1px solid rgba(0,0,0,0.1);
             border-radius: 20px;
             font-size: 14px;
-            font-weight: 500;
-            color: #ddd;
+            font-weight: 600;
+            color: #333;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             backdrop-filter: blur(10px);
         }
         
@@ -184,7 +185,7 @@
             flex-direction: column;
             align-items: center;
             gap: 8px;
-            color: rgba(255,255,255,0.5);
+            color: rgba(0,0,0,0.4);
             font-size: 12px;
             font-weight: 500;
             letter-spacing: 1px;
@@ -244,10 +245,10 @@
 
         /* Bio */
         .bio-content { padding: 40px; }
-        .bio-date { display: block; font-size: 12px; color: #666; text-align: center; margin-bottom: 20px; font-weight: 500;}
-        .bio-text h2 { font-size: 32px; font-weight: 700; margin: 0 0 20px 0; line-height: 1.2; letter-spacing: -0.5px; }
-        .bio-text p { font-size: 16px; color: #aaa; line-height: 1.6; margin-bottom: 15px; }
-        .bio-text strong { color: #fff; }
+        .bio-date { display: block; font-size: 12px; color: #888; text-align: center; margin-bottom: 20px; font-weight: 500;}
+        .bio-text h2 { font-size: 32px; font-weight: 700; margin: 0 0 20px 0; line-height: 1.2; letter-spacing: -0.5px; color: #222; }
+        .bio-text p { font-size: 16px; color: #555; line-height: 1.6; margin-bottom: 15px; }
+        .bio-text strong { color: #111; }
 
         /* Photo Booth */
         .p-0 { padding: 0 !important; }
@@ -256,51 +257,53 @@
         /* Skills */
         .skills-container { padding: 30px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
         .skill-node { 
-            background: #222; border: 1px solid rgba(255,255,255,0.05); border-radius: 16px;
+            background: rgba(255,255,255,0.7); border: 1px solid rgba(0,0,0,0.05); border-radius: 16px;
             padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
         .skill-node:hover { 
             transform: translateY(-8px) scale(1.05); 
-            background: #2a2a2a; 
-            border-color: rgba(255,255,255,0.2);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(255,255,255,0.05);
+            background: #fff; 
+            border-color: rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
         .skill-node img { width: 45px; height: 45px; }
-        .skill-node span { font-size: 12px; font-weight: 600; color: #888; }
+        .skill-node span { font-size: 12px; font-weight: 600; color: #555; }
 
         /* Education */
         .edu-list { padding: 30px; display: flex; flex-direction: column; gap: 20px; }
-        .edu-card { background: #222; border-radius: 16px; padding: 25px; border-left: 4px solid #007aff; transition: all 0.3s ease; }
-        .edu-card:hover { transform: translateX(8px); background: #282828; box-shadow: -5px 10px 20px rgba(0,0,0,0.3); }
+        .edu-card { background: rgba(255,255,255,0.6); border-radius: 16px; padding: 25px; border-left: 4px solid #007aff; transition: all 0.3s ease; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+        .edu-card:hover { transform: translateX(8px); background: #fff; box-shadow: -5px 10px 20px rgba(0,0,0,0.05); }
         .edu-card.green { border-left: 4px solid #34c759; }
-        .edu-year { font-size: 12px; font-weight: 700; color: #888; margin-bottom: 8px; }
-        .edu-title { font-size: 20px; font-weight: 700; color: #fff; margin: 0 0 8px 0; }
-        .edu-desc { font-size: 15px; color: #aaa; margin: 0; line-height: 1.5; }
+        .edu-year { font-size: 12px; font-weight: 700; color: #666; margin-bottom: 8px; }
+        .edu-title { font-size: 20px; font-weight: 700; color: #222; margin: 0 0 8px 0; }
+        .edu-desc { font-size: 15px; color: #555; margin: 0; line-height: 1.5; }
 
         /* Projects */
         .projects-grid { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .project-card { 
-            background: #222; border-radius: 16px; border: 1px solid rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.7); border-radius: 16px; border: 1px solid rgba(0,0,0,0.05);
             overflow: hidden; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
+            position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.02);
         }
-        .project-card:hover { transform: translateY(-8px); background: #2a2a2a; box-shadow: 0 15px 30px rgba(0,0,0,0.5); border-color: rgba(255,255,255,0.15); }
+        .project-card:hover { transform: translateY(-8px); background: #fff; box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: rgba(0,0,0,0.1); }
         .project-card:hover .project-img { transform: scale(1.05); }
-        .project-img-container { width: 100%; height: 160px; overflow: hidden; background: #333; }
+        .project-img-container { width: 100%; height: 160px; overflow: hidden; background: #eee; }
         .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .project-info { padding: 20px; position: relative; z-index: 2; background: #222; transition: background 0.3s; }
-        .project-card:hover .project-info { background: #2a2a2a; }
-        .project-title { font-size: 18px; font-weight: 700; color: #fff; margin: 0 0 10px 0; }
-        .project-desc { font-size: 14px; color: #aaa; margin: 0; line-height: 1.5; }
+        .project-info { padding: 20px; position: relative; z-index: 2; background: rgba(255,255,255,0.8); transition: background 0.3s; }
+        .project-card:hover .project-info { background: #fff; }
+        .project-title { font-size: 18px; font-weight: 700; color: #222; margin: 0 0 10px 0; }
+        .project-desc { font-size: 14px; color: #555; margin: 0; line-height: 1.5; }
         .project-tech { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
-        .project-tech span { font-size: 11px; font-weight: 600; padding: 4px 10px; background: rgba(255,255,255,0.1); border-radius: 12px; color: #ccc; }
-        .project-link { position: absolute; top: 15px; right: 15px; width: 35px; height: 35px; background: rgba(0,0,0,0.5); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #fff; backdrop-filter: blur(5px); transition: transform 0.2s, background 0.2s; text-decoration: none; }
-        .project-link:hover { transform: scale(1.1); background: rgba(0,122,255,0.8); }
+        .project-tech span { font-size: 11px; font-weight: 600; padding: 4px 10px; background: rgba(0,0,0,0.05); border-radius: 12px; color: #555; }
+        .project-link { position: absolute; top: 15px; right: 15px; width: 35px; height: 35px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #333; backdrop-filter: blur(5px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: transform 0.2s, background 0.2s; text-decoration: none; }
+        .project-link:hover { transform: scale(1.1); background: #007aff; color: #fff; }
 
         .contact-list { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .contact-item { display: flex; align-items: center; gap: 15px; padding: 20px; background: #222; border-radius: 16px; text-decoration: none; color: #fff; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .contact-item:hover { background: #2a2a2a !important; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-color: rgba(255,255,255,0.1); }
+        .contact-item { display: flex; align-items: center; gap: 15px; padding: 20px; background: rgba(255,255,255,0.7); border-radius: 16px; text-decoration: none; color: #333; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 2px 10px rgba(0,0,0,0.02); border: 1px solid rgba(0,0,0,0.02); }
+        .contact-item:hover { background: #fff !important; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.08); }
+
 
 
         /* Mobile Optimization */
@@ -370,34 +373,47 @@
         </div>
 
         <div class="windows-container">
-            <!-- WIN: BIO -->
-            <div class="mac-window dark reveal" id="win-bio">
-                <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-bio')">
-                    <div class="win-controls">
-                        <div class="tl red" onclick="closeWin('win-bio')"></div>
-                        <div class="tl yellow"></div>
-                        <div class="tl green"></div>
+            <!-- WIN: BIO (Notes App) -->
+            <div class="mac-window reveal" id="win-bio">
+                <div class="win-titlebar" onmousedown="startDrag(event, 'win-bio')" style="justify-content: space-between; padding: 0 16px;">
+                    <div style="display: flex; align-items: center; gap: 20px;">
+                        <div class="win-controls" style="position: static;">
+                            <div class="tl red" onclick="closeWin('win-bio')"></div>
+                            <div class="tl yellow"></div>
+                            <div class="tl green"></div>
+                        </div>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2" style="margin-top: 2px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
                     </div>
-                    <span class="win-title"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:6px; vertical-align:-2px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> Biografia</span>
-                    <div class="win-actions">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    
+                    <div class="win-title" style="flex-direction: column; align-items: center; gap: 2px;">
+                        <span style="font-weight: 700; color: #333;">Biografia</span>
+                        <span style="font-size: 10px; font-weight: 400; color: #888;">Chi sono?</span>
+                    </div>
+
+                    <div style="display: flex; align-items: center; gap: 12px; color: #888;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 17 18 12 13 7"></polyline><polyline points="6 17 11 12 6 7"></polyline></svg>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                     </div>
                 </div>
-                <div class="win-content">
+                <div class="win-content" style="background: #fff;">
                     <div class="bio-content">
-                        <div class="bio-text">
-                            <span class="bio-date"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-1px; margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Milano, Italia &nbsp;|&nbsp; ⌚ <span id="bento-time">--:--</span></span>
+                        <div class="bio-text" style="max-width: 600px; margin: 0 auto;">
+                            <span class="bio-date">Milano, Italia &nbsp;|&nbsp; <span id="bento-time">--:--</span></span>
                             <h2>Mi chiamo Cristian Ingrao<br>e sono un Software Developer.</h2>
-                            <p>Lavoro su <strong>architetture scalabili, frontend interattivi</strong> e <strong>ecosistemi web</strong>, ma quello che mi appassiona di più è curare l'esperienza utente in ogni dettaglio: lo vedo come un <strong>puzzle</strong>, dove costruisco la logica complessa dietro le quinte assicurandomi che l'interfaccia sia fluida e "Apple-like".</p>
-                            <p>Costruisco esperienze web ispirate al design dei migliori OS Desktop.</p>
+                            <p>Lavoro su <strong>architetture scalabili, frontend interattivi</strong> e <strong>ecosistemi web</strong>, ma quello che mi appassiona di più è curare l'esperienza utente in ogni dettaglio: lo vedo come un <strong>puzzle</strong>, dove costruisco la logica complessa dietro le quinte assicurandomi che l'interfaccia sia fluida e nativa.</p>
+                            <p>L'<strong>AI</strong> fa parte dei miei strumenti di lavoro quotidiani e mi interessa capire come sta ridefinendo il coding e lo sviluppo web.</p>
+                            <p>Costruisco esperienze web ispirate al design e alla precisione dei migliori sistemi operativi Desktop, mettendo l'utente al centro di ogni interazione.</p>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- WIN: PHOTO -->
-            <div class="mac-window dark reveal" id="win-photo">
-                <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-photo')">
+            <div class="mac-window reveal" id="win-photo">
+                <div class="win-titlebar" onmousedown="startDrag(event, 'win-photo')">
                     <div class="win-controls">
                         <div class="tl red" onclick="closeWin('win-photo')"></div>
                         <div class="tl yellow"></div>
@@ -411,14 +427,14 @@
             </div>
 
             <!-- WIN: PROJECTS -->
-            <div class="mac-window dark reveal" id="win-projects">
-                <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-projects')">
-                    <div class="win-controls">
+            <div class="mac-window reveal" id="win-projects">
+                <div class="win-titlebar" onmousedown="startDrag(event, 'win-projects')" style="justify-content: flex-start; padding-left: 16px;">
+                    <div class="win-controls" style="position: static; margin-right: 20px;">
                         <div class="tl red" onclick="closeWin('win-projects')"></div>
                         <div class="tl yellow"></div>
                         <div class="tl green"></div>
                     </div>
-                    <span class="win-title">Progetti Recenti</span>
+                    <span class="win-title" style="color: #333;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; color: #007aff;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> Progetti Recenti</span>
                 </div>
                 <div class="win-content">
                     <div class="projects-grid">
@@ -454,14 +470,14 @@
             </div>
 
             <!-- WIN: SKILLS -->
-            <div class="mac-window dark reveal" id="win-skills">
-                <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-skills')">
-                    <div class="win-controls">
+            <div class="mac-window reveal" id="win-skills">
+                <div class="win-titlebar" onmousedown="startDrag(event, 'win-skills')" style="justify-content: flex-start; padding-left: 16px;">
+                    <div class="win-controls" style="position: static; margin-right: 20px;">
                         <div class="tl red" onclick="closeWin('win-skills')"></div>
                         <div class="tl yellow"></div>
                         <div class="tl green"></div>
                     </div>
-                    <span class="win-title">Tech Stack</span>
+                    <span class="win-title" style="color: #333;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; color: #ff9500;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Tech Stack</span>
                 </div>
                 <div class="win-content">
                     <div class="skills-container">
@@ -481,17 +497,34 @@
                 </div>
             </div>
 
-            <!-- WIN: EDUCATION -->
-            <div class="mac-window dark reveal" id="win-edu">
-                <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-edu')">
-                    <div class="win-controls">
+            <!-- WIN: EDUCATION (Mail App) -->
+            <div class="mac-window reveal" id="win-edu">
+                <div class="win-titlebar" onmousedown="startDrag(event, 'win-edu')" style="justify-content: flex-start; padding: 0 16px;">
+                    <div class="win-controls" style="position: static; margin-right: 20px;">
                         <div class="tl red" onclick="closeWin('win-edu')"></div>
                         <div class="tl yellow"></div>
                         <div class="tl green"></div>
                     </div>
-                    <span class="win-title">Formazione</span>
+                    <div style="display: flex; gap: 15px; color: #888;">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38l-2.62 2.62"></path></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                    </div>
+                    <div class="win-actions">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </div>
                 </div>
-                <div class="win-content">
+                <div class="win-content" style="background: #fff;">
+                    <div style="padding: 15px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); background: rgba(250,250,250,1);">
+                        <div style="display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px;">
+                            <span style="font-size: 13px; color: #888; width: 60px;">Oggetto:</span>
+                            <strong style="font-size: 14px; color: #333;">Formazione ed Educazione</strong>
+                        </div>
+                        <div style="display: flex; align-items: baseline; gap: 10px;">
+                            <span style="font-size: 13px; color: #888; width: 60px;">Da:</span>
+                            <strong style="font-size: 14px; color: #007aff;">info@cristianingrao.com</strong>
+                        </div>
+                    </div>
                     <div class="edu-list">
                         <div class="edu-card">
                             <div class="edu-year">ATTUALE</div>
@@ -508,8 +541,8 @@
             </div>
 
         <!-- WIN: CONTACTS -->
-        <div class="mac-window dark reveal" id="win-contacts">
-            <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-contacts')">
+        <div class="mac-window reveal" id="win-contacts">
+            <div class="win-titlebar" onmousedown="startDrag(event, 'win-contacts')">
                 <div class="win-controls">
                     <div class="tl red" onclick="closeWin('win-contacts')"></div>
                     <div class="tl yellow"></div>
