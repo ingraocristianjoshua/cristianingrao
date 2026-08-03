@@ -429,6 +429,8 @@ body, html {
 @media (max-width: 768px) {
     html, body { overflow-x: hidden !important; overflow-y: auto !important; height: auto !important; min-height: 100vh; -webkit-overflow-scrolling: touch; }
     
+    #desktop-hero { height: auto !important; min-height: 100vh; overflow: visible !important; }
+    
     /* Menubar */
     .menubar-left .menu-text:not(.apple-logo):not(.bold) { display: none; }
     .status-icon { display: none; }
