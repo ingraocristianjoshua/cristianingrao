@@ -64,19 +64,21 @@
             to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
-        /* Windows styling (Light Theme) */
+        /* Windows styling (Dark Theme) */
         .mac-window {
             position: relative; 
-            background: #FFFFFF !important; 
-            border: 1px solid rgba(0,0,0,0.12);
+            background: rgba(28, 28, 30, 0.85) !important; 
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid rgba(255,255,255,0.15);
             border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.15), 0 1px 3px rgba(0,0,0,0.08);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05) inset;
             overflow: hidden;
-            color: #1D1D1F;
+            color: #EBEBF5;
             transition: box-shadow 0.3s, transform 0.3s;
         }
         .mac-window:hover {
-            box-shadow: 0 14px 44px rgba(0,0,0,0.2), 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.8), 0 0 0 1px rgba(255,255,255,0.08) inset;
             transform: translateY(-2px);
         }
         
@@ -87,8 +89,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #F6F6F6;
-            border-bottom: 1px solid rgba(0,0,0,0.08);
+            background: rgba(44, 44, 46, 0.6);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
             position: relative;
         }
         .win-controls {
@@ -100,7 +102,7 @@
         .win-title {
             font-size: 13px;
             font-weight: 600;
-            color: #1D1D1F;
+            color: #EBEBF5;
             letter-spacing: -0.2px;
             display: flex;
             align-items: center;
@@ -245,18 +247,18 @@
         .portfolio-dock {
             grid-column: 1 / -1;
             grid-row: 3 / 4;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(28, 28, 30, 0.7);
             backdrop-filter: blur(40px) saturate(180%);
             -webkit-backdrop-filter: blur(40px) saturate(180%);
             border-radius: 28px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             padding: 15px 25px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
             margin: 0 auto;
             max-width: 95%;
         }
@@ -269,14 +271,15 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            background: #fff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
+            background: rgba(255,255,255,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.05);
             position: relative;
         }
         .portfolio-dock .dock-item:hover {
             transform: scale(1.2) translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background: rgba(255,255,255,0.15);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             z-index: 10;
         }
         .portfolio-dock .dock-item::after {
@@ -325,15 +328,15 @@
         /* Skills */
         .skills-container { padding: 30px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; justify-items: center; }
         .skill-node { 
-            background: #fafafa; border: 1px solid rgba(0,0,0,0.04); border-radius: 16px;
+            background: rgba(44, 44, 46, 0.5); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px;
             padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px;
             transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .skill-node:hover { 
             transform: translateY(-8px) scale(1.05); 
-            background: #fff; 
-            border-color: rgba(0,0,0,0.08);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            background: rgba(60, 60, 62, 0.8); 
+            border-color: rgba(255,255,255,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
         .skill-node img { width: 45px; height: 45px; }
         /* Skills (Finder App Icons) */
@@ -387,20 +390,20 @@
 
         /* Projects (Finder App) */
         .finder-container { display: flex; min-height: 400px; background: transparent; }
-        .finder-sidebar { width: 200px; background: rgba(0,0,0,0.03); border-right: 1px solid rgba(0,0,0,0.06); padding: 15px 10px; display: flex; flex-direction: column; gap: 15px; }
+        .finder-sidebar { width: 200px; background: rgba(0,0,0,0.2); border-right: 1px solid rgba(255,255,255,0.1); padding: 15px 10px; display: flex; flex-direction: column; gap: 15px; }
         .finder-sidebar-section { display: flex; flex-direction: column; gap: 5px; }
         .finder-sidebar-title { font-size: 11px; font-weight: 600; color: #86868B; text-transform: uppercase; letter-spacing: 0.5px; padding: 0 10px; margin-bottom: 5px; }
-        .finder-sidebar-item { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #1D1D1F; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: background 0.2s; }
-        .finder-sidebar-item.active { background: rgba(0, 122, 255, 0.12); color: #007AFF; font-weight: 600; }
-        .finder-sidebar-item:hover:not(.active) { background: rgba(0,0,0,0.04); }
+        .finder-sidebar-item { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #EBEBF5; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: background 0.2s; }
+        .finder-sidebar-item.active { background: rgba(0, 122, 255, 0.3); color: #64D2FF; font-weight: 600; }
+        .finder-sidebar-item:hover:not(.active) { background: rgba(255,255,255,0.1); }
         .finder-main { flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; }
-        .finder-toolbar { height: 40px; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; padding: 0 15px; gap: 15px; background: transparent; }
+        .finder-toolbar { height: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; padding: 0 15px; gap: 15px; background: transparent; }
         .projects-grid { padding: 25px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; overflow-y: auto; }
         .project-card { 
-            background: #FFFFFF; 
+            background: rgba(44, 44, 46, 0.7); 
             border-radius: 16px; 
             overflow: hidden; 
-            border: 1px solid rgba(0,0,0,0.08); 
+            border: 1px solid rgba(255,255,255,0.1); 
             display: flex; 
             flex-direction: column; 
             position: relative; 
@@ -430,42 +433,37 @@
         }
         .project-pattern-2 {
             background-color: #fafafa;
-            background-image: linear-gradient(0deg, transparent 24%, rgba(0,0,0,.04) 25%, rgba(0,0,0,.04) 26%, transparent 27%, transparent 74%, rgba(0,0,0,.04) 75%, rgba(0,0,0,.04) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(0,0,0,.04) 25%, rgba(0,0,0,.04) 26%, transparent 27%, transparent 74%, rgba(0,0,0,.04) 75%, rgba(0,0,0,.04) 76%, transparent 77%, transparent);
+            background-color: #2c2c2e;
+            background-image: linear-gradient(0deg, transparent 24%, rgba(255,255,255,.04) 25%, rgba(255,255,255,.04) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.04) 75%, rgba(255,255,255,.04) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255,255,255,.04) 25%, rgba(255,255,255,.04) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.04) 75%, rgba(255,255,255,.04) 76%, transparent 77%, transparent);
             background-size: 30px 30px;
         }
-        .project-img-icon {
-            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.5s;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
-        }
-        .project-card:hover .project-img-icon {
-            transform: scale(1.2) rotate(5deg) translateY(-5px);
-            filter: drop-shadow(0 20px 30px rgba(0,122,255,0.2));
-        }
-        
-        .project-info { padding: 20px; position: relative; z-index: 2; flex-grow: 1; display: flex; flex-direction: column; }
-        .project-title { font-size: 16px; font-weight: 700; color: #1D1D1F; margin: 0 0 10px 0; }
-        .project-desc { font-size: 13px; color: #86868B; margin: 0; line-height: 1.5; }
-        .project-tech { display: flex; gap: 8px; margin-top: auto; padding-top: 16px; flex-wrap: wrap; }
-        .project-tech span { font-size: 11px; font-weight: 600; padding: 4px 10px; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.06); border-radius: 20px; color: #1D1D1F; transition: all 0.2s; }
+        .project-img-icon { opacity: 0.9; transition: transform 0.5s ease; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); }
+        .project-card:hover .project-img-icon { transform: scale(1.1) rotate(5deg); }
+        .project-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; background: transparent; }
+        .project-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #EBEBF5; }
+        .project-desc { font-size: 13px; color: #A0A0A5; line-height: 1.5; margin-bottom: 15px; flex-grow: 1; }
+        .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
+        .project-tech span { font-size: 11px; padding: 4px 10px; background: rgba(255,255,255,0.1); border-radius: 20px; color: #EBEBF5; border: 1px solid rgba(255,255,255,0.05); transition: all 0.2s; }
         .project-tech span:hover { background: #007aff; color: #fff; border-color: #007aff; transform: scale(1.05); }
 
         /* Contacts */
         .contact-list { padding: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
         .contact-item { 
             display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; 
-            padding: 30px 20px; background: #fff; border-radius: 20px; text-decoration: none; color: #1D1D1F; 
+            padding: 30px 20px; background: rgba(44, 44, 46, 0.7); border-radius: 20px; text-decoration: none; color: #EBEBF5; 
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             text-align: center;
         }
         .contact-item svg { width: 36px; height: 36px; transition: transform 0.3s ease; }
-        .contact-item:nth-child(1) svg { color: #007AFF; }
+        .contact-item:nth-child(1) svg { color: #64D2FF; }
         .contact-item:nth-child(2) svg { color: #0077B5; }
-        .contact-item:nth-child(3) svg { color: #24292e; }
+        .contact-item:nth-child(3) svg { color: #EBEBF5; }
         .contact-item:hover { 
             transform: translateY(-8px) scale(1.02); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4); 
             z-index: 10;
+            background: rgba(60, 60, 62, 0.9);
         }
         .contact-item:hover svg { transform: scale(1.15); }
         .contact-item span { font-weight: 600; font-size: 15px; }
@@ -849,14 +847,14 @@
             </div>
             <span class="win-title">Progetto: BrickLink</span>
         </div>
-        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: #fff; color: #1D1D1F; max-height: calc(80vh - 52px);">
+        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5; max-height: calc(80vh - 52px);">
             <h1 style="margin-bottom: 20px; font-size: 28px; font-weight: 700;">BrickLink</h1>
             <p style="margin-bottom: 15px;"><strong>BrickLink</strong> è una web application mobile-first per la divulgazione digitale che supera la concezione tradizionale dell’articolo come blocco di testo statico e monolitico, per abbracciare una visione dell’informazione intesa come entità dinamica, granulare e strutturata.</p>
             <p style="margin-bottom: 15px;">Il principio fondante del progetto è che la conoscenza debba essere veicolata attraverso unità modulari e indipendenti denominate <strong>Brick</strong> (mattoncini logici): ogni articolo non è un documento indivisibile, ma una sequenza ordinata di Brick eterogenei — testo, immagini, gallerie, contenuti multimediali incorporati, snippet di codice e mappe geografiche — ciascuno con una propria semantica e un proprio modello dati.</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">Architettura dei Dati</h3>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Architettura dei Dati</h3>
             <p style="margin-bottom: 15px;">Questa scelta concettuale ha una diretta contropartita implementativa, verificabile in ogni strato del sistema. Sul piano dei dati, l’enum <code>BrickType</code> enumera esattamente sei tipologie — TEXT, IMAGE, EMBED, CODE, GALLERY, MAP — e ciascun Brick memorizza il proprio contenuto in una colonna JSONB polimorfa (<code>data: Record&lt;string, unknown&gt;</code>).</p>
             <p style="margin-bottom: 15px;">Il payload non è quindi HTML pre-renderizzato, ma un oggetto strutturato e tipizzato: è il client a decidere, in fase di lettura, quale componente Angular incaricare del rendering di ciascun tipo. Questa impostazione — che ricorre identica dal database (<code>Brick.data</code> di tipo jsonb) fino ai template dell’editor e della pagina di dettaglio — è il filo conduttore dell’intera architettura e rappresenta anche una difesa nativa contro gli attacchi di tipo injection: il server non conserva né restituisce mai markup eseguibile.</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">Stack Tecnologico</h3>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Stack Tecnologico</h3>
             <p style="margin-bottom: 10px;">La piattaforma è costruita come applicazione full-stack disaccoppiata:</p>
             <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
                 <li style="margin-bottom: 8px;"><strong>Client:</strong> Angular 20 / Ionic 8 / Capacitor (distribuibile come PWA e app nativa iOS/Android)</li>
@@ -864,7 +862,7 @@
                 <li style="margin-bottom: 8px;"><strong>Persistenza:</strong> PostgreSQL (dati relazionali) e Redis (dati volatili ad alta frequenza)</li>
             </ul>
             <p style="margin-bottom: 15px;">L’ecosistema è governato da una gerarchia di tre ruoli — Admin, Editor e User — con privilegi e interfacce differenziati, modellata dall’enum <code>UserRole</code> condiviso e applicata coerentemente sui due lati: guard funzionali sul client (<code>editorGuard</code>, <code>adminGuard</code>) e middleware RBAC sul server (<code>requireEditor</code>, <code>requireAdmin</code>).</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">Ecosistema e Gamification</h3>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Ecosistema e Gamification</h3>
             <p style="margin-bottom: 15px;">Oltre alla creazione e consultazione dei contenuti, BrickLink integra un ambiente di authoring dedicato (<strong>BrickLab</strong>), un sistema di interazione sociale (like con aggiornamento ottimistico e commenti annidati auto-referenziali), una dashboard amministrativa completa e un modulo di gamification (<strong>CruciBrick</strong>) che estrae dinamicamente le parole chiave dal testo dei Brick per generare sfide di ripasso, trasformando la consultazione passiva in un esercizio attivo di consolidamento della memoria. Ogni funzionalità è progettata secondo il principio della <em>difesa in profondità</em>: ciò che il client verifica per usabilità, il server lo impone per sicurezza.</p>
         </div>
     </div>
