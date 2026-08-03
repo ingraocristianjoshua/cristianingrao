@@ -14,10 +14,12 @@
     <link rel="stylesheet" href="styles.css?v=3">
     <style>
         /* Portfolio Specific Styles (Light Theme) */
-        html, body {
-            background: #fdfbf7;
-            background-image: radial-gradient(rgba(0,0,0,0.06) 1.5px, transparent 1.5px);
-            background-size: 36px 36px;
+        /* Desktop Environment (Background) */
+        body {
+            background: radial-gradient(circle at top right, #e2f0fb 0%, #f7f3eb 40%, #e6e9f0 100%);
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
             margin: 0; padding: 0;
             width: 100%;
             height: auto !important;
@@ -50,6 +52,7 @@
             flex-direction: column;
             gap: 40px;
             animation: workspaceEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            padding-top: 60px; min-height: calc(100vh - 60px);
         }
         @keyframes workspaceEnter {
             from { opacity: 0; transform: scale(0.95); }
@@ -273,26 +276,59 @@
         .edu-title { font-size: 16px; font-weight: 700; color: #222; margin: 0 0 4px 0; }
         .edu-desc { font-size: 14px; color: #666; margin: 0; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
-        /* Projects (Clean Paper Cards) */
-        .projects-grid { padding: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-        .project-card { 
-            background: #fff; border-radius: 12px; border: 1px solid rgba(0,0,0,0.04);
-            overflow: hidden; transition: all 0.3s ease;
-            position: relative; box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        /* macOS Menu Bar */
+        .menubar {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 16px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #1a1a1a;
+            z-index: 10000;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.1);
         }
-        .project-card:hover { transform: translateY(-6px); box-shadow: 0 16px 32px rgba(0,0,0,0.08); }
+        .menubar-left, .menubar-right { display: flex; align-items: center; gap: 16px; }
+        .menubar-item { cursor: default; padding: 0 6px; border-radius: 4px; }
+        .menubar-item:hover { background: rgba(0,0,0,0.05); }
+        .apple-logo { font-size: 16px; padding: 0 8px; }
+        .menubar-bold { font-weight: 700; }
+
+        /* Projects (Finder App) */
+        .finder-container { display: flex; height: 500px; background: #fff; }
+        .finder-sidebar { width: 200px; background: rgba(245,245,247,0.9); border-right: 1px solid rgba(0,0,0,0.06); padding: 15px 10px; display: flex; flex-direction: column; gap: 15px; }
+        .finder-sidebar-section { display: flex; flex-direction: column; gap: 5px; }
+        .finder-sidebar-title { font-size: 11px; font-weight: 600; color: #888; padding: 0 10px; margin-bottom: 5px; }
+        .finder-sidebar-item { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #333; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: background 0.2s; }
+        .finder-sidebar-item.active { background: rgba(0,0,0,0.08); font-weight: 600; }
+        .finder-sidebar-item:hover:not(.active) { background: rgba(0,0,0,0.04); }
+        .finder-main { flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; }
+        .finder-toolbar { height: 40px; border-bottom: 1px solid rgba(0,0,0,0.06); display: flex; align-items: center; padding: 0 15px; gap: 15px; background: #fff; }
+        .projects-grid { padding: 25px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; overflow-y: auto; height: calc(100% - 40px); }
+        .project-card { 
+            background: #fff; border-radius: 8px; border: 1px solid rgba(0,0,0,0.06);
+            overflow: hidden; transition: all 0.2s ease;
+            position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+        .project-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.1); }
         .project-card:hover .project-img { transform: scale(1.05); }
-        .project-img-container { width: 100%; height: 160px; overflow: hidden; background: #f5f5f5; }
+        .project-img-container { width: 100%; height: 140px; overflow: hidden; background: #f5f5f5; border-bottom: 1px solid rgba(0,0,0,0.04); }
         .project-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-        .project-info { padding: 20px; position: relative; z-index: 2; background: #fff; }
-        .project-title { font-size: 16px; font-weight: 700; color: #222; margin: 0 0 8px 0; }
-        .project-desc { font-size: 13px; color: #666; margin: 0; line-height: 1.5; }
-        .project-tech { display: flex; gap: 8px; margin-top: 15px; flex-wrap: wrap; }
-        .project-tech span { font-size: 11px; font-weight: 500; padding: 2px 8px; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; color: #555; display: flex; align-items: center; gap: 4px; }
+        .project-info { padding: 15px; position: relative; z-index: 2; background: #fff; }
+        .project-title { font-size: 14px; font-weight: 700; color: #222; margin: 0 0 6px 0; }
+        .project-desc { font-size: 12px; color: #666; margin: 0; line-height: 1.4; }
+        .project-tech { display: flex; gap: 6px; margin-top: 12px; flex-wrap: wrap; }
+        .project-tech span { font-size: 10px; font-weight: 500; padding: 2px 6px; border: 1px solid rgba(0,0,0,0.1); border-radius: 4px; color: #555; display: flex; align-items: center; gap: 4px; }
         .project-tech span::before { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: #007aff; }
         .project-tech span:nth-child(2)::before { background: #34c759; }
         .project-tech span:nth-child(3)::before { background: #ff9500; }
-        .project-link { position: absolute; top: 15px; right: 15px; width: 32px; height: 32px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #333; box-shadow: 0 4px 10px rgba(0,0,0,0.1); transition: all 0.2s ease; text-decoration: none; }
+        .project-link { position: absolute; top: 10px; right: 10px; width: 28px; height: 28px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: #333; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 0.2s ease; text-decoration: none; }
         .project-link:hover { transform: scale(1.1); background: #007aff; color: #fff; }
 
         /* Contacts */
@@ -300,12 +336,62 @@
         .contact-item { display: flex; align-items: center; gap: 15px; padding: 15px 20px; background: #fff; border-radius: 12px; text-decoration: none; color: #333; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.04); }
         .contact-item:hover { background: #fafafa; transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.06); }
 
+        /* Dock */
+        .mac-dock {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 24px;
+            padding: 8px 10px;
+            display: flex;
+            gap: 10px;
+            z-index: 10000;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .dock-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            font-size: 24px;
+            position: relative;
+        }
+        .dock-icon:hover { transform: scale(1.2) translateY(-10px); }
+        .dock-icon::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background: rgba(0,0,0,0.4);
+            border-radius: 50%;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .dock-icon.active::after { opacity: 1; }
+        
+        /* Ensure windows come to front when clicked */
+        .mac-window { pointer-events: auto; }
+
 
 
         /* Mobile Optimization */
         @media (max-width: 900px) {
             .windows-container { display: flex; flex-direction: column; }
-            .workspace { padding: 70px 20px 40px 20px; gap: 20px; }
+            .workspace { padding: 70px 20px 90px 20px; gap: 20px; }
             .hero-title { font-size: 48px; }
             .hero-subtitle { font-size: 14px; }
             .hero-window { min-height: 300px; }
@@ -315,6 +401,12 @@
             .contact-list { grid-template-columns: 1fr; }
             .skills-container { grid-template-columns: repeat(3, 1fr); gap: 10px; }
             .skill-node { padding: 15px; }
+            
+            .menubar { padding: 0 8px; }
+            .menubar-item { padding: 0 4px; font-size: 11px; }
+            .mac-dock { width: 90%; justify-content: space-around; overflow-x: auto; padding: 10px; }
+            .dock-icon { width: 40px; height: 40px; font-size: 20px; }
+            .finder-sidebar { display: none; }
         }
         @media (max-width: 600px) {
             .projects-grid { grid-template-columns: 1fr; }
@@ -326,13 +418,31 @@
 </head>
 <body>
 
-    <!-- Top Navigation -->
-    <nav class="portfolio-nav">
-        <a href="index.html" class="back-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-            Torna al Desktop
-        </a>
-    </nav>
+    <!-- macOS Menu Bar -->
+    <div class="menubar">
+        <div class="menubar-left">
+            <span class="menubar-item apple-logo"></span>
+            <span class="menubar-item menubar-bold">Portfolio</span>
+            <span class="menubar-item">File</span>
+            <span class="menubar-item">Modifica</span>
+            <span class="menubar-item">Vista</span>
+            <span class="menubar-item">Vai</span>
+            <span class="menubar-item">Finestra</span>
+            <span class="menubar-item">Aiuto</span>
+        </div>
+        <div class="menubar-right">
+            <span class="menubar-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+            </span>
+            <span class="menubar-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="10" rx="2" ry="2"></rect><line x1="22" y1="11" x2="22" y2="13"></line></svg>
+            </span>
+            <span class="menubar-item" id="menubar-time">--:--</span>
+            <span class="menubar-item">
+                <a href="index.html" style="text-decoration: none; color: inherit; font-size: 11px; background: rgba(0,0,0,0.05); padding: 4px 8px; border-radius: 12px;">Esci</a>
+            </span>
+        </div>
+    </div>
 
     <!-- Workspace Container -->
     <div class="workspace" id="portfolio-workspace">
@@ -439,8 +549,35 @@
                     </div>
                     <span class="win-title" style="color: #333;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; color: #007aff;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> Progetti Recenti</span>
                 </div>
-                <div class="win-content">
-                    <div class="projects-grid">
+                <div class="win-content p-0 finder-container">
+                    <div class="finder-sidebar">
+                        <div class="finder-sidebar-section">
+                            <span class="finder-sidebar-title">Preferiti</span>
+                            <div class="finder-sidebar-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg> Recenti</div>
+                            <div class="finder-sidebar-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> Scrivania</div>
+                            <div class="finder-sidebar-item active"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> Progetti</div>
+                            <div class="finder-sidebar-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg> Download</div>
+                        </div>
+                        <div class="finder-sidebar-section" style="margin-top: 10px;">
+                            <span class="finder-sidebar-title">Tag</span>
+                            <div class="finder-sidebar-item"><span style="width:10px; height:10px; background:#ff3b30; border-radius:50%; display:inline-block;"></span> Importanti</div>
+                            <div class="finder-sidebar-item"><span style="width:10px; height:10px; background:#ff9500; border-radius:50%; display:inline-block;"></span> Lavoro</div>
+                            <div class="finder-sidebar-item"><span style="width:10px; height:10px; background:#34c759; border-radius:50%; display:inline-block;"></span> Personali</div>
+                        </div>
+                    </div>
+                    <div class="finder-main">
+                        <div class="finder-toolbar">
+                            <div style="display: flex; gap: 8px; color: #aaa;">
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                            </div>
+                            <span style="font-size: 13px; font-weight: 600; margin-left: 10px;">Progetti</span>
+                            <div style="margin-left: auto; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 6px;">
+                                <svg width="12" height="12" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                                <span style="font-size: 12px; color: #888;">Cerca</span>
+                            </div>
+                        </div>
+                        <div class="projects-grid">
                         <div class="project-card">
                             <a href="#" class="project-link"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
                             <div class="project-img-container"><div class="project-img" style="background: linear-gradient(45deg, #1f4037, #99f2c8);"></div></div>
@@ -573,8 +710,35 @@
 
     </div>
 
+    <!-- macOS Dock -->
+    <div class="mac-dock">
+        <div class="dock-icon active" onclick="bringToFront('win-bio');" style="background: linear-gradient(135deg, #ffd700, #ffb300); color: #fff;">📝</div>
+        <div class="dock-icon active" onclick="bringToFront('win-projects');" style="background: linear-gradient(135deg, #007aff, #005bb5); color: #fff;">📁</div>
+        <div class="dock-icon active" onclick="bringToFront('win-edu');" style="background: linear-gradient(135deg, #4cd964, #34aadc); color: #fff;">✉️</div>
+        <div class="dock-icon active" onclick="bringToFront('win-skills');" style="background: linear-gradient(135deg, #8e8e93, #636366); color: #fff;">⚙️</div>
+        <div class="dock-icon active" onclick="bringToFront('win-photo');" style="background: linear-gradient(135deg, #ff3b30, #c81b1b); color: #fff;">📸</div>
+        <div class="dock-icon active" onclick="bringToFront('win-contacts');" style="background: linear-gradient(135deg, #ff9500, #d97d00); color: #fff;">📇</div>
+    </div>
+
     <script src="script.js"></script>
     <script>
+        // Bring window to front
+        let highestZ = 100;
+        function bringToFront(id) {
+            const win = document.getElementById(id);
+            if(win) {
+                win.style.display = 'flex';
+                win.style.zIndex = ++highestZ;
+            }
+        }
+        
+        // Add click listener to all windows to bring them to front
+        document.querySelectorAll('.mac-window').forEach(win => {
+            win.addEventListener('mousedown', function() {
+                this.style.zIndex = ++highestZ;
+            });
+        });
+
         // Check for animateIn flag from desktop transition
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('animateIn') === 'true') {
