@@ -482,7 +482,9 @@
                 <li style="margin-bottom: 15px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.opacity=0.8;" onmouseout="this.style.opacity=1;" onclick="openWindow('win-bricklink')">
                     <strong style="color: #64d2ff; text-decoration: underline;">BrickLink - System & Architecture</strong>: Infrastruttura digitale complessa sviluppata in Java e Spring Boot per catalogare e gestire relazioni tra entità strutturate, combinata con un'interfaccia client robusta. <em>(Clicca per approfondire)</em>
                 </li>
-                <li style="margin-bottom: 15px;"><strong style="color: #fff;">Graduam - Milestone & Progression:</strong> Applicativo web costruito con Next.js e TypeScript incentrato sulla logica di tracciamento dei percorsi formativi, curato dal design system all'implementazione dei dati.</li>
+                <li style="margin-bottom: 15px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.opacity=0.8;" onmouseout="this.style.opacity=1;" onclick="openWindow('win-graduam')">
+                    <strong style="color: #64d2ff; text-decoration: underline;">Graduam - Milestone & Progression</strong>: Applicativo web costruito con Next.js e TypeScript incentrato sulla logica di tracciamento dei percorsi formativi, curato dal design system all'implementazione dei dati. <em>(Clicca per approfondire)</em>
+                </li>
                 <li style="margin-bottom: 15px;"><strong style="color: #fff;">Interactive OS Portfolio:</strong> Single-page application che emula un ambiente desktop, integrando API e un engine CSS/JS per il window management asincrono.</li>
             </ul>
         </div>
@@ -929,6 +931,31 @@
     </div>
 
     
+    </div>
+    
+    <!-- GRADUAM PROJECT WINDOW -->
+    <div class="mac-window" id="win-graduam" style="display:none; position: fixed; top: 12vh; left: 20vw; width: 65vw; max-height: 80vh; z-index: 1000;">
+        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-graduam')">
+            <div class="traffic-lights">
+                <div class="tl red" onclick="closeWin('win-graduam')"></div>
+                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
+            </div>
+            <span class="win-title">Progetto: Graduam</span>
+        </div>
+        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: #fff; color: #1D1D1F; max-height: calc(80vh - 52px);">
+            <h1 style="margin-bottom: 20px; font-size: 28px; font-weight: 700;">Graduam</h1>
+            <p style="margin-bottom: 15px;"><strong>Graduam - Milestone & Progression</strong> è un applicativo web innovativo incentrato sul tracciamento, l'analisi e la gestione avanzata dei percorsi formativi. Progettato per accompagnare l'utente nell'organizzazione dei propri traguardi accademici e obiettivi di crescita personale in modo visuale e stimolante.</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">La Sfida Tecnica</h3>
+            <p style="margin-bottom: 15px;">L'obiettivo principale del progetto è stato creare un sistema di progressione matematicamente coerente e, allo stesso tempo, visivamente gratificante. Ogni aspetto dell'interfaccia utente è stato maniacalmente curato, partendo da un design system proprietario fino all'implementazione strutturata dei dati relazionali. Un'attenzione particolare è stata dedicata alla fluidità della tipografia e alle micro-interazioni per migliorare e "gamificare" l'esperienza utente ad ogni step di progressione superato.</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">Stack Tecnologico</h3>
+            <p style="margin-bottom: 10px;">L'architettura del progetto si basa sulle tecnologie più moderne e reattive dell'ecosistema React:</p>
+            <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
+                <li style="margin-bottom: 8px;"><strong>Framework:</strong> Next.js per garantire routing avanzato (App Router), Server-Side Rendering ed un'esperienza performante fin dal primo caricamento, curando anche la SEO.</li>
+                <li style="margin-bottom: 8px;"><strong>Linguaggio:</strong> TypeScript per assicurare rigorosa tipizzazione statica, abbattere i bug a runtime e garantire la scalabilità e la manutenzione della codebase nel tempo.</li>
+                <li style="margin-bottom: 8px;"><strong>Design:</strong> Tailwind CSS è stato adottato per prototipare rapidamente l'interfaccia, mantenendo una coerenza stilistica eccellente grazie all'utilizzo coerente di utility-classes e token personalizzati.</li>
+            </ul>
+        </div>
     </div>
     
     <script src="script.js"></script>
