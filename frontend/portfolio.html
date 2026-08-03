@@ -56,23 +56,35 @@
             to { opacity: 1; transform: none; }
         }
 
-        /* Windows styling */
+        /* Windows styling (Glassmorphism & Spotlight) */
         .mac-window {
-            position: relative !important; /* Override drag absolute default if needed, or keep for grid */
+            position: relative !important; 
             top: auto !important; left: auto !important;
-            background: #1a1a1a !important; /* Dark solid background as seen in images */
+            background: rgba(30, 30, 35, 0.5) !important; 
+            backdrop-filter: blur(40px) saturate(150%);
+            -webkit-backdrop-filter: blur(40px) saturate(150%);
             border: 1px solid rgba(255,255,255,0.08);
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.1);
             overflow: hidden;
             color: #fff;
-            transform: translateY(30px);
+            transform-style: preserve-3d;
+            transition: transform 0.1s ease-out;
+        }
+        /* Mouse Spotlight Effect */
+        .mac-window::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.06), transparent 40%);
+            z-index: 0;
+            pointer-events: none;
             opacity: 0;
-            animation: windowPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            transition: opacity 0.3s;
         }
-        @keyframes windowPop {
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .mac-window:hover::before { opacity: 1; }
+        
+        .win-content { position: relative; z-index: 1; }
         
         .win-titlebar {
             height: 48px;
@@ -141,9 +153,14 @@
             font-weight: 800;
             letter-spacing: -2px;
             margin: 0;
-            background: linear-gradient(to bottom, #fff, #888);
+            background: linear-gradient(to right, #fff, #a8c0ff, #fff);
+            background-size: 200% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: shineText 5s linear infinite;
+        }
+        @keyframes shineText {
+            to { background-position: 200% center; }
         }
         .hero-badge {
             display: inline-block;
@@ -157,6 +174,32 @@
             color: #ddd;
             backdrop-filter: blur(10px);
         }
+        
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            animation: bounceScroll 2s infinite;
+            z-index: 20;
+        }
+        .scroll-indicator svg {
+            width: 20px; height: 20px;
+        }
+        @keyframes bounceScroll {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -10px); }
+            60% { transform: translate(-50%, -5px); }
+        }
+
         @keyframes floatAnim {
             0% { transform: translateY(0px) var(--base-rotate); }
             50% { transform: translateY(-15px) var(--base-rotate); }
@@ -180,12 +223,24 @@
             grid-template-columns: repeat(12, 1fr);
             gap: 30px;
         }
-        #win-bio { grid-column: span 8; animation-delay: 0.1s; }
-        #win-photo { grid-column: span 4; animation-delay: 0.2s; }
-        #win-projects { grid-column: span 12; animation-delay: 0.25s; }
-        #win-skills { grid-column: span 6; animation-delay: 0.3s; }
-        #win-edu { grid-column: span 6; animation-delay: 0.4s; }
-        #win-contacts { grid-column: span 12; animation-delay: 0.5s; }
+        #win-bio { grid-column: span 8; }
+        #win-photo { grid-column: span 4; }
+        #win-projects { grid-column: span 12; }
+        #win-skills { grid-column: span 6; }
+        #win-edu { grid-column: span 6; }
+        #win-contacts { grid-column: span 12; }
+        
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+        }
+        .reveal.active {
+            animation: revealAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes revealAnim {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         /* Bio */
         .bio-content { padding: 40px; }
@@ -300,6 +355,12 @@
                     <div class="hero-badge">Cristian Ingrao</div>
                 </div>
                 
+                <!-- Scroll Indicator -->
+                <div class="scroll-indicator">
+                    <span>SCROLL</span>
+                    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+                </div>
+                
                 <!-- Floating Icons around Hero -->
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="hero-float-icon" style="top: 20%; left: 15%; width: 60px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); --base-rotate: rotate(-15deg); animation-delay: 0s;">
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="hero-float-icon" style="bottom: 25%; left: 20%; width: 70px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.5)); --base-rotate: rotate(10deg); animation-delay: 1.5s;">
@@ -310,7 +371,7 @@
 
         <div class="windows-container">
             <!-- WIN: BIO -->
-            <div class="mac-window dark" id="win-bio">
+            <div class="mac-window dark reveal" id="win-bio">
                 <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-bio')">
                     <div class="win-controls">
                         <div class="tl red" onclick="closeWin('win-bio')"></div>
@@ -335,7 +396,7 @@
             </div>
 
             <!-- WIN: PHOTO -->
-            <div class="mac-window dark" id="win-photo">
+            <div class="mac-window dark reveal" id="win-photo">
                 <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-photo')">
                     <div class="win-controls">
                         <div class="tl red" onclick="closeWin('win-photo')"></div>
@@ -350,7 +411,7 @@
             </div>
 
             <!-- WIN: PROJECTS -->
-            <div class="mac-window dark" id="win-projects">
+            <div class="mac-window dark reveal" id="win-projects">
                 <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-projects')">
                     <div class="win-controls">
                         <div class="tl red" onclick="closeWin('win-projects')"></div>
@@ -393,7 +454,7 @@
             </div>
 
             <!-- WIN: SKILLS -->
-            <div class="mac-window dark" id="win-skills">
+            <div class="mac-window dark reveal" id="win-skills">
                 <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-skills')">
                     <div class="win-controls">
                         <div class="tl red" onclick="closeWin('win-skills')"></div>
@@ -421,7 +482,7 @@
             </div>
 
             <!-- WIN: EDUCATION -->
-            <div class="mac-window dark" id="win-edu">
+            <div class="mac-window dark reveal" id="win-edu">
                 <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-edu')">
                     <div class="win-controls">
                         <div class="tl red" onclick="closeWin('win-edu')"></div>
@@ -447,7 +508,7 @@
             </div>
 
         <!-- WIN: CONTACTS -->
-        <div class="mac-window dark" id="win-contacts">
+        <div class="mac-window dark reveal" id="win-contacts">
             <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-contacts')">
                 <div class="win-controls">
                     <div class="tl red" onclick="closeWin('win-contacts')"></div>
@@ -499,6 +560,53 @@
     }
     setInterval(updateBentoTime, 1000);
     updateBentoTime();
+
+    // Scroll Reveal Animation
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15
+    };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // 3D Tilt and Spotlight Effect
+    document.querySelectorAll('.mac-window').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Set CSS variables for spotlight
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+            
+            // Calculate 3D tilt
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            // Max rotation is 3 degrees to keep it subtle
+            const rotateX = ((y - centerY) / centerY) * -3; 
+            const rotateY = ((x - centerX) / centerX) * 3;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(0)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+        });
+    });
+    
+    // Ensure the hero window is visible immediately without scroll
+    document.getElementById('win-hero').style.opacity = '1';
+    document.getElementById('win-hero').style.transform = 'translateY(0)';
 </script>
 </body>
 </html>
