@@ -817,49 +817,37 @@
     </div>
 
     
-            <!-- WIN: EDUCATION (Mail App) -->
-            <div class="mac-window reveal" id="win-edu">
-                <div class="win-titlebar" onmousedown="startDrag(event, 'win-edu')">
-                    <div class="win-controls">
-                        <div class="tl red" onclick="closeWin('win-edu')"></div>
-                        <div class="tl yellow"></div>
-                        <div class="tl green"></div>
-                    </div>
-                    <div style="display: flex; gap: 15px; color: #86868B;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.5 2v6h6M2.66 15.57a10 10 0 1 0 .57-8.38l-2.62 2.62"></path></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
-                    </div>
-                    <div class="win-actions" style="color: #007AFF;">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                    </div>
-                </div>
-                <div class="win-content" style="background: transparent;">
-                    <div style="padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02);">
-                        <div style="display: flex; flex-direction: column; gap: 8px;">
-                            <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 15px; margin-bottom: 15px;">
-                                <span style="font-size: 13px; color: #A0A0A5; width: 60px;">Oggetto:</span>
-                                <strong style="font-size: 14px; color: #FFFFFF;">Formazione ed Educazione</strong>
-                            </div>
-                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px;">
-                                <span style="font-size: 13px; color: #A0A0A5; width: 60px;">Da:</span>
-                                <strong style="font-size: 14px; color: #64D2FF;">info@cristianingrao.com</strong>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="edu-list">
-                        <div class="edu-card">
-                            <div class="edu-year">30 LUG 2026</div>
-                            <h3 class="edu-title">Laurea in Ingegneria Informatica (Classe L-8)</h3>
-                            <p class="edu-desc" style="-webkit-line-clamp: 5; margin-bottom: 8px;">Università degli Studi di Palermo - UniPa</p>
-                            <p class="edu-desc" style="-webkit-line-clamp: 5; margin-bottom: 8px;"><strong>Votazione Finale: 104 / 110</strong></p>
-                            <p class="edu-desc" style="-webkit-line-clamp: unset;">Solida preparazione teorica e pratica nello sviluppo software, algoritmi, architetture di sistemi complessi e ingegneria dei dati, coniugata con una spiccata attitudine alla produzione multimediale e alla comunicazione visiva.</p>
-                        </div>
-                    </div>
-                </div>
+            <!-- WIN: EDUCATION -->
+    <div class="mac-window reveal" id="win-edu">
+        <div class="win-titlebar">
+            <div class="win-controls">
+                <div class="tl red"></div>
+                <div class="tl yellow"></div>
+                <div class="tl green"></div>
             </div>
-
-        <!-- WIN: CONTACTS -->
+            <span class="win-title">Formazione ed Educazione</span>
+        </div>
+        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5;">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+                <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #0A84FF 0%, #00C6FF 100%); display:flex; align-items:center; justify-content:center; font-size:24px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🎓</div>
+                <h1 style="font-size: 28px; font-weight: 700; margin: 0;">Percorso di Studi</h1>
+            </div>
+            
+            <div class="edu-card" style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                    <h3 style="font-size: 20px; color: #64D2FF; margin: 0;">Laurea in Ingegneria Informatica (Classe L-8)</h3>
+                    <span style="background: rgba(100, 210, 255, 0.15); color: #64D2FF; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">30 LUG 2026</span>
+                </div>
+                <p style="font-size: 16px; font-weight: 500; margin-bottom: 15px; color: #fff;">Università degli Studi di Palermo - UniPa</p>
+                <div style="display: inline-block; padding: 8px 15px; background: rgba(52, 199, 89, 0.15); border-left: 3px solid #34c759; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
+                    <strong style="color: #34c759;">Votazione Finale: 104 / 110</strong>
+                </div>
+                <p style="color: #bbb; margin-bottom: 0;">Solida preparazione teorica e pratica nello sviluppo software, algoritmi, architetture di sistemi complessi e ingegneria dei dati, coniugata con una spiccata attitudine alla produzione multimediale e alla comunicazione visiva.</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- WIN: CONTACTS -->
         <div class="mac-window reveal" id="win-contacts">
             <div class="win-content" onmousedown="startDrag(event, 'win-contacts')" style="cursor: grab;">
                 <div style="padding: 15px; background: rgba(52, 199, 89, 0.15); border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(52, 199, 89, 0.4); display: flex; align-items: flex-start; gap: 10px;">
