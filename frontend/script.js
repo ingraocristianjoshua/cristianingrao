@@ -411,7 +411,6 @@ function selectFolder(el, e) {
     document.querySelectorAll('.folder, .finder-file').forEach(f => f.classList.remove('selected'));
     // Select current folder
     el.classList.add('selected');
-    
     // Check for double tap on mobile
     if (window.innerWidth <= 768) {
         let currentTime = new Date().getTime();
@@ -420,8 +419,8 @@ function selectFolder(el, e) {
             // Trigger the ondblclick event manually
             if (el.hasAttribute('ondblclick')) {
                 const action = el.getAttribute('ondblclick');
-                const func = new Function(action);
-                func.call(el);
+                const func = new Function('event', action);
+                func.call(el, e);
             }
         }
         lastTap = currentTime;
