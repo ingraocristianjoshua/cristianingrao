@@ -327,25 +327,46 @@
             margin: 0 4px;
         }
 
-        /* Windows Grid */
+                /* Windows Grid (Modular Masonry) */
         .windows-container {
             display: grid;
-            grid-template-columns: minmax(auto, 650px) minmax(auto, 350px);
+            grid-template-columns: repeat(12, 1fr);
             justify-content: center;
-            grid-auto-flow: row;
-            gap: 40px;
+            align-items: start;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        #win-bio { grid-column: 1 / 2; grid-row: 1 / 2; }
-        #win-photo { grid-column: 2 / 3; grid-row: 1 / 2; }
-        .mac-dock-container { grid-column: 1 / -1; grid-row: 2 / 3; }
-        #win-bricklink { grid-column: 1 / -1; grid-row: 3 / 4; }
-        #win-graduam { grid-column: 1 / -1; grid-row: 4 / 5; }
-        #win-edu { grid-column: 1 / -1; grid-row: 5 / 6; }
-        #win-contacts { grid-column: 1 / -1; grid-row: 6 / 7; }
+        .col-12 { grid-column: span 12; }
+        .col-8 { grid-column: span 8; }
+        .col-7 { grid-column: span 7; }
+        .col-6 { grid-column: span 6; }
+        .col-5 { grid-column: span 5; }
+        .col-4 { grid-column: span 4; }
+        
+        .mac-window {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .win-body {
+            flex-grow: 1;
+        }
+        .win-titlebar.note-style {
+            justify-content: center;
+            background: rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .win-titlebar.folder-style {
+            justify-content: flex-start;
+            background: rgba(255,255,255,0.02);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .win-titlebar.blank-style {
+            display: none;
+        }
         
         .portfolio-dock {
-            grid-column: 1 / -1;
-            grid-row: 3 / 4;
             background: rgba(28, 28, 30, 0.7);
             backdrop-filter: blur(40px) saturate(180%);
             -webkit-backdrop-filter: blur(40px) saturate(180%);
@@ -358,198 +379,7 @@
             flex-wrap: wrap;
             gap: 15px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-            margin: 0 auto;
-            max-width: 95%;
         }
-        .portfolio-dock .dock-item {
-            width: 56px;
-            height: 56px;
-            border-radius: 16px;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            background: rgba(255,255,255,0.1);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-        }
-        .portfolio-dock .dock-item:hover {
-            transform: scale(1.2) translateY(-8px);
-            background: rgba(255,255,255,0.15);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            z-index: 10;
-        }
-        .portfolio-dock .dock-item::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background: #888;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        .portfolio-dock .dock-item:hover::after {
-            opacity: 1;
-        }
-        .portfolio-dock img {
-            width: 34px;
-            height: 34px;
-            object-fit: contain;
-        }
-
-        /* Premium Animations */
-        @keyframes windowPop {
-            0% { opacity: 0; transform: translateY(80px) scale(0.9); filter: blur(15px); }
-            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-        }
-
-        /* Scroll Reveal Animation */
-        .reveal {
-            opacity: 0;
-        }
-        .reveal.active {
-            animation: revealAnim 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-        @keyframes revealAnim {
-            0% { opacity: 0; transform: translateY(50px) scale(0.95); filter: blur(10px); }
-            100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
-        }
-
-        /* Bio */
-        .bio-content { padding: 40px; }
-        .bio-date { display: block; font-size: 12px; color: #A0A0A5; text-align: center; margin-bottom: 20px; font-weight: 500;}
-        .bio-text h2 { font-size: 32px; font-weight: 700; margin: 0 0 20px 0; line-height: 1.2; letter-spacing: -0.5px; color: #FFFFFF; }
-        .bio-text p { font-size: 16px; color: #EBEBF5; line-height: 1.6; margin-bottom: 15px; }
-        .bio-text strong { color: #FFFFFF; }
-
-        /* Photo Booth */
-        .p-0 { padding: 0 !important; }
-        .full-img { width: 100%; height: 100%; object-fit: cover; border-radius: 0 0 16px 16px; display: block; }
-
-        /* Skills */
-        .skills-container { padding: 30px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; justify-items: center; }
-        .skill-node { 
-            background: rgba(44, 44, 46, 0.5); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px;
-            padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 12px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .skill-node:hover { 
-            transform: translateY(-8px) scale(1.05); 
-            background: rgba(60, 60, 62, 0.8); 
-            border-color: rgba(255,255,255,0.1);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-        .skill-node img { width: 45px; height: 45px; }
-        /* Skills (Finder App Icons) */
-        .skills-container { padding: 30px 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; row-gap: 30px; }
-        .skill-node { 
-            background: transparent; border: none; border-radius: 8px;
-            padding: 10px; display: flex; flex-direction: column; align-items: center; gap: 8px;
-            transition: background 0.2s ease; cursor: pointer;
-        }
-        .skill-node:hover { 
-            background: rgba(255,255,255,0.1);
-        }
-        .skill-node img { width: 50px; height: 50px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
-        .skill-node span { font-size: 13px; font-weight: 500; color: #FFFFFF; text-align: center; }
-
-        /* Education (Mail List) */
-        .edu-list { display: flex; flex-direction: column; }
-        .edu-card { background: transparent; padding: 20px 30px; border-bottom: 1px solid rgba(0,0,0,0.06); transition: background 0.2s; position: relative; }
-        .edu-card:last-child { border-bottom: none; }
-        .edu-card:hover { background: rgba(0,0,0,0.02); }
-        .edu-year { font-size: 12px; font-weight: 600; color: #007AFF; margin-bottom: 4px; display: flex; justify-content: space-between; }
-        .edu-year::before { content: ''; display: inline-block; width: 8px; height: 8px; background: #007AFF; border-radius: 50%; position: absolute; left: 12px; top: 25px; }
-        .edu-card.green .edu-year { color: #86868B; }
-        .edu-card.green .edu-year::before { display: none; }
-        .edu-title { font-size: 16px; font-weight: 700; color: #FFFFFF; margin: 0 0 4px 0; }
-        .edu-desc { font-size: 14px; color: #A0A0A5; margin: 0; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-
-        /* macOS Menu Bar */
-        .menubar {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            height: 28px;
-            background: rgba(30, 30, 30, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 16px;
-            font-size: 13px;
-            font-weight: 500;
-            color: #EEEEEE;
-            z-index: 10000;
-            box-shadow: 0 1px 0 rgba(255,255,255,0.1);
-        }
-        .menubar-left, .menubar-right { display: flex; align-items: center; gap: 16px; }
-        .menubar-item { cursor: default; padding: 0 6px; border-radius: 4px; }
-        .menubar-item:hover { background: rgba(255,255,255,0.1); }
-        .apple-logo { font-size: 16px; padding: 0 8px; }
-        .menubar-bold { font-weight: 700; }
-
-        /* Projects (Finder App) */
-        .finder-container { display: flex; min-height: 400px; background: transparent; }
-        .finder-sidebar { width: 200px; background: rgba(0,0,0,0.2); border-right: 1px solid rgba(255,255,255,0.1); padding: 15px 10px; display: flex; flex-direction: column; gap: 15px; }
-        .finder-sidebar-section { display: flex; flex-direction: column; gap: 5px; }
-        .finder-sidebar-title { font-size: 11px; font-weight: 600; color: #86868B; text-transform: uppercase; letter-spacing: 0.5px; padding: 0 10px; margin-bottom: 5px; }
-        .finder-sidebar-item { padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #EBEBF5; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: background 0.2s; }
-        .finder-sidebar-item.active { background: rgba(0, 122, 255, 0.3); color: #64D2FF; font-weight: 600; }
-        .finder-sidebar-item:hover:not(.active) { background: rgba(255,255,255,0.1); }
-        .finder-main { flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; }
-        .finder-toolbar { height: 40px; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; padding: 0 15px; gap: 15px; background: transparent; }
-        .projects-grid { padding: 25px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; overflow-y: auto; }
-        .project-card { 
-            background: rgba(44, 44, 46, 0.7); 
-            border-radius: 16px; 
-            overflow: hidden; 
-            border: 1px solid rgba(255,255,255,0.1); 
-            display: flex; 
-            flex-direction: column; 
-            position: relative; 
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .project-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 1px 3px rgba(0,0,0,0.05);
-            border-color: rgba(0,122,255,0.3);
-        }
-        .project-img-container { 
-            width: 100%; 
-            height: 180px;
-            overflow: hidden; 
-            background: #F5F5F7;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.06); 
-        }
-        /* CSS Pattern Backgrounds */
-        .project-pattern-1 {
-            background-color: #f8f9fa;
-            background-image: radial-gradient(#d1d1d1 2px, transparent 2px);
-            background-size: 20px 20px;
-        }
-        .project-pattern-2 {
-            background-color: #fafafa;
-            background-color: #2c2c2e;
-            background-image: linear-gradient(0deg, transparent 24%, rgba(255,255,255,.04) 25%, rgba(255,255,255,.04) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.04) 75%, rgba(255,255,255,.04) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255,255,255,.04) 25%, rgba(255,255,255,.04) 26%, transparent 27%, transparent 74%, rgba(255,255,255,.04) 75%, rgba(255,255,255,.04) 76%, transparent 77%, transparent);
-            background-size: 30px 30px;
-        }
-        .project-img-icon { opacity: 0.9; transition: transform 0.5s ease; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); }
-        .project-card:hover .project-img-icon { transform: scale(1.1) rotate(5deg); }
-        .project-info { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; background: transparent; }
-        .project-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; color: #EBEBF5; }
-        .project-desc { font-size: 13px; color: #A0A0A5; line-height: 1.5; margin-bottom: 15px; flex-grow: 1; }
-        .project-tech { display: flex; flex-wrap: wrap; gap: 6px; }
-        .project-tech span { font-size: 11px; padding: 4px 10px; background: rgba(255,255,255,0.1); border-radius: 20px; color: #EBEBF5; border: 1px solid rgba(255,255,255,0.05); transition: all 0.2s; }
-        .project-tech span:hover { background: #007aff; color: #fff; border-color: #007aff; transform: scale(1.05); }
 
         /* Contacts */
         .contact-list { padding: 20px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -578,7 +408,8 @@
 
         /* Mobile Optimization */
         @media (max-width: 900px) {
-            .windows-container { grid-template-columns: 1fr; }
+            .windows-container { display: flex; flex-direction: column; } 
+            .col-12, .col-8, .col-7, .col-6, .col-5, .col-4 { width: 100%; grid-column: span 12 !important; }
             .hero-window { height: auto; padding: 40px 20px; }
             .hero-title { font-size: 40px; }
             .hero-badge { top: 20px; right: 20px; font-size: 12px; }
@@ -663,39 +494,37 @@
         </div>
 
         <div class="windows-container">
-            <!-- WIN: BIO (Notes App) -->
-            <div class="mac-window reveal" id="win-bio">
+            <!-- BIO ROW -->
+            <div class="mac-window reveal col-8" id="win-bio">
                 <div class="win-titlebar">
-            <div class="win-controls">
-                <div class="tl red"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
-            </div>
-            <span class="win-title">Biografia</span>
-        </div>
+                    <div class="win-controls">
+                        <div class="tl red"></div>
+                        <div class="tl yellow"></div>
+                        <div class="tl green"></div>
+                    </div>
+                    <span class="win-title">Biografia</span>
+                </div>
                 <div class="win-body" style="background: transparent;">
                     <div class="bio-content">
-                        <div class="bio-text" style="max-width: 600px; margin: 0 auto;">
+                        <div class="bio-text">
                             <span class="bio-date">Milano, Italia &nbsp;|&nbsp; <span id="bento-time">--:--</span></span>
                             <h2>Ciao, sono Cristian Joshua Ingrao.</h2>
-                            <p>Mi chiamo Cristian Joshua Ingrao e sono un Ingegnere Informatico (Laurea L-8). Il mio percorso professionale si sviluppa all'intersezione tra l'ingegneria del software e il design delle interfacce. Sono specializzato nella progettazione di architetture di sistema scalabili e nello sviluppo di applicazioni web full-stack, con un focus sull'ottimizzazione delle performance e sulla qualità del codice.</p>
+                            <p>Sono un Ingegnere Informatico (Laurea L-8). Il mio percorso professionale si sviluppa all'intersezione tra l'ingegneria del software e il design delle interfacce. Sono specializzato nella progettazione di architetture di sistema scalabili e nello sviluppo di applicazioni web full-stack, con un focus sull'ottimizzazione delle performance e sulla qualità del codice.</p>
                             <p>Oltre al rigore algoritmico e alla progettazione backend, nutro un forte interesse per lo sviluppo frontend moderno (React, Next.js) e per i principi della User Experience. Il mio obiettivo è realizzare prodotti digitali che non solo risolvano problemi complessi in modo efficiente, ma che offrano interfacce intuitive, accessibili e curate in ogni singolo dettaglio.</p>
-
-                            </div>
                         </div>
                     </div>
                 </div>
-
-            <!-- WIN: PHOTO -->
-            <div class="mac-window reveal" id="win-photo">
-                <div class="win-titlebar">
-            <div class="win-controls">
-                <div class="tl red"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
             </div>
-            <span class="win-title">Photo Booth</span>
-        </div>
+
+            <div class="mac-window reveal col-4" id="win-photo">
+                <div class="win-titlebar">
+                    <div class="win-controls">
+                        <div class="tl red"></div>
+                        <div class="tl yellow"></div>
+                        <div class="tl green"></div>
+                    </div>
+                    <span class="win-title">Photo Booth</span>
+                </div>
                 <div class="win-body p-0" style="display: flex; flex-direction: column; background: #1C1C1E; height: 100%;">
                     <div style="flex: 1; padding: 15px;">
                         <div style="width: 100%; height: 100%; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; background: #000; display: flex; justify-content: center; align-items: center;">
@@ -710,8 +539,8 @@
                 </div>
             </div>
 
-            <!-- MAC OS DOCK -->
-            <div class="mac-dock-container">
+            <!-- MAC OS DOCK ROW -->
+            <div class="mac-dock-container col-12">
                 <div class="mac-dock">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" class="dock-app" title="Python">
                     <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" class="dock-app dock-app-yellow" title="JavaScript">
@@ -730,137 +559,142 @@
                 </div>
             </div>
 
-            <!-- BRICKLINK PROJECT WINDOW -->
-    <div class="mac-window reveal" id="win-bricklink" >
-        <div class="win-titlebar" >
-            <div class="win-controls">
-                <div class="tl red" ></div>
-                <div class="tl yellow" ></div>
-                <div class="tl green" ></div>
-            </div>
-            <span class="win-title">Progetto: BrickLink</span>
-        </div>
-        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5; max-height: calc(80vh - 52px);">
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                <img src="../assets/bricklink_logo.png" alt="BrickLink Logo" style="width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                <h1 style="font-size: 28px; font-weight: 700; margin: 0;">BrickLink 🧱</h1>
-            </div>
-            
-            <img src="../assets/images/bricklink_mockup.jpg" alt="BrickLink Mockup" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05);">
-            
-            <p style="margin-bottom: 15px;"><strong>BrickLink</strong> è una web application mobile-first per la divulgazione digitale che supera la concezione tradizionale dell’articolo come blocco di testo statico e monolitico, per abbracciare una visione dell’informazione intesa come entità dinamica, granulare e strutturata.</p>
-            <p style="margin-bottom: 15px;">Il principio fondante del progetto è che la conoscenza debba essere veicolata attraverso unità modulari e indipendenti denominate <strong>Brick</strong> 🧱 (mattoncini logici): ogni articolo non è un documento indivisibile, ma una sequenza ordinata di Brick eterogenei — testo, immagini 📸, gallerie, contenuti multimediali incorporati 🎬, snippet di codice 💻 e mappe geografiche 🗺️ — ciascuno con una propria semantica e un proprio modello dati.</p>
-            
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">🏗️ Architettura dei Dati</h3>
-            <p style="margin-bottom: 15px;">Questa scelta concettuale ha una diretta contropartita implementativa, verificabile in ogni strato del sistema. Sul piano dei dati, l’enum <code>BrickType</code> enumera esattamente sei tipologie — TEXT, IMAGE, EMBED, CODE, GALLERY, MAP — e ciascun Brick memorizza il proprio contenuto in una colonna JSONB polimorfa (<code>data: Record&lt;string, unknown&gt;</code>).</p>
-            <p style="margin-bottom: 15px;">Il payload non è quindi HTML pre-renderizzato, ma un oggetto strutturato e tipizzato: è il client a decidere, in fase di lettura, quale componente Angular incaricare del rendering di ciascun tipo. Questa impostazione — che ricorre identica dal database (<code>Brick.data</code> di tipo jsonb) fino ai template dell’editor e della pagina di dettaglio — è il filo conduttore dell’intera architettura e rappresenta anche una difesa nativa contro gli attacchi di tipo injection 🛡️: il server non conserva né restituisce mai markup eseguibile.</p>
-            
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">🚀 Stack Tecnologico</h3>
-            <p style="margin-bottom: 10px;">La piattaforma è costruita come applicazione full-stack disaccoppiata:</p>
-            <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
-                <li style="margin-bottom: 8px;">📱 <strong>Client:</strong> Angular 20 / Ionic 8 / Capacitor (distribuibile come PWA e app nativa iOS/Android)</li>
-                <li style="margin-bottom: 8px;">⚙️ <strong>Server:</strong> Node.js / Express 4 con ORM TypeORM 0.3</li>
-                <li style="margin-bottom: 8px;">🗄️ <strong>Persistenza:</strong> PostgreSQL (dati relazionali) e Redis (dati volatili ad alta frequenza)</li>
-            </ul>
-            <p style="margin-bottom: 15px;">L’ecosistema è governato da una gerarchia di tre ruoli — Admin 👑, Editor ✍️ e User 👤 — con privilegi e interfacce differenziati, modellata dall’enum <code>UserRole</code> condiviso e applicata coerentemente sui due lati: guard funzionali sul client (<code>editorGuard</code>, <code>adminGuard</code>) e middleware RBAC sul server (<code>requireEditor</code>, <code>requireAdmin</code>).</p>
-            
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">🎮 Ecosistema e Gamification</h3>
-            <p style="margin-bottom: 15px;">Oltre alla creazione e consultazione dei contenuti, BrickLink integra un ambiente di authoring dedicato (<strong>BrickLab</strong> 🧪), un sistema di interazione sociale (like ❤️ con aggiornamento ottimistico e commenti annidati auto-referenziali), una dashboard amministrativa completa e un modulo di gamification (<strong>CruciBrick</strong> 🧩) che estrae dinamicamente le parole chiave dal testo dei Brick per generare sfide di ripasso, trasformando la consultazione passiva in un esercizio attivo di consolidamento della memoria. Ogni funzionalità è progettata secondo il principio della <em>difesa in profondità</em>: ciò che il client verifica per usabilità, il server lo impone per sicurezza.</p>
-        </div>
-    </div>
-
-    
-<!-- GRADUAM PROJECT WINDOW -->
-    <div class="mac-window reveal" id="win-graduam" >
-        <div class="win-titlebar" >
-            <div class="win-controls">
-                <div class="tl red" ></div>
-                <div class="tl yellow" ></div>
-                <div class="tl green" ></div>
-            </div>
-            <span class="win-title">Progetto: Graduam</span>
-        </div>
-        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5; max-height: calc(80vh - 52px);">
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #a855f7 0%, #f97316 100%); display:flex; align-items:center; justify-content:center; font-size:24px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🎓</div>
-                <h1 style="font-size: 28px; font-weight: 700; margin: 0;">Graduam 🚀</h1>
-            </div>
-            
-            <img src="../assets/images/graduam_real.png" alt="Graduam Screenshot" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.4); margin-bottom: 25px; border: 1px solid rgba(255,255,255,0.05);">
-            
-            <p style="margin-bottom: 15px;"><strong>Graduam - Milestone & Progression</strong> 📈 è un applicativo web innovativo incentrato sul tracciamento, l'analisi e la gestione avanzata dei percorsi formativi. Progettato per accompagnare l'utente nell'organizzazione dei propri traguardi accademici 🎓 e obiettivi di crescita personale in modo visuale e stimolante.</p>
-            
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">💡 La Sfida Tecnica</h3>
-            <p style="margin-bottom: 15px;">L'obiettivo principale del progetto è stato creare un sistema di progressione matematicamente coerente 🧮 e, allo stesso tempo, visivamente gratificante ✨. Ogni aspetto dell'interfaccia utente è stato maniacalmente curato, partendo da un design system proprietario fino all'implementazione strutturata dei dati relazionali. Un'attenzione particolare è stata dedicata alla fluidità della tipografia 🖋️ e alle micro-interazioni per migliorare e "gamificare" l'esperienza utente 🎮 ad ogni step di progressione superato.</p>
-            
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">⚛️ Stack Tecnologico</h3>
-            <p style="margin-bottom: 10px;">L'architettura del progetto si basa sulle tecnologie più moderne e reattive dell'ecosistema React:</p>
-            <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
-                <li style="margin-bottom: 8px;">⚡ <strong>Framework:</strong> Next.js per garantire routing avanzato (App Router), Server-Side Rendering ed un'esperienza performante fin dal primo caricamento, curando anche la SEO 🔍.</li>
-                <li style="margin-bottom: 8px;">🛡️ <strong>Linguaggio:</strong> TypeScript per assicurare rigorosa tipizzazione statica, abbattere i bug a runtime e garantire la scalabilità e la manutenzione della codebase nel tempo.</li>
-                <li style="margin-bottom: 8px;">🎨 <strong>Design:</strong> Tailwind CSS è stato adottato per prototipare rapidamente l'interfaccia, mantenendo una coerenza stilistica eccellente grazie all'utilizzo coerente di utility-classes e token personalizzati.</li>
-            </ul>
-        </div>
-    </div>
-
-    
-            <!-- WIN: EDUCATION -->
-    <div class="mac-window reveal" id="win-edu">
-        <div class="win-titlebar">
-            <div class="win-controls">
-                <div class="tl red"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
-            </div>
-            <span class="win-title">Formazione ed Educazione</span>
-        </div>
-        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5;">
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
-                <div style="width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, #0A84FF 0%, #00C6FF 100%); display:flex; align-items:center; justify-content:center; font-size:24px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🎓</div>
-                <h1 style="font-size: 28px; font-weight: 700; margin: 0;">Percorso di Studi</h1>
-            </div>
-            
-            <div class="edu-card" style="background: rgba(255,255,255,0.03); padding: 25px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
-                    <h3 style="font-size: 20px; color: #64D2FF; margin: 0;">Laurea in Ingegneria Informatica (Classe L-8)</h3>
-                    <span style="background: rgba(100, 210, 255, 0.15); color: #64D2FF; padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600;">30 LUG 2026</span>
+            <!-- BRICKLINK CLUSTER -->
+            <div class="mac-window reveal col-5" style="border-color: rgba(100, 210, 255, 0.3);">
+                <div class="win-titlebar folder-style">
+                    <span class="win-title" style="padding-left: 10px; color: #64D2FF; font-weight: 600;">Progetto_BrickLink.folder</span>
                 </div>
-                <p style="font-size: 16px; font-weight: 500; margin-bottom: 15px; color: #fff;">Università degli Studi di Palermo - UniPa</p>
-                <div style="display: inline-block; padding: 8px 15px; background: rgba(52, 199, 89, 0.15); border-left: 3px solid #34c759; margin-bottom: 20px; border-radius: 0 8px 8px 0;">
-                    <strong style="color: #34c759;">Votazione Finale: 104 / 110</strong>
+                <div class="win-body" style="padding: 30px; background: rgba(28,28,30,0.6);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <img src="../assets/bricklink_logo.png" alt="BrickLink Logo" style="width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                        <h1 style="font-size: 26px; font-weight: 700; margin: 0;">BrickLink 🧱</h1>
+                    </div>
+                    <p style="margin-bottom: 15px; font-size: 15px; color: #EBEBF5; line-height: 1.6;"><strong>BrickLink</strong> è una web application mobile-first per la divulgazione digitale che supera la concezione tradizionale dell’articolo come blocco di testo statico e monolitico, per abbracciare una visione dell’informazione intesa come entità dinamica, granulare e strutturata.</p>
+                    
+                    <h3 style="margin: 25px 0 10px 0; font-size: 16px; color: #64D2FF;">🚀 Stack Tecnologico</h3>
+                    <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 5px; font-size: 14px; color: #EBEBF5; line-height: 1.5;">
+                        <li style="margin-bottom: 6px;">📱 <strong>Client:</strong> Angular 20 / Ionic 8 / Capacitor</li>
+                        <li style="margin-bottom: 6px;">⚙️ <strong>Server:</strong> Node.js / Express 4 / TypeORM</li>
+                        <li style="margin-bottom: 6px;">🗄️ <strong>DB:</strong> PostgreSQL + Redis</li>
+                    </ul>
                 </div>
-                <p style="color: #bbb; margin-bottom: 0;">Solida preparazione teorica e pratica nello sviluppo software, algoritmi, architetture di sistemi complessi e ingegneria dei dati, coniugata con una spiccata attitudine alla produzione multimediale e alla comunicazione visiva.</p>
             </div>
-        </div>
-    </div>
-    
-    <!-- WIN: CONTACTS -->
-        <div class="mac-window reveal" id="win-contacts">
-        <div class="win-titlebar">
-            <div class="win-controls">
-                <div class="tl red"></div>
-                <div class="tl yellow"></div>
-                <div class="tl green"></div>
+
+            <div class="mac-window reveal col-7">
+                <div class="win-titlebar">
+                    <div class="win-controls">
+                        <div class="tl red"></div>
+                        <div class="tl yellow"></div>
+                        <div class="tl green"></div>
+                    </div>
+                    <span class="win-title">mockup_dashboard.jpg</span>
+                </div>
+                <div class="win-body p-0" style="display:flex; justify-content:center; align-items:center; background: #000; overflow: hidden; position: relative;">
+                    <img src="../assets/images/bricklink_mockup.jpg" alt="BrickLink Mockup" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
             </div>
-            <span class="win-title">Contatti</span>
-        </div>
-        <div class="win-body" style="background: transparent;">
-                <div style="padding: 15px; background: rgba(52, 199, 89, 0.15); border-radius: 8px; margin-bottom: 20px; border: 1px solid rgba(52, 199, 89, 0.4); display: flex; align-items: flex-start; gap: 10px;">
-                    <div style="width: 10px; height: 10px; background: #34c759; border-radius: 50%; margin-top: 5px; box-shadow: 0 0 8px rgba(52, 199, 89, 0.8);"></div>
-                    <span style="font-size: 13px; color: #34c759; font-weight: 500; line-height: 1.4;">Disponibile per nuovi progetti, collaborazioni nello sviluppo software e digital content creation.</span>
-                <div class="contact-list">
-                    <a href="mailto:info@cristianingrao.it" class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://linkedin.com/in/cristianingrao" target="_blank" class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/ingraocristianjoshua" target="_blank" class="contact-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-                        <span>GitHub</span>
-                    </a>
+
+            <div class="mac-window reveal col-12">
+                <div class="win-titlebar note-style">
+                    <span class="win-title" style="color: #F7DF1E;">📝 Note_Architettura.txt</span>
+                </div>
+                <div class="win-body" style="padding: 25px 35px; font-family: monospace; font-size: 14px; line-height: 1.6; background: rgba(0,0,0,0.4); color: #A0A0A5;">
+                    <strong style="color: #fff; font-size: 16px;">// Architettura dei Dati e Gamification</strong><br><br>
+                    Il principio fondante è che la conoscenza debba essere veicolata attraverso unità modulari (Brick). Sul piano dei dati, l’enum <code>BrickType</code> enumera 6 tipologie (TEXT, IMAGE, EMBED, CODE, GALLERY, MAP). Ogni Brick memorizza il contenuto in JSONB polimorfa.<br><br>
+                    Oltre alla creazione e consultazione, BrickLink integra un ambiente di authoring (<strong>BrickLab</strong>), interazione sociale (like con aggiornamento ottimistico), e un modulo di gamification (<strong>CruciBrick</strong>) che estrae dinamicamente le parole chiave dai Brick per generare sfide di ripasso attive.
+                </div>
+            </div>
+
+            <!-- GRADUAM CLUSTER -->
+            <div class="mac-window reveal col-8">
+                <div class="win-titlebar">
+                    <div class="win-controls">
+                        <div class="tl red"></div>
+                        <div class="tl yellow"></div>
+                        <div class="tl green"></div>
+                    </div>
+                    <span class="win-title">graduam_app.png</span>
+                </div>
+                <div class="win-body p-0" style="display:flex; justify-content:center; align-items:center; background: #000; overflow: hidden;">
+                    <img src="../assets/images/graduam_real.png" alt="Graduam Screenshot" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="mac-window reveal col-4" style="border-color: rgba(168, 85, 247, 0.3);">
+                <div class="win-titlebar folder-style">
+                    <span class="win-title" style="padding-left: 10px; color: #a855f7; font-weight: 600;">Progetto_Graduam.folder</span>
+                </div>
+                <div class="win-body" style="padding: 25px; background: rgba(28,28,30,0.6);">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                        <div style="width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #a855f7 0%, #f97316 100%); display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🎓</div>
+                        <h1 style="font-size: 22px; font-weight: 700; margin: 0;">Graduam 🚀</h1>
+                    </div>
+                    <p style="margin-bottom: 15px; font-size: 14px; color: #EBEBF5; line-height: 1.6;"><strong>Graduam - Milestone & Progression</strong> 📈 è un applicativo web innovativo incentrato sul tracciamento, l'analisi e la gestione avanzata dei percorsi formativi in modo visuale e stimolante.</p>
+                    
+                    <h3 style="margin: 20px 0 10px 0; font-size: 15px; color: #f97316;">⚛️ Stack React</h3>
+                    <ul style="margin-bottom: 10px; margin-left: 15px; padding-left: 5px; font-size: 13px; color: #EBEBF5; line-height: 1.5;">
+                        <li style="margin-bottom: 4px;">⚡ <strong>Next.js</strong> (App Router, SSR)</li>
+                        <li style="margin-bottom: 4px;">🛡️ <strong>TypeScript</strong> (Tipizzazione statica)</li>
+                        <li style="margin-bottom: 4px;">🎨 <strong>Tailwind CSS</strong> (Design System)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- BOTTOM CLUSTER (EDU + CONTACTS) -->
+            <div class="mac-window reveal col-7">
+                <div class="win-titlebar">
+                    <div class="win-controls">
+                        <div class="tl red"></div>
+                        <div class="tl yellow"></div>
+                        <div class="tl green"></div>
+                    </div>
+                    <span class="win-title">Formazione ed Educazione</span>
+                </div>
+                <div class="win-body" style="padding: 30px; background: rgba(28,28,30,0.4); color: #EBEBF5;">
+                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 25px;">
+                        <div style="width: 40px; height: 40px; border-radius: 10px; background: linear-gradient(135deg, #0A84FF 0%, #00C6FF 100%); display:flex; align-items:center; justify-content:center; font-size:20px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">🎓</div>
+                        <h2 style="font-size: 22px; font-weight: 700; margin: 0;">Percorso di Studi</h2>
+                    </div>
+                    
+                    <div class="edu-card" style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05);">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; flex-wrap: wrap; gap: 10px;">
+                            <h3 style="font-size: 18px; color: #64D2FF; margin: 0;">Laurea in Ingegneria Informatica (Classe L-8)</h3>
+                            <span style="background: rgba(100, 210, 255, 0.15); color: #64D2FF; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600;">30 LUG 2026</span>
+                        </div>
+                        <p style="font-size: 15px; font-weight: 500; margin-bottom: 12px; color: #fff;">Università degli Studi di Palermo - UniPa</p>
+                        <div style="display: inline-block; padding: 6px 12px; background: rgba(52, 199, 89, 0.15); border-left: 3px solid #34c759; margin-bottom: 15px; border-radius: 0 8px 8px 0;">
+                            <strong style="color: #34c759; font-size: 14px;">Votazione Finale: 104 / 110</strong>
+                        </div>
+                        <p style="color: #bbb; margin-bottom: 0; font-size: 14px;">Solida preparazione teorica e pratica nello sviluppo software, algoritmi, architetture di sistemi complessi e ingegneria dei dati, coniugata con una spiccata attitudine alla produzione multimediale e alla comunicazione visiva.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mac-window reveal col-5" id="win-contacts">
+                <div class="win-titlebar note-style">
+                    <span class="win-title" style="color: #34c759; font-weight: 600;">Contatti.app</span>
+                </div>
+                <div class="win-body" style="background: transparent; display: flex; flex-direction: column;">
+                    <div style="padding: 20px; padding-bottom: 0;">
+                        <div style="padding: 15px; background: rgba(52, 199, 89, 0.15); border-radius: 8px; border: 1px solid rgba(52, 199, 89, 0.4); display: flex; align-items: flex-start; gap: 10px;">
+                            <div style="width: 10px; height: 10px; background: #34c759; border-radius: 50%; margin-top: 5px; box-shadow: 0 0 8px rgba(52, 199, 89, 0.8);"></div>
+                            <span style="font-size: 13px; color: #34c759; font-weight: 500; line-height: 1.4;">Disponibile per nuovi progetti e collaborazioni.</span>
+                        </div>
+                    </div>
+                    <div class="contact-list" style="display: flex; flex-direction: column; gap: 10px; padding: 20px;">
+                        <a href="mailto:info@cristianingrao.it" class="contact-item" style="padding: 15px; flex-direction: row; justify-content: flex-start; gap: 20px;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                            <span>Email</span>
+                        </a>
+                        <a href="https://linkedin.com/in/cristianingrao" target="_blank" class="contact-item" style="padding: 15px; flex-direction: row; justify-content: flex-start; gap: 20px;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/ingraocristianjoshua" target="_blank" class="contact-item" style="padding: 15px; flex-direction: row; justify-content: flex-start; gap: 20px;">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                            <span>GitHub</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
