@@ -337,9 +337,10 @@
         #win-bio { grid-column: 1 / 2; grid-row: 1 / 2; }
         #win-photo { grid-column: 2 / 3; grid-row: 1 / 2; }
         .mac-dock-container { grid-column: 1 / -1; grid-row: 2 / 3; }
-        #win-projects { grid-column: 1 / -1; grid-row: 3 / 4; }
-        #win-edu { grid-column: 1 / -1; grid-row: 4 / 5; }
-        #win-contacts { grid-column: 1 / -1; grid-row: 5 / 6; }
+        #win-bricklink { grid-column: 1 / -1; grid-row: 3 / 4; }
+        #win-graduam { grid-column: 1 / -1; grid-row: 4 / 5; }
+        #win-edu { grid-column: 1 / -1; grid-row: 5 / 6; }
+        #win-contacts { grid-column: 1 / -1; grid-row: 6 / 7; }
         
         .portfolio-dock {
             grid-column: 1 / -1;
@@ -582,7 +583,7 @@
             .hero-badge { top: 20px; right: 20px; font-size: 12px; }
             .contact-list { grid-template-columns: 1fr; }
             .portfolio-dock { grid-column: 1 / -1; width: 95%; overflow-x: auto; justify-content: flex-start; padding: 10px; }
-            #win-bio, #win-photo, #win-projects, #win-edu, #win-contacts { grid-column: 1 / -1; grid-row: auto; }
+            #win-bio, #win-photo, #win-bricklink, #win-graduam, #win-edu, #win-contacts { grid-column: 1 / -1; grid-row: auto; }
             .workspace { padding: 70px 16px 90px 16px; gap: 16px; }
             .hero-subtitle { font-size: 14px; letter-spacing: 2px; }
             .hero-float-icon { width: 40px !important; }
@@ -759,76 +760,66 @@
                 </div>
             </div>
 
-            <!-- WIN: PROJECTS -->
-            <div class="mac-window reveal" id="win-projects">
-                <div class="win-titlebar" onmousedown="startDrag(event, 'win-projects')">
-                    <div class="win-controls">
-                        <div class="tl red" onclick="closeWin('win-projects')"></div>
-                        <div class="tl yellow"></div>
-                        <div class="tl green"></div>
-                    </div>
-                    <span class="win-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px; color: #64D2FF;"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> Progetti Recenti</span>
-                </div>
-                <div class="win-content p-0 finder-container">
-                    <div class="finder-sidebar">
-                        <div class="finder-sidebar-section">
-                            <span class="finder-sidebar-title">Preferiti</span>
-                            <div class="finder-sidebar-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg> Recenti</div>
-                            <div class="finder-sidebar-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg> Scrivania</div>
-                            <div class="finder-sidebar-item active"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> Progetti 2025 - 2026</div>
-                            <div class="finder-sidebar-item"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg> Download</div>
-                        </div>
-                        <div class="finder-sidebar-section" style="margin-top: 10px;">
-                            <span class="finder-sidebar-title">Tag</span>
-                            <div class="finder-sidebar-item"><span style="width:10px; height:10px; background:#ff3b30; border-radius:50%; display:inline-block;"></span> Importanti</div>
-                            <div class="finder-sidebar-item"><span style="width:10px; height:10px; background:#ff9500; border-radius:50%; display:inline-block;"></span> Lavoro</div>
-                            <div class="finder-sidebar-item"><span style="width:10px; height:10px; background:#34c759; border-radius:50%; display:inline-block;"></span> Personali</div>
-                        </div>
-                    </div>
-                    <div class="finder-main">
-                        <div class="finder-toolbar">
-                            <div style="display: flex; gap: 8px; color: #aaa;">
-                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                            </div>
-                            <span style="font-size: 13px; font-weight: 600; margin-left: 10px;">📁 Progetti 2025 - 2026</span>
-                            <div style="margin-left: auto; display: flex; align-items: center; gap: 10px; background: rgba(0,0,0,0.05); padding: 4px 10px; border-radius: 6px;">
-                                <svg width="12" height="12" fill="none" stroke="#888" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                                <span style="font-size: 12px; color: #888;">Cerca</span>
-                            </div>
-                        </div>
-                        <div class="projects-grid">
-                            <div class="project-card" onclick="openWin('win-bricklink')" style="cursor: pointer;">
-                                <a href="#" class="project-link" onclick="e.preventDefault(); openWin('win-bricklink')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
-                                <div class="project-img-container project-pattern-1">
-                                    <img src="../assets/bricklink_logo.png" class="project-img-icon" alt="BrickLink" style="width: 80px; height: 80px; object-fit: contain;">
-                                </div>
-                                <div class="project-info">
-                                    <h3 class="project-title">Bricklink - System & Architecture</h3>
-                                    <p class="project-desc" style="margin-bottom: 8px;"><strong>Brief:</strong> Progettato per strutturare e catalogare con precisione componenti e collezioni complesse attraverso un'infrastruttura digitale solida.</p>
-                                    <p class="project-desc"><strong>Sfida Tecnica:</strong> Fondere la complessità logica del backend con un'interfaccia utente pulita e minimale ispirata ai canoni Apple.</p>
-                                    <div class="project-tech"><span>Java</span><span>Spring</span><span>React</span></div>
-                                </div>
-                            </div>
-                            <div class="project-card" onclick="openWin('win-graduam')" style="cursor: pointer;">
-                                <a href="#" class="project-link" onclick="e.preventDefault(); openWin('win-graduam')"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
-                                <div class="project-img-container project-pattern-2">
-                                    <svg class="project-img-icon" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#34c759" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-                                </div>
-                                <div class="project-info">
-                                    <h3 class="project-title">Graduam - Milestone & Progression</h3>
-                                    <p class="project-desc" style="margin-bottom: 8px;"><strong>Brief:</strong> Applicativo focalizzato sul tracciamento e sulla gestione avanzata di percorsi, traguardi accademici e obiettivi di crescita personale.</p>
-                                    <p class="project-desc"><strong>Sfida Tecnica:</strong> Creare un sistema di progressione matematicamente coerente e visivamente gratificante, curando tipografia e micro-interazioni.</p>
-                                    <div class="project-tech"><span>Next.js</span><span>TypeScript</span><span>Tailwind</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- BRICKLINK PROJECT WINDOW -->
+    <div class="mac-window reveal" id="win-bricklink" >
+        <div class="win-titlebar" >
+            <div class="win-controls">
+                <div class="tl red" ></div>
+                <div class="tl yellow" ></div>
+                <div class="tl green" ></div>
             </div>
+            <span class="win-title">Progetto: BrickLink</span>
+        </div>
+        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5; max-height: calc(80vh - 52px);">
+            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                <img src="../assets/bricklink_logo.png" alt="BrickLink Logo" style="width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+                <h1 style="font-size: 28px; font-weight: 700; margin: 0;">BrickLink</h1>
+            </div>
+            <p style="margin-bottom: 15px;"><strong>BrickLink</strong> è una web application mobile-first per la divulgazione digitale che supera la concezione tradizionale dell’articolo come blocco di testo statico e monolitico, per abbracciare una visione dell’informazione intesa come entità dinamica, granulare e strutturata.</p>
+            <p style="margin-bottom: 15px;">Il principio fondante del progetto è che la conoscenza debba essere veicolata attraverso unità modulari e indipendenti denominate <strong>Brick</strong> (mattoncini logici): ogni articolo non è un documento indivisibile, ma una sequenza ordinata di Brick eterogenei — testo, immagini, gallerie, contenuti multimediali incorporati, snippet di codice e mappe geografiche — ciascuno con una propria semantica e un proprio modello dati.</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Architettura dei Dati</h3>
+            <p style="margin-bottom: 15px;">Questa scelta concettuale ha una diretta contropartita implementativa, verificabile in ogni strato del sistema. Sul piano dei dati, l’enum <code>BrickType</code> enumera esattamente sei tipologie — TEXT, IMAGE, EMBED, CODE, GALLERY, MAP — e ciascun Brick memorizza il proprio contenuto in una colonna JSONB polimorfa (<code>data: Record&lt;string, unknown&gt;</code>).</p>
+            <p style="margin-bottom: 15px;">Il payload non è quindi HTML pre-renderizzato, ma un oggetto strutturato e tipizzato: è il client a decidere, in fase di lettura, quale componente Angular incaricare del rendering di ciascun tipo. Questa impostazione — che ricorre identica dal database (<code>Brick.data</code> di tipo jsonb) fino ai template dell’editor e della pagina di dettaglio — è il filo conduttore dell’intera architettura e rappresenta anche una difesa nativa contro gli attacchi di tipo injection: il server non conserva né restituisce mai markup eseguibile.</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Stack Tecnologico</h3>
+            <p style="margin-bottom: 10px;">La piattaforma è costruita come applicazione full-stack disaccoppiata:</p>
+            <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
+                <li style="margin-bottom: 8px;"><strong>Client:</strong> Angular 20 / Ionic 8 / Capacitor (distribuibile come PWA e app nativa iOS/Android)</li>
+                <li style="margin-bottom: 8px;"><strong>Server:</strong> Node.js / Express 4 con ORM TypeORM 0.3</li>
+                <li style="margin-bottom: 8px;"><strong>Persistenza:</strong> PostgreSQL (dati relazionali) e Redis (dati volatili ad alta frequenza)</li>
+            </ul>
+            <p style="margin-bottom: 15px;">L’ecosistema è governato da una gerarchia di tre ruoli — Admin, Editor e User — con privilegi e interfacce differenziati, modellata dall’enum <code>UserRole</code> condiviso e applicata coerentemente sui due lati: guard funzionali sul client (<code>editorGuard</code>, <code>adminGuard</code>) e middleware RBAC sul server (<code>requireEditor</code>, <code>requireAdmin</code>).</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Ecosistema e Gamification</h3>
+            <p style="margin-bottom: 15px;">Oltre alla creazione e consultazione dei contenuti, BrickLink integra un ambiente di authoring dedicato (<strong>BrickLab</strong>), un sistema di interazione sociale (like con aggiornamento ottimistico e commenti annidati auto-referenziali), una dashboard amministrativa completa e un modulo di gamification (<strong>CruciBrick</strong>) che estrae dinamicamente le parole chiave dal testo dei Brick per generare sfide di ripasso, trasformando la consultazione passiva in un esercizio attivo di consolidamento della memoria. Ogni funzionalità è progettata secondo il principio della <em>difesa in profondità</em>: ciò che il client verifica per usabilità, il server lo impone per sicurezza.</p>
+        </div>
+    </div>
 
+    
+<!-- GRADUAM PROJECT WINDOW -->
+    <div class="mac-window reveal" id="win-graduam" >
+        <div class="win-titlebar" >
+            <div class="win-controls">
+                <div class="tl red" ></div>
+                <div class="tl yellow" ></div>
+                <div class="tl green" ></div>
+            </div>
+            <span class="win-title">Progetto: Graduam</span>
+        </div>
+        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5; max-height: calc(80vh - 52px);">
+            <h1 style="margin-bottom: 20px; font-size: 28px; font-weight: 700;">Graduam</h1>
+            <p style="margin-bottom: 15px;"><strong>Graduam - Milestone & Progression</strong> è un applicativo web innovativo incentrato sul tracciamento, l'analisi e la gestione avanzata dei percorsi formativi. Progettato per accompagnare l'utente nell'organizzazione dei propri traguardi accademici e obiettivi di crescita personale in modo visuale e stimolante.</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">La Sfida Tecnica</h3>
+            <p style="margin-bottom: 15px;">L'obiettivo principale del progetto è stato creare un sistema di progressione matematicamente coerente e, allo stesso tempo, visivamente gratificante. Ogni aspetto dell'interfaccia utente è stato maniacalmente curato, partendo da un design system proprietario fino all'implementazione strutturata dei dati relazionali. Un'attenzione particolare è stata dedicata alla fluidità della tipografia e alle micro-interazioni per migliorare e "gamificare" l'esperienza utente ad ogni step di progressione superato.</p>
+            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Stack Tecnologico</h3>
+            <p style="margin-bottom: 10px;">L'architettura del progetto si basa sulle tecnologie più moderne e reattive dell'ecosistema React:</p>
+            <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
+                <li style="margin-bottom: 8px;"><strong>Framework:</strong> Next.js per garantire routing avanzato (App Router), Server-Side Rendering ed un'esperienza performante fin dal primo caricamento, curando anche la SEO.</li>
+                <li style="margin-bottom: 8px;"><strong>Linguaggio:</strong> TypeScript per assicurare rigorosa tipizzazione statica, abbattere i bug a runtime e garantire la scalabilità e la manutenzione della codebase nel tempo.</li>
+                <li style="margin-bottom: 8px;"><strong>Design:</strong> Tailwind CSS è stato adottato per prototipare rapidamente l'interfaccia, mantenendo una coerenza stilistica eccellente grazie all'utilizzo coerente di utility-classes e token personalizzati.</li>
+            </ul>
+        </div>
+    </div>
 
-
+    
             <!-- WIN: EDUCATION (Mail App) -->
             <div class="mac-window reveal" id="win-edu">
                 <div class="win-titlebar" onmousedown="startDrag(event, 'win-edu')">
@@ -946,64 +937,6 @@
             <h2 style="margin-bottom: 15px;">Support & Contact</h2>
             <p style="margin-bottom: 15px;">Se riscontri problemi o bug nell'interfaccia, o se vuoi collaborare con me, puoi contattarmi direttamente!</p>
             <a href="mailto:info@cristianingrao.it" style="display:inline-block; padding:8px 16px; background:#007AFF; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Invia un'email</a>
-        </div>
-    </div>
-
-    <!-- BRICKLINK PROJECT WINDOW -->
-    <div class="mac-window" id="win-bricklink" style="display:none; position: fixed; top: 10vh; left: 15vw; width: 70vw; max-height: 80vh; z-index: 1000;">
-        <div class="win-titlebar" onmousedown="startDrag(event, 'win-bricklink')">
-            <div class="win-controls">
-                <div class="tl red" onclick="closeWin('win-bricklink')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Progetto: BrickLink</span>
-        </div>
-        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5; max-height: calc(80vh - 52px);">
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-                <img src="../assets/bricklink_logo.png" alt="BrickLink Logo" style="width: 48px; height: 48px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
-                <h1 style="font-size: 28px; font-weight: 700; margin: 0;">BrickLink</h1>
-            </div>
-            <p style="margin-bottom: 15px;"><strong>BrickLink</strong> è una web application mobile-first per la divulgazione digitale che supera la concezione tradizionale dell’articolo come blocco di testo statico e monolitico, per abbracciare una visione dell’informazione intesa come entità dinamica, granulare e strutturata.</p>
-            <p style="margin-bottom: 15px;">Il principio fondante del progetto è che la conoscenza debba essere veicolata attraverso unità modulari e indipendenti denominate <strong>Brick</strong> (mattoncini logici): ogni articolo non è un documento indivisibile, ma una sequenza ordinata di Brick eterogenei — testo, immagini, gallerie, contenuti multimediali incorporati, snippet di codice e mappe geografiche — ciascuno con una propria semantica e un proprio modello dati.</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Architettura dei Dati</h3>
-            <p style="margin-bottom: 15px;">Questa scelta concettuale ha una diretta contropartita implementativa, verificabile in ogni strato del sistema. Sul piano dei dati, l’enum <code>BrickType</code> enumera esattamente sei tipologie — TEXT, IMAGE, EMBED, CODE, GALLERY, MAP — e ciascun Brick memorizza il proprio contenuto in una colonna JSONB polimorfa (<code>data: Record&lt;string, unknown&gt;</code>).</p>
-            <p style="margin-bottom: 15px;">Il payload non è quindi HTML pre-renderizzato, ma un oggetto strutturato e tipizzato: è il client a decidere, in fase di lettura, quale componente Angular incaricare del rendering di ciascun tipo. Questa impostazione — che ricorre identica dal database (<code>Brick.data</code> di tipo jsonb) fino ai template dell’editor e della pagina di dettaglio — è il filo conduttore dell’intera architettura e rappresenta anche una difesa nativa contro gli attacchi di tipo injection: il server non conserva né restituisce mai markup eseguibile.</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Stack Tecnologico</h3>
-            <p style="margin-bottom: 10px;">La piattaforma è costruita come applicazione full-stack disaccoppiata:</p>
-            <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
-                <li style="margin-bottom: 8px;"><strong>Client:</strong> Angular 20 / Ionic 8 / Capacitor (distribuibile come PWA e app nativa iOS/Android)</li>
-                <li style="margin-bottom: 8px;"><strong>Server:</strong> Node.js / Express 4 con ORM TypeORM 0.3</li>
-                <li style="margin-bottom: 8px;"><strong>Persistenza:</strong> PostgreSQL (dati relazionali) e Redis (dati volatili ad alta frequenza)</li>
-            </ul>
-            <p style="margin-bottom: 15px;">L’ecosistema è governato da una gerarchia di tre ruoli — Admin, Editor e User — con privilegi e interfacce differenziati, modellata dall’enum <code>UserRole</code> condiviso e applicata coerentemente sui due lati: guard funzionali sul client (<code>editorGuard</code>, <code>adminGuard</code>) e middleware RBAC sul server (<code>requireEditor</code>, <code>requireAdmin</code>).</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Ecosistema e Gamification</h3>
-            <p style="margin-bottom: 15px;">Oltre alla creazione e consultazione dei contenuti, BrickLink integra un ambiente di authoring dedicato (<strong>BrickLab</strong>), un sistema di interazione sociale (like con aggiornamento ottimistico e commenti annidati auto-referenziali), una dashboard amministrativa completa e un modulo di gamification (<strong>CruciBrick</strong>) che estrae dinamicamente le parole chiave dal testo dei Brick per generare sfide di ripasso, trasformando la consultazione passiva in un esercizio attivo di consolidamento della memoria. Ogni funzionalità è progettata secondo il principio della <em>difesa in profondità</em>: ciò che il client verifica per usabilità, il server lo impone per sicurezza.</p>
-        </div>
-    </div>
-
-    <!-- GRADUAM PROJECT WINDOW -->
-    <div class="mac-window" id="win-graduam" style="display:none; position: fixed; top: 12vh; left: 20vw; width: 65vw; max-height: 80vh; z-index: 1000;">
-        <div class="win-titlebar" onmousedown="startDrag(event, 'win-graduam')">
-            <div class="win-controls">
-                <div class="tl red" onclick="closeWin('win-graduam')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Progetto: Graduam</span>
-        </div>
-        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: rgba(28,28,30,0.4); color: #EBEBF5; max-height: calc(80vh - 52px);">
-            <h1 style="margin-bottom: 20px; font-size: 28px; font-weight: 700;">Graduam</h1>
-            <p style="margin-bottom: 15px;"><strong>Graduam - Milestone & Progression</strong> è un applicativo web innovativo incentrato sul tracciamento, l'analisi e la gestione avanzata dei percorsi formativi. Progettato per accompagnare l'utente nell'organizzazione dei propri traguardi accademici e obiettivi di crescita personale in modo visuale e stimolante.</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">La Sfida Tecnica</h3>
-            <p style="margin-bottom: 15px;">L'obiettivo principale del progetto è stato creare un sistema di progressione matematicamente coerente e, allo stesso tempo, visivamente gratificante. Ogni aspetto dell'interfaccia utente è stato maniacalmente curato, partendo da un design system proprietario fino all'implementazione strutturata dei dati relazionali. Un'attenzione particolare è stata dedicata alla fluidità della tipografia e alle micro-interazioni per migliorare e "gamificare" l'esperienza utente ad ogni step di progressione superato.</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #64D2FF;">Stack Tecnologico</h3>
-            <p style="margin-bottom: 10px;">L'architettura del progetto si basa sulle tecnologie più moderne e reattive dell'ecosistema React:</p>
-            <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
-                <li style="margin-bottom: 8px;"><strong>Framework:</strong> Next.js per garantire routing avanzato (App Router), Server-Side Rendering ed un'esperienza performante fin dal primo caricamento, curando anche la SEO.</li>
-                <li style="margin-bottom: 8px;"><strong>Linguaggio:</strong> TypeScript per assicurare rigorosa tipizzazione statica, abbattere i bug a runtime e garantire la scalabilità e la manutenzione della codebase nel tempo.</li>
-                <li style="margin-bottom: 8px;"><strong>Design:</strong> Tailwind CSS è stato adottato per prototipare rapidamente l'interfaccia, mantenendo una coerenza stilistica eccellente grazie all'utilizzo coerente di utility-classes e token personalizzati.</li>
-            </ul>
         </div>
     </div>
 
