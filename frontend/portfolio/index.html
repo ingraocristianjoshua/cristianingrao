@@ -358,8 +358,8 @@
         }
         .win-titlebar.note-style {
             justify-content: center;
-            background: rgba(255,255,255,0.02);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            background: rgba(20, 20, 22, 0.7);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
         }
         .win-titlebar.folder-style {
             justify-content: flex-start;
@@ -452,21 +452,10 @@
             display: flex;
             align-items: center;
         }
-        .marquee-container::before, .marquee-container::after {
-            content: '';
-            position: absolute;
-            top: 0; bottom: 0;
-            width: 150px;
-            z-index: 2;
-            pointer-events: none;
-        }
-        .marquee-container::before {
-            left: 0;
-            background: linear-gradient(to right, #0A0A0A, transparent);
-        }
-        .marquee-container::after {
-            right: 0;
-            background: linear-gradient(to left, #0A0A0A, transparent);
+        /* Fixed mask for seamless fading without blocking dots */
+        .marquee-container {
+            -webkit-mask-image: linear-gradient(to right, transparent, black 100px, black calc(100% - 100px), transparent);
+            mask-image: linear-gradient(to right, transparent, black 100px, black calc(100% - 100px), transparent);
         }
         .marquee-content {
             display: inline-block;
@@ -649,7 +638,7 @@
                 <div class="win-titlebar note-style">
                     <span class="win-title" style="color: #F7DF1E;">📝 Note_Architettura.txt</span>
                 </div>
-                <div class="win-body" style="padding: 25px 35px; font-family: monospace; font-size: 14px; line-height: 1.6; background: rgba(0,0,0,0.4); color: #A0A0A5;">
+                <div class="win-body" style="padding: 25px 35px; font-family: monospace; font-size: 14px; line-height: 1.6; background: rgba(20, 20, 22, 0.4); color: #A0A0A5;">
                     <strong style="color: #fff; font-size: 16px;">// Architettura dei Dati e Gamification</strong><br><br>
                     Il principio fondante è che la conoscenza debba essere veicolata attraverso unità modulari (Brick). Sul piano dei dati, l’enum <code>BrickType</code> enumera 6 tipologie (TEXT, IMAGE, EMBED, CODE, GALLERY, MAP). Ogni Brick memorizza il contenuto in JSONB polimorfa.<br><br>
                     Oltre alla creazione e consultazione, BrickLink integra un ambiente di authoring (<strong>BrickLab</strong>), interazione sociale (like con aggiornamento ottimistico), e un modulo di gamification (<strong>CruciBrick</strong>) che estrae dinamicamente le parole chiave dai Brick per generare sfide di ripasso attive.
@@ -658,7 +647,7 @@
 
             
             <!-- EMOJI MARQUEE SEPARATOR -->
-            <div class="col-12" style="margin: 20px 0;">
+            <div class="col-12" style="margin: 60px 0;">
                 <div class="marquee-container">
                     <div class="marquee-content">
                         <span>🧱</span><span>🚀</span><span>💻</span><span>📱</span><span>🧠</span><span>⚙️</span><span>💡</span><span>🎓</span><span>🧮</span><span>🧩</span><span>🧪</span><span>🛠️</span><span>🎨</span><span>🌐</span><span>📈</span><span>📚</span><span>🏆</span><span>👨‍💻</span><span>🧱</span><span>🚀</span><span>💻</span><span>📱</span><span>🧠</span><span>⚙️</span><span>💡</span><span>🎓</span><span>🧮</span><span>🧩</span><span>🧪</span><span>🛠️</span><span>🎨</span><span>🌐</span><span>📈</span><span>📚</span><span>🏆</span><span>👨‍💻</span>
