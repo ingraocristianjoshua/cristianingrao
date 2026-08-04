@@ -300,13 +300,14 @@ function launchPortfolio(e, folderEl) {
         left: ${rect.left + rect.width/2}px;
         width: 10px;
         height: 10px;
-        background: #0A0A0A;
+        background: radial-gradient(circle at center, #FFD60A 0%, #FF375F 40%, #007AFF 70%, #0A0A0A 100%);
         border-radius: 50%;
         z-index: 99999;
         transform: translate(-50%, -50%) scale(1);
-        transition: transform 0.7s cubic-bezier(0.7, 0, 0.2, 1);
+        transition: transform 0.8s cubic-bezier(0.7, 0, 0.2, 1);
         pointer-events: none;
-        box-shadow: 0 0 50px rgba(0,0,0,0.8);
+        box-shadow: 0 0 100px rgba(0, 122, 255, 0.8), 0 0 150px rgba(255, 55, 95, 0.6);
+        filter: blur(8px);
     `;
     
     document.body.appendChild(expander);
