@@ -283,7 +283,7 @@ body, html {
     transition: transform 0.2s;
 }
 .social-icon {
-    width: 55px; height: 55px; 
+    width: 70px; height: 70px; 
     border-radius: 12px;
     padding: 0;
     box-sizing: border-box;
@@ -399,9 +399,9 @@ body, html {
 /* Desktop container */
 .desktop-content { position:absolute; top:50px; left:20px; right:20px; bottom:100px; display:flex; justify-content:space-between; z-index:10; }
 
-.dock-icon { width: 55px; height: 55px; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3)); }
+.dock-icon { width: 70px; height: 70px; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3)); }
 .dock-icon-black {
-    width: 55px; height: 55px;
+    width: 70px; height: 70px;
     object-fit: contain;
     background: #1c1c1e;
     border: 1px solid rgba(255, 255, 255, 0.1);
