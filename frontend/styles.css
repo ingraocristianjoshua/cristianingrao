@@ -283,7 +283,7 @@ body, html {
     transition: transform 0.2s;
 }
 .social-icon {
-    width: 70px; height: 70px; 
+    width: 55px; height: 55px; 
     border-radius: 12px;
     padding: 0;
     box-sizing: border-box;
@@ -364,7 +364,7 @@ body, html {
 }
 .folder { display: flex; flex-direction: column; align-items: center; gap: 5px; cursor: pointer; width: 95px; padding: 8px 4px; border-radius: 6px; border: 1px solid transparent; transition: background 0.1s; user-select: none; }
 .folder.selected { background: rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.15); }
-.folder-icon { width: 70px; height: 70px; object-fit: contain; filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4)); -webkit-user-drag: none; }
+.folder-icon { width: 55px; height: 55px; object-fit: contain; filter: drop-shadow(0 3px 5px rgba(0,0,0,0.4)); -webkit-user-drag: none; }
 .folder-name { color: white; font-size: 12px; text-align: center; text-shadow: 0 1px 3px rgba(0,0,0,0.8); font-weight: 500; padding: 2px 6px; border-radius: 4px; max-width: 100%; word-break: break-word; white-space: normal; line-height: 1.3; display: inline-block; }
 .folder.selected .folder-name { background: #0058d0; }
 
@@ -399,9 +399,9 @@ body, html {
 /* Desktop container */
 .desktop-content { position:absolute; top:50px; left:20px; right:20px; bottom:100px; display:flex; justify-content:space-between; z-index:10; }
 
-.dock-icon { width: 70px; height: 70px; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3)); }
+.dock-icon { width: 55px; height: 55px; object-fit: contain; filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3)); }
 .dock-icon-black {
-    width: 70px; height: 70px;
+    width: 55px; height: 55px;
     object-fit: contain;
     background: #1c1c1e;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1320,7 +1320,7 @@ body, html {
 }
 .fi-invert { filter: invert(1) brightness(0.9); }
 .fi-1 { width: 90px; height: 90px; top: 12%; left: 8%; animation: float-a 7s ease-in-out infinite; }
-.fi-2 { width: 70px; height: 70px; bottom: 18%; left: 22%; animation: float-b 9s ease-in-out infinite; }
+.fi-2 { width: 55px; height: 55px; bottom: 18%; left: 22%; animation: float-b 9s ease-in-out infinite; }
 .fi-3 { width: 110px; height: 110px; top: 16%; right: 10%; animation: float-c 8s ease-in-out infinite; filter: blur(2px); opacity: 0.7; }
 .fi-4 { width: 80px; height: 80px; bottom: 22%; right: 20%; animation: float-a 10s ease-in-out infinite reverse; }
 .fi-5 { width: 60px; height: 60px; top: 55%; left: 6%; animation: float-b 6s ease-in-out infinite; filter: blur(1px); opacity: 0.6; }
