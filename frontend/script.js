@@ -328,7 +328,7 @@ function launchPortfolio(e, folderEl) {
             expander.style.transform = `translate(-50%, -50%) scale(${scale})`;
             
             setTimeout(() => {
-                window.location.href = 'portfolio/index.html';
+                window.location.href = '/portfolio';
             }, 750);
         });
     });
