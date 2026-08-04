@@ -336,9 +336,10 @@
         }
         #win-bio { grid-column: 1 / 2; grid-row: 1 / 2; }
         #win-photo { grid-column: 2 / 3; grid-row: 1 / 2; }
-        #win-projects { grid-column: 1 / -1; grid-row: 2 / 3; }
-        #win-edu { grid-column: 1 / -1; grid-row: 3 / 4; }
-        #win-contacts { grid-column: 1 / -1; grid-row: 4 / 5; }
+        .mac-dock-container { grid-column: 1 / -1; grid-row: 2 / 3; }
+        #win-projects { grid-column: 1 / -1; grid-row: 3 / 4; }
+        #win-edu { grid-column: 1 / -1; grid-row: 4 / 5; }
+        #win-contacts { grid-column: 1 / -1; grid-row: 5 / 6; }
         
         .portfolio-dock {
             grid-column: 1 / -1;
@@ -704,8 +705,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
 
             <!-- WIN: PHOTO -->
             <div class="mac-window reveal" id="win-photo">
@@ -895,8 +894,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+</div>
 
     <!-- ABOUT WINDOW -->
     <div class="mac-window" id="win-about" style="display:none; position: fixed; top:80px; left:200px; width:500px; z-index: 1000;">
