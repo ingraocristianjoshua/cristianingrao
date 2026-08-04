@@ -350,6 +350,13 @@ function openWindow(id) {
         win.classList.remove('closing');
         win.classList.add('opening');
         setTimeout(() => win.classList.remove('opening'), 250);
+        
+        if (id === 'win-easteregg') {
+            const iframe = document.getElementById('easteregg-iframe');
+            if (iframe && !iframe.src) {
+                iframe.src = iframe.getAttribute('data-src');
+            }
+        }
     }
 }
 function closeWin(id) {
