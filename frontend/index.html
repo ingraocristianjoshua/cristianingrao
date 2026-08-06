@@ -1,939 +1,2952 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cristian Ingrao — Software Developer</title>
-    <meta name="description" content="Portfolio di Cristian Ingrao, Software Developer specializzato in Web Apps, Next.js, React e Java.">
-    <meta name="keywords" content="Cristian Ingrao, portfolio, software developer, web developer, React, Next.js, Java">
-    <meta name="author" content="Cristian Ingrao">
-    <meta property="og:title" content="Cristian Ingrao — Software Developer">
-    <meta property="og:description" content="Portfolio interattivo in stile macOS">
-    <meta property="og:type" content="website">
-    <link rel="icon" type="image/svg+xml" href="favicon_rounded.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=12">
-</head>
-<body>
-    
-
-
+    <meta
+      name="description"
+      content="Portfolio di Cristian Ingrao, Software Developer specializzato in Web Apps, Next.js, React e Java."
+    />
+    <meta
+      name="keywords"
+      content="Cristian Ingrao, portfolio, software developer, web developer, React, Next.js, Java"
+    />
+    <meta name="author" content="Cristian Ingrao" />
+    <meta property="og:title" content="Cristian Ingrao — Software Developer" />
+    <meta
+      property="og:description"
+      content="Portfolio interattivo in stile macOS"
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="favicon_rounded.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=12" />
+  </head>
+  <body>
     <div id="desktop-hero">
+      <!-- WALLPAPER -->
+      <div class="wallpaper"></div>
 
-    <!-- WALLPAPER -->
-    <div class="wallpaper"></div>
-
-    <!-- TOP BAR -->
-    <nav class="menubar">
+      <!-- TOP BAR -->
+      <nav class="menubar">
         <div class="menubar-left">
-            <span class="menu-text bold" onclick="window.location.reload()">Cristian Ingrao</span>
-            <span class="menu-text" onclick="openWindow('win-about')">About</span>
-            <span class="menu-text" onclick="openWindow('win-privacy')">Privacy Policy</span>
-            <span class="menu-text" onclick="openWindow('win-support')">Support</span>
+          <span class="menu-text bold" onclick="window.location.reload()"
+            >Cristian Ingrao</span
+          >
+          <span class="menu-text" onclick="openWindow('win-about')">About</span>
+          <span class="menu-text" onclick="openWindow('win-privacy')"
+            >Privacy Policy</span
+          >
+          <span class="menu-text" onclick="openWindow('win-support')"
+            >Support</span
+          >
         </div>
         <div class="menubar-right">
-            <span class="menu-text" id="clock">Ven 31 lug 16:41</span>
+          <span class="menu-text" id="clock">Ven 31 lug 16:41</span>
         </div>
-    </nav>
+      </nav>
 
-    <!-- DESKTOP CONTENT -->
-    <div class="desktop-content">
-        
+      <!-- DESKTOP CONTENT -->
+      <div class="desktop-content">
         <!-- LEFT WIDGETS AND FOLDERS -->
         <div class="left-column">
-            
-            <div class="widget-row">
-                <!-- Clock Widget -->
-                <div class="widget clock-widget" onclick="openWindow('win-clock')">
-                    <div class="clock-display" id="widget-clock">16:41</div>
-                    <div class="clock-border">
-                        <!-- small decorative dashes around the clock can be added via CSS -->
-                    </div>
-                </div>
-
-                <!-- Calendar Widget -->
-                <div class="widget calendar-widget" onclick="openWindow('win-calendar')">
-                    <div class="cal-header" id="widget-cal-header">AGOSTO</div>
-                    <div class="cal-days-header">
-                        <span>L</span><span>M</span><span>M</span><span>G</span><span>V</span><span>S</span><span>D</span>
-                    </div>
-                    <div class="cal-grid" id="widget-cal-grid">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-
-                <!-- Dynamic Weather Widget -->
-                <div class="widget weather-widget" id="weather-widget" onclick="openWindow('win-weather')">
-                    <div class="weather-top">
-                        <div class="weather-info">
-                            <div class="weather-city" id="weather-city">Localizzazione... <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2L22 20L12 17L2 20L12 2Z"/></svg></div>
-                            <div class="weather-temp" id="weather-temp">--°</div>
-                        </div>
-                        <div class="weather-main-icon" id="weather-icon">⏳</div>
-                    </div>
-                    <div class="weather-alert" id="weather-desc">
-                        In attesa di posizione...
-                    </div>
-                    <div class="weather-forecast" id="weather-forecast">
-                        <!-- JS will populate this -->
-                    </div>
-                </div>
-            </div>
-            
-            <!-- FOLDERS -->
-            <div class="desktop-folders">
-                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-miniature')">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
-                    <span class="folder-name">miniature</span>
-                </div>
-                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-video')">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
-                    <span class="folder-name">video</span>
-                </div>
-                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-uni')">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
-                    <span class="folder-name">università</span>
-                </div>
-                <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-notes')">
-                    <img src="./assets/icons/notes-dark.svg" class="system-icon-desktop" alt="Notes">
-                    <span class="folder-name">Note</span>
-                </div>
+          <div class="widget-row">
+            <!-- Clock Widget -->
+            <div class="widget clock-widget" onclick="openWindow('win-clock')">
+              <div class="clock-display" id="widget-clock">16:41</div>
+              <div class="clock-border">
+                <!-- small decorative dashes around the clock can be added via CSS -->
+              </div>
             </div>
 
+            <!-- Calendar Widget -->
+            <div
+              class="widget calendar-widget"
+              onclick="openWindow('win-calendar')"
+            >
+              <div class="cal-header" id="widget-cal-header">AGOSTO</div>
+              <div class="cal-days-header">
+                <span>L</span><span>M</span><span>M</span><span>G</span
+                ><span>V</span><span>S</span><span>D</span>
+              </div>
+              <div class="cal-grid" id="widget-cal-grid">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+
+            <!-- Dynamic Weather Widget -->
+            <div
+              class="widget weather-widget"
+              id="weather-widget"
+              onclick="openWindow('win-weather')"
+            >
+              <div class="weather-top">
+                <div class="weather-info">
+                  <div class="weather-city" id="weather-city">
+                    Localizzazione...
+                    <svg
+                      width="12"
+                      height="12"
+                      viewBox="0 0 24 24"
+                      fill="white"
+                    >
+                      <path d="M12 2L22 20L12 17L2 20L12 2Z" />
+                    </svg>
+                  </div>
+                  <div class="weather-temp" id="weather-temp">--°</div>
+                </div>
+                <div class="weather-main-icon" id="weather-icon">⏳</div>
+              </div>
+              <div class="weather-alert" id="weather-desc">
+                In attesa di posizione...
+              </div>
+              <div class="weather-forecast" id="weather-forecast">
+                <!-- JS will populate this -->
+              </div>
+            </div>
+          </div>
+
+          <!-- FOLDERS -->
+          <div class="desktop-folders">
+            <div
+              class="folder"
+              onclick="selectFolder(this, event)"
+              ondblclick="openWindow('win-folder-miniature')"
+            >
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+                alt="Folder"
+              />
+              <span class="folder-name">miniature</span>
+            </div>
+            <div
+              class="folder"
+              onclick="selectFolder(this, event)"
+              ondblclick="openWindow('win-folder-video')"
+            >
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+                alt="Folder"
+              />
+              <span class="folder-name">video</span>
+            </div>
+            <div
+              class="folder"
+              onclick="selectFolder(this, event)"
+              ondblclick="openWindow('win-folder-uni')"
+            >
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+                alt="Folder"
+              />
+              <span class="folder-name">università</span>
+            </div>
+            <div
+              class="folder"
+              onclick="selectFolder(this, event)"
+              ondblclick="openWindow('win-notes')"
+            >
+              <img
+                src="./assets/icons/notes-dark.svg"
+                class="system-icon-desktop"
+                alt="Notes"
+              />
+              <span class="folder-name">Note</span>
+            </div>
+          </div>
         </div>
 
         <!-- RIGHT FILES -->
         <div class="desktop-files-right">
-            <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-privacy')">
-                <img src="./assets/icons/doc-rtf.svg" class="folder-icon" alt="Privacy">
-                <span class="folder-name">Privacy_Policy.rtf</span>
-            </div>
-            <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-cv')">
-                <img src="./assets/icons/doc-rtf.svg" class="folder-icon" alt="File">
-                <span class="folder-name">CV_Cristian.rtf</span>
-            </div>
-            <div class="folder" onclick="selectFolder(this, event)" ondblclick="openWindow('win-skills')">
-                <img src="./assets/icons/doc-rtf.svg" class="folder-icon" alt="File">
-                <span class="folder-name">Competenze.rtf</span>
-            </div>
-            <div class="folder" onclick="selectFolder(this, event)" ondblclick="launchPortfolio(event, this)">
-                <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Projects">
-                <span class="folder-name">Portfolio</span>
-            </div>
-
+          <div
+            class="folder"
+            onclick="selectFolder(this, event)"
+            ondblclick="openWindow('win-privacy')"
+          >
+            <img
+              src="./assets/icons/doc-rtf.svg"
+              class="folder-icon"
+              alt="Privacy"
+            />
+            <span class="folder-name">Privacy_Policy.rtf</span>
+          </div>
+          <div
+            class="folder"
+            onclick="selectFolder(this, event)"
+            ondblclick="openWindow('win-cv')"
+          >
+            <img
+              src="./assets/icons/doc-rtf.svg"
+              class="folder-icon"
+              alt="File"
+            />
+            <span class="folder-name">CV_Cristian.rtf</span>
+          </div>
+          <div
+            class="folder"
+            onclick="selectFolder(this, event)"
+            ondblclick="openWindow('win-skills')"
+          >
+            <img
+              src="./assets/icons/doc-rtf.svg"
+              class="folder-icon"
+              alt="File"
+            />
+            <span class="folder-name">Competenze.rtf</span>
+          </div>
+          <div
+            class="folder"
+            onclick="selectFolder(this, event)"
+            ondblclick="launchPortfolio(event, this)"
+          >
+            <img
+              src="https://img.icons8.com/color/512/mac-folder.png"
+              class="folder-icon"
+              alt="Projects"
+            />
+            <span class="folder-name">Portfolio</span>
+          </div>
         </div>
 
         <!-- RIGHT WIDGETS -->
         <div class="right-column">
-            <!-- Battery Widget rimosso come richiesto -->
+          <!-- Battery Widget rimosso come richiesto -->
         </div>
-        
+
         <!-- MOBILE APPS GRID (Hidden on Desktop) -->
         <div class="mobile-apps-grid">
-            <div class="folder" onclick="openApp('Python', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="app-icon-black" alt="Python">
-                <span class="folder-name">Python</span>
-            </div>
-            <div class="folder" onclick="openApp('JavaScript', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="app-icon-black" alt="JS">
-                <span class="folder-name">JavaScript</span>
-            </div>
-            <div class="folder" onclick="openApp('React', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="app-icon-black" alt="React">
-                <span class="folder-name">React</span>
-            </div>
-            <div class="folder" onclick="openApp('Node.js', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="app-icon-black" alt="Node">
-                <span class="folder-name">Node.js</span>
-            </div>
-            <div class="folder" onclick="openApp('C++', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="app-icon-black" alt="C++">
-                <span class="folder-name">C++</span>
-            </div>
-            <div class="folder" onclick="openApp('MySQL', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="app-icon-black" alt="SQL">
-                <span class="folder-name">MySQL</span>
-            </div>
-            <div class="folder" onclick="openApp('Git', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="app-icon-black" alt="Git">
-                <span class="folder-name">Git</span>
-            </div>
-            <div class="folder" onclick="openApp('Linux', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="app-icon-black" alt="Linux">
-                <span class="folder-name">Linux</span>
-            </div>
-            <div class="folder" onclick="openApp('VS Code', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="app-icon-black" alt="VS Code">
-                <span class="folder-name">VS Code</span>
-            </div>
-            <div class="folder" onclick="openApp('HTML5', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="app-icon-black" alt="HTML5">
-                <span class="folder-name">HTML5</span>
-            </div>
-            <div class="folder" onclick="openApp('CSS3', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="app-icon-black" alt="CSS3">
-                <span class="folder-name">CSS3</span>
-            </div>
-            <div class="folder" onclick="openApp('TypeScript', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="app-icon-black" alt="TypeScript">
-                <span class="folder-name">TypeScript</span>
-            </div>
-            <div class="folder" onclick="openApp('Java', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="app-icon-black" alt="Java">
-                <span class="folder-name">Java</span>
-            </div>
-
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'Python',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+              class="app-icon-black"
+              alt="Python"
+            />
+            <span class="folder-name">Python</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'JavaScript',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              class="app-icon-black"
+              alt="JS"
+            />
+            <span class="folder-name">JavaScript</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'React',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              class="app-icon-black"
+              alt="React"
+            />
+            <span class="folder-name">React</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'Node.js',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              class="app-icon-black"
+              alt="Node"
+            />
+            <span class="folder-name">Node.js</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'C++',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+              class="app-icon-black"
+              alt="C++"
+            />
+            <span class="folder-name">C++</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'MySQL',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+              class="app-icon-black"
+              alt="SQL"
+            />
+            <span class="folder-name">MySQL</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'Git',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              class="app-icon-black"
+              alt="Git"
+            />
+            <span class="folder-name">Git</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'Linux',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+              class="app-icon-black"
+              alt="Linux"
+            />
+            <span class="folder-name">Linux</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'VS Code',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+              class="app-icon-black"
+              alt="VS Code"
+            />
+            <span class="folder-name">VS Code</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'HTML5',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              class="app-icon-black"
+              alt="HTML5"
+            />
+            <span class="folder-name">HTML5</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'CSS3',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              class="app-icon-black"
+              alt="CSS3"
+            />
+            <span class="folder-name">CSS3</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'TypeScript',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+              class="app-icon-black"
+              alt="TypeScript"
+            />
+            <span class="folder-name">TypeScript</span>
+          </div>
+          <div
+            class="folder"
+            onclick="
+              openApp(
+                'Java',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+              class="app-icon-black"
+              alt="Java"
+            />
+            <span class="folder-name">Java</span>
+          </div>
         </div>
+      </div>
 
-    </div>
-
-    <!-- WINDOWS -->
-    <div class="mac-window" id="win-clock" data-dock-icon="./assets/icons/clock-dark.svg" style="display:none; top:100px; left:300px; width:400px;">
+      <!-- WINDOWS -->
+      <div
+        class="mac-window"
+        id="win-clock"
+        data-dock-icon="./assets/icons/clock-dark.svg"
+        style="display: none; top: 100px; left: 300px; width: 400px"
+      >
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-clock')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-clock')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Orologio</span>
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-clock')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Orologio</span>
         </div>
-        <div class="win-body" style="text-align:center; padding: 40px;">
-            <h1 style="font-size: 60px; font-weight:800; letter-spacing:-2px;" id="win-clock-display">16:41</h1>
-            <p style="color: #666; margin-top: 10px;" id="win-clock-date">Venerdì 31 Luglio 2026</p>
+        <div class="win-body" style="text-align: center; padding: 40px">
+          <h1
+            style="font-size: 60px; font-weight: 800; letter-spacing: -2px"
+            id="win-clock-display"
+          >
+            16:41
+          </h1>
+          <p style="color: #666; margin-top: 10px" id="win-clock-date">
+            Venerdì 31 Luglio 2026
+          </p>
         </div>
-    </div>
+      </div>
 
-    <div class="mac-window" id="win-calendar" data-dock-icon="./assets/icons/calendar-dark.svg" style="display:none; top:120px; left:320px; width:450px;">
-        <div class="win-titlebar" onmousedown="startDrag(event, 'win-calendar')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-calendar')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Calendario</span>
+      <div
+        class="mac-window"
+        id="win-calendar"
+        data-dock-icon="./assets/icons/calendar-dark.svg"
+        style="display: none; top: 120px; left: 320px; width: 450px"
+      >
+        <div
+          class="win-titlebar"
+          onmousedown="startDrag(event, 'win-calendar')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-calendar')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Calendario</span>
         </div>
-        <div class="win-body" style="padding: 20px;">
-            <h2 id="win-calendar-title" style="color: #FF3B30; margin-bottom: 20px; text-transform: uppercase; text-align:center;">Mese Anno</h2>
-            <div class="cal-days-header" style="font-size: 14px; margin-bottom: 15px; color: #666; font-weight: bold;">
-                <span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span><span>Ven</span><span>Sab</span><span>Dom</span>
-            </div>
-            <div id="win-calendar-grid" class="cal-grid" style="font-size: 18px; grid-auto-rows: 40px; gap: 15px; align-items:center; color: #222;">
-                <!-- JS will populate full calendar -->
-            </div>
+        <div class="win-body" style="padding: 20px">
+          <h2
+            id="win-calendar-title"
+            style="
+              color: #ff3b30;
+              margin-bottom: 20px;
+              text-transform: uppercase;
+              text-align: center;
+            "
+          >
+            Mese Anno
+          </h2>
+          <div
+            class="cal-days-header"
+            style="
+              font-size: 14px;
+              margin-bottom: 15px;
+              color: #666;
+              font-weight: bold;
+            "
+          >
+            <span>Lun</span><span>Mar</span><span>Mer</span><span>Gio</span
+            ><span>Ven</span><span>Sab</span><span>Dom</span>
+          </div>
+          <div
+            id="win-calendar-grid"
+            class="cal-grid"
+            style="
+              font-size: 18px;
+              grid-auto-rows: 40px;
+              gap: 15px;
+              align-items: center;
+              color: #222;
+            "
+          >
+            <!-- JS will populate full calendar -->
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="mac-window" id="win-weather" data-dock-icon="./assets/icons/weather-dark.svg" style="display:none; top:140px; left:340px; width:500px;">
+      <div
+        class="mac-window"
+        id="win-weather"
+        data-dock-icon="./assets/icons/weather-dark.svg"
+        style="display: none; top: 140px; left: 340px; width: 500px"
+      >
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-weather')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-weather')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Meteo</span>
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-weather')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Meteo</span>
         </div>
-        <div class="win-body" style="background: linear-gradient(to bottom, #4A90E2, #2B5B84); color: white;">
-            <div style="text-align:center; padding: 20px 0;">
-                <h2 id="win-weather-city" style="font-weight: 500; margin-bottom: 10px;">Città</h2>
-                <div id="win-weather-temp" style="font-size: 70px; font-weight: 300; line-height: 1;">--°</div>
-                <div id="win-weather-desc" style="font-size: 18px; margin-top: 5px;">--</div>
+        <div
+          class="win-body"
+          style="
+            background: linear-gradient(to bottom, #4a90e2, #2b5b84);
+            color: white;
+          "
+        >
+          <div style="text-align: center; padding: 20px 0">
+            <h2
+              id="win-weather-city"
+              style="font-weight: 500; margin-bottom: 10px"
+            >
+              Città
+            </h2>
+            <div
+              id="win-weather-temp"
+              style="font-size: 70px; font-weight: 300; line-height: 1"
+            >
+              --°
             </div>
-            <div style="background: rgba(0,0,0,0.2); border-radius: 12px; padding: 15px; margin-top: 10px;">
-                <h4 style="margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 8px;">Previsioni prossimi giorni</h4>
-                <div id="win-weather-daily" style="display: flex; flex-direction: column; gap: 12px;">
-                    <!-- JS will populate daily forecast -->
-                </div>
+            <div id="win-weather-desc" style="font-size: 18px; margin-top: 5px">
+              --
             </div>
+          </div>
+          <div
+            style="
+              background: rgba(0, 0, 0, 0.2);
+              border-radius: 12px;
+              padding: 15px;
+              margin-top: 10px;
+            "
+          >
+            <h4
+              style="
+                margin-bottom: 15px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                padding-bottom: 8px;
+              "
+            >
+              Previsioni prossimi giorni
+            </h4>
+            <div
+              id="win-weather-daily"
+              style="display: flex; flex-direction: column; gap: 12px"
+            >
+              <!-- JS will populate daily forecast -->
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- ABOUT WINDOW -->
-    <div class="mac-window" id="win-notes" data-dock-icon="./assets/icons/notes-dark.svg" style="display:none; top:80px; left:250px; width:600px; height:450px;">
-        <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-notes')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-notes')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <div style="flex: 1; display: flex; justify-content: center; gap: 15px; align-items: center; padding-right: 60px;">
-                <!-- Mac Notes Toolbar Icons Removed -->
-            </div>
+      <!-- ABOUT WINDOW -->
+      <div
+        class="mac-window"
+        id="win-notes"
+        data-dock-icon="./assets/icons/notes-dark.svg"
+        style="
+          display: none;
+          top: 80px;
+          left: 250px;
+          width: 600px;
+          height: 450px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-dark"
+          onmousedown="startDrag(event, 'win-notes')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-notes')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <div
+            style="
+              flex: 1;
+              display: flex;
+              justify-content: center;
+              gap: 15px;
+              align-items: center;
+              padding-right: 60px;
+            "
+          >
+            <!-- Mac Notes Toolbar Icons Removed -->
+          </div>
         </div>
-        <div class="win-body" style="display: flex; flex-direction: row; padding: 0; background: #1e1e1e;">
-            
-            <!-- Sidebar (Folders) Removed -->
+        <div
+          class="win-body"
+          style="
+            display: flex;
+            flex-direction: row;
+            padding: 0;
+            background: #1e1e1e;
+          "
+        >
+          <!-- Sidebar (Folders) Removed -->
 
-            <!-- Middle Column (Note List) -->
-            <div id="notes-list" style="width: 180px; background: rgba(30, 30, 30, 0.95); border-right: 1px solid rgba(255,255,255,0.05); display: flex; flex-direction: column;">
-                <div style="padding: 15px; font-weight: 600; color: #fff; font-size: 18px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                    Note
+          <!-- Middle Column (Note List) -->
+          <div
+            id="notes-list"
+            style="
+              width: 180px;
+              background: rgba(30, 30, 30, 0.95);
+              border-right: 1px solid rgba(255, 255, 255, 0.05);
+              display: flex;
+              flex-direction: column;
+            "
+          >
+            <div
+              style="
+                padding: 15px;
+                font-weight: 600;
+                color: #fff;
+                font-size: 18px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+              "
+            >
+              Note
+            </div>
+            <div class="note-list-items" style="overflow-y: auto; flex: 1">
+              <div
+                class="note-item active"
+                onclick="switchNote('note-1', this)"
+                style="
+                  padding: 10px 12px;
+                  cursor: pointer;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 4px;
+                  background: rgba(228, 168, 51, 0.2);
+                  border-radius: 6px;
+                  margin: 6px;
+                "
+              >
+                <div style="font-weight: 600; font-size: 13px; color: #fff">
+                  Presentazione
                 </div>
-                <div class="note-list-items" style="overflow-y: auto; flex: 1;">
-                    <div class="note-item active" onclick="switchNote('note-1', this)" style="padding: 10px 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; background: rgba(228, 168, 51, 0.2); border-radius: 6px; margin: 6px;">
-                        <div style="font-weight: 600; font-size: 13px; color: #fff;">Presentazione</div>
-                        <div style="display: flex; gap: 8px; align-items: center;">
-                            <span style="font-size: 11px; color: #e4a833;">Oggi</span>
-                            <span style="font-size: 11px; color: #999; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Dichiarazione...</span>
-                        </div>
-                    </div>
-                    <div class="note-item" onclick="switchNote('note-2', this)" style="padding: 10px 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; border-radius: 6px; margin: 6px;">
-                        <div style="font-weight: 600; font-size: 13px; color: #fff;">Roadmap Sviluppo</div>
-                        <div style="display: flex; gap: 8px; align-items: center;">
-                            <span style="font-size: 11px; color: #888;">Ieri</span>
-                            <span style="font-size: 11px; color: #999; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Obiettivi e...</span>
-                        </div>
-                    </div>
-                    <div class="note-item" onclick="switchNote('note-3', this)" style="padding: 10px 12px; cursor: pointer; display: flex; flex-direction: column; gap: 4px; border-radius: 6px; margin: 6px;">
-                        <div style="font-weight: 600; font-size: 13px; color: #fff;">Contatti</div>
-                        <div style="display: flex; gap: 8px; align-items: center;">
-                            <span style="font-size: 11px; color: #888;">21 Lug</span>
-                            <span style="font-size: 11px; color: #999; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Email e network...</span>
-                        </div>
-                    </div>
+                <div style="display: flex; gap: 8px; align-items: center">
+                  <span style="font-size: 11px; color: #e4a833">Oggi</span>
+                  <span
+                    style="
+                      font-size: 11px;
+                      color: #999;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                    "
+                    >Dichiarazione...</span
+                  >
                 </div>
+              </div>
+              <div
+                class="note-item"
+                onclick="switchNote('note-2', this)"
+                style="
+                  padding: 10px 12px;
+                  cursor: pointer;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 4px;
+                  border-radius: 6px;
+                  margin: 6px;
+                "
+              >
+                <div style="font-weight: 600; font-size: 13px; color: #fff">
+                  Roadmap Sviluppo
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center">
+                  <span style="font-size: 11px; color: #888">Ieri</span>
+                  <span
+                    style="
+                      font-size: 11px;
+                      color: #999;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                    "
+                    >Obiettivi e...</span
+                  >
+                </div>
+              </div>
+              <div
+                class="note-item"
+                onclick="switchNote('note-3', this)"
+                style="
+                  padding: 10px 12px;
+                  cursor: pointer;
+                  display: flex;
+                  flex-direction: column;
+                  gap: 4px;
+                  border-radius: 6px;
+                  margin: 6px;
+                "
+              >
+                <div style="font-weight: 600; font-size: 13px; color: #fff">
+                  Contatti
+                </div>
+                <div style="display: flex; gap: 8px; align-items: center">
+                  <span style="font-size: 11px; color: #888">21 Lug</span>
+                  <span
+                    style="
+                      font-size: 11px;
+                      color: #999;
+                      white-space: nowrap;
+                      overflow: hidden;
+                      text-overflow: ellipsis;
+                    "
+                    >Email e network...</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Content (Editor) -->
+          <div
+            id="notes-editor"
+            style="
+              flex: 1;
+              padding: 30px;
+              display: flex;
+              flex-direction: column;
+              overflow-y: auto;
+              background: #1e1e1e;
+              position: relative;
+            "
+          >
+            <!-- NOTE 1 -->
+            <div class="note-content" id="note-1" style="display: block">
+              <h1
+                style="
+                  font-size: 24px;
+                  font-weight: 700;
+                  color: #fff;
+                  margin-bottom: 10px;
+                "
+              >
+                Presentazione
+              </h1>
+              <div style="font-size: 12px; color: #888; margin-bottom: 25px">
+                1 agosto 2026 alle ore 12:00
+              </div>
+              <div
+                style="
+                  font-size: 14px;
+                  color: #ccc;
+                  line-height: 1.6;
+                  font-family:
+                    -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;,
+                    Roboto, Helvetica, Arial, sans-serif;
+                "
+              >
+                <p>Dichiarazione d'Intenti</p>
+                <p>
+                  Ho sviluppato questo ambiente digitale per illustrare
+                  metodicamente le mie competenze tecniche in ingegneria del
+                  software, progettazione architettonica e design delle
+                  interfacce. La piattaforma funge da estensione interattiva del
+                  mio curriculum vitae.
+                </p>
+                <p>
+                  Il mio focus professionale risiede nello sviluppo di
+                  architetture di sistema scalabili e nella realizzazione di
+                  interfacce utente rigorose e performanti, bilanciando in ogni
+                  progetto i vincoli ingegneristici con i requisiti
+                  dell'esperienza utente.
+                </p>
+                <p>
+                  Per richieste di natura lavorativa o collaborazioni
+                  professionali, è possibile
+                  <a
+                    href="mailto:info@cristianingrao.it"
+                    style="color: #e4a833; text-decoration: none"
+                    >contattarmi via email</a
+                  >.
+                </p>
+                <p style="margin-top: 20px">- <em>Ing. Cristian Ingrao</em></p>
+              </div>
             </div>
 
-            <!-- Main Content (Editor) -->
-            <div id="notes-editor" style="flex: 1; padding: 30px; display: flex; flex-direction: column; overflow-y: auto; background: #1e1e1e; position: relative;">
-                
-                <!-- NOTE 1 -->
-                <div class="note-content" id="note-1" style="display: block;">
-                    <h1 style="font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 10px;">Presentazione</h1>
-                    <div style="font-size: 12px; color: #888; margin-bottom: 25px;">1 agosto 2026 alle ore 12:00</div>
-                    <div style="font-size: 14px; color: #ccc; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                        <p>Dichiarazione d'Intenti</p>
-                        <p>Ho sviluppato questo ambiente digitale per illustrare metodicamente le mie competenze tecniche in ingegneria del software, progettazione architettonica e design delle interfacce. La piattaforma funge da estensione interattiva del mio curriculum vitae.</p>
-                        <p>Il mio focus professionale risiede nello sviluppo di architetture di sistema scalabili e nella realizzazione di interfacce utente rigorose e performanti, bilanciando in ogni progetto i vincoli ingegneristici con i requisiti dell'esperienza utente.</p>
-                        <p>Per richieste di natura lavorativa o collaborazioni professionali, è possibile <a href="mailto:info@cristianingrao.it" style="color: #e4a833; text-decoration: none;">contattarmi via email</a>.</p>
-                        <p style="margin-top: 20px;">- <em>Ing. Cristian Ingrao</em></p>
-                    </div>
-                </div>
-
-                <!-- NOTE 2 -->
-                <div class="note-content" id="note-2" style="display: none;">
-                    <h1 style="font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 10px;">Roadmap Sviluppo</h1>
-                    <div style="font-size: 12px; color: #888; margin-bottom: 25px;">31 luglio 2026 alle ore 09:30</div>
-                    <div style="font-size: 14px; color: #ccc; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                        <ul style="margin-left: 20px;">
-                            <li style="margin-bottom: 10px;">Integrazione architetturale backend avanzata per il progetto <strong style="color: #e4a833;">Bricklink</strong>.</li>
-                            <li style="margin-bottom: 10px;">Miglioramento delle metriche di performance su <strong style="color: #e4a833;">Graduam</strong> tramite Server-Side Rendering (Next.js).</li>
-                            <li style="margin-bottom: 10px;">Ricerca e implementazione di logiche di data analysis in Python.</li>
-                            <li style="margin-bottom: 10px;">Ottimizzazione dell'accessibilità (A11y) per i principali componenti dell'interfaccia.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- NOTE 3 -->
-                <div class="note-content" id="note-3" style="display: none;">
-                    <h1 style="font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 10px;">Contatti</h1>
-                    <div style="font-size: 12px; color: #888; margin-bottom: 25px;">21 luglio 2026 alle ore 15:45</div>
-                    <div style="font-size: 14px; color: #ccc; line-height: 1.6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
-                        <p>Puoi trovarmi e metterti in contatto con me attraverso i seguenti canali:</p>
-                        <ul style="margin-left: 20px; margin-top: 15px;">
-                            <li style="margin-bottom: 10px;">Email: <a href="mailto:info@cristianingrao.it" style="color: #e4a833; text-decoration: none;">info@cristianingrao.it</a></li>
-                            <li style="margin-bottom: 10px;">GitHub: <a href="https://github.com/ingraocristianjoshua" target="_blank" style="color: #e4a833; text-decoration: none;">@ingraocristianjoshua</a></li>
-                            <li style="margin-bottom: 10px;">Instagram: <a href="https://instagram.com/cristianingrao" target="_blank" style="color: #e4a833; text-decoration: none;">@cristianingrao</a></li>
-                        </ul>
-                    </div>
-                </div>
-
+            <!-- NOTE 2 -->
+            <div class="note-content" id="note-2" style="display: none">
+              <h1
+                style="
+                  font-size: 24px;
+                  font-weight: 700;
+                  color: #fff;
+                  margin-bottom: 10px;
+                "
+              >
+                Roadmap Sviluppo
+              </h1>
+              <div style="font-size: 12px; color: #888; margin-bottom: 25px">
+                31 luglio 2026 alle ore 09:30
+              </div>
+              <div
+                style="
+                  font-size: 14px;
+                  color: #ccc;
+                  line-height: 1.6;
+                  font-family:
+                    -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;,
+                    Roboto, Helvetica, Arial, sans-serif;
+                "
+              >
+                <ul style="margin-left: 20px">
+                  <li style="margin-bottom: 10px">
+                    Integrazione architetturale backend avanzata per il progetto
+                    <strong style="color: #e4a833">Bricklink</strong>.
+                  </li>
+                  <li style="margin-bottom: 10px">
+                    Miglioramento delle metriche di performance su
+                    <strong style="color: #e4a833">Graduam</strong> tramite
+                    Server-Side Rendering (Next.js).
+                  </li>
+                  <li style="margin-bottom: 10px">
+                    Ricerca e implementazione di logiche di data analysis in
+                    Python.
+                  </li>
+                  <li style="margin-bottom: 10px">
+                    Ottimizzazione dell'accessibilità (A11y) per i principali
+                    componenti dell'interfaccia.
+                  </li>
+                </ul>
+              </div>
             </div>
+
+            <!-- NOTE 3 -->
+            <div class="note-content" id="note-3" style="display: none">
+              <h1
+                style="
+                  font-size: 24px;
+                  font-weight: 700;
+                  color: #fff;
+                  margin-bottom: 10px;
+                "
+              >
+                Contatti
+              </h1>
+              <div style="font-size: 12px; color: #888; margin-bottom: 25px">
+                21 luglio 2026 alle ore 15:45
+              </div>
+              <div
+                style="
+                  font-size: 14px;
+                  color: #ccc;
+                  line-height: 1.6;
+                  font-family:
+                    -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;,
+                    Roboto, Helvetica, Arial, sans-serif;
+                "
+              >
+                <p>
+                  Puoi trovarmi e metterti in contatto con me attraverso i
+                  seguenti canali:
+                </p>
+                <ul style="margin-left: 20px; margin-top: 15px">
+                  <li style="margin-bottom: 10px">
+                    Email:
+                    <a
+                      href="mailto:info@cristianingrao.it"
+                      style="color: #e4a833; text-decoration: none"
+                      >info@cristianingrao.it</a
+                    >
+                  </li>
+                  <li style="margin-bottom: 10px">
+                    GitHub:
+                    <a
+                      href="https://github.com/ingraocristianjoshua"
+                      target="_blank"
+                      style="color: #e4a833; text-decoration: none"
+                      >@ingraocristianjoshua</a
+                    >
+                  </li>
+                  <li style="margin-bottom: 10px">
+                    Instagram:
+                    <a
+                      href="https://instagram.com/cristianingrao"
+                      target="_blank"
+                      style="color: #e4a833; text-decoration: none"
+                      >@cristianingrao</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="mac-window" id="win-about" style="display:none; top:80px; left:200px; width:500px;">
+      <div
+        class="mac-window"
+        id="win-about"
+        style="display: none; top: 80px; left: 200px; width: 500px"
+      >
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-about')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-about')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">About Cristian Ingrao</span>
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-about')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">About Cristian Ingrao</span>
         </div>
         <div class="win-body">
-            <h2 style="margin-bottom: 15px;">Informazioni su Cristian Ingrao</h2>
-            <p style="margin-bottom: 10px;">Sono un <strong>Ingegnere Informatico</strong> e Sviluppatore Software specializzato nello sviluppo web full-stack.</p>
-            <p style="margin-bottom: 10px;">Questa web-app è stata progettata per dimostrare le mie competenze tecniche, l'attenzione all'usabilità e la cura per il design delle interfacce. L'intero ambiente è stato sviluppato utilizzando tecnologie web standard, emulando le logiche di un sistema operativo.</p>
-            <p style="color: #666; font-style: italic; margin-top: 20px;">Versione: 1.0 (2026)</p>
+          <h2 style="margin-bottom: 15px">Informazioni su Cristian Ingrao</h2>
+          <p style="margin-bottom: 10px">
+            Sono un <strong>Ingegnere Informatico</strong> e Sviluppatore
+            Software specializzato nello sviluppo web full-stack.
+          </p>
+          <p style="margin-bottom: 10px">
+            Questa web-app è stata progettata per dimostrare le mie competenze
+            tecniche, l'attenzione all'usabilità e la cura per il design delle
+            interfacce. L'intero ambiente è stato sviluppato utilizzando
+            tecnologie web standard, emulando le logiche di un sistema
+            operativo.
+          </p>
+          <p style="color: #666; font-style: italic; margin-top: 20px">
+            Versione: 1.0 (2026)
+          </p>
         </div>
-    </div>
+      </div>
 
-    <!-- PRIVACY WINDOW -->
-    <div class="mac-window" id="win-privacy" style="display:none; top:110px; left:220px; width:450px;">
+      <!-- PRIVACY WINDOW -->
+      <div
+        class="mac-window"
+        id="win-privacy"
+        style="display: none; top: 110px; left: 220px; width: 450px"
+      >
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-privacy')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-privacy')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Privacy Policy</span>
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-privacy')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Privacy Policy</span>
         </div>
         <div class="win-body">
-            <h2 style="margin-bottom: 15px;">Privacy Policy</h2>
-            <p style="margin-bottom: 10px;">Questa applicazione web non raccoglie dati personali. I servizi come il meteo vengono elaborati sul dispositivo dell'utente senza inviare dati identificativi a server di terze parti.</p>
-            <p style="margin-bottom: 10px;">La tua posizione viene richiesta unicamente per fornirti i dati meteorologici aggiornati tramite le API di Open-Meteo e non viene salvata in alcun database.</p>
+          <h2 style="margin-bottom: 15px">Privacy Policy</h2>
+          <p style="margin-bottom: 10px">
+            Questa applicazione web non raccoglie dati personali. I servizi come
+            il meteo vengono elaborati sul dispositivo dell'utente senza inviare
+            dati identificativi a server di terze parti.
+          </p>
+          <p style="margin-bottom: 10px">
+            La tua posizione viene richiesta unicamente per fornirti i dati
+            meteorologici aggiornati tramite le API di Open-Meteo e non viene
+            salvata in alcun database.
+          </p>
         </div>
-    </div>
+      </div>
 
-    <!-- SUPPORT WINDOW -->
-    <div class="mac-window" id="win-support" style="display:none; top:130px; left:240px; width:400px;">
+      <!-- SUPPORT WINDOW -->
+      <div
+        class="mac-window"
+        id="win-support"
+        style="display: none; top: 130px; left: 240px; width: 400px"
+      >
         <div class="win-titlebar" onmousedown="startDrag(event, 'win-support')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-support')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Support</span>
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-support')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Support</span>
         </div>
-        <div class="win-body" style="padding: 20px; line-height: 1.5;">
-            <h2 style="margin-bottom: 15px;">Support & Contact</h2>
-            <p style="margin-bottom: 15px;">Se riscontri problemi o bug nell'interfaccia, o se vuoi collaborare con me, puoi contattarmi direttamente!</p>
-            <a href="mailto:info@cristianingrao.it" style="display:inline-block; padding:8px 16px; background:#007AFF; color:white; text-decoration:none; border-radius:6px; font-weight:bold;">Invia un'email</a>
+        <div class="win-body" style="padding: 20px; line-height: 1.5">
+          <h2 style="margin-bottom: 15px">Support & Contact</h2>
+          <p style="margin-bottom: 15px">
+            Se riscontri problemi o bug nell'interfaccia, o se vuoi collaborare
+            con me, puoi contattarmi direttamente!
+          </p>
+          <a
+            href="mailto:info@cristianingrao.it"
+            style="
+              display: inline-block;
+              padding: 8px 16px;
+              background: #007aff;
+              color: white;
+              text-decoration: none;
+              border-radius: 6px;
+              font-weight: bold;
+            "
+            >Invia un'email</a
+          >
         </div>
-    </div>
+      </div>
 
-        <!-- CV WINDOW -->
-    <div class="mac-window" id="win-cv" style="display:none; top:100px; left:200px; width:600px; height:500px;">
-        <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-cv')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-cv')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title" style="color:#ddd; font-weight:500;">CV_Cristian.rtf</span>
+      <!-- CV WINDOW -->
+      <div
+        class="mac-window"
+        id="win-cv"
+        style="
+          display: none;
+          top: 100px;
+          left: 200px;
+          width: 600px;
+          height: 500px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-dark"
+          onmousedown="startDrag(event, 'win-cv')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-cv')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title" style="color: #ddd; font-weight: 500"
+            >CV_Cristian.rtf</span
+          >
         </div>
-        <div style="background: rgba(30, 30, 30, 0.95); padding: 6px 15px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); color:#888;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
-            <div style="width:1px; height:14px; background:rgba(255,255,255,0.1);"></div>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
+        <div
+          style="
+            background: rgba(30, 30, 30, 0.95);
+            padding: 6px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #888;
+          "
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <polyline points="4 7 4 4 20 4 20 7"></polyline>
+            <line x1="9" y1="20" x2="15" y2="20"></line>
+            <line x1="12" y1="4" x2="12" y2="20"></line>
+          </svg>
+          <div
+            style="
+              width: 1px;
+              height: 14px;
+              background: rgba(255, 255, 255, 0.1);
+            "
+          ></div>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <line x1="21" y1="10" x2="3" y2="10"></line>
+            <line x1="21" y1="6" x2="3" y2="6"></line>
+            <line x1="21" y1="14" x2="3" y2="14"></line>
+            <line x1="21" y1="18" x2="3" y2="18"></line>
+          </svg>
         </div>
         <div class="win-body textedit-dark">
-            <h2 style="color: #fff; font-family: -apple-system, sans-serif; margin-bottom: 5px;">Cristian Ingrao</h2>
-            <p style="color: #bbb; font-family: -apple-system, sans-serif; font-size: 14px; margin-top: 0;">Ingegnere Informatico | Web Developer | Content Creator</p>
-            <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin: 20px 0;">
-            
-            <p><strong style="color: #fff;">Profilo Professionale:</strong><br>
-            Sviluppatore software e ingegnere informatico. Combino solide basi nell'architettura dei sistemi con una forte attitudine verso lo sviluppo di interfacce utente funzionali e reattive. Il mio approccio unisce il rigore analitico dell'ingegneria all'attenzione maniacale per il design dell'esperienza utente.</p>
-            <br>
-            
-            <p><strong style="color: #fff;">Esperienza & Progetti Rilevanti:</strong><br>
-            • <em>Software Engineering & Architetture:</em> Progettazione e sviluppo di sistemi informativi complessi (es. Bricklink) utilizzando Java, Spring Boot e pattern architetturali scalabili.<br>
-            • <em>Front-End Development:</em> Sviluppo di piattaforme web (Graduam, Ecopalmaps) ottimizzate e responsive utilizzando React, Next.js e TypeScript.<br>
-            • <em>Strutture Dati & Algoritmi:</em> Implementazione di algoritmi avanzati e analisi delle performance (C++, Java, Python) in ambito accademico.<br>
-            • <em>Digital Content & UI/UX:</em> Design di interfacce coerenti (Figma) e produzione multimediale.</p>
-            <br>
-            
-            <p><strong style="color: #fff;">Formazione Accademica:</strong><br>
-            Laurea in <strong style="color: #fff;">Ingegneria Informatica</strong> presso l'<strong style="color: #fff;">Università degli Studi di Palermo</strong>.<br>
-            <em style="color: #aaa;">Data di Laurea: 30 Luglio 2026.</em></p>
-        </div>
-    </div>
+          <h2
+            style="
+              color: #fff;
+              font-family: -apple-system, sans-serif;
+              margin-bottom: 5px;
+            "
+          >
+            Cristian Ingrao
+          </h2>
+          <p
+            style="
+              color: #bbb;
+              font-family: -apple-system, sans-serif;
+              font-size: 14px;
+              margin-top: 0;
+            "
+          >
+            Ingegnere Informatico | Web Developer | Content Creator
+          </p>
+          <hr
+            style="
+              border: 0;
+              border-top: 1px solid rgba(255, 255, 255, 0.1);
+              margin: 20px 0;
+            "
+          />
 
-        <!-- SKILLS WINDOW -->
-    <div class="mac-window" id="win-skills" style="display:none; top:160px; left:260px; width:600px; height:420px;">
-        <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-skills')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-skills')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title" style="color:#ddd; font-weight:500;">Competenze.rtf</span>
+          <p>
+            <strong style="color: #fff">Profilo Professionale:</strong><br />
+            Sviluppatore software e ingegnere informatico. Combino solide basi
+            nell'architettura dei sistemi con una forte attitudine verso lo
+            sviluppo di interfacce utente funzionali e reattive. Il mio
+            approccio unisce il rigore analitico dell'ingegneria all'attenzione
+            maniacale per il design dell'esperienza utente.
+          </p>
+          <br />
+
+          <p>
+            <strong style="color: #fff">Esperienza & Progetti Rilevanti:</strong
+            ><br />
+            • <em>Software Engineering & Architetture:</em> Progettazione e
+            sviluppo di sistemi informativi complessi (es. Bricklink)
+            utilizzando Java, Spring Boot e pattern architetturali scalabili.<br />
+            • <em>Front-End Development:</em> Sviluppo di piattaforme web
+            (Graduam, Ecopalmaps) ottimizzate e responsive utilizzando React,
+            Next.js e TypeScript.<br />
+            • <em>Strutture Dati & Algoritmi:</em> Implementazione di algoritmi
+            avanzati e analisi delle performance (C++, Java, Python) in ambito
+            accademico.<br />
+            • <em>Digital Content & UI/UX:</em> Design di interfacce coerenti
+            (Figma) e produzione multimediale.
+          </p>
+          <br />
+
+          <p>
+            <strong style="color: #fff">Formazione Accademica:</strong><br />
+            Laurea in
+            <strong style="color: #fff">Ingegneria Informatica</strong> presso
+            l'<strong style="color: #fff"
+              >Università degli Studi di Palermo</strong
+            >.<br />
+            <em style="color: #aaa">Data di Laurea: 30 Luglio 2026.</em>
+          </p>
         </div>
-        <div style="background: rgba(30, 30, 30, 0.95); padding: 6px 15px; display: flex; align-items: center; gap: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); color:#888;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
-            <div style="width:1px; height:14px; background:rgba(255,255,255,0.1);"></div>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg>
+      </div>
+
+      <!-- SKILLS WINDOW -->
+      <div
+        class="mac-window"
+        id="win-skills"
+        style="
+          display: none;
+          top: 160px;
+          left: 260px;
+          width: 600px;
+          height: 420px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-dark"
+          onmousedown="startDrag(event, 'win-skills')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-skills')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title" style="color: #ddd; font-weight: 500"
+            >Competenze.rtf</span
+          >
+        </div>
+        <div
+          style="
+            background: rgba(30, 30, 30, 0.95);
+            padding: 6px 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #888;
+          "
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <polyline points="4 7 4 4 20 4 20 7"></polyline>
+            <line x1="9" y1="20" x2="15" y2="20"></line>
+            <line x1="12" y1="4" x2="12" y2="20"></line>
+          </svg>
+          <div
+            style="
+              width: 1px;
+              height: 14px;
+              background: rgba(255, 255, 255, 0.1);
+            "
+          ></div>
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          >
+            <line x1="21" y1="10" x2="3" y2="10"></line>
+            <line x1="21" y1="6" x2="3" y2="6"></line>
+            <line x1="21" y1="14" x2="3" y2="14"></line>
+            <line x1="21" y1="18" x2="3" y2="18"></line>
+          </svg>
         </div>
         <div class="win-body textedit-dark">
-            <h2 style="color: #fff; margin-bottom: 20px;">Competenze Tecniche</h2>
-            <div class="skills-grid">
-                <div>
-                    <strong style="color:#0a84ff; font-size:14px; text-transform:uppercase; letter-spacing:0.5px;">Sviluppo Software & Web</strong>
-                    <ul style="margin-left:20px; line-height:1.8; margin-top:10px; color:#ddd; font-size:14px;">
-                        <li>Java & Spring Boot</li>
-                        <li>C++ & Python</li>
-                        <li>TypeScript, React, Next.js</li>
-                        <li>HTML5, CSS3, Node.js</li>
-                    </ul>
-                </div>
-                <div>
-                    <strong style="color:#0a84ff; font-size:14px; text-transform:uppercase; letter-spacing:0.5px;">Architettura & Strumenti</strong>
-                    <ul style="margin-left:20px; line-height:1.8; margin-top:10px; color:#ddd; font-size:14px;">
-                        <li>Git, GitHub, CI/CD base</li>
-                        <li>Docker, Linux, Database SQL</li>
-                        <li>Progettazione UI/UX (Figma)</li>
-                        <li>Strutture Dati & Algoritmica</li>
-                    </ul>
-                </div>
+          <h2 style="color: #fff; margin-bottom: 20px">Competenze Tecniche</h2>
+          <div class="skills-grid">
+            <div>
+              <strong
+                style="
+                  color: #0a84ff;
+                  font-size: 14px;
+                  text-transform: uppercase;
+                  letter-spacing: 0.5px;
+                "
+                >Sviluppo Software & Web</strong
+              >
+              <ul
+                style="
+                  margin-left: 20px;
+                  line-height: 1.8;
+                  margin-top: 10px;
+                  color: #ddd;
+                  font-size: 14px;
+                "
+              >
+                <li>Java & Spring Boot</li>
+                <li>C++ & Python</li>
+                <li>TypeScript, React, Next.js</li>
+                <li>HTML5, CSS3, Node.js</li>
+              </ul>
             </div>
-        </div>
-    </div>
-
-    <!-- EASTER EGG WINDOW -->
-    <div class="mac-window" id="win-easteregg" style="display:none; top:120px; left:300px; width:640px; height:400px; background:#000;">
-        <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-easteregg')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-easteregg')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
+            <div>
+              <strong
+                style="
+                  color: #0a84ff;
+                  font-size: 14px;
+                  text-transform: uppercase;
+                  letter-spacing: 0.5px;
+                "
+                >Architettura & Strumenti</strong
+              >
+              <ul
+                style="
+                  margin-left: 20px;
+                  line-height: 1.8;
+                  margin-top: 10px;
+                  color: #ddd;
+                  font-size: 14px;
+                "
+              >
+                <li>Git, GitHub, CI/CD base</li>
+                <li>Docker, Linux, Database SQL</li>
+                <li>Progettazione UI/UX (Figma)</li>
+                <li>Strutture Dati & Algoritmica</li>
+              </ul>
             </div>
-            <span class="win-title" style="color:white;">Non_Aprire.mp4</span>
+          </div>
         </div>
-        <div class="win-body" style="padding:0; overflow:hidden; background:black;">
-            <iframe id="easteregg-iframe" width="100%" height="100%" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-    </div>
+      </div>
 
-    
-    <!-- PRIVACY POLICY WINDOW -->
-    <div class="mac-window" id="win-privacy" style="display:none; top:120px; left:220px; width:650px; height:500px;">
-        <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-privacy')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-privacy')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title" style="color:#ddd; font-weight:500;">Privacy_Policy.rtf</span>
+      <!-- EASTER EGG WINDOW -->
+      <div
+        class="mac-window"
+        id="win-easteregg"
+        style="
+          display: none;
+          top: 120px;
+          left: 300px;
+          width: 640px;
+          height: 400px;
+          background: #000;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-dark"
+          onmousedown="startDrag(event, 'win-easteregg')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-easteregg')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title" style="color: white">Non_Aprire.mp4</span>
         </div>
-        <div class="win-body textedit-dark" style="padding: 30px; overflow-y: auto;">
-            <h2 style="color: #fff; margin-bottom: 20px;">Informativa sulla Privacy (GDPR)</h2>
-            <p style="color: #bbb; margin-bottom: 15px; font-size: 14px;">Ultimo aggiornamento: Agosto 2026</p>
-            
-            <h3 style="color: #64d2ff; margin: 20px 0 10px 0;">1. Titolare del Trattamento</h3>
-            <p style="color: #ddd; margin-bottom: 15px;">Il Titolare del trattamento dei dati raccolti attraverso questo sito web è Cristian Ingrao. Per qualsiasi comunicazione o richiesta in merito alla privacy, è possibile contattare il titolare ai recapiti forniti nel CV o nel form di contatto (se presente).</p>
-            
-            <h3 style="color: #64d2ff; margin: 20px 0 10px 0;">2. Dati Raccolti</h3>
-            <p style="color: #ddd; margin-bottom: 15px;">Questo sito web, strutturato come un portfolio interattivo (Single Page Application statica / Client-side), <strong>non fa uso di database per profilare gli utenti, né richiede registrazione</strong>. Tuttavia, raccogliamo i seguenti dati:</p>
-            <ul style="color: #ddd; margin-bottom: 15px; padding-left: 20px;">
-                <li style="margin-bottom: 5px;"><strong>Dati di navigazione:</strong> Gli header HTTP standard (Indirizzo IP anonimizzato, tipo di browser, orario di visita) elaborati automaticamente dai server di hosting (es. Vercel/GitHub Pages/Netlify) esclusivamente per finalità di sicurezza e diagnostica tecnica.</li>
-                <li style="margin-bottom: 5px;"><strong>Cookie Tecnici:</strong> Utilizziamo cookie tecnici o il <code>localStorage</code> del browser <em>esclusivamente</em> per salvare le preferenze dell'interfaccia utente (es. finestre aperte, z-index). Nessun cookie di tracciamento pubblicitario o di profilazione viene installato.</li>
-                <li style="margin-bottom: 5px;"><strong>Contenuti incorporati di terze parti:</strong> Alcune pagine (come la sezione "Easter Egg") potrebbero contenere iFrame di servizi esterni (es. YouTube). Questi servizi potrebbero impostare i propri cookie secondo le loro policy.</li>
-            </ul>
-            
-            <h3 style="color: #64d2ff; margin: 20px 0 10px 0;">3. Base Giuridica e Finalità del Trattamento</h3>
-            <p style="color: #ddd; margin-bottom: 15px;">I dati di navigazione e i cookie tecnici sono necessari (Base giuridica: Legittimo interesse) per garantire il corretto funzionamento dell'applicativo e un'esperienza utente interattiva coerente (emulazione OS).</p>
-            
-            <h3 style="color: #64d2ff; margin: 20px 0 10px 0;">4. Condivisione dei Dati</h3>
-            <p style="color: #ddd; margin-bottom: 15px;">I tuoi dati non vengono venduti o scambiati con terze parti. Potrebbero essere condivisi esclusivamente con le infrastrutture tecniche essenziali (servizi di hosting) che agiscono nel rispetto del GDPR.</p>
-
-            <h3 style="color: #64d2ff; margin: 20px 0 10px 0;">5. Diritti dell'Utente</h3>
-            <p style="color: #ddd; margin-bottom: 15px;">Ai sensi del Regolamento (UE) 2016/679 (GDPR), l'utente ha il diritto di: accedere ai propri dati, chiederne la rettifica o la cancellazione (oblìo), opporsi al trattamento o richiederne la limitazione. Dato che il sito non profila né identifica nativamente gli utenti, tali richieste verranno evase nei limiti tecnologici dei log server anonimizzati.</p>
+        <div
+          class="win-body"
+          style="padding: 0; overflow: hidden; background: black"
+        >
+          <iframe
+            id="easteregg-iframe"
+            width="100%"
+            height="100%"
+            data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+            title="YouTube video player"
+            frameborder="0"
+            allow="
+              accelerometer;
+              autoplay;
+              clipboard-write;
+              encrypted-media;
+              gyroscope;
+              picture-in-picture;
+              web-share;
+            "
+            allowfullscreen
+          ></iframe>
         </div>
-    </div>
+      </div>
 
-    <!-- TRASH WINDOW -->
-    <div class="mac-window" id="win-trash" style="display:none; top:180px; left:280px; width:600px; height:400px;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-trash')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-trash')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Cestino</span>
+      <!-- PRIVACY POLICY WINDOW -->
+      <div
+        class="mac-window"
+        id="win-privacy"
+        style="
+          display: none;
+          top: 120px;
+          left: 220px;
+          width: 650px;
+          height: 500px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-dark"
+          onmousedown="startDrag(event, 'win-privacy')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-privacy')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title" style="color: #ddd; font-weight: 500"
+            >Privacy_Policy.rtf</span
+          >
+        </div>
+        <div
+          class="win-body textedit-dark"
+          style="padding: 30px; overflow-y: auto"
+        >
+          <h2 style="color: #fff; margin-bottom: 20px">
+            Informativa sulla Privacy (GDPR)
+          </h2>
+          <p style="color: #bbb; margin-bottom: 15px; font-size: 14px">
+            Ultimo aggiornamento: Agosto 2026
+          </p>
+
+          <h3 style="color: #64d2ff; margin: 20px 0 10px 0">
+            1. Titolare del Trattamento
+          </h3>
+          <p style="color: #ddd; margin-bottom: 15px">
+            Il Titolare del trattamento dei dati raccolti attraverso questo sito
+            web è Cristian Ingrao. Per qualsiasi comunicazione o richiesta in
+            merito alla privacy, è possibile contattare il titolare ai recapiti
+            forniti nel CV o nel form di contatto (se presente).
+          </p>
+
+          <h3 style="color: #64d2ff; margin: 20px 0 10px 0">
+            2. Dati Raccolti
+          </h3>
+          <p style="color: #ddd; margin-bottom: 15px">
+            Questo sito web, strutturato come un portfolio interattivo (Single
+            Page Application statica / Client-side),
+            <strong
+              >non fa uso di database per profilare gli utenti, né richiede
+              registrazione</strong
+            >. Tuttavia, raccogliamo i seguenti dati:
+          </p>
+          <ul style="color: #ddd; margin-bottom: 15px; padding-left: 20px">
+            <li style="margin-bottom: 5px">
+              <strong>Dati di navigazione:</strong> Gli header HTTP standard
+              (Indirizzo IP anonimizzato, tipo di browser, orario di visita)
+              elaborati automaticamente dai server di hosting (es. Vercel/GitHub
+              Pages/Netlify) esclusivamente per finalità di sicurezza e
+              diagnostica tecnica.
+            </li>
+            <li style="margin-bottom: 5px">
+              <strong>Cookie Tecnici:</strong> Utilizziamo cookie tecnici o il
+              <code>localStorage</code> del browser <em>esclusivamente</em> per
+              salvare le preferenze dell'interfaccia utente (es. finestre
+              aperte, z-index). Nessun cookie di tracciamento pubblicitario o di
+              profilazione viene installato.
+            </li>
+            <li style="margin-bottom: 5px">
+              <strong>Contenuti incorporati di terze parti:</strong> Alcune
+              pagine (come la sezione "Easter Egg") potrebbero contenere iFrame
+              di servizi esterni (es. YouTube). Questi servizi potrebbero
+              impostare i propri cookie secondo le loro policy.
+            </li>
+          </ul>
+
+          <h3 style="color: #64d2ff; margin: 20px 0 10px 0">
+            3. Base Giuridica e Finalità del Trattamento
+          </h3>
+          <p style="color: #ddd; margin-bottom: 15px">
+            I dati di navigazione e i cookie tecnici sono necessari (Base
+            giuridica: Legittimo interesse) per garantire il corretto
+            funzionamento dell'applicativo e un'esperienza utente interattiva
+            coerente (emulazione OS).
+          </p>
+
+          <h3 style="color: #64d2ff; margin: 20px 0 10px 0">
+            4. Condivisione dei Dati
+          </h3>
+          <p style="color: #ddd; margin-bottom: 15px">
+            I tuoi dati non vengono venduti o scambiati con terze parti.
+            Potrebbero essere condivisi esclusivamente con le infrastrutture
+            tecniche essenziali (servizi di hosting) che agiscono nel rispetto
+            del GDPR.
+          </p>
+
+          <h3 style="color: #64d2ff; margin: 20px 0 10px 0">
+            5. Diritti dell'Utente
+          </h3>
+          <p style="color: #ddd; margin-bottom: 15px">
+            Ai sensi del Regolamento (UE) 2016/679 (GDPR), l'utente ha il
+            diritto di: accedere ai propri dati, chiederne la rettifica o la
+            cancellazione (oblìo), opporsi al trattamento o richiederne la
+            limitazione. Dato che il sito non profila né identifica nativamente
+            gli utenti, tali richieste verranno evase nei limiti tecnologici dei
+            log server anonimizzati.
+          </p>
+        </div>
+      </div>
+
+      <!-- TRASH WINDOW -->
+      <div
+        class="mac-window"
+        id="win-trash"
+        style="
+          display: none;
+          top: 180px;
+          left: 280px;
+          width: 600px;
+          height: 400px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-light"
+          onmousedown="startDrag(event, 'win-trash')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-trash')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Cestino</span>
         </div>
         <div class="win-toolbar">
-            <div class="toolbar-btn">⟨ ⟩</div>
-            <div class="toolbar-path">Cestino</div>
+          <div class="toolbar-btn">⟨ ⟩</div>
+          <div class="toolbar-path">Cestino</div>
         </div>
         <div class="win-content-flex">
-            <div class="finder-sidebar">
-                <div class="sb-section">Preferiti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
-                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
+          <div class="finder-sidebar">
+            <div class="sb-section">Preferiti</div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-miniature')"
+            >
+              📱 Applicazioni
             </div>
-            <div class="win-body finder-grid">
-                <!-- Spazzatura -->
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openApp('Codice Scartato', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg')">
-                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="folder-icon" style="width: 50px; height: 50px;" alt="JS">
-                    <div class="file-name">vecchio_codice.js</div>
-                </div>
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openImage('https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2029&auto=format&fit=crop', 'sfondo_brutto.jpg')">
-                    <img src="https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=200&auto=format&fit=crop" class="folder-icon" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px; border: 1px solid rgba(0,0,0,0.1);" alt="IMG">
-                    <div class="file-name">sfondo_brutto.jpg</div>
-                </div>
-                <div class="finder-file" onclick="selectFolder(this, event)">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" style="width: 50px; height: 50px;" alt="Folder">
-                    <div class="file-name">Da_Cancellare</div>
-                </div>
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openWindow('win-easteregg')">
-                    <img src="./assets/icons/video-thumbnail.svg" class="folder-icon" style="width: 50px; height: 50px;" alt="Video">
-                    <div class="file-name">Non_Aprire.mp4</div>
-                </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-video')"
+            >
+              🎥 Recenti
             </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-uni')"
+            >
+              📄 Documenti
+            </div>
+            <div
+              class="sb-item"
+              onclick="closeWin(this.closest('.mac-window').id)"
+            >
+              🖥️ Desktop
+            </div>
+            <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">
+              🗑️ Cestino
+            </div>
+          </div>
+          <div class="win-body finder-grid">
+            <!-- Spazzatura -->
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="
+                openApp(
+                  'Codice Scartato',
+                  'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+                )
+              "
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                class="folder-icon"
+                style="width: 50px; height: 50px"
+                alt="JS"
+              />
+              <div class="file-name">vecchio_codice.js</div>
+            </div>
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="
+                openImage(
+                  'https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2029&auto=format&fit=crop',
+                  'sfondo_brutto.jpg',
+                )
+              "
+            >
+              <img
+                src="https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=200&auto=format&fit=crop"
+                class="folder-icon"
+                style="
+                  width: 50px;
+                  height: 50px;
+                  object-fit: cover;
+                  border-radius: 4px;
+                  border: 1px solid rgba(0, 0, 0, 0.1);
+                "
+                alt="IMG"
+              />
+              <div class="file-name">sfondo_brutto.jpg</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+                style="width: 50px; height: 50px"
+                alt="Folder"
+              />
+              <div class="file-name">Da_Cancellare</div>
+            </div>
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="openWindow('win-easteregg')"
+            >
+              <img
+                src="./assets/icons/video-thumbnail.svg"
+                class="folder-icon"
+                style="width: 50px; height: 50px"
+                alt="Video"
+              />
+              <div class="file-name">Non_Aprire.mp4</div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- FOLDER WINDOWS (FINDER) -->
-    <div class="mac-window" id="win-folder-miniature" style="display:none; top:150px; left:250px; width:600px; height:400px;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-folder-miniature')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-folder-miniature')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Miniature</span>
+      <!-- FOLDER WINDOWS (FINDER) -->
+      <div
+        class="mac-window"
+        id="win-folder-miniature"
+        style="
+          display: none;
+          top: 150px;
+          left: 250px;
+          width: 600px;
+          height: 400px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-light"
+          onmousedown="startDrag(event, 'win-folder-miniature')"
+        >
+          <div class="traffic-lights">
+            <div
+              class="tl red"
+              onclick="closeWin('win-folder-miniature')"
+            ></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Miniature</span>
         </div>
         <div class="win-toolbar">
-            <div class="toolbar-btn">⟨ ⟩</div>
-            <div class="toolbar-path">Miniature</div>
+          <div class="toolbar-btn">⟨ ⟩</div>
+          <div class="toolbar-path">Miniature</div>
         </div>
         <div class="win-content-flex">
-            <div class="finder-sidebar">
-                <div class="sb-section">Preferiti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
-                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
+          <div class="finder-sidebar">
+            <div class="sb-section">Preferiti</div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-miniature')"
+            >
+              📱 Applicazioni
             </div>
-            <div class="win-body finder-grid">
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openApp('Figma', 'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" class="app-icon-black" alt="Figma">
-                    <div class="file-name">Figma</div>
-                </div>
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openApp('Photoshop', 'https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg" class="app-icon-black" alt="Photoshop">
-                    <div class="file-name">Photoshop</div>
-                </div>
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openApp('GIMP', 'https://upload.wikimedia.org/wikipedia/commons/4/45/The_GIMP_icon_-_gnome.svg')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/The_GIMP_icon_-_gnome.svg" class="app-icon-black" alt="GIMP">
-                    <div class="file-name">GIMP</div>
-                </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-video')"
+            >
+              🎥 Recenti
             </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-uni')"
+            >
+              📄 Documenti
+            </div>
+            <div
+              class="sb-item"
+              onclick="closeWin(this.closest('.mac-window').id)"
+            >
+              🖥️ Desktop
+            </div>
+            <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">
+              🗑️ Cestino
+            </div>
+          </div>
+          <div class="win-body finder-grid">
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="
+                openApp(
+                  'Figma',
+                  'https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg',
+                )
+              "
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
+                class="app-icon-black"
+                alt="Figma"
+              />
+              <div class="file-name">Figma</div>
+            </div>
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="
+                openApp(
+                  'Photoshop',
+                  'https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg',
+                )
+              "
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg"
+                class="app-icon-black"
+                alt="Photoshop"
+              />
+              <div class="file-name">Photoshop</div>
+            </div>
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="
+                openApp(
+                  'GIMP',
+                  'https://upload.wikimedia.org/wikipedia/commons/4/45/The_GIMP_icon_-_gnome.svg',
+                )
+              "
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/45/The_GIMP_icon_-_gnome.svg"
+                class="app-icon-black"
+                alt="GIMP"
+              />
+              <div class="file-name">GIMP</div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="mac-window" id="win-folder-video" style="display:none; top:170px; left:270px; width:600px; height:400px;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-folder-video')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-folder-video')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Video</span>
+      <div
+        class="mac-window"
+        id="win-folder-video"
+        style="
+          display: none;
+          top: 170px;
+          left: 270px;
+          width: 600px;
+          height: 400px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-light"
+          onmousedown="startDrag(event, 'win-folder-video')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-folder-video')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Video</span>
         </div>
         <div class="win-toolbar">
-            <div class="toolbar-btn">⟨ ⟩</div>
-            <div class="toolbar-path">Video</div>
+          <div class="toolbar-btn">⟨ ⟩</div>
+          <div class="toolbar-path">Video</div>
         </div>
         <div class="win-content-flex">
-            <div class="finder-sidebar">
-                <div class="sb-section">Preferiti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
-                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
+          <div class="finder-sidebar">
+            <div class="sb-section">Preferiti</div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-miniature')"
+            >
+              📱 Applicazioni
             </div>
-            <div class="win-body finder-grid">
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openApp('Premiere Pro', 'https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg" class="system-icon-desktop" alt="Premiere">
-                    <div class="file-name">Premiere Pro</div>
-                </div>
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openApp('DaVinci Resolve', 'https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png" class="system-icon-desktop" alt="DaVinci">
-                    <div class="file-name">DaVinci Resolve</div>
-                </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-video')"
+            >
+              🎥 Recenti
             </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-uni')"
+            >
+              📄 Documenti
+            </div>
+            <div
+              class="sb-item"
+              onclick="closeWin(this.closest('.mac-window').id)"
+            >
+              🖥️ Desktop
+            </div>
+            <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">
+              🗑️ Cestino
+            </div>
+          </div>
+          <div class="win-body finder-grid">
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="
+                openApp(
+                  'Premiere Pro',
+                  'https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg',
+                )
+              "
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg"
+                class="system-icon-desktop"
+                alt="Premiere"
+              />
+              <div class="file-name">Premiere Pro</div>
+            </div>
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="
+                openApp(
+                  'DaVinci Resolve',
+                  'https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png',
+                )
+              "
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/4/4d/DaVinci_Resolve_Studio.png"
+                class="system-icon-desktop"
+                alt="DaVinci"
+              />
+              <div class="file-name">DaVinci Resolve</div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <div class="mac-window" id="win-folder-uni" style="display:none; top:190px; left:290px; width:600px; height:400px;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-folder-uni')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-folder-uni')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Università</span>
+      <div
+        class="mac-window"
+        id="win-folder-uni"
+        style="
+          display: none;
+          top: 190px;
+          left: 290px;
+          width: 600px;
+          height: 400px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-light"
+          onmousedown="startDrag(event, 'win-folder-uni')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-folder-uni')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Università</span>
         </div>
         <div class="win-toolbar">
-            <div class="toolbar-btn">⟨ ⟩</div>
-            <div class="toolbar-path">Università</div>
+          <div class="toolbar-btn">⟨ ⟩</div>
+          <div class="toolbar-path">Università</div>
         </div>
         <div class="win-content-flex">
-            <div class="finder-sidebar">
-                <div class="sb-section">Preferiti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
-                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
+          <div class="finder-sidebar">
+            <div class="sb-section">Preferiti</div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-miniature')"
+            >
+              📱 Applicazioni
             </div>
-            <div class="win-body finder-grid">
-                <!-- Anni di Studio -->
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-uni-1')">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
-                    <div class="file-name">Primo Anno</div>
-                </div>
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-uni-2')">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
-                    <div class="file-name">Secondo Anno</div>
-                </div>
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openWindow('win-folder-uni-3')">
-                    <img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon" alt="Folder">
-                    <div class="file-name">Terzo Anno</div>
-                </div>
-                <!-- Immagini UniPa -->
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openImage('https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png', 'Logo_UniPa.png')">
-                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png" style="width:70px; height:70px; object-fit:contain; margin:0 auto 5px; border-radius:4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background:white;">
-                    <div class="file-name">Logo_UniPa.png</div>
-                </div>
-                <div class="finder-file" onclick="selectFolder(this, event)" ondblclick="openImage('https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG', 'Ingegneria.jpg')">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG" style="width:70px; height:70px; object-fit:cover; margin:0 auto 5px; border-radius:4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-                    <div class="file-name">Ingegneria.jpg</div>
-                </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-video')"
+            >
+              🎥 Recenti
             </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-uni')"
+            >
+              📄 Documenti
+            </div>
+            <div
+              class="sb-item"
+              onclick="closeWin(this.closest('.mac-window').id)"
+            >
+              🖥️ Desktop
+            </div>
+            <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">
+              🗑️ Cestino
+            </div>
+          </div>
+          <div class="win-body finder-grid">
+            <!-- Anni di Studio -->
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="openWindow('win-folder-uni-1')"
+            >
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+                alt="Folder"
+              />
+              <div class="file-name">Primo Anno</div>
+            </div>
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="openWindow('win-folder-uni-2')"
+            >
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+                alt="Folder"
+              />
+              <div class="file-name">Secondo Anno</div>
+            </div>
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="openWindow('win-folder-uni-3')"
+            >
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+                alt="Folder"
+              />
+              <div class="file-name">Terzo Anno</div>
+            </div>
+            <!-- Immagini UniPa -->
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="
+                openImage(
+                  'https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png',
+                  'Logo_UniPa.png',
+                )
+              "
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/University_of_Palermo_logo.svg/500px-University_of_Palermo_logo.svg.png"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: contain;
+                  margin: 0 auto 5px;
+                  border-radius: 4px;
+                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                  background: white;
+                "
+              />
+              <div class="file-name">Logo_UniPa.png</div>
+            </div>
+            <div
+              class="finder-file"
+              onclick="selectFolder(this, event)"
+              ondblclick="
+                openImage(
+                  'https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG',
+                  'Ingegneria.jpg',
+                )
+              "
+            >
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Facolt%C3%A0_di_Ingegneria_Palermo.JPG/330px-Facolt%C3%A0_di_Ingegneria_Palermo.JPG"
+                style="
+                  width: 70px;
+                  height: 70px;
+                  object-fit: cover;
+                  margin: 0 auto 5px;
+                  border-radius: 4px;
+                  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                "
+              />
+              <div class="file-name">Ingegneria.jpg</div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- 1 ANNO -->
-    <div class="mac-window" id="win-folder-uni-1" style="display:none; top:200px; left:300px; width:600px; height:400px;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-folder-uni-1')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-folder-uni-1')"></div><div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div><div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Primo Anno</span>
+      <!-- 1 ANNO -->
+      <div
+        class="mac-window"
+        id="win-folder-uni-1"
+        style="
+          display: none;
+          top: 200px;
+          left: 300px;
+          width: 600px;
+          height: 400px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-light"
+          onmousedown="startDrag(event, 'win-folder-uni-1')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-folder-uni-1')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Primo Anno</span>
         </div>
         <div class="win-toolbar">
-            <div class="toolbar-btn">⟨ ⟩</div>
-            <div class="toolbar-path">Primo Anno</div>
+          <div class="toolbar-btn">⟨ ⟩</div>
+          <div class="toolbar-path">Primo Anno</div>
         </div>
         <div class="win-content-flex">
-            <div class="finder-sidebar">
-                <div class="sb-section">Preferiti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
-                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
+          <div class="finder-sidebar">
+            <div class="sb-section">Preferiti</div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-miniature')"
+            >
+              📱 Applicazioni
             </div>
-            <div class="win-body finder-grid">
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Algebra</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Analisi Mat.</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Geometria</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Fisica I</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Fond. Prog.</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Architetture</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Inglese B1</div></div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-video')"
+            >
+              🎥 Recenti
             </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-uni')"
+            >
+              📄 Documenti
+            </div>
+            <div
+              class="sb-item"
+              onclick="closeWin(this.closest('.mac-window').id)"
+            >
+              🖥️ Desktop
+            </div>
+            <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">
+              🗑️ Cestino
+            </div>
+          </div>
+          <div class="win-body finder-grid">
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Algebra</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Analisi Mat.</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Geometria</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Fisica I</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Fond. Prog.</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Architetture</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Inglese B1</div>
+            </div>
+          </div>
         </div>
-    </div>
-    
-    <!-- 2 ANNO -->
-    <div class="mac-window" id="win-folder-uni-2" style="display:none; top:210px; left:310px; width:600px; height:400px;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-folder-uni-2')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-folder-uni-2')"></div><div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div><div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Secondo Anno</span>
+      </div>
+
+      <!-- 2 ANNO -->
+      <div
+        class="mac-window"
+        id="win-folder-uni-2"
+        style="
+          display: none;
+          top: 210px;
+          left: 310px;
+          width: 600px;
+          height: 400px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-light"
+          onmousedown="startDrag(event, 'win-folder-uni-2')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-folder-uni-2')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Secondo Anno</span>
         </div>
         <div class="win-toolbar">
-            <div class="toolbar-btn">⟨ ⟩</div>
-            <div class="toolbar-path">Secondo Anno</div>
+          <div class="toolbar-btn">⟨ ⟩</div>
+          <div class="toolbar-path">Secondo Anno</div>
         </div>
         <div class="win-content-flex">
-            <div class="finder-sidebar">
-                <div class="sb-section">Preferiti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
-                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
+          <div class="finder-sidebar">
+            <div class="sb-section">Preferiti</div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-miniature')"
+            >
+              📱 Applicazioni
             </div>
-            <div class="win-body finder-grid">
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Algoritmi</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Programmazione</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Basi di Dati</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Elettrotecnica</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Fisica II</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Statistica</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Teoria Segnali</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Scelta</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Disegno</div></div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-video')"
+            >
+              🎥 Recenti
             </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-uni')"
+            >
+              📄 Documenti
+            </div>
+            <div
+              class="sb-item"
+              onclick="closeWin(this.closest('.mac-window').id)"
+            >
+              🖥️ Desktop
+            </div>
+            <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">
+              🗑️ Cestino
+            </div>
+          </div>
+          <div class="win-body finder-grid">
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Algoritmi</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Programmazione</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Basi di Dati</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Elettrotecnica</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Fisica II</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Statistica</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Teoria Segnali</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Scelta</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Disegno</div>
+            </div>
+          </div>
         </div>
-    </div>
-    
-    <!-- 3 ANNO -->
-    <div class="mac-window" id="win-folder-uni-3" style="display:none; top:220px; left:320px; width:600px; height:400px;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-folder-uni-3')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-folder-uni-3')"></div><div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div><div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Terzo Anno</span>
+      </div>
+
+      <!-- 3 ANNO -->
+      <div
+        class="mac-window"
+        id="win-folder-uni-3"
+        style="
+          display: none;
+          top: 220px;
+          left: 320px;
+          width: 600px;
+          height: 400px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-light"
+          onmousedown="startDrag(event, 'win-folder-uni-3')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-folder-uni-3')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title">Terzo Anno</span>
         </div>
         <div class="win-toolbar">
-            <div class="toolbar-btn">⟨ ⟩</div>
-            <div class="toolbar-path">Terzo Anno</div>
+          <div class="toolbar-btn">⟨ ⟩</div>
+          <div class="toolbar-path">Terzo Anno</div>
         </div>
         <div class="win-content-flex">
-            <div class="finder-sidebar">
-                <div class="sb-section">Preferiti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-miniature')">📱 Applicazioni</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-video')">🎥 Recenti</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-folder-uni')">📄 Documenti</div>
-                <div class="sb-item" onclick="closeWin(this.closest('.mac-window').id)">🖥️ Desktop</div>
-                <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">🗑️ Cestino</div>
+          <div class="finder-sidebar">
+            <div class="sb-section">Preferiti</div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-miniature')"
+            >
+              📱 Applicazioni
             </div>
-            <div class="win-body finder-grid">
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Controlli</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Elettronica</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Ing. Software</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Reti</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Sist. Operativi</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Prog. Web/Mob</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Python</div></div>
-                <div class="finder-file" onclick="selectFolder(this, event)"><img src="https://img.icons8.com/color/512/mac-folder.png" class="folder-icon"><div class="file-name">Prova Finale</div></div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-video')"
+            >
+              🎥 Recenti
             </div>
+            <div
+              class="sb-item"
+              onclick="switchFinderTab(this, 'win-folder-uni')"
+            >
+              📄 Documenti
+            </div>
+            <div
+              class="sb-item"
+              onclick="closeWin(this.closest('.mac-window').id)"
+            >
+              🖥️ Desktop
+            </div>
+            <div class="sb-item" onclick="switchFinderTab(this, 'win-trash')">
+              🗑️ Cestino
+            </div>
+          </div>
+          <div class="win-body finder-grid">
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Controlli</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Elettronica</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Ing. Software</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Reti</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Sist. Operativi</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Prog. Web/Mob</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Python</div>
+            </div>
+            <div class="finder-file" onclick="selectFolder(this, event)">
+              <img
+                src="https://img.icons8.com/color/512/mac-folder.png"
+                class="folder-icon"
+              />
+              <div class="file-name">Prova Finale</div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 
-    <!-- IMAGE VIEWER WINDOW -->
-    <div class="mac-window" id="win-image-viewer" style="display:none; top:calc(50vh - 200px); left:calc(50vw - 250px); width:500px; height:400px; z-index: 1000;">
-        <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-image-viewer')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-image-viewer')"></div>
-                <div class="tl yellow" onclick="minimizeWin('win-image-viewer')"></div>
-                <div class="tl green" onclick="maximizeWin('win-image-viewer')"></div>
-            </div>
-            <span class="win-title" id="image-viewer-title" style="color:white; font-size: 13px; font-weight:500;">Immagine</span>
+      <!-- IMAGE VIEWER WINDOW -->
+      <div
+        class="mac-window"
+        id="win-image-viewer"
+        style="
+          display: none;
+          top: calc(50vh - 200px);
+          left: calc(50vw - 250px);
+          width: 500px;
+          height: 400px;
+          z-index: 1000;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-dark"
+          onmousedown="startDrag(event, 'win-image-viewer')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-image-viewer')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin('win-image-viewer')"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin('win-image-viewer')"
+            ></div>
+          </div>
+          <span
+            class="win-title"
+            id="image-viewer-title"
+            style="color: white; font-size: 13px; font-weight: 500"
+            >Immagine</span
+          >
         </div>
-        <div class="win-body" style="padding:0; overflow:hidden; background: rgba(30,30,30,0.95); display: flex; align-items: center; justify-content: center; height: calc(100% - 25px);">
-            <img src="" id="image-viewer-content" style="max-width: 100%; max-height: 100%; object-fit: contain; box-shadow: 0 5px 20px rgba(0,0,0,0.5);">
+        <div
+          class="win-body"
+          style="
+            padding: 0;
+            overflow: hidden;
+            background: rgba(30, 30, 30, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: calc(100% - 25px);
+          "
+        >
+          <img
+            src=""
+            id="image-viewer-content"
+            style="
+              max-width: 100%;
+              max-height: 100%;
+              object-fit: contain;
+              box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+            "
+          />
         </div>
-    </div>
+      </div>
 
-    <!-- App Popup Window (Dynamic) -->
-    <div class="mac-window app-popup" id="win-app-viewer" style="display:none; top:calc(50vh - 140px); left:calc(50vw - 160px); width:320px; height:280px; z-index: 1000; padding-bottom: 20px;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-app-viewer')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-app-viewer')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title" id="app-viewer-title">App</span>
+      <!-- App Popup Window (Dynamic) -->
+      <div
+        class="mac-window app-popup"
+        id="win-app-viewer"
+        style="
+          display: none;
+          top: calc(50vh - 140px);
+          left: calc(50vw - 160px);
+          width: 320px;
+          height: 280px;
+          z-index: 1000;
+          padding-bottom: 20px;
+        "
+      >
+        <div
+          class="win-titlebar titlebar-light"
+          onmousedown="startDrag(event, 'win-app-viewer')"
+        >
+          <div class="traffic-lights">
+            <div class="tl red" onclick="closeWin('win-app-viewer')"></div>
+            <div
+              class="tl yellow"
+              onclick="minimizeWin(this.closest('.mac-window').id)"
+            ></div>
+            <div
+              class="tl green"
+              onclick="maximizeWin(this.closest('.mac-window').id)"
+            ></div>
+          </div>
+          <span class="win-title" id="app-viewer-title">App</span>
         </div>
-        <div class="win-body" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; gap:20px; padding:30px; background: rgba(255,255,255,0.7); height: 100%;">
-            <img src="" id="app-viewer-icon" style="width:80px; height:80px; object-fit:contain; background: #1c1c1e; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 18px; padding: 12px; box-sizing: border-box; filter: drop-shadow(0px 8px 15px rgba(0,0,0,0.3));">
-            <p id="app-viewer-desc" style="font-size:14px; color:#f2f2f7; font-weight:500; margin:0; line-height: 1.4;">Ambiente di sviluppo</p>
+        <div
+          class="win-body"
+          style="
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.7);
+            height: 100%;
+          "
+        >
+          <img
+            src=""
+            id="app-viewer-icon"
+            style="
+              width: 80px;
+              height: 80px;
+              object-fit: contain;
+              background: #1c1c1e;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+              border-radius: 18px;
+              padding: 12px;
+              box-sizing: border-box;
+              filter: drop-shadow(0px 8px 15px rgba(0, 0, 0, 0.3));
+            "
+          />
+          <p
+            id="app-viewer-desc"
+            style="
+              font-size: 14px;
+              color: #f2f2f7;
+              font-weight: 500;
+              margin: 0;
+              line-height: 1.4;
+            "
+          >
+            Ambiente di sviluppo
+          </p>
         </div>
-    </div>
+      </div>
 
-    <!-- MAC DOCK -->
-    <div class="dock-bar">
+      <!-- MAC DOCK -->
+      <div class="dock-bar">
         <div class="dock-glass">
-            <!-- Dock Icons - Programming Languages & Tools -->
-            <!-- Finder (Keep as OS core) -->
-            <div class="dock-item dev-tool" data-title="Python" onclick="openApp('Python', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="dock-icon-black" alt="Python">
-            </div>
-            <div class="dock-item dev-tool" data-title="JavaScript" onclick="openApp('JavaScript', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" class="dock-icon-black" alt="JS">
-            </div>
-            <div class="dock-item dev-tool" data-title="React" onclick="openApp('React', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" class="dock-icon-black" alt="React">
-            </div>
-            <div class="dock-item dev-tool" data-title="Node.js" onclick="openApp('Node.js', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" class="dock-icon-black" alt="Node">
-            </div>
-            <div class="dock-item dev-tool" data-title="C++" onclick="openApp('C++', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" class="dock-icon-black" alt="C++">
-            </div>
-            <div class="dock-item dev-tool" data-title="MySQL" onclick="openApp('MySQL', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" class="dock-icon-black" alt="SQL">
-            </div>
-            <div class="dock-item dev-tool" data-title="Git" onclick="openApp('Git', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" class="dock-icon-black" alt="Git">
-            </div>
-            <div class="dock-item dev-tool" data-title="Linux" onclick="openApp('Linux', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" class="dock-icon-black" alt="Linux">
-            </div>
-            <div class="dock-item dev-tool" data-title="VS Code" onclick="openApp('VS Code', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="dock-icon-black" alt="VS Code">
-            </div>
-            <div class="dock-item dev-tool" data-title="HTML5" onclick="openApp('HTML5', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" class="dock-icon-black" alt="HTML5">
-            </div>
-            <div class="dock-item dev-tool" data-title="CSS3" onclick="openApp('CSS3', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" class="dock-icon-black" alt="CSS3">
-            </div>
-            <div class="dock-item dev-tool" data-title="TypeScript" onclick="openApp('TypeScript', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" class="dock-icon-black" alt="TypeScript">
-            </div>
-            <div class="dock-item dev-tool" data-title="Java" onclick="openApp('Java', 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg')">
-                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="dock-icon-black" alt="Java">
-            </div>
+          <!-- Dock Icons - Programming Languages & Tools -->
+          <!-- Finder (Keep as OS core) -->
+          <div
+            class="dock-item dev-tool"
+            data-title="Python"
+            onclick="
+              openApp(
+                'Python',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+              class="dock-icon-black"
+              alt="Python"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="JavaScript"
+            onclick="
+              openApp(
+                'JavaScript',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              class="dock-icon-black"
+              alt="JS"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="React"
+            onclick="
+              openApp(
+                'React',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+              class="dock-icon-black"
+              alt="React"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="Node.js"
+            onclick="
+              openApp(
+                'Node.js',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+              class="dock-icon-black"
+              alt="Node"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="C++"
+            onclick="
+              openApp(
+                'C++',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"
+              class="dock-icon-black"
+              alt="C++"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="MySQL"
+            onclick="
+              openApp(
+                'MySQL',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+              class="dock-icon-black"
+              alt="SQL"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="Git"
+            onclick="
+              openApp(
+                'Git',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+              class="dock-icon-black"
+              alt="Git"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="Linux"
+            onclick="
+              openApp(
+                'Linux',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg"
+              class="dock-icon-black"
+              alt="Linux"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="VS Code"
+            onclick="
+              openApp(
+                'VS Code',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+              class="dock-icon-black"
+              alt="VS Code"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="HTML5"
+            onclick="
+              openApp(
+                'HTML5',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+              class="dock-icon-black"
+              alt="HTML5"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="CSS3"
+            onclick="
+              openApp(
+                'CSS3',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+              class="dock-icon-black"
+              alt="CSS3"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="TypeScript"
+            onclick="
+              openApp(
+                'TypeScript',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+              class="dock-icon-black"
+              alt="TypeScript"
+            />
+          </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="Java"
+            onclick="
+              openApp(
+                'Java',
+                'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
+              )
+            "
+          >
+            <img
+              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+              class="dock-icon-black"
+              alt="Java"
+            />
+          </div>
 
-            <div class="dock-item dev-tool" data-title="Orologio" onclick="openWindow('win-clock')">
-                <div class="analog-clock-icon">
-                    <div class="clock-face">
-                        <span class="clock-num clock-num-12">12</span>
-                        <span class="clock-num clock-num-3">3</span>
-                        <span class="clock-num clock-num-6">6</span>
-                        <span class="clock-num clock-num-9">9</span>
-                        <div class="hand hour-hand" id="dock-hour"></div>
-                        <div class="hand min-hand" id="dock-min"></div>
-                        <div class="hand second-hand" id="dock-sec"></div>
-                        <div class="clock-center"></div>
-                    </div>
-                </div>
+          <div
+            class="dock-item dev-tool"
+            data-title="Orologio"
+            onclick="openWindow('win-clock')"
+          >
+            <div class="analog-clock-icon">
+              <div class="clock-face">
+                <span class="clock-num clock-num-12">12</span>
+                <span class="clock-num clock-num-3">3</span>
+                <span class="clock-num clock-num-6">6</span>
+                <span class="clock-num clock-num-9">9</span>
+                <div class="hand hour-hand" id="dock-hour"></div>
+                <div class="hand min-hand" id="dock-min"></div>
+                <div class="hand second-hand" id="dock-sec"></div>
+                <div class="clock-center"></div>
+              </div>
             </div>
+          </div>
 
-            
-            <div class="dock-sep"></div>
+          <div class="dock-sep"></div>
 
-            <div class="dock-item" data-title="Instagram" onclick="window.open('https://instagram.com/cristianingrao', '_blank')">
-                <img src="instagram.png" class="social-icon ig-icon" alt="Instagram">
-            </div>
-            <div class="dock-item" data-title="LinkedIn" onclick="window.open('https://www.linkedin.com/in/cristianingrao/', '_blank')">
-                <img src="linkedin.png" class="social-icon in-icon" alt="LinkedIn">
-            </div>
-            <div class="dock-item" data-title="GitHub" onclick="window.open('https://github.com/ingraocristianjoshua', '_blank')">
-                <img src="https://img.icons8.com/fluency/512/github.png" class="social-icon gh-icon" alt="GitHub">
-            </div>
-            <div class="dock-item" data-title="Gmail" onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=info@cristianingrao.it', '_blank')">
-                <img src="https://img.icons8.com/color/512/gmail-new.png" class="dock-icon-black" alt="Gmail" style="padding: 2px;">
-            </div>
-            <div class="dock-sep"></div>
-            <div class="dock-item" data-title="Cestino" onclick="openWindow('win-trash')">
-                <img src="trash.png" class="social-icon" alt="Cestino" style="width: 85px; height: 85px; object-fit: contain; margin-top: -15px;">
-            </div>
+          <div
+            class="dock-item"
+            data-title="Instagram"
+            onclick="
+              window.open('https://instagram.com/cristianingrao', '_blank')
+            "
+          >
+            <img
+              src="instagram.png"
+              class="social-icon ig-icon"
+              alt="Instagram"
+            />
+          </div>
+          <div
+            class="dock-item"
+            data-title="LinkedIn"
+            onclick="
+              window.open(
+                'https://www.linkedin.com/in/cristianingrao/',
+                '_blank',
+              )
+            "
+          >
+            <img
+              src="linkedin.png"
+              class="social-icon in-icon"
+              alt="LinkedIn"
+            />
+          </div>
+          <div
+            class="dock-item"
+            data-title="GitHub"
+            onclick="
+              window.open('https://github.com/ingraocristianjoshua', '_blank')
+            "
+          >
+            <img
+              src="https://img.icons8.com/fluency/512/github.png"
+              class="social-icon gh-icon"
+              alt="GitHub"
+            />
+          </div>
+          <div
+            class="dock-item"
+            data-title="Gmail"
+            onclick="
+              window.open(
+                'https://mail.google.com/mail/?view=cm&fs=1&to=info@cristianingrao.it',
+                '_blank',
+              )
+            "
+          >
+            <img
+              src="https://img.icons8.com/color/512/gmail-new.png"
+              class="dock-icon-black"
+              alt="Gmail"
+              style="padding: 2px"
+            />
+          </div>
+          <div class="dock-sep"></div>
+          <div
+            class="dock-item"
+            data-title="Cestino"
+            onclick="openWindow('win-trash')"
+          >
+            <img
+              src="trash.png"
+              class="social-icon"
+              alt="Cestino"
+              style="
+                width: 85px;
+                height: 85px;
+                object-fit: contain;
+                margin-top: -15px;
+              "
+            />
+          </div>
         </div>
+      </div>
     </div>
 
-    
-    </div>
-    
-        <div class="mac-window" id="win-graduam" style="display:none; position: fixed; top: 12vh; left: 20vw; width: 65vw; max-height: 80vh; z-index: 1000;">
-        <div class="win-titlebar titlebar-light" onmousedown="startDrag(event, 'win-graduam')">
-            <div class="traffic-lights">
-                <div class="tl red" onclick="closeWin('win-graduam')"></div>
-                <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
-                <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
-            </div>
-            <span class="win-title">Progetto: Graduam</span>
+    <div
+      class="mac-window"
+      id="win-graduam"
+      style="
+        display: none;
+        position: fixed;
+        top: 12vh;
+        left: 20vw;
+        width: 65vw;
+        max-height: 80vh;
+        z-index: 1000;
+      "
+    >
+      <div
+        class="win-titlebar titlebar-light"
+        onmousedown="startDrag(event, 'win-graduam')"
+      >
+        <div class="traffic-lights">
+          <div class="tl red" onclick="closeWin('win-graduam')"></div>
+          <div
+            class="tl yellow"
+            onclick="minimizeWin(this.closest('.mac-window').id)"
+          ></div>
+          <div
+            class="tl green"
+            onclick="maximizeWin(this.closest('.mac-window').id)"
+          ></div>
         </div>
-        <div class="win-body" style="padding: 30px 40px; overflow-y: auto; line-height: 1.6; font-size: 15px; background: #fff; color: #1D1D1F; max-height: calc(80vh - 52px);">
-            <h1 style="margin-bottom: 20px; font-size: 28px; font-weight: 700;">Graduam</h1>
-            <p style="margin-bottom: 15px;"><strong>Graduam - Milestone & Progression</strong> è un applicativo web innovativo incentrato sul tracciamento, l'analisi e la gestione avanzata dei percorsi formativi. Progettato per accompagnare l'utente nell'organizzazione dei propri traguardi accademici e obiettivi di crescita personale in modo visuale e stimolante.</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">La Sfida Tecnica</h3>
-            <p style="margin-bottom: 15px;">L'obiettivo principale del progetto è stato creare un sistema di progressione matematicamente coerente e, allo stesso tempo, visivamente gratificante. Ogni aspetto dell'interfaccia utente è stato maniacalmente curato, partendo da un design system proprietario fino all'implementazione strutturata dei dati relazionali. Un'attenzione particolare è stata dedicata alla fluidità della tipografia e alle micro-interazioni per migliorare e "gamificare" l'esperienza utente ad ogni step di progressione superato.</p>
-            <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff;">Stack Tecnologico</h3>
-            <p style="margin-bottom: 10px;">L'architettura del progetto si basa sulle tecnologie più moderne e reattive dell'ecosistema React:</p>
-            <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px;">
-                <li style="margin-bottom: 8px;"><strong>Framework:</strong> Next.js per garantire routing avanzato (App Router), Server-Side Rendering ed un'esperienza performante fin dal primo caricamento, curando anche la SEO.</li>
-                <li style="margin-bottom: 8px;"><strong>Linguaggio:</strong> TypeScript per assicurare rigorosa tipizzazione statica, abbattere i bug a runtime e garantire la scalabilità e la manutenzione della codebase nel tempo.</li>
-                <li style="margin-bottom: 8px;"><strong>Design:</strong> Tailwind CSS è stato adottato per prototipare rapidamente l'interfaccia, mantenendo una coerenza stilistica eccellente grazie all'utilizzo coerente di utility-classes e token personalizzati.</li>
-            </ul>
-        </div>
+        <span class="win-title">Progetto: Graduam</span>
+      </div>
+      <div
+        class="win-body"
+        style="
+          padding: 30px 40px;
+          overflow-y: auto;
+          line-height: 1.6;
+          font-size: 15px;
+          background: #fff;
+          color: #1d1d1f;
+          max-height: calc(80vh - 52px);
+        "
+      >
+        <h1 style="margin-bottom: 20px; font-size: 28px; font-weight: 700">
+          Graduam
+        </h1>
+        <p style="margin-bottom: 15px">
+          <strong>Graduam - Milestone & Progression</strong> è un applicativo
+          web innovativo incentrato sul tracciamento, l'analisi e la gestione
+          avanzata dei percorsi formativi. Progettato per accompagnare l'utente
+          nell'organizzazione dei propri traguardi accademici e obiettivi di
+          crescita personale in modo visuale e stimolante.
+        </p>
+        <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff">
+          La Sfida Tecnica
+        </h3>
+        <p style="margin-bottom: 15px">
+          L'obiettivo principale del progetto è stato creare un sistema di
+          progressione matematicamente coerente e, allo stesso tempo,
+          visivamente gratificante. Ogni aspetto dell'interfaccia utente è stato
+          maniacalmente curato, partendo da un design system proprietario fino
+          all'implementazione strutturata dei dati relazionali. Un'attenzione
+          particolare è stata dedicata alla fluidità della tipografia e alle
+          micro-interazioni per migliorare e "gamificare" l'esperienza utente ad
+          ogni step di progressione superato.
+        </p>
+        <h3 style="margin: 25px 0 10px 0; font-size: 18px; color: #007aff">
+          Stack Tecnologico
+        </h3>
+        <p style="margin-bottom: 10px">
+          L'architettura del progetto si basa sulle tecnologie più moderne e
+          reattive dell'ecosistema React:
+        </p>
+        <ul style="margin-bottom: 15px; margin-left: 20px; padding-left: 10px">
+          <li style="margin-bottom: 8px">
+            <strong>Framework:</strong> Next.js per garantire routing avanzato
+            (App Router), Server-Side Rendering ed un'esperienza performante fin
+            dal primo caricamento, curando anche la SEO.
+          </li>
+          <li style="margin-bottom: 8px">
+            <strong>Linguaggio:</strong> TypeScript per assicurare rigorosa
+            tipizzazione statica, abbattere i bug a runtime e garantire la
+            scalabilità e la manutenzione della codebase nel tempo.
+          </li>
+          <li style="margin-bottom: 8px">
+            <strong>Design:</strong> Tailwind CSS è stato adottato per
+            prototipare rapidamente l'interfaccia, mantenendo una coerenza
+            stilistica eccellente grazie all'utilizzo coerente di
+            utility-classes e token personalizzati.
+          </li>
+        </ul>
+      </div>
     </div>
-    
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

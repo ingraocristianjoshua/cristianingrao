@@ -16,8 +16,13 @@ const MIME_TYPES = {
 const server = http.createServer((req, res) => {
   console.log(`Request for ${req.url}`);
   let filePath = '.' + req.url;
-  if (filePath === './') {
-    filePath = './index.html';
+  if (filePath.endsWith('/')) {
+    filePath += 'index.html';
+  }
+
+  // Handle case where path is requested without trailing slash (e.g. /portfolio)
+  if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+    filePath += '/index.html';
   }
 
   const extname = String(path.extname(filePath)).toLowerCase();
