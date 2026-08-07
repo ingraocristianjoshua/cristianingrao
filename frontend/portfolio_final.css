@@ -79,24 +79,27 @@ body {
 .mac-window {
   position: relative;
   background: rgba(28, 28, 30, 0.85) !important;
-  backdrop-filter: blur(40px) saturate(180%);
-  -webkit-backdrop-filter: blur(40px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
+  backdrop-filter: blur(50px) saturate(200%);
+  -webkit-backdrop-filter: blur(50px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* Top highlight */
+  border-radius: 16px;
   box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.6),
-    0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset;
   overflow: hidden;
   color: #ebebf5;
   transition:
-    box-shadow 0.3s,
-    transform 0.3s;
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .mac-window:hover {
   box-shadow:
-    0 15px 50px rgba(0, 0, 0, 0.8),
+    0 35px 60px rgba(0, 0, 0, 0.7),
+    0 15px 25px rgba(0, 0, 0, 0.4),
     0 0 0 1px rgba(255, 255, 255, 0.08) inset;
-  transform: translateY(-2px);
+  transform: translateY(-4px) scale(1.005);
 }
 
 .win-content {
@@ -177,19 +180,20 @@ body {
 }
 .hero-subtitle {
   font-size: 18px;
-  letter-spacing: 6px;
-  color: rgba(255, 255, 255, 0.7) !important;
-  font-weight: 500;
+  letter-spacing: 8px;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-weight: 600;
   text-transform: uppercase;
+  margin-bottom: 20px;
 }
 .hero-title {
   font-size: 120px;
   font-weight: 800;
   letter-spacing: -4px;
   margin: -5px 0 20px 0;
-  color: #ffffff !important;
-  background: none !important;
-  -webkit-text-fill-color: initial !important;
+  background: linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
   line-height: 1;
   animation: fontSwitch 15s ease-in-out infinite;
 }
@@ -316,11 +320,10 @@ body {
   overflow: hidden;
   pointer-events: none;
   background-color: #0a0a0a;
-  background-image: radial-gradient(
-    rgba(255, 255, 255, 0.04) 2px,
-    transparent 2px
-  );
-  background-size: 32px 32px;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E"),
+    radial-gradient(rgba(255, 255, 255, 0.04) 2px, transparent 2px);
+  background-size: 150px 150px, 32px 32px;
 }
 .bg-gradients::before,
 .bg-gradients::after,
