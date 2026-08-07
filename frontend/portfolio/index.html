@@ -26,7 +26,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles.css?v=5" />
-    <link rel="stylesheet" href="../portfolio_final.css?v=3" />
+    <link rel="stylesheet" href="../portfolio_final.css?v=4" />
   </head>
   <body>
     <!-- DYNAMIC BACKGROUND -->
@@ -113,29 +113,28 @@
               style="
                 display: inline-flex;
                 align-items: center;
-                gap: 10px;
+                gap: 8px;
                 padding: 6px 16px;
-                background: rgba(52, 199, 89, 0.1);
-                border: 1px solid rgba(52, 199, 89, 0.3);
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
                 border-radius: 30px;
                 margin-bottom: 24px;
+                backdrop-filter: blur(10px);
               "
             >
               <div
                 style="
-                  width: 8px;
-                  height: 8px;
+                  width: 6px;
+                  height: 6px;
                   background: #34c759;
                   border-radius: 50%;
-                  box-shadow: 0 0 10px #34c759;
-                  animation: pulse-green 2s infinite;
                 "
               ></div>
               <span
                 style="
-                  font-size: 13px;
-                  color: #34c759;
-                  font-weight: 600;
+                  font-size: 11px;
+                  color: rgba(255, 255, 255, 0.8);
+                  font-weight: 500;
                   letter-spacing: 1px;
                   text-transform: uppercase;
                 "
@@ -345,40 +344,7 @@
                     z-index: 10;
                   "
                 ></div>
-                <!-- REC Indicator -->
-                <div
-                  style="
-                    position: absolute;
-                    top: 10px;
-                    left: 15px;
-                    display: flex;
-                    align-items: center;
-                    gap: 6px;
-                    z-index: 5;
-                  "
-                >
-                  <div
-                    style="
-                      width: 8px;
-                      height: 8px;
-                      background: #ff3b30;
-                      border-radius: 50%;
-                      box-shadow: 0 0 5px #ff3b30;
-                      animation: blink 2s infinite;
-                    "
-                  ></div>
-                  <span
-                    style="
-                      color: white;
-                      font-size: 10px;
-                      font-weight: 600;
-                      font-family: -apple-system, sans-serif;
-                      letter-spacing: 1px;
-                      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
-                    "
-                    >REC</span
-                  >
-                </div>
+
               </div>
             </div>
             <div

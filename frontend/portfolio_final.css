@@ -333,8 +333,8 @@ body {
   width: 50vw;
   height: 50vw;
   border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.35;
+  filter: blur(150px);
+  opacity: 0.1;
   animation: floatGradients 20s infinite alternate ease-in-out;
   will-change: transform;
 }
