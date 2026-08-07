@@ -951,38 +951,37 @@
       <div
         class="mac-window"
         id="win-about"
-        style="display: none; top: 80px; left: 200px; width: 500px"
+        style="display: none; top: 80px; left: 200px; width: 520px"
       >
-        <div class="win-titlebar" onmousedown="startDrag(event, 'win-about')">
+        <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-about')">
           <div class="traffic-lights">
             <div class="tl red" onclick="closeWin('win-about')"></div>
-            <div
-              class="tl yellow"
-              onclick="minimizeWin(this.closest('.mac-window').id)"
-            ></div>
-            <div
-              class="tl green"
-              onclick="maximizeWin(this.closest('.mac-window').id)"
-            ></div>
+            <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+            <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
           </div>
-          <span class="win-title">About Cristian Ingrao</span>
+          <span class="win-title" style="color:#ddd;font-weight:500">Chi sono.txt</span>
         </div>
-        <div class="win-body">
-          <h2 style="margin-bottom: 15px">Informazioni su Cristian Ingrao</h2>
-          <p style="margin-bottom: 10px">
-            Sono un <strong>Ingegnere Informatico</strong> e Sviluppatore
-            Software specializzato nello sviluppo web full-stack.
+        <div class="win-body" style="background:rgba(18,18,20,0.97);padding:32px 36px;color:#e0e0e0;font-family:-apple-system,sans-serif;line-height:1.7;overflow-y:auto;">
+          <div style="display:flex;align-items:center;gap:18px;margin-bottom:28px;">
+            <img src="./assets/images/profile-new.jpg" alt="Cristian Ingrao" style="width:64px;height:64px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.12);">
+            <div>
+              <h2 style="margin:0;font-size:20px;font-weight:700;color:#fff;">Cristian Joshua Ingrao</h2>
+              <p style="margin:4px 0 0;font-size:13px;color:#888;letter-spacing:0.5px;">Ingegnere Informatico &bull; Software Engineer</p>
+            </div>
+          </div>
+          <p style="font-size:14px;color:#ccc;margin-bottom:18px;">
+            Costruisco software con la stessa attenzione con cui si progetta un prodotto: cura per i dettagli, rigore nell'architettura e ossessione per l'esperienza utente.
           </p>
-          <p style="margin-bottom: 10px">
-            Questa web-app è stata progettata per dimostrare le mie competenze
-            tecniche, l'attenzione all'usabilità e la cura per il design delle
-            interfacce. L'intero ambiente è stato sviluppato utilizzando
-            tecnologie web standard, emulando le logiche di un sistema
-            operativo.
+          <p style="font-size:14px;color:#ccc;margin-bottom:24px;">
+            Questo portfolio è la dimostrazione di quella mentalità — un intero sistema operativo costruito da zero con HTML, CSS e JavaScript puro.
           </p>
-          <p style="color: #666; font-style: italic; margin-top: 20px">
-            Versione: 1.0 (2026)
-          </p>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span style="font-size:12px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:4px 12px;color:#ddd;">Full-Stack</span>
+            <span style="font-size:12px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:4px 12px;color:#ddd;">UI/UX Design</span>
+            <span style="font-size:12px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:4px 12px;color:#ddd;">Ingegneria Informatica</span>
+            <span style="font-size:12px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:4px 12px;color:#ddd;">Palermo, IT</span>
+          </div>
+          <p style="margin-top:28px;font-size:12px;color:#555;">Versione 2026 &mdash; cristian&commat;cristianingrao.it</p>
         </div>
       </div>
 
@@ -1037,9 +1036,9 @@
         style="
           display: none;
           top: 100px;
-          left: 200px;
-          width: 600px;
-          height: 500px;
+          left: 180px;
+          width: 640px;
+          max-height: 82vh;
         "
       >
         <div
@@ -1048,129 +1047,65 @@
         >
           <div class="traffic-lights">
             <div class="tl red" onclick="closeWin('win-cv')"></div>
-            <div
-              class="tl yellow"
-              onclick="minimizeWin(this.closest('.mac-window').id)"
-            ></div>
-            <div
-              class="tl green"
-              onclick="maximizeWin(this.closest('.mac-window').id)"
-            ></div>
+            <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+            <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
           </div>
-          <span class="win-title" style="color: #ddd; font-weight: 500"
-            >CV_Cristian.rtf</span
-          >
+          <span class="win-title" style="color:#ddd;font-weight:500">CV_Cristian.rtf</span>
         </div>
-        <div
-          style="
-            background: rgba(30, 30, 30, 0.95);
-            padding: 6px 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            color: #888;
-          "
-        >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          >
-            <polyline points="4 7 4 4 20 4 20 7"></polyline>
-            <line x1="9" y1="20" x2="15" y2="20"></line>
-            <line x1="12" y1="4" x2="12" y2="20"></line>
-          </svg>
-          <div
-            style="
-              width: 1px;
-              height: 14px;
-              background: rgba(255, 255, 255, 0.1);
-            "
-          ></div>
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          >
-            <line x1="21" y1="10" x2="3" y2="10"></line>
-            <line x1="21" y1="6" x2="3" y2="6"></line>
-            <line x1="21" y1="14" x2="3" y2="14"></line>
-            <line x1="21" y1="18" x2="3" y2="18"></line>
-          </svg>
-        </div>
-        <div class="win-body textedit-dark">
-          <h2
-            style="
-              color: #fff;
-              font-family: -apple-system, sans-serif;
-              margin-bottom: 5px;
-            "
-          >
-            Cristian Ingrao
-          </h2>
-          <p
-            style="
-              color: #bbb;
-              font-family: -apple-system, sans-serif;
-              font-size: 14px;
-              margin-top: 0;
-            "
-          >
-            Ingegnere Informatico | Web Developer | Content Creator
-          </p>
-          <hr
-            style="
-              border: 0;
-              border-top: 1px solid rgba(255, 255, 255, 0.1);
-              margin: 20px 0;
-            "
-          />
+        <div class="win-body" style="background:rgba(18,18,20,0.97);padding:32px 36px;color:#e0e0e0;font-family:-apple-system,sans-serif;line-height:1.7;overflow-y:auto;max-height:calc(82vh - 52px);">
 
-          <p>
-            <strong style="color: #fff">Profilo Professionale:</strong><br />
-            Sviluppatore software e ingegnere informatico. Combino solide basi
-            nell'architettura dei sistemi con una forte attitudine verso lo
-            sviluppo di interfacce utente funzionali e reattive. Il mio
-            approccio unisce il rigore analitico dell'ingegneria all'attenzione
-            maniacale per il design dell'esperienza utente.
-          </p>
-          <br />
+          <!-- Header -->
+          <div style="margin-bottom:32px;">
+            <p style="margin:0 0 4px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555;">Software Engineer</p>
+            <h1 style="margin:0;font-size:26px;font-weight:800;color:#fff;">Cristian Joshua Ingrao</h1>
+            <p style="margin:8px 0 0;font-size:13px;color:#666;">cristian&commat;cristianingrao.it &bull; Palermo, Italia &bull; Luglio 2026</p>
+          </div>
 
-          <p>
-            <strong style="color: #fff">Esperienza & Progetti Rilevanti:</strong
-            ><br />
-            • <em>Software Engineering & Architetture:</em> Progettazione e
-            sviluppo di sistemi informativi complessi (es. Bricklink)
-            utilizzando Java, Spring Boot e pattern architetturali scalabili.<br />
-            • <em>Front-End Development:</em> Sviluppo di piattaforme web
-            (Graduam, Ecopalmaps) ottimizzate e responsive utilizzando React,
-            Next.js e TypeScript.<br />
-            • <em>Strutture Dati & Algoritmi:</em> Implementazione di algoritmi
-            avanzati e analisi delle performance (C++, Java, Python) in ambito
-            accademico.<br />
-            • <em>Digital Content & UI/UX:</em> Design di interfacce coerenti
-            (Figma) e produzione multimediale.
-          </p>
-          <br />
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.07);margin-bottom:28px;"></div>
 
-          <p>
-            <strong style="color: #fff">Formazione Accademica:</strong><br />
-            Laurea in
-            <strong style="color: #fff">Ingegneria Informatica</strong> presso
-            l'<strong style="color: #fff"
-              >Università degli Studi di Palermo</strong
-            >.<br />
-            <em style="color: #aaa">Data di Laurea: 30 Luglio 2026.</em>
-          </p>
+          <!-- Profilo -->
+          <div style="margin-bottom:28px;">
+            <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555;margin:0 0 12px;">Profilo</p>
+            <p style="font-size:14px;color:#bbb;margin:0;">Costruisco software con la stessa attenzione con cui si progetta un prodotto: rigore nell'architettura, ossessione per l'esperienza utente e cura maniacale per i dettagli. Combino la solidità dell'ingegneria con una sensibilità per il design che raramente coesistono.</p>
+          </div>
+
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.07);margin-bottom:28px;"></div>
+
+          <!-- Progetti -->
+          <div style="margin-bottom:28px;">
+            <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555;margin:0 0 16px;">Progetti Rilevanti</p>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <div>
+                <div style="display:flex;align-items:baseline;justify-content:space-between;">
+                  <span style="font-size:14px;font-weight:600;color:#fff;">BrickLink</span>
+                  <span style="font-size:12px;color:#555;">Angular / Ionic / Node.js / PostgreSQL</span>
+                </div>
+                <p style="font-size:13px;color:#999;margin:4px 0 0;">Web app mobile-first per la divulgazione digitale. Architettura REST scalabile con TypeORM e Redis.</p>
+              </div>
+              <div>
+                <div style="display:flex;align-items:baseline;justify-content:space-between;">
+                  <span style="font-size:14px;font-weight:600;color:#fff;">Graduam</span>
+                  <span style="font-size:12px;color:#555;">React / Vite / TypeScript / Supabase</span>
+                </div>
+                <p style="font-size:13px;color:#999;margin:4px 0 0;">Piattaforma per il tracciamento visuale dei percorsi formativi. Sistema di progressione gamificato con Framer Motion e Recharts.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="width:100%;height:1px;background:rgba(255,255,255,0.07);margin-bottom:28px;"></div>
+
+          <!-- Formazione -->
+          <div>
+            <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555;margin:0 0 16px;">Formazione</p>
+            <div style="display:flex;align-items:baseline;justify-content:space-between;">
+              <div>
+                <span style="font-size:14px;font-weight:600;color:#fff;">Laurea in Ingegneria Informatica</span>
+                <p style="font-size:13px;color:#999;margin:4px 0 0;">Università degli Studi di Palermo</p>
+              </div>
+              <span style="font-size:12px;color:#555;white-space:nowrap;padding-left:16px;">Luglio 2026</span>
+            </div>
+          </div>
+
         </div>
       </div>
 
@@ -1192,119 +1127,92 @@
         >
           <div class="traffic-lights">
             <div class="tl red" onclick="closeWin('win-skills')"></div>
-            <div
-              class="tl yellow"
-              onclick="minimizeWin(this.closest('.mac-window').id)"
-            ></div>
-            <div
-              class="tl green"
-              onclick="maximizeWin(this.closest('.mac-window').id)"
-            ></div>
+            <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+            <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
           </div>
-          <span class="win-title" style="color: #ddd; font-weight: 500"
-            >Competenze.rtf</span
-          >
+          <span class="win-title" style="color:#ddd;font-weight:500">Stack.json</span>
         </div>
-        <div
-          style="
-            background: rgba(30, 30, 30, 0.95);
-            padding: 6px 15px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            color: #888;
-          "
-        >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          >
-            <polyline points="4 7 4 4 20 4 20 7"></polyline>
-            <line x1="9" y1="20" x2="15" y2="20"></line>
-            <line x1="12" y1="4" x2="12" y2="20"></line>
-          </svg>
-          <div
-            style="
-              width: 1px;
-              height: 14px;
-              background: rgba(255, 255, 255, 0.1);
-            "
-          ></div>
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-          >
-            <line x1="21" y1="10" x2="3" y2="10"></line>
-            <line x1="21" y1="6" x2="3" y2="6"></line>
-            <line x1="21" y1="14" x2="3" y2="14"></line>
-            <line x1="21" y1="18" x2="3" y2="18"></line>
-          </svg>
-        </div>
-        <div class="win-body textedit-dark">
-          <h2 style="color: #fff; margin-bottom: 20px">Competenze Tecniche</h2>
-          <div class="skills-grid">
-            <div>
-              <strong
-                style="
-                  color: #0a84ff;
-                  font-size: 14px;
-                  text-transform: uppercase;
-                  letter-spacing: 0.5px;
-                "
-                >Sviluppo Software & Web</strong
-              >
-              <ul
-                style="
-                  margin-left: 20px;
-                  line-height: 1.8;
-                  margin-top: 10px;
-                  color: #ddd;
-                  font-size: 14px;
-                "
-              >
-                <li>Java & Spring Boot</li>
-                <li>C++ & Python</li>
-                <li>TypeScript, React, Next.js</li>
-                <li>HTML5, CSS3, Node.js</li>
-              </ul>
-            </div>
-            <div>
-              <strong
-                style="
-                  color: #0a84ff;
-                  font-size: 14px;
-                  text-transform: uppercase;
-                  letter-spacing: 0.5px;
-                "
-                >Architettura & Strumenti</strong
-              >
-              <ul
-                style="
-                  margin-left: 20px;
-                  line-height: 1.8;
-                  margin-top: 10px;
-                  color: #ddd;
-                  font-size: 14px;
-                "
-              >
-                <li>Git, GitHub, CI/CD base</li>
-                <li>Docker, Linux, Database SQL</li>
-                <li>Progettazione UI/UX (Figma)</li>
-                <li>Strutture Dati & Algoritmica</li>
-              </ul>
+        <div class="win-body" style="background:rgba(18,18,20,0.97);padding:28px 32px;color:#e0e0e0;font-family:-apple-system,sans-serif;line-height:1.7;overflow-y:auto;">
+
+          <p style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#555;margin:0 0 24px;">Stack Tecnologico</p>
+
+          <!-- Linguaggi -->
+          <div style="margin-bottom:24px;">
+            <p style="font-size:12px;color:#666;margin:0 0 12px;letter-spacing:1px;text-transform:uppercase;">Linguaggi</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;">
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">Java</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">C++</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">Python</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">TypeScript</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">JavaScript</span>
+              </div>
             </div>
           </div>
+
+          <!-- Framework & Libraries -->
+          <div style="margin-bottom:24px;">
+            <p style="font-size:12px;color:#666;margin:0 0 12px;letter-spacing:1px;text-transform:uppercase;">Framework &amp; Libraries</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;">
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">React</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">Angular</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">Node.js</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">Tailwind</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">Spring Boot</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools -->
+          <div>
+            <p style="font-size:12px;color:#666;margin:0 0 12px;letter-spacing:1px;text-transform:uppercase;">Tools &amp; Infrastruttura</p>
+            <div style="display:flex;flex-wrap:wrap;gap:10px;">
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">Git</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">Docker</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">PostgreSQL</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:8px 14px;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" width="20" height="20"/>
+                <span style="font-size:13px;color:#ccc;">Figma</span>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
