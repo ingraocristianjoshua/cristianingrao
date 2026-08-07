@@ -609,11 +609,25 @@ body {
     grid-template-columns: 1fr;
   }
   .skills-container {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
   }
   .skill-node {
-    padding: 15px;
+    padding: 10px;
+  }
+  .tech-icon-card {
+    padding: 10px !important;
+  }
+  .tech-icon-card img {
+    width: 28px !important;
+    height: 28px !important;
+    margin-bottom: 4px !important;
+  }
+  .tech-icon-card div {
+    font-size: 9px !important;
+  }
+  #win-photo {
+    min-height: 320px;
   }
 
   .menubar {
@@ -631,9 +645,6 @@ body {
   .projects-grid {
     grid-template-columns: 1fr;
   }
-  .skills-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
   .portfolio-dock .dock-item {
     width: 44px;
     height: 44px;
@@ -641,11 +652,6 @@ body {
   .portfolio-dock img {
     width: 26px;
     height: 26px;
-  }
-}
-@media (max-width: 500px) {
-  .skills-container {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
