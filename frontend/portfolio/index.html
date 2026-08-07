@@ -1431,15 +1431,16 @@
                 inset 1px 0 0 rgba(255,255,255,0.08),
                 0 0 0 1px rgba(0,0,0,0.4);
             ">
-              <!-- Inner screen glass -->
+              <!-- Inner screen glass — 9:19.5 ratio: 252px × 547px -->
               <div style="
                 border-radius: 51px;
                 background: #050507;
                 overflow: hidden;
                 position: relative;
+                min-height: 547px;
               ">
-                <!-- Screen (9:19.5 ratio: 252px wide → ~547px tall, scaled to fit) -->
-                <div style="padding: 16px 14px 24px;">
+                <!-- Screen content: top padding to push DI down, bottom for home indicator -->
+                <div style="padding: 20px 14px 32px;">
 
                   <!-- Dynamic Island -->
                   <div style="
