@@ -1816,3 +1816,12 @@ body {
   border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
 }
+
+.marquee-text span {
+  font-size: 80px;
+  font-weight: 900;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.2);
+  margin-right: 40px;
+  white-space: nowrap;
+}

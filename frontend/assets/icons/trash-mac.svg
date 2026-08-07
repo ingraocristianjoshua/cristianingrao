@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="trash-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#e0e0e0" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+  <!-- Body of trash can -->
+  <path d="M70,80 L186,80 L170,220 C168,230 160,236 150,236 L106,236 C96,236 88,230 86,220 L70,80 Z" fill="url(#trash-grad)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+  <!-- Lid -->
+  <path d="M50,80 L206,80 C210,80 214,76 214,72 L214,64 C214,60 210,56 206,56 L160,56 L154,40 C152,36 148,34 144,34 L112,34 C108,34 104,36 102,40 L96,56 L50,56 C46,56 42,60 42,64 L42,72 C42,76 46,80 50,80 Z" fill="#d1d1d6" stroke="rgba(255,255,255,0.7)" stroke-width="2"/>
+  <!-- Vertical lines -->
+  <line x1="100" y1="100" x2="110" y2="210" stroke="#999" stroke-width="4" stroke-linecap="round"/>
+  <line x1="128" y1="100" x2="128" y2="210" stroke="#999" stroke-width="4" stroke-linecap="round"/>
+  <line x1="156" y1="100" x2="146" y2="210" stroke="#999" stroke-width="4" stroke-linecap="round"/>
+</svg>
