@@ -986,40 +986,7 @@
         </div>
       </div>
 
-      <!-- PRIVACY WINDOW -->
-      <div
-        class="mac-window"
-        id="win-privacy"
-        style="display: none; top: 110px; left: 220px; width: 450px"
-      >
-        <div class="win-titlebar" onmousedown="startDrag(event, 'win-privacy')">
-          <div class="traffic-lights">
-            <div class="tl red" onclick="closeWin('win-privacy')"></div>
-            <div
-              class="tl yellow"
-              onclick="minimizeWin(this.closest('.mac-window').id)"
-            ></div>
-            <div
-              class="tl green"
-              onclick="maximizeWin(this.closest('.mac-window').id)"
-            ></div>
-          </div>
-          <span class="win-title">Privacy Policy</span>
-        </div>
-        <div class="win-body">
-          <h2 style="margin-bottom: 15px">Privacy Policy</h2>
-          <p style="margin-bottom: 10px">
-            Questa applicazione web non raccoglie dati personali. I servizi come
-            il meteo vengono elaborati sul dispositivo dell'utente senza inviare
-            dati identificativi a server di terze parti.
-          </p>
-          <p style="margin-bottom: 10px">
-            La tua posizione viene richiesta unicamente per fornirti i dati
-            meteorologici aggiornati tramite le API di Open-Meteo e non viene
-            salvata in alcun database.
-          </p>
-        </div>
-      </div>
+
 
       <!-- SUPPORT WINDOW -->
       <div
@@ -1442,76 +1409,40 @@
             1. Titolare del Trattamento
           </h3>
           <p style="color: #ddd; margin-bottom: 15px">
-            Il Titolare del trattamento dei dati raccolti attraverso questo sito
-            web è Cristian Ingrao. Per qualsiasi comunicazione o richiesta in
-            merito alla privacy, è possibile contattare il titolare ai recapiti
-            forniti nel CV o nel form di contatto (se presente).
+            Il Titolare del trattamento dei dati è <strong>Cristian Ingrao</strong>. Per l'esercizio dei diritti previsti dal GDPR o per qualsiasi richiesta inerente alla privacy, è possibile contattare il Titolare all'indirizzo email: <a href="mailto:info@cristianingrao.it" style="color: #64d2ff; text-decoration: none;">info@cristianingrao.it</a>.
           </p>
 
           <h3 style="color: #64d2ff; margin: 20px 0 10px 0">
-            2. Dati Raccolti
+            2. Dati Raccolti e Finalità
           </h3>
           <p style="color: #ddd; margin-bottom: 15px">
-            Questo sito web, strutturato come un portfolio interattivo (Single
-            Page Application statica / Client-side),
-            <strong
-              >non fa uso di database per profilare gli utenti, né richiede
-              registrazione</strong
-            >. Tuttavia, raccogliamo i seguenti dati:
+            Questa applicazione web (Single Page Application statica) è progettata con la <em>Privacy by Design</em>. <strong>Non utilizziamo cookie di profilazione, tracker pubblicitari o strumenti di analisi intrusivi.</strong> Raccogliamo solo:
           </p>
-          <ul style="color: #ddd; margin-bottom: 15px; padding-left: 20px">
-            <li style="margin-bottom: 5px">
-              <strong>Dati di navigazione:</strong> Gli header HTTP standard
-              (Indirizzo IP anonimizzato, tipo di browser, orario di visita)
-              elaborati automaticamente dai server di hosting (es. Vercel/GitHub
-              Pages/Netlify) esclusivamente per finalità di sicurezza e
-              diagnostica tecnica.
-            </li>
-            <li style="margin-bottom: 5px">
-              <strong>Cookie Tecnici:</strong> Utilizziamo cookie tecnici o il
-              <code>localStorage</code> del browser <em>esclusivamente</em> per
-              salvare le preferenze dell'interfaccia utente (es. finestre
-              aperte, z-index). Nessun cookie di tracciamento pubblicitario o di
-              profilazione viene installato.
-            </li>
-            <li style="margin-bottom: 5px">
-              <strong>Contenuti incorporati di terze parti:</strong> Alcune
-              pagine (come la sezione "Easter Egg") potrebbero contenere iFrame
-              di servizi esterni (es. YouTube). Questi servizi potrebbero
-              impostare i propri cookie secondo le loro policy.
-            </li>
+          <ul style="color: #ddd; margin-bottom: 15px; padding-left: 20px; line-height: 1.6;">
+            <li style="margin-bottom: 8px"><strong>Dati di navigazione tecnici:</strong> Indirizzi IP anonimizzati e log dei server di hosting necessari per garantire la sicurezza e l'infrastruttura di rete (es. prevenzione attacchi DDoS).</li>
+            <li style="margin-bottom: 8px"><strong>Archiviazione Locale (Local Storage / Cookie Tecnici):</strong> Usati <em>esclusivamente</em> per salvare il layout dell'interfaccia (es. z-index e stato delle finestre). Non tracciano in alcun modo la navigazione.</li>
+            <li style="margin-bottom: 8px"><strong>Geolocalizzazione (Meteo):</strong> Se abilitata dall'utente, viene elaborata interamente lato client e inviata in modo anonimo tramite API a Open-Meteo per recuperare le previsioni. <em>La posizione non viene salvata né condivisa.</em></li>
           </ul>
 
           <h3 style="color: #64d2ff; margin: 20px 0 10px 0">
-            3. Base Giuridica e Finalità del Trattamento
+            3. Base Giuridica (Art. 6 GDPR)
           </h3>
           <p style="color: #ddd; margin-bottom: 15px">
-            I dati di navigazione e i cookie tecnici sono necessari (Base
-            giuridica: Legittimo interesse) per garantire il corretto
-            funzionamento dell'applicativo e un'esperienza utente interattiva
-            coerente (emulazione OS).
+            Il trattamento dei dati tecnici essenziali si basa sul <strong>Legittimo Interesse</strong> (Art. 6, par. 1, lett. f del GDPR) del Titolare, volto a garantire la sicurezza, l'integrità e la continuità del servizio web.
           </p>
 
           <h3 style="color: #64d2ff; margin: 20px 0 10px 0">
-            4. Condivisione dei Dati
+            4. Condivisione e Conservazione
           </h3>
           <p style="color: #ddd; margin-bottom: 15px">
-            I tuoi dati non vengono venduti o scambiati con terze parti.
-            Potrebbero essere condivisi esclusivamente con le infrastrutture
-            tecniche essenziali (servizi di hosting) che agiscono nel rispetto
-            del GDPR.
+            I dati <strong>non vengono mai venduti o ceduti a terzi</strong>. I log di sistema (anonimizzati) vengono processati esclusivamente dai provider infrastrutturali per il tempo strettamente necessario (di norma max 30 giorni) e poi automaticamente cancellati.
           </p>
 
           <h3 style="color: #64d2ff; margin: 20px 0 10px 0">
-            5. Diritti dell'Utente
+            5. Diritti dell'Utente (Art. 15-22 GDPR)
           </h3>
           <p style="color: #ddd; margin-bottom: 15px">
-            Ai sensi del Regolamento (UE) 2016/679 (GDPR), l'utente ha il
-            diritto di: accedere ai propri dati, chiederne la rettifica o la
-            cancellazione (oblìo), opporsi al trattamento o richiederne la
-            limitazione. Dato che il sito non profila né identifica nativamente
-            gli utenti, tali richieste verranno evase nei limiti tecnologici dei
-            log server anonimizzati.
+            In conformità al Regolamento (UE) 2016/679, hai il diritto di: accedere, rettificare, cancellare, limitare o opporti al trattamento dei tuoi dati. Hai inoltre il diritto di proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" style="color: #64d2ff; text-decoration: none;">www.garanteprivacy.it</a>) qualora ritenessi violati i tuoi diritti.
           </p>
         </div>
       </div>

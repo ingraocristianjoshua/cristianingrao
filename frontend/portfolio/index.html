@@ -1623,40 +1623,48 @@
     <div
       class="mac-window"
       id="win-privacy"
-      style="
-        display: none;
-        position: fixed;
-        top: 110px;
-        left: 220px;
-        width: 450px;
-        z-index: 1000;
-      "
+      style="display: none; position: fixed; top: 110px; left: 220px; width: 650px; height: 500px; z-index: 1000;"
     >
-      <div class="win-titlebar" onmousedown="startDrag(event, 'win-privacy')">
+      <div class="win-titlebar titlebar-dark" onmousedown="startDrag(event, 'win-privacy')">
         <div class="traffic-lights">
           <div class="tl red" onclick="closeWin('win-privacy')"></div>
-          <div
-            class="tl yellow"
-            onclick="minimizeWin(this.closest('.mac-window').id)"
-          ></div>
-          <div
-            class="tl green"
-            onclick="maximizeWin(this.closest('.mac-window').id)"
-          ></div>
+          <div class="tl yellow" onclick="minimizeWin(this.closest('.mac-window').id)"></div>
+          <div class="tl green" onclick="maximizeWin(this.closest('.mac-window').id)"></div>
         </div>
-        <span class="win-title">Privacy Policy</span>
+        <span class="win-title" style="color: #ddd; font-weight: 500">Privacy_Policy.rtf</span>
       </div>
-      <div class="win-body" style="padding: 20px">
-        <h2 style="margin-bottom: 15px">Privacy Policy</h2>
-        <p style="margin-bottom: 10px">
-          Questa applicazione web non raccoglie dati personali. I servizi come
-          il meteo vengono elaborati sul dispositivo dell'utente senza inviare
-          dati identificativi a server di terze parti.
+      <div class="win-body textedit-dark" style="padding: 30px; overflow-y: auto">
+        <h2 style="color: #fff; margin-bottom: 20px">Informativa sulla Privacy (GDPR)</h2>
+        <p style="color: #bbb; margin-bottom: 15px; font-size: 14px">Ultimo aggiornamento: Agosto 2026</p>
+
+        <h3 style="color: #64d2ff; margin: 20px 0 10px 0">1. Titolare del Trattamento</h3>
+        <p style="color: #ddd; margin-bottom: 15px">
+          Il Titolare del trattamento dei dati è <strong>Cristian Ingrao</strong>. Per l'esercizio dei diritti previsti dal GDPR o per qualsiasi richiesta inerente alla privacy, è possibile contattare il Titolare all'indirizzo email: <a href="mailto:info@cristianingrao.it" style="color: #64d2ff; text-decoration: none;">info@cristianingrao.it</a>.
         </p>
-        <p style="margin-bottom: 10px">
-          La tua posizione viene richiesta unicamente per fornirti i dati
-          meteorologici aggiornati tramite le API di Open-Meteo e non viene
-          salvata in alcun database.
+
+        <h3 style="color: #64d2ff; margin: 20px 0 10px 0">2. Dati Raccolti e Finalità</h3>
+        <p style="color: #ddd; margin-bottom: 15px">
+          Questa applicazione web (Single Page Application statica) è progettata con la <em>Privacy by Design</em>. <strong>Non utilizziamo cookie di profilazione, tracker pubblicitari o strumenti di analisi intrusivi.</strong> Raccogliamo solo:
+        </p>
+        <ul style="color: #ddd; margin-bottom: 15px; padding-left: 20px; line-height: 1.6;">
+          <li style="margin-bottom: 8px"><strong>Dati di navigazione tecnici:</strong> Indirizzi IP anonimizzati e log dei server di hosting necessari per garantire la sicurezza e l'infrastruttura di rete (es. prevenzione attacchi DDoS).</li>
+          <li style="margin-bottom: 8px"><strong>Archiviazione Locale (Local Storage / Cookie Tecnici):</strong> Usati <em>esclusivamente</em> per salvare il layout dell'interfaccia (es. z-index e stato delle finestre). Non tracciano in alcun modo la navigazione.</li>
+          <li style="margin-bottom: 8px"><strong>Geolocalizzazione (Meteo):</strong> Se abilitata dall'utente, viene elaborata interamente lato client e inviata in modo anonimo tramite API a Open-Meteo per recuperare le previsioni. <em>La posizione non viene salvata né condivisa.</em></li>
+        </ul>
+
+        <h3 style="color: #64d2ff; margin: 20px 0 10px 0">3. Base Giuridica (Art. 6 GDPR)</h3>
+        <p style="color: #ddd; margin-bottom: 15px">
+          Il trattamento dei dati tecnici essenziali si basa sul <strong>Legittimo Interesse</strong> (Art. 6, par. 1, lett. f del GDPR) del Titolare, volto a garantire la sicurezza, l'integrità e la continuità del servizio web.
+        </p>
+
+        <h3 style="color: #64d2ff; margin: 20px 0 10px 0">4. Condivisione e Conservazione</h3>
+        <p style="color: #ddd; margin-bottom: 15px">
+          I dati <strong>non vengono mai venduti o ceduti a terzi</strong>. I log di sistema (anonimizzati) vengono processati esclusivamente dai provider infrastrutturali per il tempo strettamente necessario (di norma max 30 giorni) e poi automaticamente cancellati.
+        </p>
+
+        <h3 style="color: #64d2ff; margin: 20px 0 10px 0">5. Diritti dell'Utente (Art. 15-22 GDPR)</h3>
+        <p style="color: #ddd; margin-bottom: 15px">
+          In conformità al Regolamento (UE) 2016/679, hai il diritto di: accedere, rettificare, cancellare, limitare o opporti al trattamento dei tuoi dati. Hai inoltre il diritto di proporre reclamo all'Autorità Garante per la Protezione dei Dati Personali (<a href="https://www.garanteprivacy.it" target="_blank" style="color: #64d2ff; text-decoration: none;">www.garanteprivacy.it</a>) qualora ritenessi violati i tuoi diritti.
         </p>
       </div>
     </div>
